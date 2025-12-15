@@ -1,26 +1,261 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ──────────────────────────────────────────────────────────
+   Design Tokens (OKLCH) – 3 Paletten + Light/Dark
+   Usage:
+     <html data-theme="ink-sky">                // A (default)
+     <html data-theme="sage-garden">            // B
+     <html data-theme="sand-carbon">            // C
+     <html data-theme="ink-sky" data-mode="dark">  // Dark
+   Utilities:
+     bg-[var(--bg)] text-[var(--ink)] ring-[var(--accent)]
+   ────────────────────────────────────────────────────────── */
+
+/* ===== A) Ink & Sky (Light) — DEFAULT ===== */
+:root,
+:root[data-theme="ink-sky"][data-mode="dark"] {
+  /* vom Nutzer vorgegeben */
+  --bg: oklch(12.9% 0.042 264.695); /* sehr dunkles Blau */
+  --ink: oklch(86.9% 0.022 252.894); /* Standard-Text */
+  --highlight: oklch(98.4% 0.003 247.858); /* sehr hell (fast weiß) */
+
+  /* abgeleitete Töne */
+  --muted: color-mix(in oklch, var(--ink), transparent 30%);
+  --surface: color-mix(in oklch, var(--bg) 80%, white 20%);
+  --surface-2: color-mix(in oklch, var(--bg) 70%, white 30%);
+  --border: color-mix(in oklch, var(--ink), transparent 85%);
+
+  /* sanfte Akzente */
+  --accent: color-mix(in oklch, var(--highlight) 40%, var(--ink) 60%);
+  --accent-strong: color-mix(in oklch, var(--highlight) 65%, var(--ink) 35%);
+
+  /* Schatten */
+  --shadow-soft: 0 18px 48px rgba(0, 0, 0, 0.45);
+}
+/* A) Ink & Sky (Dark) */
+:root[data-theme="ink-sky"][data-mode="dark"] {
+  --bg: oklch(0.13 0.03 250);
+  --ink: oklch(0.96 0.02 230);
+  --muted: oklch(0.72 0.03 250);
+  --surface: oklch(0.18 0.03 250);
+  --surface-2: oklch(0.15 0.03 250);
+  --border: color-mix(in oklch, var(--ink), transparent 85%);
+  --accent: oklch(0.78 0.14 210);
+  --accent-strong: oklch(0.84 0.21 240);
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ===== B) Sage Garden (Light) ===== */
+:root[data-theme="sage-garden"] {
+  --bg: oklch(0.99 0.01 110);
+  --ink: oklch(0.25 0.03 260);
+  --muted: oklch(0.55 0.02 260);
+  --surface: oklch(0.97 0.01 110);
+  --surface-2: oklch(0.94 0.01 110);
+  --border: color-mix(in oklch, var(--ink), transparent 88%);
+  --accent: oklch(0.79 0.08 145);
+  --accent-strong: oklch(0.72 0.13 150);
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.08);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* B) Sage Garden (Dark) */
+:root[data-theme="sage-garden"][data-mode="dark"] {
+  --bg: oklch(0.15 0.03 260);
+  --ink: oklch(0.96 0.01 110);
+  --muted: oklch(0.72 0.02 260);
+  --surface: oklch(0.2 0.03 260);
+  --surface-2: oklch(0.17 0.03 260);
+  --border: color-mix(in oklch, var(--ink), transparent 85%);
+  --accent: oklch(0.79 0.08 145);
+  --accent-strong: oklch(0.72 0.13 150);
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== C) Sand & Carbon (Light) ===== */
+:root[data-theme="sand-carbon"] {
+  --bg: oklch(0.98 0.02 85);
+  --ink: oklch(0.24 0.03 260);
+  --muted: oklch(0.52 0.02 260);
+  --surface: oklch(0.95 0.02 85);
+  --surface-2: oklch(0.92 0.02 85);
+  --border: color-mix(in oklch, var(--ink), transparent 88%);
+  --accent: oklch(0.73 0.12 60);
+  --accent-strong: oklch(0.68 0.16 55);
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* C) Sand & Carbon (Dark) */
+:root[data-theme="sand-carbon"][data-mode="dark"] {
+  --bg: oklch(0.14 0.03 260);
+  --ink: oklch(0.97 0.02 85);
+  --muted: oklch(0.72 0.02 260);
+  --surface: oklch(0.2 0.03 260);
+  --surface-2: oklch(0.17 0.03 260);
+  --border: color-mix(in oklch, var(--ink), transparent 85%);
+  --accent: oklch(0.73 0.12 60);
+  --accent-strong: oklch(0.68 0.16 55);
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+:root[data-theme="dark"] {
+  /* vom Nutzer vorgegeben */
+  --bg: oklch(12.9% 0.042 264.695); /* sehr dunkles Blau */
+  --ink: oklch(86.9% 0.022 252.894); /* Standard-Text */
+  --highlight: oklch(98.4% 0.003 247.858); /* sehr hell (fast weiß) */
+
+  /* abgeleitete Töne (Oberflächen) */
+  --surface: color-mix(in oklch, var(--bg) 80%, white 20%);
+  --surface-2: color-mix(in oklch, var(--bg) 70%, white 30%);
+
+  /* Akzente (sanft, nicht schrill) – optional */
+  --accent: color-mix(in oklch, var(--highlight) 40%, var(--ink) 60%);
+  --accent-strong: color-mix(in oklch, var(--highlight) 65%, var(--ink) 35%);
+
+  /* weiche Schatten */
+  --shadow-soft: 0 18px 48px rgba(0, 0, 0, 0.45);
+}
+
+/* Basis-Anwendung */
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* ──────────────────────────────────────────────────────────
+   Base
+   ────────────────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-feature-settings: "kern";
+}
+
+/* Auswahl / Fokus */
+::selection {
+  background: color-mix(in oklch, var(--accent), transparent 70%);
+  color: var(--ink);
+}
+:focus-visible {
+  outline: 2px solid color-mix(in oklch, var(--accent), transparent 40%);
+  outline-offset: 2px;
+}
+
+/* Scrollbar dezent (sichtbar, aber zurückhaltend) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklch, var(--ink), transparent 85%) transparent;
+}
+*::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: color-mix(in oklch, var(--ink), transparent 85%);
+  border-radius: 999px;
+}
+
+/* Cards / Surfaces (optional) */
+.app-surface {
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+/* Text-Utilities (optional) */
+.text-muted {
+  color: var(--muted);
+}
+.text-accent {
+  color: var(--accent);
+}
+
+/* Ring/Border per Accent (Tailwind ring/border nutzen oder diese Helpers) */
+.ring-accent {
+  --tw-ring-color: color-mix(in oklch, var(--accent), transparent 40%);
+}
+.border-accent {
+  border-color: color-mix(in oklch, var(--accent), transparent 40%);
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.18em;
+}
+a:hover {
+  color: var(--accent-strong);
+}
+
+/* Headings (dezenter Shadow für „cineastischen“ Look auf dunklem BG) */
+.heading-soft-shadow {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), 0 16px 32px rgba(0, 0, 0, 0.18);
+}
+
+/* Section-Titel (falls genutzt) */
+.section-title {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  color: var(--ink);
+}
+.section-title.hidden {
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+}
+
+/* Vertikale Wortmarke */
+.section-title-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  pointer-events: none;
+  font-size: 5vw;
+  font-weight: 800;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.title-word {
+  margin: 0.5em 0;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.text-hero {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35), 0 12px 28px rgba(0, 0, 0, 0.35),
+    0 28px 56px rgba(0, 0, 0, 0.3);
+}
+
+/* Subtile Label-Optik (z.B. für „MENU“/„LANGUAGE“) */
+.text-label-contrast {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 10px 24px rgba(0, 0, 0, 0.5);
+  /* feiner Stroke für noch mehr Trennschärfe */
+  -webkit-text-stroke: 0.35px rgba(0, 0, 0, 0.35);
 }
