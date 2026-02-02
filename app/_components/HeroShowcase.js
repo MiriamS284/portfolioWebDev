@@ -102,12 +102,6 @@ export default function HeroShowcase() {
             Web-Erlebnisse.
           </h1>
 
-          <p className="mt-6 text-base/7 opacity-90 max-w-prose">
-            Full-Stack Front&nbsp;•&nbsp;Back. Klarer Code, Accessibility,
-            Internationalisierung und messbare Performance – vom Prototyp bis
-            zur Produktion.
-          </p>
-
           <div className="mt-8 flex gap-3 flex-wrap">
             <a
               href="#work"

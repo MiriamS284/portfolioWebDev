@@ -2,6 +2,8 @@
 import "./globals.css";
 import { Inter, Source_Code_Pro } from "next/font/google";
 
+import LanguageProvider from "./_providers/LanguageProvider";
+
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -26,7 +28,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.variable} ${sourceCodePro.variable} min-h-dvh antialiased`}
       >
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );
