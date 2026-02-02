@@ -8,12 +8,12 @@ export default function OverlayMenu({
   open,
   onClose,
   lang = "de",
-  autoCloseMs = 6000, // 6s Inaktivität
+  autoCloseMs = 8000,
 }) {
   const firstLinkRef = useRef(null);
   const rootRef = useRef(null);
 
-  // Esc + Fokus auf ersten Link
+  // Esc + Fokus
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => e.key === "Escape" && onClose?.();
@@ -25,7 +25,7 @@ export default function OverlayMenu({
     };
   }, [open, onClose]);
 
-  // Auto-Close bei Inaktivität
+  // Auto-Close
   useEffect(() => {
     if (!open || !autoCloseMs) return;
     let t = setTimeout(onClose, autoCloseMs);
@@ -48,10 +48,20 @@ export default function OverlayMenu({
   }, [open, onClose, autoCloseMs]);
 
   const L = {
-    about: lang === "de" ? "Über mich" : "About me",
-    cases: "Case Studies",
-    casesSub: "Prod & Dev Mode",
-    garden: lang === "de" ? "Digitaler Garden" : "Digital Garden",
+    home: lang === "de" ? "Home" : "Home",
+    about: lang === "de" ? "Über mich" : "About",
+    projects: lang === "de" ? "Projekte" : "Projects",
+    projectsSub:
+      lang === "de" ? "Case Studies & Arbeiten" : "Case Studies & Work",
+    garden: lang === "de" ? "Digital Garden" : "Digital Garden",
+    gardenSub: lang === "de" ? "Gedanken die wachsen" : "Growing thoughts",
+    blog: "Blog",
+    blogSub: lang === "de" ? "Artikel & Tutorials" : "Articles & Tutorials",
+    snippets: "Code Snippets",
+    snippetsSub:
+      lang === "de"
+        ? "Wiederverwendbare Code-Beispiele"
+        : "Reusable code examples",
     contact: lang === "de" ? "Kontakt" : "Contact",
   };
 
@@ -65,7 +75,7 @@ export default function OverlayMenu({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[80] bg-black/60 backdrop-blur-md"
+          className="fixed inset-0 z-[80] bg-black/70 backdrop-blur-lg"
         >
           <div
             className="absolute inset-0"
@@ -75,13 +85,14 @@ export default function OverlayMenu({
 
           <motion.div
             initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1, transition: { delay: 0.06 } }}
+            animate={{ y: 0, opacity: 1, transition: { delay: 0.08 } }}
             exit={{ y: 20, opacity: 0 }}
             className="relative z-[81] mx-auto max-w-5xl px-6 py-12 md:py-16"
           >
+            {/* Header */}
             <div className="flex items-center justify-between text-[var(--ink)]">
               <div
-                className="text-xs tracking-[0.5em] uppercase opacity-80"
+                className="text-xs tracking-[0.5em] uppercase opacity-70"
                 aria-hidden
               >
                 M&nbsp;E&nbsp;N&nbsp;U
@@ -89,66 +100,102 @@ export default function OverlayMenu({
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded px-3 py-1 text-sm ring-1 ring-[color-mix(in oklch,var(--ink),transparent_80%)] hover:bg-white/5"
+                className="rounded-lg px-4 py-2 text-sm transition-colors hover:bg-white/5"
+                style={{
+                  border: "1px solid var(--border)",
+                }}
               >
-                Esc
+                Schließen (Esc)
               </button>
             </div>
 
-            <nav className="mt-10 space-y-7 md:space-y-9">
-              {/* Über mich */}
-              <MenuLink href="/about" refEl={firstLinkRef} onClose={onClose}>
+            {/* Navigation */}
+            <nav className="mt-12 space-y-8 md:space-y-10">
+              {/* Home */}
+              <MenuLink href="/" refEl={firstLinkRef} onClose={onClose}>
+                {L.home}
+              </MenuLink>
+
+              {/* About */}
+              <MenuLink href="/about" onClose={onClose}>
                 {L.about}
               </MenuLink>
 
-              {/* Case Studies + Sub */}
+              {/* Projects */}
               <div>
                 <MenuLink href="/projects" onClose={onClose}>
-                  {L.cases}
+                  {L.projects}
                 </MenuLink>
-                <div className="mt-2 text-sm opacity-70 tracking-wide">
-                  {L.casesSub}
+                <div className="mt-2 text-sm opacity-60 tracking-wide">
+                  {L.projectsSub}
                 </div>
               </div>
 
-              {/* Digitaler Garden + (Blog) */}
+              {/* Digital Garden */}
               <div>
                 <MenuLink href="/garden" onClose={onClose}>
                   {L.garden}
                 </MenuLink>
-                <div className="mt-2 text-sm opacity-70 tracking-wide">
+                <div className="mt-2 text-sm opacity-60 tracking-wide">
                   {L.gardenSub}
                 </div>
               </div>
 
-              {/* Kontakt UNTER dem Garden-Block */}
+              {/* Blog */}
+              <div>
+                <MenuLink href="/blog" onClose={onClose}>
+                  {L.blog}
+                </MenuLink>
+                <div className="mt-2 text-sm opacity-60 tracking-wide">
+                  {L.blogSub}
+                </div>
+              </div>
+
+              {/* Code Snippets */}
+              <div>
+                <MenuLink href="/snippets" onClose={onClose}>
+                  {L.snippets}
+                </MenuLink>
+                <div className="mt-2 text-sm opacity-60 tracking-wide">
+                  {L.snippetsSub}
+                </div>
+              </div>
+
+              {/* Contact */}
               <MenuLink href="/contact" onClose={onClose}>
                 {L.contact}
               </MenuLink>
             </nav>
           </motion.div>
 
-          <style>{`
+          <style jsx>{`
             .menu-link {
               display: inline-block;
               font-weight: 700;
-              letter-spacing: .02em;
+              letter-spacing: -0.01em;
               color: var(--ink);
-              font-size: clamp(28px, 5vw, 56px);
+              font-size: clamp(32px, 5.5vw, 64px);
               line-height: 1.05;
               position: relative;
+              transition: all 0.3s cubic-bezier(0.2, 0.7, 0, 1);
             }
-            .menu-link .underline-outer,
-            .menu-link .underline-inner {
-              position: absolute; left: 0; height: 2px; transform-origin: left center;
-              transform: scaleX(.28);
-              transition: transform 260ms cubic-bezier(.2,.7,0,1);
+            .menu-link::after {
+              content: "";
+              position: absolute;
+              left: 0;
+              bottom: -8px;
+              width: 0;
+              height: 3px;
+              background: var(--accent);
+              transition: width 0.4s cubic-bezier(0.2, 0.7, 0, 1);
             }
-            .menu-link .underline-outer { top: 100%; width: 100%; background: color-mix(in oklch, var(--ink), transparent 75%); }
-            .menu-link .underline-inner { top: calc(100% + 6px); width: 68%; background: color-mix(in oklch, var(--ink), transparent 82%); }
-            .menu-link:hover { transform: translateX(4px); transition: transform 220ms cubic-bezier(.2,.7,0,1) }
-            .menu-link:hover .underline-outer { transform: scaleX(1) }
-            .menu-link:hover .underline-inner { transform: scaleX(1) }
+            .menu-link:hover {
+              color: var(--accent-strong);
+              transform: translateX(8px);
+            }
+            .menu-link:hover::after {
+              width: 60%;
+            }
           `}</style>
         </motion.div>
       )}
@@ -161,12 +208,10 @@ function MenuLink({ href, children, onClose, refEl }) {
     <Link
       href={href}
       onClick={onClose}
-      className="menu-link focus:outline-none focus-visible:ring-2 focus-visible:ring-[color-mix(in oklch,var(--ink),transparent_65%)] rounded"
+      className="menu-link focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded"
       ref={refEl}
     >
-      <span>{children}</span>
-      <span className="underline-outer" aria-hidden />
-      <span className="underline-inner" aria-hidden />
+      {children}
     </Link>
   );
 }
