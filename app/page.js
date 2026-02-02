@@ -1,33 +1,31 @@
-// app/page.js
-"use client";
-import { useState } from "react";
-import MenuDock from "./_components/MenuDock";
+import MenuDock from "./_components/layout/MenuDock";
 import HeroShowcase from "./_components/HeroShowcase";
+import WhoIAm from "./_components/home/WhoIAm";
+import FeaturedProjects from "./_components/home/FeaturedProjects";
+import GardenPreview from "./_components/home/GardenPreview";
+import CallToAction from "./_components/home/CallToAction";
+import Footer from "./_components/layout/Footer";
+
+export const metadata = {
+  title: "Miriam Sparbrod – Full-Stack Entwicklerin",
+  description:
+    "Sprachwissenschaftlerin & Full-Stack Entwicklerin. Ich übersetze komplexe Ideen in funktionale, schöne Anwendungen.",
+};
 
 export default function Page() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
-    <main>
-      <MenuDock onOpenMenu={() => setMenuOpen(true)} />
+    <>
+      <MenuDock />
 
-      {/* deine Intro/Hero Sektionen */}
-      <HeroShowcase />
+      <main>
+        <HeroShowcase />
+        <WhoIAm />
+        <FeaturedProjects />
+        <GardenPreview />
+        <CallToAction />
+      </main>
 
-      {/* hier später dein echtes Offcanvas/Overlay-Menu */}
-      {menuOpen && (
-        <div
-          className="fixed inset-0 z-50"
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setMenuOpen(false)}
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.75))",
-            backdropFilter: "blur(8px)",
-          }}
-        />
-      )}
-    </main>
+      <Footer />
+    </>
   );
 }
