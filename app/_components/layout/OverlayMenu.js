@@ -3,13 +3,14 @@
 import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useLanguage } from "../../_providers/LanguageProvider";
 
 export default function OverlayMenu({
   open,
   onClose,
-  lang = "de",
   autoCloseMs = 8000,
 }) {
+  const { lang } = useLanguage();
   const firstLinkRef = useRef(null);
   const rootRef = useRef(null);
 

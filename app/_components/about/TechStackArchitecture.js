@@ -1,72 +1,322 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/app/_providers/LanguageProvider";
 
 export default function TechStackArchitecture() {
+  const { lang } = useLanguage(); // ✅ FIXED!
   const [hoveredSkill, setHoveredSkill] = useState(null);
+
+  const texts = {
+    de: {
+      header: "Technische Expertise",
+      title: "Software-Architektur",
+      subtitle:
+        "Full-Stack Entwicklung von Presentation bis Infrastructure – visualisiert als professionelle Software-Architektur",
+      crossCutting: "Querschnittliche Belange",
+      layerLabel: "Schicht",
+    },
+    en: {
+      header: "Technical Expertise",
+      title: "Software Architecture",
+      subtitle:
+        "Full-stack development from presentation to infrastructure – visualized as professional software architecture",
+      crossCutting: "Cross-Cutting Concerns",
+      layerLabel: "Layer",
+    },
+  };
+  const t = texts[lang] || texts.de;
 
   const architecture = [
     {
-      layer: "Presentation Layer",
-      description: "User Interface & Client-Side",
+      layer: {
+        de: "Presentation Layer",
+        en: "Presentation Layer",
+      },
+      description: {
+        de: "Benutzeroberfläche & Client-Side",
+        en: "User Interface & Client-Side",
+      },
       technologies: [
-        { name: "HTML5", desc: "Semantic markup & structure" },
-        { name: "CSS3", desc: "Styling, animations & layouts" },
-        { name: "JavaScript", desc: "Core client-side programming" },
-        { name: "TypeScript", desc: "Type-safe JavaScript superset" },
-        { name: "React", desc: "Component-based UI library (meRn)" },
-        { name: "Next.js", desc: "React framework with SSR/SSG" },
-        { name: "Tailwind CSS", desc: "Utility-first CSS framework" },
-        { name: "Framer Motion", desc: "Production-ready animations" },
-        { name: "Chakra UI", desc: "Accessible component library" },
+        {
+          name: "HTML5",
+          desc: {
+            de: "Semantisches Markup & Struktur",
+            en: "Semantic markup & structure",
+          },
+        },
+        {
+          name: "CSS3",
+          desc: {
+            de: "Styling, Animationen & Layouts",
+            en: "Styling, animations & layouts",
+          },
+        },
+        {
+          name: "JavaScript",
+          desc: {
+            de: "Client-Side Programmierung",
+            en: "Core client-side programming",
+          },
+        },
+        {
+          name: "TypeScript",
+          desc: {
+            de: "Typsicheres JavaScript",
+            en: "Type-safe JavaScript superset",
+          },
+        },
+        {
+          name: "React",
+          desc: {
+            de: "Komponentenbasierte UI-Library (meRn)",
+            en: "Component-based UI library (meRn)",
+          },
+        },
+        {
+          name: "Next.js",
+          desc: {
+            de: "React Framework mit SSR/SSG",
+            en: "React framework with SSR/SSG",
+          },
+        },
+        {
+          name: "Tailwind CSS",
+          desc: {
+            de: "Utility-First CSS Framework",
+            en: "Utility-first CSS framework",
+          },
+        },
+        {
+          name: "Framer Motion",
+          desc: {
+            de: "Produktionsreife Animationen",
+            en: "Production-ready animations",
+          },
+        },
+        {
+          name: "Chakra UI",
+          desc: {
+            de: "Zugängliche Komponenten-Bibliothek",
+            en: "Accessible component library",
+          },
+        },
       ],
     },
     {
-      layer: "Web Server Layer",
-      description: "HTTP Servers & Request Handling",
+      layer: {
+        de: "Web Server Layer",
+        en: "Web Server Layer",
+      },
+      description: {
+        de: "HTTP Server & Request Handling",
+        en: "HTTP Servers & Request Handling",
+      },
       technologies: [
-        { name: "NGINX", desc: "High-performance web server & reverse proxy" },
-        { name: "Express.js", desc: "Minimalist web framework (mErn)" },
-        { name: "Windows Server", desc: "Windows-based server environment" },
-        { name: "Linux (Ubuntu)", desc: "Production server OS" },
+        {
+          name: "NGINX",
+          desc: {
+            de: "Hochperformanter Webserver & Reverse Proxy",
+            en: "High-performance web server & reverse proxy",
+          },
+        },
+        {
+          name: "Express.js",
+          desc: {
+            de: "Minimalistisches Web-Framework (mErn)",
+            en: "Minimalist web framework (mErn)",
+          },
+        },
+        {
+          name: "Windows Server",
+          desc: {
+            de: "Windows-basierte Serverumgebung",
+            en: "Windows-based server environment",
+          },
+        },
+        {
+          name: "Linux (Ubuntu)",
+          desc: {
+            de: "Produktions-Server Betriebssystem",
+            en: "Production server OS",
+          },
+        },
       ],
     },
     {
-      layer: "Application Layer",
-      description: "Business Logic & API Services",
+      layer: {
+        de: "Application Layer",
+        en: "Application Layer",
+      },
+      description: {
+        de: "Business-Logik & API-Services",
+        en: "Business Logic & API Services",
+      },
       technologies: [
-        { name: "Node.js", desc: "JavaScript runtime environment (merN)" },
-        { name: "Express", desc: "Web application framework (mErn)" },
-        { name: "PHP", desc: "Server-side scripting language" },
-        { name: "NestJS", desc: "Progressive Node.js framework" },
-        { name: "GraphQL", desc: "Query language for APIs" },
-        { name: "REST APIs", desc: "RESTful web services" },
+        {
+          name: "Node.js",
+          desc: {
+            de: "JavaScript Runtime-Umgebung (merN)",
+            en: "JavaScript runtime environment (merN)",
+          },
+        },
+        {
+          name: "Express",
+          desc: {
+            de: "Web-Application Framework (mErn)",
+            en: "Web application framework (mErn)",
+          },
+        },
+        {
+          name: "PHP",
+          desc: {
+            de: "Server-seitige Skriptsprache",
+            en: "Server-side scripting language",
+          },
+        },
+        {
+          name: "NestJS",
+          desc: {
+            de: "Progressives Node.js Framework",
+            en: "Progressive Node.js framework",
+          },
+        },
+        {
+          name: "GraphQL",
+          desc: {
+            de: "Query-Sprache für APIs",
+            en: "Query language for APIs",
+          },
+        },
+        {
+          name: "REST APIs",
+          desc: {
+            de: "RESTful Webservices",
+            en: "RESTful web services",
+          },
+        },
       ],
     },
     {
-      layer: "Data Layer",
-      description: "Databases & Content Management",
+      layer: {
+        de: "Data Layer",
+        en: "Data Layer",
+      },
+      description: {
+        de: "Datenbanken & Content Management",
+        en: "Databases & Content Management",
+      },
       technologies: [
-        { name: "MongoDB", desc: "NoSQL document database (Mern)" },
-        { name: "PostgreSQL", desc: "Advanced relational database" },
-        { name: "MySQL", desc: "Popular relational database" },
-        { name: "Redis", desc: "In-memory data structure store" },
-        { name: "SQLite", desc: "Lightweight embedded database" },
-        { name: "Sanity CMS", desc: "Headless CMS with GROQ (aktiv)" },
-        { name: "Supabase", desc: "Open-source Firebase alternative" },
-        { name: "Contentful", desc: "Enterprise headless CMS" },
-        { name: "Strapi", desc: "Open-source headless CMS" },
+        {
+          name: "MongoDB",
+          desc: {
+            de: "NoSQL Dokumenten-Datenbank (Mern)",
+            en: "NoSQL document database (Mern)",
+          },
+        },
+        {
+          name: "PostgreSQL",
+          desc: {
+            de: "Fortgeschrittene relationale Datenbank",
+            en: "Advanced relational database",
+          },
+        },
+        {
+          name: "MySQL",
+          desc: {
+            de: "Beliebte relationale Datenbank",
+            en: "Popular relational database",
+          },
+        },
+        {
+          name: "Redis",
+          desc: {
+            de: "In-Memory Datenstruktur-Speicher",
+            en: "In-memory data structure store",
+          },
+        },
+        {
+          name: "SQLite",
+          desc: {
+            de: "Leichtgewichtige eingebettete Datenbank",
+            en: "Lightweight embedded database",
+          },
+        },
+        {
+          name: "Sanity CMS",
+          desc: {
+            de: "Headless CMS mit GROQ (aktiv genutzt)",
+            en: "Headless CMS with GROQ (actively used)",
+          },
+        },
+        {
+          name: "Supabase",
+          desc: {
+            de: "Open-Source Firebase Alternative",
+            en: "Open-source Firebase alternative",
+          },
+        },
+        {
+          name: "Contentful",
+          desc: {
+            de: "Enterprise Headless CMS",
+            en: "Enterprise headless CMS",
+          },
+        },
+        {
+          name: "Strapi",
+          desc: {
+            de: "Open-Source Headless CMS",
+            en: "Open-source headless CMS",
+          },
+        },
       ],
     },
     {
-      layer: "Infrastructure Layer",
-      description: "Deployment & Cloud Services",
+      layer: {
+        de: "Infrastructure Layer",
+        en: "Infrastructure Layer",
+      },
+      description: {
+        de: "Deployment & Cloud-Services",
+        en: "Deployment & Cloud Services",
+      },
       technologies: [
-        { name: "Vercel", desc: "Serverless deployment platform" },
-        { name: "Docker", desc: "Container platform" },
-        { name: "Kubernetes", desc: "Container orchestration" },
-        { name: "AWS", desc: "Cloud infrastructure services" },
-        { name: "GitHub Actions", desc: "CI/CD automation" },
+        {
+          name: "Vercel",
+          desc: {
+            de: "Serverless Deployment-Plattform",
+            en: "Serverless deployment platform",
+          },
+        },
+        {
+          name: "Docker",
+          desc: {
+            de: "Container-Plattform",
+            en: "Container platform",
+          },
+        },
+        {
+          name: "Kubernetes",
+          desc: {
+            de: "Container-Orchestrierung",
+            en: "Container orchestration",
+          },
+        },
+        {
+          name: "AWS",
+          desc: {
+            de: "Cloud-Infrastruktur-Services",
+            en: "Cloud infrastructure services",
+          },
+        },
+        {
+          name: "GitHub Actions",
+          desc: {
+            de: "CI/CD Automatisierung",
+            en: "CI/CD automation",
+          },
+        },
       ],
     },
   ];
@@ -75,27 +325,93 @@ export default function TechStackArchitecture() {
     {
       category: "Testing",
       items: [
-        { name: "Jest", desc: "JavaScript testing framework" },
-        { name: "Mocha", desc: "Feature-rich test framework" },
-        { name: "Cypress", desc: "E2E testing framework" },
-        { name: "Playwright", desc: "Cross-browser automation" },
-        { name: "Lighthouse", desc: "Performance & quality audits" },
+        {
+          name: "Jest",
+          desc: {
+            de: "JavaScript Testing-Framework",
+            en: "JavaScript testing framework",
+          },
+        },
+        {
+          name: "Mocha",
+          desc: {
+            de: "Feature-reiches Test-Framework",
+            en: "Feature-rich test framework",
+          },
+        },
+        {
+          name: "Cypress",
+          desc: {
+            de: "E2E Testing-Framework",
+            en: "E2E testing framework",
+          },
+        },
+        {
+          name: "Playwright",
+          desc: {
+            de: "Cross-Browser Automatisierung",
+            en: "Cross-browser automation",
+          },
+        },
+        {
+          name: "Lighthouse",
+          desc: {
+            de: "Performance & Qualitäts-Audits",
+            en: "Performance & quality audits",
+          },
+        },
       ],
     },
     {
       category: "Security",
       items: [
-        { name: "OWASP ZAP", desc: "Security testing tool" },
-        { name: "Sentry", desc: "Error tracking & monitoring" },
-        { name: "Helmet.js", desc: "Express security middleware" },
+        {
+          name: "OWASP ZAP",
+          desc: {
+            de: "Sicherheitstest-Tool",
+            en: "Security testing tool",
+          },
+        },
+        {
+          name: "Sentry",
+          desc: {
+            de: "Fehler-Tracking & Monitoring",
+            en: "Error tracking & monitoring",
+          },
+        },
+        {
+          name: "Helmet.js",
+          desc: {
+            de: "Express Security-Middleware",
+            en: "Express security middleware",
+          },
+        },
       ],
     },
     {
       category: "AI & Tools",
       items: [
-        { name: "OpenAI API", desc: "GPT integration" },
-        { name: "GitHub Copilot", desc: "AI pair programmer" },
-        { name: "json:api", desc: "API specification standard" },
+        {
+          name: "Claude Code",
+          desc: {
+            de: "KI-gestütztes Coding",
+            en: "AI-powered coding",
+          },
+        },
+        {
+          name: "GitHub Copilot",
+          desc: {
+            de: "KI-Pair-Programmer",
+            en: "AI pair programmer",
+          },
+        },
+        {
+          name: "json:api",
+          desc: {
+            de: "API-Spezifikations-Standard",
+            en: "API specification standard",
+          },
+        },
       ],
     },
   ];
@@ -106,34 +422,26 @@ export default function TechStackArchitecture() {
       style={{ background: "var(--bg)", color: "var(--ink)" }}
     >
       <div className="mx-auto max-w-7xl px-6">
-        {/* Header */}
         <div className="mb-16">
           <div className="text-xs uppercase tracking-[0.3em] opacity-60 mb-4">
-            Technical Expertise
+            {t.header}
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Software Architecture
-          </h2>
-          <p className="text-lg opacity-80 max-w-3xl">
-            Full-Stack Entwicklung von der Presentation bis zur Infrastructure –
-            visualisiert als professionelle Software-Architektur
-          </p>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">{t.title}</h2>
+          <p className="text-lg opacity-80 max-w-3xl">{t.subtitle}</p>
         </div>
 
-        {/* Architecture Diagram - Desktop */}
+        {/* Desktop */}
         <div className="hidden lg:block mb-20">
           <div className="relative">
             {architecture.map((layer, idx) => (
-              <div key={layer.layer} className="mb-8">
-                {/* Layer Box */}
+              <div key={idx} className="mb-8">
                 <div
-                  className="relative rounded-lg p-6 transition-all duration-300"
+                  className="relative rounded-lg p-6 transition-all duration-300 hover:border-[var(--accent)]"
                   style={{
                     border: "2px solid var(--border)",
                     background: "var(--surface)",
                   }}
                 >
-                  {/* Layer Header */}
                   <div className="flex items-start justify-between mb-6 pb-4 border-b border-[var(--border)]">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
@@ -142,11 +450,11 @@ export default function TechStackArchitecture() {
                           style={{ background: "var(--accent)" }}
                         />
                         <h3 className="text-xl font-bold font-mono">
-                          {layer.layer}
+                          {layer.layer[lang] || layer.layer.de}
                         </h3>
                       </div>
                       <p className="text-sm opacity-60 font-mono">
-                        {layer.description}
+                        {layer.description[lang] || layer.description.de}
                       </p>
                     </div>
                     <div
@@ -157,11 +465,10 @@ export default function TechStackArchitecture() {
                         border: "1px solid var(--border)",
                       }}
                     >
-                      Layer {idx + 1}
+                      {t.layerLabel} {idx + 1}
                     </div>
                   </div>
 
-                  {/* Technologies Grid */}
                   <div className="grid grid-cols-3 gap-3">
                     {layer.technologies.map((tech) => (
                       <div
@@ -171,7 +478,7 @@ export default function TechStackArchitecture() {
                         onMouseLeave={() => setHoveredSkill(null)}
                       >
                         <div
-                          className="px-4 py-2.5 rounded text-sm font-mono text-center cursor-pointer transition-all duration-200 hover:scale-[1.02]"
+                          className="px-4 py-2.5 rounded text-sm font-mono text-center cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:border-[var(--accent)]"
                           style={{
                             background: "var(--bg)",
                             border: "1px solid var(--border)",
@@ -180,7 +487,6 @@ export default function TechStackArchitecture() {
                           {tech.name}
                         </div>
 
-                        {/* Tooltip */}
                         {hoveredSkill?.name === tech.name && (
                           <div
                             className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 px-4 py-2 rounded text-xs font-mono whitespace-nowrap z-50 pointer-events-none"
@@ -191,7 +497,7 @@ export default function TechStackArchitecture() {
                               animation: "slideDown 0.2s ease-out",
                             }}
                           >
-                            {tech.desc}
+                            {tech.desc[lang] || tech.desc.de}
                             <div
                               className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0"
                               style={{
@@ -207,7 +513,6 @@ export default function TechStackArchitecture() {
                   </div>
                 </div>
 
-                {/* Connection Arrow */}
                 {idx < architecture.length - 1 && (
                   <div className="flex justify-center my-6">
                     <div className="flex flex-col items-center gap-1">
@@ -238,11 +543,11 @@ export default function TechStackArchitecture() {
           </div>
         </div>
 
-        {/* Architecture Diagram - Mobile (Stacked) */}
+        {/* Mobile */}
         <div className="lg:hidden space-y-6 mb-20">
-          {architecture.map((layer) => (
+          {architecture.map((layer, idx) => (
             <div
-              key={layer.layer}
+              key={idx}
               className="rounded-lg p-5"
               style={{
                 border: "2px solid var(--border)",
@@ -254,7 +559,9 @@ export default function TechStackArchitecture() {
                   className="w-2 h-2 rounded-sm"
                   style={{ background: "var(--accent)" }}
                 />
-                <h3 className="text-base font-bold font-mono">{layer.layer}</h3>
+                <h3 className="text-base font-bold font-mono">
+                  {layer.layer[lang] || layer.layer.de}
+                </h3>
               </div>
               <div className="space-y-2">
                 {layer.technologies.map((tech) => (
@@ -274,10 +581,10 @@ export default function TechStackArchitecture() {
           ))}
         </div>
 
-        {/* Cross-Cutting Concerns */}
+        {/* Cross-Cutting */}
         <div className="border-t border-[var(--border)] pt-16">
           <h3 className="text-2xl font-bold mb-8 font-mono">
-            Cross-Cutting Concerns
+            {t.crossCutting}
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
             {crossCutting.map((section) => (
@@ -323,7 +630,7 @@ export default function TechStackArchitecture() {
                             boxShadow: "0 10px 40px rgba(0,0,0,0.4)",
                           }}
                         >
-                          {item.desc}
+                          {item.desc[lang] || item.desc.de}
                         </div>
                       )}
                     </div>

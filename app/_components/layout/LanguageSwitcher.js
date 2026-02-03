@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "../../_providers/LanguageProvider";
 
 // Schlanke Option ohne Hooks im Inneren (vermeidet static-components Lint)
 function LangOption({
@@ -74,7 +75,8 @@ function LangOption({
   );
 }
 
-export default function LanguageSwitcher({ value = "de", onChange }) {
+export default function LanguageSwitcher() {
+  const { lang, setLang } = useLanguage();
   const [open, setOpen] = useState(false);
   const [hover, setHover] = useState(null);
 
@@ -97,8 +99,8 @@ export default function LanguageSwitcher({ value = "de", onChange }) {
         <span
           style={{
             display: "inline-block",
-            transform: "rotate(90deg)",
-            transformOrigin: "left top",
+            writingMode: "vertical-rl",
+            textOrientation: "mixed",
             color: "var(--ink)",
             fontWeight: 600,
             textTransform: "uppercase",
@@ -112,22 +114,21 @@ export default function LanguageSwitcher({ value = "de", onChange }) {
         </span>
       </button>
 
-      {/* Rechts daneben: ENG | DEU */}
       {open && (
         <div
           role="menu"
           aria-label="Sprache auswählen"
-          className="absolute top-1 left-[72px] flex items-center gap-4"
+          className="absolute top-0 left-6 flex items-center gap-4"
           style={{ color: "var(--ink)" }}
         >
           <LangOption
             code="en"
             label="E&nbsp;N&nbsp;G"
-            active={value === "en"}
+            active={lang === "en"}
             hovered={hover === "en"}
             onHover={setHover}
             onLeave={() => setHover(null)}
-            onSelect={onChange}
+            onSelect={setLang}
           />
           <span
             aria-hidden
@@ -140,11 +141,11 @@ export default function LanguageSwitcher({ value = "de", onChange }) {
           <LangOption
             code="de"
             label="D&nbsp;E&nbsp;U"
-            active={value === "de"}
+            active={lang === "de"}
             hovered={hover === "de"}
             onHover={setHover}
             onLeave={() => setHover(null)}
-            onSelect={onChange}
+            onSelect={setLang}
           />
         </div>
       )}

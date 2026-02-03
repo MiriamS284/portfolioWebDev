@@ -1,8 +1,6 @@
-import { Inter } from "next/font/google";
-import { Space_Grotesk } from "next/font/google"; // NEU!
-import { Source_Code_Pro } from "next/font/google";
+import { Inter, Space_Grotesk, Source_Code_Pro } from "next/font/google";
 import "./globals.css";
-import LanguageProvider from "./_providers/LanguageProvider";
+import ClientLayout from "./_components/layout/ClientLayout";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -10,7 +8,6 @@ const inter = Inter({
   display: "swap",
 });
 
-// NEU: Space Grotesk für Headlines
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-heading",
@@ -28,7 +25,7 @@ const sourceCodePro = Source_Code_Pro({
 export const metadata = {
   title: "Miriam Sparbrod – Full-Stack Entwicklerin",
   description:
-    "Sprachwissenschaftlerin & Full-Stack Entwicklerin. Ich übersetze komplexe Ideen in funktionale, schöne Anwendungen.",
+    "Full-Stack App - Entwicklerin. Ich übersetze komplexe Ideen in performante Anwendungen.",
 };
 
 export default function RootLayout({ children }) {
@@ -38,7 +35,7 @@ export default function RootLayout({ children }) {
         className={`${inter.variable} ${spaceGrotesk.variable} ${sourceCodePro.variable} min-h-dvh antialiased`}
         suppressHydrationWarning
       >
-        <LanguageProvider>{children}</LanguageProvider>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

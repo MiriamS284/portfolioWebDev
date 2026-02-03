@@ -1,42 +1,49 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
-const LanguageContext = createContext({
-  lang: "de",
-  setLang: () => {},
-});
+const LanguageContext = createContext();
 
-export function useLanguage() {
-  return useContext(LanguageContext);
-}
+export function LanguageProvider({ children }) {
+  const [lang, setLangState] = useState("de");
+  const [isHydrated, setIsHydrated] = useState(false);
 
-export default function LanguageProvider({ children }) {
-  // lazy init from localStorage (avoids setState-in-effect + hydration issues)
-  const [lang, setLang] = useState(() => {
-    if (typeof window !== "undefined") {
-      try {
-        const saved = localStorage.getItem("lang");
-        if (saved === "en" || saved === "de") return saved;
-      } catch {}
-    }
-    return "de";
-  });
-
-  // persist & update <html lang="">
+  // Beim ersten Laden aus localStorage holen
   useEffect(() => {
-    try {
-      localStorage.setItem("lang", lang);
-    } catch {}
-    if (typeof document !== "undefined") {
+    const stored = localStorage.getItem("preferred_language");
+    if (stored === "de" || stored === "en") {
+      setLangState(stored);
+    }
+    setIsHydrated(true);
+  }, []);
+
+  // Sprache ändern und speichern
+  const setLang = (newLang) => {
+    if (newLang !== "de" && newLang !== "en") return;
+    setLangState(newLang);
+    localStorage.setItem("preferred_language", newLang);
+  };
+
+  // html lang-Attribut aktualisieren
+  useEffect(() => {
+    if (isHydrated) {
       document.documentElement.lang = lang;
     }
-  }, [lang]);
+  }, [lang, isHydrated]);
 
-  const value = useMemo(() => ({ lang, setLang }), [lang]);
   return (
-    <LanguageContext.Provider value={value}>
+    <LanguageContext.Provider
+      value={{ lang, setLang, language: lang, setLanguage: setLang }}
+    >
       {children}
     </LanguageContext.Provider>
   );
+}
+
+export function useLanguage() {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLanguage must be used within LanguageProvider");
+  }
+  return context;
 }

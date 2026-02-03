@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useLanguage } from "@/app/_providers/LanguageProvider";
 import Container from "../shared/Container";
 
-export default function AboutHero({ lang = "de" }) {
-  const [currentLang, setCurrentLang] = useState(lang);
+export default function AboutHero() {
+  const { lang } = useLanguage();
 
   const content = {
     de: {
@@ -21,6 +21,13 @@ export default function AboutHero({ lang = "de" }) {
       specialty: [
         "Besonders liegt mir die Entwicklung von SaaS-Lösungen am Herzen: Produkte, die echte Probleme lösen, skalierbar sind und Menschen in ihrer Arbeit unterstützen. Die Kombination aus meinem sprachlichen Hintergrund und technischem Know-how erlaubt es mir, sowohl mit Stakeholdern als auch mit Code zu 'sprechen' – eine Brücke zwischen Business-Anforderungen und technischer Umsetzung.",
       ],
+      keywords: [
+        "Linguistin",
+        "MERN Stack",
+        "SaaS-Entwicklung",
+        "Backend & APIs",
+        "Problemlöserin",
+      ],
     },
     en: {
       greeting: "Hi, I'm Miriam",
@@ -36,10 +43,17 @@ export default function AboutHero({ lang = "de" }) {
       specialty: [
         "I'm particularly passionate about developing SaaS solutions: products that solve real problems, scale effectively, and support people in their work. The combination of my linguistic background and technical expertise allows me to 'speak' both with stakeholders and with code – bridging the gap between business requirements and technical implementation.",
       ],
+      keywords: [
+        "Linguist",
+        "MERN Stack",
+        "SaaS Development",
+        "Backend & APIs",
+        "Problem Solver",
+      ],
     },
   };
 
-  const text = content[currentLang];
+  const text = content[lang] || content.de;
 
   return (
     <section
@@ -47,47 +61,7 @@ export default function AboutHero({ lang = "de" }) {
       style={{ background: "var(--bg)", color: "var(--ink)" }}
     >
       <Container>
-        {/* Language Toggle */}
-        <div className="flex justify-end mb-12">
-          <div
-            className="inline-flex rounded-lg p-1"
-            style={{
-              background: "var(--surface)",
-              border: "1px solid var(--border)",
-            }}
-          >
-            <button
-              onClick={() => setCurrentLang("de")}
-              className={`px-4 py-2 rounded text-sm font-medium transition-all ${
-                currentLang === "de" ? "active" : ""
-              }`}
-              style={{
-                background:
-                  currentLang === "de" ? "var(--accent)" : "transparent",
-                color: currentLang === "de" ? "var(--bg)" : "var(--ink)",
-              }}
-            >
-              Deutsch
-            </button>
-            <button
-              onClick={() => setCurrentLang("en")}
-              className={`px-4 py-2 rounded text-sm font-medium transition-all ${
-                currentLang === "en" ? "active" : ""
-              }`}
-              style={{
-                background:
-                  currentLang === "en" ? "var(--accent)" : "transparent",
-                color: currentLang === "en" ? "var(--bg)" : "var(--ink)",
-              }}
-            >
-              English
-            </button>
-          </div>
-        </div>
-
-        {/* Hero Content */}
         <div className="max-w-4xl">
-          {/* Greeting */}
           <div className="mb-8">
             <h1 className="text-5xl md:text-7xl font-bold mb-4 text-balance">
               {text.greeting}
@@ -103,7 +77,6 @@ export default function AboutHero({ lang = "de" }) {
             </p>
           </div>
 
-          {/* Intro */}
           <div className="space-y-6 mb-12">
             {text.intro.map((paragraph, idx) => (
               <p
@@ -115,7 +88,6 @@ export default function AboutHero({ lang = "de" }) {
             ))}
           </div>
 
-          {/* Approach */}
           <div
             className="p-8 rounded-2xl mb-12"
             style={{
@@ -132,8 +104,7 @@ export default function AboutHero({ lang = "de" }) {
             </div>
           </div>
 
-          {/* Specialty */}
-          <div className="space-y-6">
+          <div className="space-y-6 mb-12">
             {text.specialty.map((paragraph, idx) => (
               <p
                 key={idx}
@@ -144,15 +115,8 @@ export default function AboutHero({ lang = "de" }) {
             ))}
           </div>
 
-          {/* Highlight Keywords */}
-          <div className="mt-12 flex flex-wrap gap-3">
-            {[
-              currentLang === "de" ? "Linguistin" : "Linguist",
-              currentLang === "de" ? "MERN Stack" : "MERN Stack",
-              currentLang === "de" ? "SaaS-Entwicklung" : "SaaS Development",
-              currentLang === "de" ? "Backend & APIs" : "Backend & APIs",
-              currentLang === "de" ? "Problemlöserin" : "Problem Solver",
-            ].map((keyword) => (
+          <div className="flex flex-wrap gap-3">
+            {text.keywords.map((keyword) => (
               <span
                 key={keyword}
                 className="px-4 py-2 rounded-lg text-sm font-medium"
