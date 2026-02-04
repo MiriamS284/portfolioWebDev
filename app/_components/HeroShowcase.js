@@ -2,15 +2,39 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useLanguage } from "@/app/_context/LanguageProvider";
 
-const WORDS = ["intuitive", "performante", "skalierbare"];
+const content = {
+  de: {
+    words: ["intuitive", "performante", "skalierbare"],
+    headline: {
+      before: "Ich entwickle",
+      after: "Web-Applikationen.",
+    },
+    imageAlt: "Portrait: Miriam Sparbrod",
+  },
+  en: {
+    words: ["intuitive", "performant", "scalable"],
+    headline: {
+      before: "I build",
+      after: "web applications.",
+    },
+    imageAlt: "Portrait: Miriam Sparbrod",
+  },
+};
 
 export default function HeroShowcase() {
+  const { lang } = useLanguage();
+  const t = content[lang] || content.de;
   const [i, setI] = useState(0);
+
   useEffect(() => {
-    const t = setInterval(() => setI((n) => (n + 1) % WORDS.length), 2200);
-    return () => clearInterval(t);
-  }, []);
+    const timer = setInterval(
+      () => setI((n) => (n + 1) % t.words.length),
+      2200,
+    );
+    return () => clearInterval(timer);
+  }, [t.words.length]);
 
   return (
     <section
@@ -36,7 +60,7 @@ export default function HeroShowcase() {
             <div className="relative h-full w-[min(92%,700px)]">
               <Image
                 src="/portfolio_1.jpg"
-                alt="Portrait: Miriam Sparbrod"
+                alt={t.imageAlt}
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -81,7 +105,7 @@ export default function HeroShowcase() {
                 "0 1px 0 rgba(0,0,0,.22), 0 18px 36px rgba(0,0,0,.28)",
             }}
           >
-            Ich entwickle{" "}
+            {t.headline.before}{" "}
             <span className="inline-block align-baseline relative">
               <span className="block h-[1em] overflow-hidden align-baseline">
                 <span
@@ -94,15 +118,15 @@ export default function HeroShowcase() {
                   }}
                   aria-live="polite"
                 >
-                  {WORDS[i]}
+                  {t.words[i]}
                 </span>
               </span>
             </span>{" "}
-            Web-Applikationen.
+            {t.headline.after}
           </h1>
           {/* CTA Buttons 
           <div className="mt-8 flex gap-3 flex-wrap">
-            <a
+            
               href="#work"
               className="rounded-2xl px-5 py-3 text-sm font-medium transition will-change-transform"
               style={{
@@ -115,7 +139,7 @@ export default function HeroShowcase() {
             >
               Arbeiten ansehen
             </a>
-            <a
+            
               href="/contact"
               className="rounded-2xl px-5 py-3 text-sm font-medium ring-1 transition"
               style={{

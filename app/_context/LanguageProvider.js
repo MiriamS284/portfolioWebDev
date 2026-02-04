@@ -1,38 +1,51 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useSyncExternalStore,
+  useCallback,
+} from "react";
 
 const LanguageContext = createContext();
 
-// Lazy initializer - wird nur einmal beim ersten Render ausgeführt
-function getInitialLang() {
-  if (typeof window === "undefined") return "de";
+// localStorage Subscriptions für useSyncExternalStore
+function subscribe(callback) {
+  window.addEventListener("storage", callback);
+  window.addEventListener("language-change", callback);
+  return () => {
+    window.removeEventListener("storage", callback);
+    window.removeEventListener("language-change", callback);
+  };
+}
+
+function getSnapshot() {
   const stored = localStorage.getItem("preferred_language");
   return stored === "de" || stored === "en" ? stored : "de";
 }
 
-export function LanguageProvider({ children }) {
-  const [lang, setLangState] = useState(getInitialLang);
-  const [isHydrated, setIsHydrated] = useState(false);
+function getServerSnapshot() {
+  return "de"; // Server rendert immer mit "de"
+}
 
-  // Hydration-Status setzen (ohne setState im selben Tick)
-  useEffect(() => {
-    setIsHydrated(true);
-  }, []);
+export function LanguageProvider({ children }) {
+  // useSyncExternalStore vermeidet Hydration-Mismatches
+  const lang = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   // Sprache ändern und speichern
-  const setLang = (newLang) => {
+  const setLang = useCallback((newLang) => {
     if (newLang !== "de" && newLang !== "en") return;
-    setLangState(newLang);
     localStorage.setItem("preferred_language", newLang);
-  };
+    // Custom Event triggern für useSyncExternalStore
+    window.dispatchEvent(new Event("language-change"));
+  }, []);
 
   // html lang-Attribut aktualisieren
   useEffect(() => {
-    if (isHydrated) {
-      document.documentElement.lang = lang;
-    }
-  }, [lang, isHydrated]);
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   return (
     <LanguageContext.Provider
