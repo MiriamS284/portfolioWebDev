@@ -46,7 +46,7 @@ export default function HeroShowcase() {
       <div className="absolute inset-0 md:inset-y-0 md:left-1/2 md:right-0">
         <div className="absolute inset-0 overflow-hidden">
           <Image
-            src="/portfolio_1.jpg"
+            src="/profil_3.jpeg"
             alt=""
             fill
             priority
@@ -59,7 +59,7 @@ export default function HeroShowcase() {
           <div className="absolute inset-0 grid place-items-center">
             <div className="relative h-full w-[min(92%,700px)]">
               <Image
-                src="/portfolio_1.jpg"
+                src="/profil_3.jpeg"
                 alt={t.imageAlt}
                 fill
                 priority

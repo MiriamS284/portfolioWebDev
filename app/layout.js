@@ -28,9 +28,23 @@ export const metadata = {
     "Full-Stack App - Entwicklerin. Ich übersetze komplexe Ideen in performante Anwendungen.",
 };
 
+// Inline script to prevent FOUC
+const themeScript = `
+  (function() {
+    try {
+      var stored = localStorage.getItem('theme');
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+`;
+
 export default function RootLayout({ children }) {
   return (
     <html lang="de" className="h-full" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} ${sourceCodePro.variable} min-h-dvh antialiased`}
         suppressHydrationWarning

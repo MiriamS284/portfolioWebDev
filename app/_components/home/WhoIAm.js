@@ -6,27 +6,48 @@ import { useLanguage } from "@/app/_context/LanguageProvider";
 const content = {
   de: {
     eyebrow: "Full-Stack Entwicklerin",
-    headline: "Ich verwandle Ideen in",
-    headlineAccent: "intuitive, leistungsstarke Webanwendungen",
+    headline: "Ich baue",
+    headlineAccent: "B2B-Webanwendungen und SaaS-Plattformen",
     description:
-      "Von der Übersetzung zur Softwareentwicklung: Ich bringe die Fähigkeit mit, zwischen verschiedenen Welten zu vermitteln – zwischen Nutzerbedürfnissen und technischer Umsetzung, zwischen Vision und funktionierendem Produkt.",
-    stats: {
-      experience: { number: "3+", label: "Jahre Entwicklung" },
-      projects: { number: "15+", label: "Projekte" },
-      languages: { number: "2", label: "Sprachen (DE/EN)" },
-    },
+      "Projektbezogen, vom ersten Meeting bis zum Live-System. Ich verstehe Anforderungen zu erfassen und technisch umzusetzen.",
+    tags: [
+      "#B2BSaaS",
+      "#FullStack",
+      "#WebAnwendungen",
+      "#AIAgents",
+      "#Automatisierung",
+      "#ProcessOptimization",
+      "#WebDev",
+      "#SoftwareDevelopment",
+      "DigitaleTransformation",
+      "#Problemlöserin",
+      "#TechfürBusiness",
+      "#AgileDevlopment",
+    ],
   },
   en: {
     eyebrow: "Full-Stack Developer",
-    headline: "I transform ideas into",
-    headlineAccent: "intuitive, high-performance web applications",
+    headline: "I build",
+    headlineAccent: "B2B web applications and SaaS platforms",
     description:
-      "From translation to software development: I bring the ability to bridge different worlds – between user needs and technical implementation, between vision and working product.",
-    stats: {
-      experience: { number: "3+", label: "Years of Development" },
-      projects: { number: "15+", label: "Projects" },
-      languages: { number: "2", label: "Languages (DE/EN)" },
-    },
+      "Project-focused, from first meeting to live system. I understand how to capture requirements and implement them technically.",
+    tags: [
+      "#B2BSaaS",
+      "#FullStack",
+      "#WebApplications",
+      "#AIAutomation",
+      "#AIIntegration",
+      "#ProcessOptimization",
+
+      "#SoftwareDevelopment",
+      "#DigitalTransformation",
+      "#ProblemSolver",
+      "#TechForBusiness",
+      "#AgilDevlopment",
+      "#ProblemSolver",
+      "#TechfürBusiness",
+      "#DigitalSolutions",
+    ],
   },
 };
 
@@ -63,7 +84,7 @@ export default function WhoIAm() {
           <p className="text-lg md:text-xl opacity-80 leading-relaxed mb-8">
             {t.description}
           </p>
-
+          {/*}
           <div className="grid grid-cols-3 gap-8 mt-12 pt-12 border-t border-[var(--border)]">
             <Stat
               number={t.stats.experience.number}
@@ -78,6 +99,19 @@ export default function WhoIAm() {
               label={t.stats.languages.label}
             />
           </div>
+          */}
+          {t.tags && (
+            <div className="flex flex-wrap gap-3 mt-8">
+              {t.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-sm font-mono opacity-60 hover:opacity-100 transition-opacity"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </Container>
     </section>

@@ -1,52 +1,17 @@
-"use client";
+import { client } from "@/lib/sanity";
+import { featuredProjectsQuery } from "@/lib/sanity/queries";
+import ClientHomePage from "./_components/ClientHomePage";
 
-import { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
-import HeroShowcase from "./_components/HeroShowcase";
-import WhoIAm from "./_components/home/WhoIAm";
-import FeaturedProjects from "./_components/home/FeaturedProjects";
-import GardenPreview from "./_components/home/GardenPreview";
-import CallToAction from "./_components/home/CallToAction";
-import Footer from "./_components/layout/Footer";
+export const metadata = {
+  title: "Miriam Sparbrod | Full-Stack Entwicklerin",
+  description:
+    "Full-Stack Entwicklerin spezialisiert auf MERN Stack, Next.js und moderne Web-Anwendungen. Von der Linguistik zur Web-Entwicklung.",
+};
 
-const MERNWriteIntro = dynamic(() => import("./_components/MERNWriteIntro"), {
-  ssr: false,
-});
+export const revalidate = 60;
 
-export default function Page() {
-  const [introState, setIntroState] = useState("checking");
+export default async function Page() {
+  const projects = await client.fetch(featuredProjectsQuery);
 
-  useEffect(() => {
-    const hasSeenIntro = sessionStorage.getItem("intro_seen");
-
-    requestAnimationFrame(() => {
-      setIntroState(hasSeenIntro ? "done" : "show");
-    });
-  }, []);
-
-  const handleIntroDone = () => {
-    sessionStorage.setItem("intro_seen", "true");
-    setIntroState("done");
-  };
-
-  if (introState === "checking") {
-    return null;
-  }
-
-  if (introState === "show") {
-    return <MERNWriteIntro onDone={handleIntroDone} logoSrc="/logo_side.png" />;
-  }
-
-  return (
-    <>
-      <main>
-        <HeroShowcase />
-        <WhoIAm />
-        <FeaturedProjects />
-        <GardenPreview />
-        <CallToAction />
-      </main>
-      <Footer />
-    </>
-  );
+  return <ClientHomePage projects={projects || []} />;
 }
