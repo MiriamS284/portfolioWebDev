@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useLanguage } from "@/app/_providers/LanguageProvider";
+import { useLanguage } from "@/app/_context/LanguageProvider";
 
 export default function TechStackArchitecture() {
   const { lang } = useLanguage(); // ✅ FIXED!

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const WORDS = ["präzise", "performante", "ausdrucksstarke", "skalierbare"];
+const WORDS = ["intuitive", "performante", "skalierbare"];
 
 export default function HeroShowcase() {
   const [i, setI] = useState(0);
@@ -72,7 +72,6 @@ export default function HeroShowcase() {
         </div>
       </div>
 
-      {/* Textblock links */}
       <div className="relative mx-auto max-w-6xl px-6 py-12 md:py-20 h-dvh grid">
         <div className="place-self-center md:place-self-start md:self-center w-full md:max-w-[42ch]">
           <h1
@@ -99,9 +98,9 @@ export default function HeroShowcase() {
                 </span>
               </span>
             </span>{" "}
-            Web-Erlebnisse.
+            Web-Applikationen.
           </h1>
-
+          {/* CTA Buttons 
           <div className="mt-8 flex gap-3 flex-wrap">
             <a
               href="#work"
@@ -128,10 +127,10 @@ export default function HeroShowcase() {
               Kontakt
             </a>
           </div>
+          */}
         </div>
       </div>
 
-      {/* Mobile: dunkler Verlauf vor dem Bild, hinter dem Text */}
       <div
         aria-hidden
         className="md:hidden absolute inset-0"
@@ -141,7 +140,6 @@ export default function HeroShowcase() {
         }}
       />
 
-      {/* weicher Übergang nach unten */}
       <div
         aria-hidden
         className="absolute bottom-0 left-0 right-0 h-24"

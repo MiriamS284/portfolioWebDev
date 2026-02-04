@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useLanguage } from "../../_providers/LanguageProvider";
+import { useLanguage } from "../../_context/LanguageProvider";
 
 export default function OverlayMenu({
   open,

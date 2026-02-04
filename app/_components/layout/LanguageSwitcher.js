@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useLanguage } from "../../_providers/LanguageProvider";
+import { useLanguage } from "../../_context/LanguageProvider";
 
 // Schlanke Option ohne Hooks im Inneren (vermeidet static-components Lint)
 function LangOption({

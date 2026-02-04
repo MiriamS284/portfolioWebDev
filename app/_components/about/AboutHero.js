@@ -1,6 +1,6 @@
 "use client";
 
-import { useLanguage } from "@/app/_providers/LanguageProvider";
+import { useLanguage } from "@/app/_context/LanguageProvider";
 import Container from "../shared/Container";
 
 export default function AboutHero() {

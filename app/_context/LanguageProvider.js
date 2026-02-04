@@ -4,16 +4,19 @@ import { createContext, useContext, useState, useEffect } from "react";
 
 const LanguageContext = createContext();
 
+// Lazy initializer - wird nur einmal beim ersten Render ausgeführt
+function getInitialLang() {
+  if (typeof window === "undefined") return "de";
+  const stored = localStorage.getItem("preferred_language");
+  return stored === "de" || stored === "en" ? stored : "de";
+}
+
 export function LanguageProvider({ children }) {
-  const [lang, setLangState] = useState("de");
+  const [lang, setLangState] = useState(getInitialLang);
   const [isHydrated, setIsHydrated] = useState(false);
 
-  // Beim ersten Laden aus localStorage holen
+  // Hydration-Status setzen (ohne setState im selben Tick)
   useEffect(() => {
-    const stored = localStorage.getItem("preferred_language");
-    if (stored === "de" || stored === "en") {
-      setLangState(stored);
-    }
     setIsHydrated(true);
   }, []);
 

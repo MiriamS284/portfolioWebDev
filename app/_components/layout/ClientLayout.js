@@ -1,6 +1,6 @@
 "use client";
 
-import { LanguageProvider } from "../../_providers/LanguageProvider";
+import { LanguageProvider } from "../../_context/LanguageProvider";
 import MenuDock from "./MenuDock";
 
 export default function ClientLayout({ children }) {
