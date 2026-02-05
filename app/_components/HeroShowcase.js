@@ -39,7 +39,7 @@ export default function HeroShowcase() {
   return (
     <section
       className="relative min-h-dvh overflow-hidden"
-      style={{ background: "oklch(0.13 0.03 250)", color: "var(--ink)" }}
+      style={{ background: "var(--bg)", color: "var(--ink)" }}
     >
       <div className="pointer-events-none absolute inset-0 bg-black opacity-0 animate-[fadeOut_700ms_ease-out_1]" />
 
@@ -112,8 +112,7 @@ export default function HeroShowcase() {
                   key={i}
                   className="block text-transparent bg-clip-text will-change-transform"
                   style={{
-                    backgroundImage:
-                      "linear-gradient(90deg, var(--accent-strong), var(--accent))",
+                    backgroundImage: "var(--gradient-accent)",
                     animation: "wordIn .6s ease both",
                   }}
                   aria-live="polite"
