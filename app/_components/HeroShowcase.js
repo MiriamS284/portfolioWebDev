@@ -1,5 +1,131 @@
 "use client";
 
+import Link from "next/link";
+import { useLanguage } from "@/app/_context/LanguageProvider";
+
+const content = {
+  de: {
+    intro: "Crafting Web-Anwendungen.",
+    description:
+      "Building polished SaaS solutions and web experiences. Experimenting with automation and AI agents. Full-Stack Developer bei meinen eigenen Projekten.",
+    past: "Zuvor habe ich Backend-Systeme für Personal Trainer entwickelt und an Expense-Tracking Automation gearbeitet.",
+    philosophy: [
+      "Developing skill through doing, guiltlessly exploring passion and interests, imbuing quality. Mindful that everything around me is someone's life work.",
+      "All I want to do is build web applications. Full-stack architecture, automation, business logic—the web is an endless medium of opportunity and creativity of which I've only scratched the surface.",
+    ],
+    cta: "Projekte ansehen",
+  },
+  en: {
+    intro: "Crafting Web Applications.",
+    description:
+      "Building polished SaaS solutions and web experiences. Experimenting with automation and AI agents. Full-Stack Developer working on my own projects.",
+    past: "In the past I've developed backend systems for personal trainers and worked on expense-tracking automation.",
+    philosophy: [
+      "Developing skill through doing, guiltlessly exploring passion and interests, imbuing quality. Mindful that everything around me is someone's life work.",
+      "All I want to do is build web applications. Full-stack architecture, automation, business logic—the web is an endless medium of opportunity and creativity of which I've only scratched the surface.",
+    ],
+    cta: "View Projects",
+  },
+};
+
+export default function HeroShowcase() {
+  const { lang } = useLanguage();
+  const t = content[lang] || content.de;
+
+  return (
+    <section
+      className="min-h-screen flex items-center"
+      style={{
+        background: "var(--bg)",
+        paddingLeft: "240px", // Space for left navigation
+        paddingRight: "80px",
+        paddingTop: "100px", // Space for top navigation
+        paddingBottom: "80px",
+      }}
+    >
+      <div className="max-w-3xl px-6">
+        {/* Name */}
+        <h1
+          className="text-5xl md:text-6xl font-bold mb-8 leading-tight"
+          style={{ color: "var(--ink)" }}
+        >
+          {t.name}
+        </h1>
+
+        {/* Intro Line */}
+        <p
+          className="text-2xl md:text-3xl mb-8 leading-snug"
+          style={{ color: "var(--ink)", opacity: 0.9 }}
+        >
+          {t.intro}
+        </p>
+
+        {/* Description */}
+        <p
+          className="text-lg md:text-xl mb-6 leading-relaxed"
+          style={{ color: "var(--muted)" }}
+        >
+          {t.description}
+        </p>
+
+        {/* Past Work */}
+        <p
+          className="text-base md:text-lg mb-12 leading-relaxed"
+          style={{ color: "var(--muted)", opacity: 0.8 }}
+        >
+          {t.past}
+        </p>
+
+        {/* Philosophy */}
+        <div className="space-y-6 mb-12">
+          {t.philosophy.map((paragraph, idx) => (
+            <p
+              key={idx}
+              className="text-base leading-relaxed"
+              style={{ color: "var(--muted)", opacity: 0.7 }}
+            >
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <Link href="/projects" className="inline-flex items-center gap-2 group">
+          <span
+            className="text-sm font-medium uppercase tracking-wider transition-opacity group-hover:opacity-100"
+            style={{
+              color: "var(--accent)",
+              opacity: 0.9,
+              letterSpacing: "0.1em",
+            }}
+          >
+            {t.cta}
+          </span>
+          <span
+            className="transition-transform group-hover:translate-x-1"
+            style={{ color: "var(--accent)" }}
+          >
+            →
+          </span>
+        </Link>
+      </div>
+
+      {/* Subtle Grid Background */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.015]"
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, var(--ink) 1px, transparent 0)`,
+          backgroundSize: "48px 48px",
+        }}
+      />
+    </section>
+  );
+}
+
+/*
+
+"use client";
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/app/_context/LanguageProvider";
@@ -123,34 +249,7 @@ export default function HeroShowcase() {
             </span>{" "}
             {t.headline.after}
           </h1>
-          {/* CTA Buttons 
-          <div className="mt-8 flex gap-3 flex-wrap">
-            
-              href="#work"
-              className="rounded-2xl px-5 py-3 text-sm font-medium transition will-change-transform"
-              style={{
-                color: "var(--ink)",
-                background:
-                  "color-mix(in oklch, var(--accent), transparent 85%)",
-                boxShadow:
-                  "inset 0 0 0 1px color-mix(in oklch, var(--accent), transparent 60%)",
-              }}
-            >
-              Arbeiten ansehen
-            </a>
-            
-              href="/contact"
-              className="rounded-2xl px-5 py-3 text-sm font-medium ring-1 transition"
-              style={{
-                color: "var(--ink)",
-                boxShadow:
-                  "inset 0 0 0 1px color-mix(in oklch, var(--ink), transparent 85%)",
-              }}
-            >
-              Kontakt
-            </a>
-          </div>
-          */}
+         
         </div>
       </div>
 
@@ -181,3 +280,6 @@ export default function HeroShowcase() {
     </section>
   );
 }
+
+
+*/

@@ -23,9 +23,9 @@ const sourceCodePro = Source_Code_Pro({
 });
 
 export const metadata = {
-  title: "Miriam Sparbrod – Full-Stack Entwicklerin",
+  title: "Miriam Sparbrod – Full-Stack Developer",
   description:
-    "Full-Stack App - Entwicklerin. Ich übersetze komplexe Ideen in performante Anwendungen.",
+    "Full-Stack Developer specializing in SaaS solutions, automation, full-stack applications for modern businesses.",
 };
 
 // Inline script to prevent FOUC
