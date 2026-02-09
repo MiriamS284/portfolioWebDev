@@ -2,7 +2,7 @@
 
 A modern, minimalist portfolio built with Next.js 15 and Sanity CMS, featuring a digital garden for sharing thoughts, code snippets, and technical insights.
 
-## 🌟 Concept
+## Concept
 
 This portfolio goes beyond a traditional showcase—it's a **digital garden** where ideas grow and evolve. It combines project presentations with a living collection of technical learnings, code snippets, and development insights.
 
@@ -43,7 +43,7 @@ This portfolio goes beyond a traditional showcase—it's a **digital garden** wh
 - **Content Delivery:** Sanity Client with CDN
 - **Real-time Preview:** Live editing capabilities
 
-## 🏗 Architecture
+## Architecture
 
 This project uses a **decoupled architecture** with two separate repositories:
 
@@ -57,7 +57,7 @@ Benefits of this approach:
 - CMS can be managed independently from the frontend
 - Easy to extend with additional content types
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 portfolioWebDev/
@@ -71,7 +71,7 @@ portfolioWebDev/
 └── public/                # Static assets
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -115,7 +115,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 🎨 Design Philosophy
+## Design Philosophy
 
 **Minimalism & Focus**
 
@@ -135,7 +135,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - Keyboard navigation support
 - ARIA labels where needed
 
-## 📝 Content Management
+## Content Management
 
 Content is managed through [Sanity Studio](https://github.com/MiriamS284/portfolio-sanity-cms), allowing for:
 
@@ -144,7 +144,7 @@ Content is managed through [Sanity Studio](https://github.com/MiriamS284/portfol
 - Image optimization and CDN delivery
 - Version history and content drafts
 
-## 🌱 Digital Garden Philosophy
+## Digital Garden Philosophy
 
 The digital garden section embraces:
 
@@ -153,17 +153,17 @@ The digital garden section embraces:
 - **Continuous refinement:** Content evolves over time
 - **Non-linear exploration:** Browse by topic, not chronology
 
-## 🔄 Development Status
+## Development Status
 
 This portfolio is actively being developed. Current focus areas:
 
 - [ ] Project showcase section
 - [ ] Digital garden implementation
 - [ ] Code snippet syntax highlighting
-- [ ] Dark mode support
+- [ ] Dark mode support - toggle coming soon!
 - [ ] Performance optimization
 
-## 🤝 Technologies & Inspiration
+## Technologies & Inspiration
 
 Inspired by modern developer portfolios that emphasize clarity and craftsmanship:
 
@@ -171,12 +171,8 @@ Inspired by modern developer portfolios that emphasize clarity and craftsmanship
 - Smooth animations and micro-interactions
 - Fast loading times and optimal Core Web Vitals
 
-## 📬 Connect
+## Connect
 
 - Portfolio: [Coming Soon]
 - LinkedIn: [linkedin.com/in/miriam-sparbrod](https://www.linkedin.com/in/miriam-sparbrod/)
 - GitHub: [@MiriamS284](https://github.com/MiriamS284)
-
----
-
-Built with ❤️ using Next.js and Sanity
