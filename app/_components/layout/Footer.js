@@ -20,10 +20,10 @@ export default function Footer() {
               Miriam Sparbrod
             </h3>
             <p className="text-sm opacity-70 leading-relaxed">
-              Full-Stack Entwicklerin · Sprachwissenschaftlerin · Übersetzerin
+              Full-Stack Entwicklerin
             </p>
             <p className="text-sm opacity-70 leading-relaxed mt-2">
-              Ich übersetze komplexe Ideen in funktionale, schöne Anwendungen.
+              Ich übersetze komplexe Ideen in performante Web - Anwendungen.
             </p>
           </div>
 
@@ -36,7 +36,7 @@ export default function Footer() {
               <FooterLink href="/about">Über mich</FooterLink>
               <FooterLink href="/projects">Projekte</FooterLink>
               <FooterLink href="/garden">Digital Garden</FooterLink>
-              <FooterLink href="/blog">Blog</FooterLink>
+              <FooterLink href="/blog">Case Studies</FooterLink>
               <FooterLink href="/snippets">Code Snippets</FooterLink>
             </nav>
           </div>

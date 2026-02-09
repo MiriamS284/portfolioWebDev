@@ -45,7 +45,7 @@ export default function ClientHomePage({ projects }) {
         <HeroShowcase />
         <WhoIAm />
         <FeaturedProjectsClient projects={projects} />
-        <GardenPreview />
+        {/* <GardenPreview /> */}
         <CallToAction />
       </main>
       <Footer />
