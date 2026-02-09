@@ -1,6 +1,6 @@
 "use client";
 
-import { useLanguage } from "@/app/_providers/LanguageProvider";
+import { useLanguage } from "@/app/_context/LanguageProvider";
 import { PortableText } from "@portabletext/react";
 import { portableTextComponents } from "@/lib/sanity/portableText";
 

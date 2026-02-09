@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity";
-import { useLanguage } from "@/app/_providers/LanguageProvider";
+import { useLanguage } from "@/app/_context/LanguageProvider";
 
 export default function ProjectGallery({ images }) {
   const { lang } = useLanguage();

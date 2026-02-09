@@ -1,30 +1,34 @@
 import { client, allPostsQuery } from "@/lib/sanity";
-import Container from "../_components/shared/Container";
-import PageHeader from "../_components/shared/PageHeader";
-import BlogGrid from "../_components/blog/BlogGrid";
+import MenuDock from "../_components/layout/MenuDock";
+import Footer from "../_components/layout/Footer";
+import CaseStudiesHeader from "../_components/blog/CaseStudiesHeader";
+import CaseStudyList from "../_components/blog/CaseStudyList";
 
 export const metadata = {
-  title: "Blog | Miriam Sparbrod",
-  description: "Gedanken über Web-Entwicklung, Design und Technologie",
+  title: "Case Studies | Miriam Sparbrod",
+  description:
+    "Detaillierte Einblicke in Projekte, Prozesse und technische Lösungen.",
 };
 
-export default async function BlogPage() {
-  const posts = await client.fetch(allPostsQuery);
+export const revalidate = 60;
+
+export default async function CaseStudiesPage() {
+  const studies = await client.fetch(allPostsQuery);
 
   return (
-    <div
-      className="min-h-screen"
-      style={{ background: "var(--bg)", color: "var(--ink)" }}
-    >
-      <Container size="large">
-        <PageHeader
-          title="Blog"
-          subtitle="Gedanken, Tutorials und Einblicke in moderne Web-Entwicklung"
-        />
-        <section className="pb-20">
-          <BlogGrid posts={posts} />
-        </section>
-      </Container>
-    </div>
+    <>
+      <MenuDock />
+
+      <main
+        className="min-h-screen px-6"
+        style={{ background: "var(--bg)" }}
+      >
+        <CaseStudiesHeader />
+        <CaseStudyList studies={studies} />
+        <div className="py-20" />
+      </main>
+
+      <Footer />
+    </>
   );
 }

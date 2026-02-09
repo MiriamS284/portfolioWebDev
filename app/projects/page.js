@@ -2,8 +2,8 @@ import { client } from "@/lib/sanity";
 import { projectsQuery } from "@/lib/sanity/queries";
 import MenuDock from "../_components/layout/MenuDock";
 import Footer from "../_components/layout/Footer";
-import Container from "../_components/shared/Container";
 import ProjectGrid from "../_components/projects/ProjectGrid";
+import ProjectsHeader from "../_components/projects/ProjectsHeader";
 
 export const metadata = {
   title: "Projekte | Miriam Sparbrod",
@@ -20,21 +20,14 @@ export default async function ProjectsPage() {
     <>
       <MenuDock />
 
-      <main className="py-20 md:py-32" style={{ background: "var(--bg)" }}>
-        <Container>
-          <div className="mb-16">
-            <div className="text-xs uppercase tracking-[0.3em] opacity-60 mb-4">
-              Portfolio
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">Projekte</h1>
-            <p className="text-lg md:text-xl opacity-80 max-w-3xl">
-              Eine Auswahl meiner Arbeiten – von Full-Stack Web-Anwendungen bis
-              zu Backend-APIs.
-            </p>
-          </div>
-
+      <main
+        className="py-20 md:py-32 px-6 md:ml-[280px] md:pt-[120px]"
+        style={{ background: "var(--bg)" }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <ProjectsHeader />
           <ProjectGrid projects={projects} />
-        </Container>
+        </div>
       </main>
 
       <Footer />

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useLanguage } from "@/app/_providers/LanguageProvider";
+import { useLanguage } from "@/app/_context/LanguageProvider";
 import { urlFor } from "@/lib/sanity";
 
 export default function ProjectNav({ prevProject, nextProject }) {

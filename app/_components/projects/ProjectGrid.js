@@ -6,72 +6,105 @@ import ProjectCard from "./ProjectCard";
 
 export default function ProjectGrid({ projects }) {
   const { lang } = useLanguage();
-  const [filter, setFilter] = useState("all");
+  const [mode, setMode] = useState("all");
 
-  const texts = {
-    de: {
-      all: "Alle",
-      webApp: "Web Apps",
-      website: "Websites",
-      api: "APIs",
-      openSource: "Open Source",
-      showing: "Projekte werden angezeigt",
-    },
-    en: {
-      all: "All",
-      webApp: "Web Apps",
-      website: "Websites",
-      api: "APIs",
-      openSource: "Open Source",
-      showing: "projects showing",
-    },
+  const filteredProjects = projects.filter((project) => {
+    if (mode === "all") return true;
+    return project.status === mode;
+  });
+
+  // Determine card size based on position and featured status
+  const getCardSize = (project, index) => {
+    if (project.featured) return "large";
+    // Create visual variety
+    const pattern = index % 5;
+    if (pattern === 2) return "wide";
+    return "normal";
   };
 
-  const t = texts[lang] || texts.de;
-
-  const filters = [
-    { value: "all", label: t.all },
-    { value: "web-app", label: t.webApp },
-    { value: "website", label: t.website },
-    { value: "api", label: t.api },
-    { value: "open-source", label: t.openSource },
-  ];
-
-  const filteredProjects =
-    filter === "all"
-      ? projects
-      : projects.filter((p) => p.projectType === filter);
+  const labels = {
+    mode: lang === "de" ? "Filter:" : "Filter:",
+    all: lang === "de" ? "Alle" : "All",
+    dev: "Dev",
+    prod: "Live",
+    noResults:
+      lang === "de"
+        ? "Keine Projekte gefunden."
+        : "No projects found.",
+  };
 
   return (
     <div>
-      {/* Filter */}
-      <div className="mb-12 flex flex-wrap items-center gap-3">
-        {filters.map((f) => (
+      {/* Filter Buttons */}
+      <div className="flex items-center gap-4 mb-12">
+        <span
+          className="text-xs uppercase tracking-wider font-mono"
+          style={{ color: "var(--muted)", opacity: 0.6 }}
+        >
+          {labels.mode}
+        </span>
+
+        {[
+          { key: "all", label: labels.all },
+          { key: "dev", label: labels.dev },
+          { key: "prod", label: labels.prod },
+        ].map((filter) => (
           <button
-            key={f.value}
-            onClick={() => setFilter(f.value)}
-            className="px-4 py-2 rounded text-sm font-mono transition-all"
+            key={filter.key}
+            onClick={() => setMode(filter.key)}
+            className="text-xs font-mono uppercase tracking-wider px-3 py-1.5 rounded-full transition-all"
             style={{
+              color: mode === filter.key ? "var(--accent)" : "var(--muted)",
               background:
-                filter === f.value ? "var(--accent)" : "var(--surface)",
-              color: filter === f.value ? "var(--bg)" : "var(--ink)",
-              border: "1px solid var(--border)",
+                mode === filter.key
+                  ? "color-mix(in oklch, var(--accent), transparent 90%)"
+                  : "transparent",
+              border: `1px solid ${mode === filter.key ? "var(--accent)" : "var(--border)"}`,
+              opacity: mode === filter.key ? 1 : 0.6,
             }}
           >
-            {f.label}
+            {filter.label}
           </button>
         ))}
-        <span className="text-xs font-mono opacity-40 ml-auto">
-          {filteredProjects.length} {t.showing}
+
+        <span
+          className="text-xs font-mono ml-2"
+          style={{ color: "var(--muted)", opacity: 0.4 }}
+        >
+          ({filteredProjects.length})
         </span>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-        {filteredProjects.map((project) => (
-          <ProjectCard key={project._id} project={project} />
-        ))}
+      {/* Bento Grid */}
+      <div
+        className="grid gap-4 md:gap-6"
+        style={{
+          gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+        }}
+      >
+        {filteredProjects.map((project, index) => {
+          const size = getCardSize(project, index);
+          return (
+            <div
+              key={project._id}
+              className={`
+                ${size === "large" ? "md:col-span-2 md:row-span-2" : ""}
+                ${size === "wide" ? "md:col-span-2" : ""}
+              `}
+            >
+              <ProjectCard project={project} size={size} />
+            </div>
+          );
+        })}
       </div>
+
+      {filteredProjects.length === 0 && (
+        <div className="text-center py-20">
+          <p style={{ color: "var(--muted)", opacity: 0.6 }}>
+            {labels.noResults}
+          </p>
+        </div>
+      )}
     </div>
   );
 }
