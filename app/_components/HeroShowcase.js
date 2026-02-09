@@ -5,26 +5,24 @@ import { useLanguage } from "@/app/_context/LanguageProvider";
 
 const content = {
   de: {
-    intro: "Crafting Web-Anwendungen.",
+    intro: "Full-Stack Entwicklerin.",
     description:
-      "Building polished SaaS solutions and web experiences. Experimenting with automation and AI agents. Full-Stack Developer bei meinen eigenen Projekten.",
-    past: "Zuvor habe ich Backend-Systeme für Personal Trainer entwickelt und an Expense-Tracking Automation gearbeitet.",
-    philosophy: [
-      "Developing skill through doing, guiltlessly exploring passion and interests, imbuing quality. Mindful that everything around me is someone's life work.",
-      "All I want to do is build web applications. Full-stack architecture, automation, business logic—the web is an endless medium of opportunity and creativity of which I've only scratched the surface.",
+      "Ich entwickle Web-Applikationen und SaaS-Lösungen. Frontend und Backend. Custom Software für Unternehmen.",
+    tags: [
+      "B2B SaaS",
+      "Problemlöserin",
+      "Agile Entwicklung",
+
+      "Automatisierung",
     ],
-    cta: "Projekte ansehen",
+    cta: "Projekte",
   },
   en: {
-    intro: "Crafting Web Applications.",
+    intro: "Full-Stack Developer.",
     description:
-      "Building polished SaaS solutions and web experiences. Experimenting with automation and AI agents. Full-Stack Developer working on my own projects.",
-    past: "In the past I've developed backend systems for personal trainers and worked on expense-tracking automation.",
-    philosophy: [
-      "Developing skill through doing, guiltlessly exploring passion and interests, imbuing quality. Mindful that everything around me is someone's life work.",
-      "All I want to do is build web applications. Full-stack architecture, automation, business logic—the web is an endless medium of opportunity and creativity of which I've only scratched the surface.",
-    ],
-    cta: "View Projects",
+      "Building web applications and SaaS solutions. Frontend and backend. Custom software for businesses.",
+    tags: ["B2B SaaS", "Problem Solver", "Agile Development", "Automation"],
+    cta: "Projects",
   },
 };
 
@@ -34,58 +32,43 @@ export default function HeroShowcase() {
 
   return (
     <section
-      className="min-h-screen flex items-center"
+      className="min-h-screen flex items-center px-6 py-20 md:ml-[280px] md:pt-[80px]"
       style={{
         background: "var(--bg)",
-        paddingLeft: "240px", // Space for left navigation
-        paddingRight: "80px",
-        paddingTop: "100px", // Space for top navigation
-        paddingBottom: "80px",
       }}
     >
-      <div className="max-w-3xl px-6">
-        {/* Name */}
+      <div className="max-w-2xl w-full">
+        {/* Intro - Groß & Bold */}
         <h1
-          className="text-5xl md:text-6xl font-bold mb-8 leading-tight"
+          className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
           style={{ color: "var(--ink)" }}
         >
-          {t.name}
-        </h1>
-
-        {/* Intro Line */}
-        <p
-          className="text-2xl md:text-3xl mb-8 leading-snug"
-          style={{ color: "var(--ink)", opacity: 0.9 }}
-        >
           {t.intro}
-        </p>
+        </h1>
 
         {/* Description */}
         <p
-          className="text-lg md:text-xl mb-6 leading-relaxed"
+          className="text-xl md:text-2xl mb-12 leading-relaxed"
           style={{ color: "var(--muted)" }}
         >
           {t.description}
         </p>
 
-        {/* Past Work */}
-        <p
-          className="text-base md:text-lg mb-12 leading-relaxed"
-          style={{ color: "var(--muted)", opacity: 0.8 }}
-        >
-          {t.past}
-        </p>
-
-        {/* Philosophy */}
-        <div className="space-y-6 mb-12">
-          {t.philosophy.map((paragraph, idx) => (
-            <p
-              key={idx}
-              className="text-base leading-relaxed"
-              style={{ color: "var(--muted)", opacity: 0.7 }}
+        {/* Tags */}
+        <div className="flex flex-wrap gap-3 mb-12">
+          {t.tags.map((tag, index) => (
+            <span
+              key={`hero-tag-${index}`}
+              className="text-xs font-mono px-3 py-1 rounded-full transition-opacity hover:opacity-100"
+              style={{
+                color: "var(--muted)",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                opacity: 0.7,
+              }}
             >
-              {paragraph}
-            </p>
+              {tag}
+            </span>
           ))}
         </div>
 
@@ -112,7 +95,7 @@ export default function HeroShowcase() {
 
       {/* Subtle Grid Background */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.015]"
+        className="absolute inset-0 pointer-events-none opacity-[0.015] -z-10"
         style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, var(--ink) 1px, transparent 0)`,
           backgroundSize: "48px 48px",
@@ -121,7 +104,6 @@ export default function HeroShowcase() {
     </section>
   );
 }
-
 /*
 
 "use client";

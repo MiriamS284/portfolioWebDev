@@ -84,31 +84,11 @@ export default function WhoIAm() {
           <p className="text-lg md:text-xl opacity-80 leading-relaxed mb-8">
             {t.description}
           </p>
-          {/*}
-          <div className="grid grid-cols-3 gap-8 mt-12 pt-12 border-t border-[var(--border)]">
-            <Stat
-              number={t.stats.experience.number}
-              label={t.stats.experience.label}
-            />
-            <Stat
-              number={t.stats.projects.number}
-              label={t.stats.projects.label}
-            />
-            <Stat
-              number={t.stats.languages.number}
-              label={t.stats.languages.label}
-            />
-          </div>
-          */}
+
           {t.tags && (
             <div className="flex flex-wrap gap-3 mt-8">
-              {t.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-sm font-mono opacity-60 hover:opacity-100 transition-opacity"
-                >
-                  {tag}
-                </span>
+              {t.tags.map((tag, index) => (
+                <span key={`whoiam-tag-${index}`}> {tag}</span>
               ))}
             </div>
           )}

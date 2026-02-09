@@ -6,7 +6,7 @@ import Link from "next/link";
 import OverlayMenu from "./OverlayMenu";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-export default function MenuDock({ logoSrc = "/logo_light.png" }) {
+export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
   const [menuHovered, setMenuHovered] = useState(false);
 
   useEffect(() => {
@@ -18,9 +18,7 @@ export default function MenuDock({ logoSrc = "/logo_light.png" }) {
 
   return (
     <>
-      {/* Left: Logo + Menu + Language */}
       <div className="fixed left-3 top-4 sm:left-4 sm:top-5 md:left-6 md:top-6 z-50 select-none">
-        {/* Logo - GROSS */}
         <Link href="/" className="block group mb-8">
           <Image
             src={logoSrc}
@@ -38,9 +36,7 @@ export default function MenuDock({ logoSrc = "/logo_light.png" }) {
           />
         </Link>
 
-        {/* Menu + Language - vertikal unter Logo */}
         <div className="flex flex-col items-center gap-6">
-          {/* Menu Button */}
           <div onMouseEnter={() => setMenuHovered(true)}>
             <button
               type="button"
@@ -65,13 +61,11 @@ export default function MenuDock({ logoSrc = "/logo_light.png" }) {
             </button>
           </div>
 
-          {/* Separator Line */}
           <div
             className="w-[1px] h-8"
             style={{ background: "var(--border)", opacity: 0.5 }}
           />
 
-          {/* Language Switcher */}
           <LanguageSwitcher />
         </div>
       </div>
