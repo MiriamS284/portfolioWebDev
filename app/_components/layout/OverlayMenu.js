@@ -5,6 +5,40 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useLanguage } from "../../_context/LanguageProvider";
 
+// Kompakter Language Switcher für Mobile Menu
+function MobileLanguageSwitcher() {
+  const { lang, setLang } = useLanguage();
+
+  return (
+    <div className="flex items-center gap-2">
+      <button
+        onClick={() => setLang("de")}
+        className="px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all"
+        style={{
+          background: lang === "de" ? "var(--accent)" : "transparent",
+          color: lang === "de" ? "var(--bg)" : "var(--ink)",
+          opacity: lang === "de" ? 1 : 0.5,
+          border: lang === "de" ? "none" : "1px solid var(--border)",
+        }}
+      >
+        DE
+      </button>
+      <button
+        onClick={() => setLang("en")}
+        className="px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all"
+        style={{
+          background: lang === "en" ? "var(--accent)" : "transparent",
+          color: lang === "en" ? "var(--bg)" : "var(--ink)",
+          opacity: lang === "en" ? 1 : 0.5,
+          border: lang === "en" ? "none" : "1px solid var(--border)",
+        }}
+      >
+        EN
+      </button>
+    </div>
+  );
+}
+
 export default function OverlayMenu({
   open,
   onClose,
@@ -92,21 +126,35 @@ export default function OverlayMenu({
           >
             {/* Header */}
             <div className="flex items-center justify-between text-[var(--ink)]">
+              {/* Language Switcher - Mobile/Tablet only */}
+              <div className="lg:hidden">
+                <MobileLanguageSwitcher />
+              </div>
+
+              {/* Menu Label - Desktop only */}
               <div
-                className="text-xs tracking-[0.5em] uppercase opacity-70"
+                className="text-xs tracking-[0.5em] uppercase opacity-70 hidden lg:block"
                 aria-hidden
               >
                 M&nbsp;E&nbsp;N&nbsp;U
               </div>
+
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded-lg px-4 py-2 text-sm transition-colors hover:bg-white/5"
+                className="rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-white/10 active:bg-white/15"
                 style={{
                   border: "1px solid var(--border)",
+                  background: "var(--surface)",
                 }}
+                aria-label="Menü schließen"
               >
-                Schließen (Esc)
+                <span className="hidden lg:inline">Schließen (Esc)</span>
+                <span className="lg:hidden flex items-center gap-2">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M4 4l8 8M12 4l-8 8" />
+                  </svg>
+                </span>
               </button>
             </div>
 

@@ -57,8 +57,13 @@ export default function WhoIAm() {
 
   return (
     <section
-      className="py-20 md:py-32"
-      style={{ background: "var(--bg)", color: "var(--ink)" }}
+      className="relative py-20 md:py-32"
+      style={{
+        background: "var(--bg)",
+        color: "var(--ink)",
+        zIndex: 2,
+        isolation: "isolate",
+      }}
     >
       <Container size="default">
         <div className="max-w-3xl mx-auto text-center">

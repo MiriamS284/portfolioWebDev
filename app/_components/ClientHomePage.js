@@ -4,9 +4,7 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import MenuDock from "./layout/MenuDock";
 import HeroShowcase from "./HeroShowcase";
-import WhoIAm from "./home/WhoIAm";
 import FeaturedProjectsClient from "./home/FeaturedProjectsClient";
-import GardenPreview from "./home/GardenPreview";
 import CallToAction from "./home/CallToAction";
 import Footer from "./layout/Footer";
 
@@ -43,9 +41,7 @@ export default function ClientHomePage({ projects }) {
       <MenuDock />
       <main>
         <HeroShowcase />
-        <WhoIAm />
         <FeaturedProjectsClient projects={projects} />
-        {/* <GardenPreview /> */}
         <CallToAction />
       </main>
       <Footer />

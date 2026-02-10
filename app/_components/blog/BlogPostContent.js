@@ -6,7 +6,6 @@ import { imagePresets } from "@/lib/sanity";
 export default function BlogPostContent({ post }) {
   return (
     <>
-      {/* Featured Image */}
       {post.mainImage && (
         <div className="mb-12">
           <div className="relative aspect-video rounded-2xl overflow-hidden">
@@ -21,7 +20,6 @@ export default function BlogPostContent({ post }) {
         </div>
       )}
 
-      {/* Body Content */}
       <div className="prose prose-lg max-w-none">
         <PortableText value={post.body} components={portableTextComponents} />
       </div>

@@ -5,10 +5,12 @@ export default function Footer() {
 
   return (
     <footer
-      className="py-16 px-6"
+      className="relative py-16 px-6"
       style={{
         background: "var(--surface)",
         borderTop: "1px solid var(--border)",
+        zIndex: 4,
+        isolation: "isolate",
       }}
     >
       <div className="mx-auto max-w-6xl">

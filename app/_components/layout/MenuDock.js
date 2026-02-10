@@ -7,18 +7,93 @@ import OverlayMenu from "./OverlayMenu";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
-  const [menuHovered, setMenuHovered] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
+  // Close on Escape
   useEffect(() => {
-    if (!menuHovered) return;
-    const onKey = (e) => e.key === "Escape" && setMenuHovered(false);
+    if (!menuOpen) return;
+    const onKey = (e) => e.key === "Escape" && setMenuOpen(false);
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [menuHovered]);
+  }, [menuOpen]);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
     <>
-      <div className="fixed left-3 top-4 sm:left-4 sm:top-5 md:left-6 md:top-6 z-50 select-none">
+      {/* Mobile Header - Compact top bar (visible until lg breakpoint) */}
+      <header className="fixed top-0 left-0 right-0 z-50 lg:hidden">
+        <div
+          className="flex items-center justify-between px-3 py-2"
+          style={{
+            background: "color-mix(in oklch, var(--bg) 90%, transparent)",
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
+          }}
+        >
+          {/* Logo + Name */}
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src={logoSrc}
+              alt="Home"
+              width={120}
+              height={120}
+              priority
+              className="w-10 h-10 sm:w-12 sm:h-12"
+              style={{
+                objectFit: "contain",
+                filter: "drop-shadow(0 4px 12px rgba(0,0,0,.25))",
+              }}
+            />
+            <span
+              className="text-sm sm:text-base font-semibold tracking-tight"
+              style={{ color: "var(--ink)" }}
+            >
+              Miriam Sparbrod
+            </span>
+          </Link>
+
+          {/* Hamburger Button - minimal */}
+          <button
+            type="button"
+            onClick={() => setMenuOpen(true)}
+            className="relative w-9 h-9 flex items-center justify-center rounded-md transition-colors active:bg-white/10"
+            style={{
+              background: "transparent",
+            }}
+            aria-label="Menü öffnen"
+            aria-expanded={menuOpen}
+          >
+            <div className="flex flex-col gap-1">
+              <span
+                className="block w-5 h-[2px] rounded-full"
+                style={{ background: "var(--ink)" }}
+              />
+              <span
+                className="block w-5 h-[2px] rounded-full"
+                style={{ background: "var(--ink)" }}
+              />
+              <span
+                className="block w-3 h-[2px] rounded-full"
+                style={{ background: "var(--ink)" }}
+              />
+            </div>
+          </button>
+        </div>
+      </header>
+
+      {/* Desktop Sidebar - Left side (visible from lg breakpoint) */}
+      <div className="hidden lg:block fixed left-6 top-6 z-50 select-none">
         <Link href="/" className="block group mb-8">
           <Image
             src={logoSrc}
@@ -26,7 +101,7 @@ export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
             width={200}
             height={200}
             priority
-            className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 transition-transform duration-300 group-hover:scale-110"
+            className="w-32 h-32 lg:w-40 lg:h-40 xl:w-44 xl:h-44 transition-transform duration-300 group-hover:scale-110"
             style={{
               display: "block",
               objectFit: "contain",
@@ -37,29 +112,31 @@ export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
         </Link>
 
         <div className="flex flex-col items-center gap-6">
-          <div onMouseEnter={() => setMenuHovered(true)}>
-            <button
-              type="button"
-              className="cursor-pointer group"
-              style={{ background: "transparent" }}
+          {/* Menu Button - Click instead of hover */}
+          <button
+            type="button"
+            onClick={() => setMenuOpen(true)}
+            className="cursor-pointer group"
+            style={{ background: "transparent" }}
+            aria-label="Menü öffnen"
+            aria-expanded={menuOpen}
+          >
+            <div
+              className="transition-opacity group-hover:opacity-100"
+              style={{
+                writingMode: "vertical-rl",
+                textOrientation: "mixed",
+                color: "var(--ink)",
+                fontWeight: 700,
+                letterSpacing: "0.5em",
+                fontSize: 11,
+                textTransform: "uppercase",
+                opacity: 0.9,
+              }}
             >
-              <div
-                className="transition-opacity group-hover:opacity-100"
-                style={{
-                  writingMode: "vertical-rl",
-                  textOrientation: "mixed",
-                  color: "var(--ink)",
-                  fontWeight: 700,
-                  letterSpacing: "0.5em",
-                  fontSize: 11,
-                  textTransform: "uppercase",
-                  opacity: 0.9,
-                }}
-              >
-                MENU
-              </div>
-            </button>
-          </div>
+              MENU
+            </div>
+          </button>
 
           <div
             className="w-[1px] h-8"
@@ -70,7 +147,7 @@ export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
         </div>
       </div>
 
-      <OverlayMenu open={menuHovered} onClose={() => setMenuHovered(false)} />
+      <OverlayMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
     </>
   );
 }

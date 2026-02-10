@@ -4,11 +4,13 @@ import Container from "../shared/Container";
 export default function CallToAction() {
   return (
     <section
-      className="py-20 md:py-32"
+      className="relative py-20 md:py-32"
       style={{
         background:
           "linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%)",
         color: "var(--ink)",
+        zIndex: 3,
+        isolation: "isolate",
       }}
     >
       <Container>

@@ -33,8 +33,13 @@ export default function FeaturedProjectsClient({ projects }) {
 
   return (
     <section
-      className="py-20 md:py-32"
-      style={{ background: "var(--surface)", color: "var(--ink)" }}
+      className="relative py-20 md:py-32"
+      style={{
+        background: "var(--surface)",
+        color: "var(--ink)",
+        zIndex: 2,
+        isolation: "isolate",
+      }}
     >
       <Container size="large">
         <div className="text-center mb-16">

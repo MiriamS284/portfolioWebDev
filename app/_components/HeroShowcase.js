@@ -32,9 +32,11 @@ export default function HeroShowcase() {
 
   return (
     <section
-      className="min-h-screen flex items-center px-6 py-20 md:ml-[280px] md:pt-[80px]"
+      className="relative min-h-screen flex items-center px-6 pt-20 pb-16 lg:pt-20 lg:ml-[280px]"
       style={{
         background: "var(--bg)",
+        zIndex: 1,
+        isolation: "isolate",
       }}
     >
       <div className="max-w-2xl w-full">
@@ -95,10 +97,11 @@ export default function HeroShowcase() {
 
       {/* Subtle Grid Background */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.015] -z-10"
+        className="absolute inset-0 pointer-events-none opacity-[0.015]"
         style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, var(--ink) 1px, transparent 0)`,
           backgroundSize: "48px 48px",
+          zIndex: -1,
         }}
       />
     </section>

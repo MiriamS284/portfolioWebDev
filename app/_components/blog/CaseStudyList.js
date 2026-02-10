@@ -20,13 +20,11 @@ export default function CaseStudyList({ studies }) {
 
   return (
     <div className="max-w-2xl mx-auto">
-      {/* Top separator */}
       <hr
         className="border-0 h-px mb-0"
         style={{ background: "var(--border)" }}
       />
 
-      {/* List */}
       {studies.map((study, index) => (
         <CaseStudyItem
           key={study._id}
@@ -35,7 +33,6 @@ export default function CaseStudyList({ studies }) {
         />
       ))}
 
-      {/* Bottom separator */}
       <hr
         className="border-0 h-px mt-0"
         style={{ background: "var(--border)" }}
