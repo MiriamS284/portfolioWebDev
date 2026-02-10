@@ -4,13 +4,6 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-/**
- * Transparentes, magnetisches Logo (kein Fenster, kein Blur).
- * Props:
- *  - src: string (Pfad)
- *  - size: number (px)
- *  - pop: bool (kurzer Start-Pop)
- */
 export default function LogoDock({
   src = "/logo_light.png",
   size = 220,

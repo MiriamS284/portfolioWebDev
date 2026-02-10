@@ -55,7 +55,7 @@ export default function AboutSection() {
       className="px-6 py-16 bg-white text-[oklch(0.22_0.03_250)]"
     >
       <div className="mx-auto max-w-6xl space-y-16">
-        {/* Block 1 */}
+      
         <div className="grid md:grid-cols-5 gap-8 items-center">
           <motion.div
             className="md:col-span-3 order-2 md:order-1 text-base leading-relaxed"

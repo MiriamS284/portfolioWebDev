@@ -30,7 +30,6 @@ export default function LandingLead() {
           </div>
         </div>
 
-        {/* Right: Portrait + Copy */}
         <div>
           <div className="flex items-center gap-4">
             <div

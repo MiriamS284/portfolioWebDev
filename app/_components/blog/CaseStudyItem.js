@@ -9,7 +9,6 @@ export default function CaseStudyItem({ study, isLast }) {
   const [isHovered, setIsHovered] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Format date
   const formatDate = (dateString) => {
     if (!dateString) return "";
     const date = new Date(dateString);
@@ -35,7 +34,6 @@ export default function CaseStudyItem({ study, isLast }) {
         onMouseLeave={() => setIsHovered(false)}
         className="group cursor-pointer py-8 transition-all duration-300"
       >
-        {/* Title Row */}
         <div className="flex items-baseline justify-between gap-4 mb-2">
           <h2
             className="text-xl md:text-2xl font-bold transition-colors duration-300"
@@ -53,7 +51,6 @@ export default function CaseStudyItem({ study, isLast }) {
           </span>
         </div>
 
-        {/* Categories */}
         {study.categories && study.categories.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-3">
             {study.categories.map((cat, idx) => (
@@ -71,7 +68,6 @@ export default function CaseStudyItem({ study, isLast }) {
           </div>
         )}
 
-        {/* Excerpt - shown on hover */}
         <div
           className="overflow-hidden transition-all duration-500 ease-out"
           style={{
@@ -94,15 +90,10 @@ export default function CaseStudyItem({ study, isLast }) {
         </div>
       </div>
 
-      {/* Separator */}
       {!isLast && (
-        <hr
-          className="border-0 h-px"
-          style={{ background: "var(--border)" }}
-        />
+        <hr className="border-0 h-px" style={{ background: "var(--border)" }} />
       )}
 
-      {/* Modal */}
       {isModalOpen && (
         <CaseStudyModal study={study} onClose={() => setIsModalOpen(false)} />
       )}

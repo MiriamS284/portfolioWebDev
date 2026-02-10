@@ -15,11 +15,12 @@ export default function ThemeSwitcher() {
         backdropFilter: "blur(8px)",
         border: "1px solid var(--border)",
       }}
-      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+      aria-label={
+        theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+      }
       title={theme === "dark" ? "Light Mode" : "Dark Mode"}
     >
       {theme === "dark" ? (
-        // Sun icon
         <svg
           width="20"
           height="20"
@@ -42,7 +43,6 @@ export default function ThemeSwitcher() {
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
         </svg>
       ) : (
-        // Moon icon
         <svg
           width="20"
           height="20"

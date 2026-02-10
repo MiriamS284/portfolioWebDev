@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useLanguage } from "../../_context/LanguageProvider";
 
-// Kompakter Language Switcher für Mobile Menu
 function MobileLanguageSwitcher() {
   const { lang, setLang } = useLanguage();
 
@@ -39,16 +38,11 @@ function MobileLanguageSwitcher() {
   );
 }
 
-export default function OverlayMenu({
-  open,
-  onClose,
-  autoCloseMs = 8000,
-}) {
+export default function OverlayMenu({ open, onClose, autoCloseMs = 8000 }) {
   const { lang } = useLanguage();
   const firstLinkRef = useRef(null);
   const rootRef = useRef(null);
 
-  // Esc + Fokus
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => e.key === "Escape" && onClose?.();
@@ -60,7 +54,6 @@ export default function OverlayMenu({
     };
   }, [open, onClose]);
 
-  // Auto-Close
   useEffect(() => {
     if (!open || !autoCloseMs) return;
     let t = setTimeout(onClose, autoCloseMs);
@@ -83,14 +76,13 @@ export default function OverlayMenu({
   }, [open, onClose, autoCloseMs]);
 
   const L = {
-    home: lang === "de" ? "Home" : "Home",
     about: lang === "de" ? "Über mich" : "About",
     projects: lang === "de" ? "Projekte" : "Projects",
     projectsSub:
       lang === "de" ? "Case Studies & Arbeiten" : "Case Studies & Work",
     garden: lang === "de" ? "Digital Garden" : "Digital Garden",
     gardenSub: lang === "de" ? "Gedanken die wachsen" : "Growing thoughts",
-    blog: "Blog",
+    blog: "Case - Studies & Tutorials",
     blogSub: lang === "de" ? "Artikel & Tutorials" : "Articles & Tutorials",
     snippets: "Code Snippets",
     snippetsSub:
@@ -98,6 +90,10 @@ export default function OverlayMenu({
         ? "Wiederverwendbare Code-Beispiele"
         : "Reusable code examples",
     contact: lang === "de" ? "Kontakt" : "Contact",
+    contactSub:
+      lang === "de"
+        ? "Lass uns über eine Zusammenarbeit sprechen"
+        : "Let's work together",
   };
 
   return (
@@ -124,14 +120,11 @@ export default function OverlayMenu({
             exit={{ y: 20, opacity: 0 }}
             className="relative z-[81] mx-auto max-w-5xl px-6 py-12 md:py-16"
           >
-            {/* Header */}
             <div className="flex items-center justify-between text-[var(--ink)]">
-              {/* Language Switcher - Mobile/Tablet only */}
               <div className="lg:hidden">
                 <MobileLanguageSwitcher />
               </div>
 
-              {/* Menu Label - Desktop only */}
               <div
                 className="text-xs tracking-[0.5em] uppercase opacity-70 hidden lg:block"
                 aria-hidden
@@ -151,26 +144,29 @@ export default function OverlayMenu({
               >
                 <span className="hidden lg:inline">Schließen (Esc)</span>
                 <span className="lg:hidden flex items-center gap-2">
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                  >
                     <path d="M4 4l8 8M12 4l-8 8" />
                   </svg>
                 </span>
               </button>
             </div>
 
-            {/* Navigation */}
             <nav className="mt-12 space-y-8 md:space-y-10">
-              {/* Home */}
               <MenuLink href="/" refEl={firstLinkRef} onClose={onClose}>
                 {L.home}
               </MenuLink>
 
-              {/* About */}
               <MenuLink href="/about" onClose={onClose}>
                 {L.about}
               </MenuLink>
 
-              {/* Projects */}
               <div>
                 <MenuLink href="/projects" onClose={onClose}>
                   {L.projects}
@@ -180,7 +176,6 @@ export default function OverlayMenu({
                 </div>
               </div>
 
-              {/* Digital Garden */}
               <div>
                 <MenuLink href="/garden" onClose={onClose}>
                   {L.garden}
@@ -190,7 +185,6 @@ export default function OverlayMenu({
                 </div>
               </div>
 
-              {/* Blog */}
               <div>
                 <MenuLink href="/blog" onClose={onClose}>
                   {L.blog}
@@ -200,7 +194,6 @@ export default function OverlayMenu({
                 </div>
               </div>
 
-              {/* Code Snippets */}
               <div>
                 <MenuLink href="/snippets" onClose={onClose}>
                   {L.snippets}
@@ -210,10 +203,14 @@ export default function OverlayMenu({
                 </div>
               </div>
 
-              {/* Contact */}
-              <MenuLink href="/contact" onClose={onClose}>
-                {L.contact}
-              </MenuLink>
+              <div>
+                <MenuLink href="/contact" onClose={onClose}>
+                  {L.contact}
+                </MenuLink>
+                <div className="mt-2 text-sm opacity-60 tracking-wide">
+                  {L.contactSub}
+                </div>
+              </div>
             </nav>
           </motion.div>
 

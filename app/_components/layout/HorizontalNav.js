@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/app/_context/LanguageProvider";
@@ -8,7 +9,7 @@ const content = {
   de: {
     links: [
       { label: "ÜBER MICH", href: "/about" },
-      { label: "Projekte", href: "/projects" },
+      { label: "PROJEKTE", href: "/projects" },
       { label: "CASE STUDIES", href: "/blog" },
     ],
   },
@@ -25,16 +26,34 @@ export default function HorizontalNav() {
   const { lang } = useLanguage();
   const pathname = usePathname();
   const t = content[lang] || content.de;
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav
-      className="fixed top-4 left-0 right-0 sm:top-5 md:top-6 z-40 pointer-events-none"
+      className="hidden lg:block fixed top-4 left-0 right-0 sm:top-5 md:top-6 z-40 pointer-events-none transition-opacity duration-300"
       style={{
         paddingLeft: "200px",
         paddingRight: "24px",
+        opacity: scrolled ? 0 : 1,
       }}
     >
-      <div className="flex items-center justify-end gap-12 pointer-events-auto">
+      <div
+        className="flex items-center justify-end gap-12"
+        style={{
+          pointerEvents: scrolled ? "none" : "auto",
+        }}
+      >
         {t.links.map((link) => {
           const isActive = pathname === link.href;
           return (

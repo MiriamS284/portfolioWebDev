@@ -14,7 +14,6 @@ export default function BlogPostHeader({ post }) {
         </div>
       )}
 
-      {/* Title */}
       <h1
         className="text-4xl md:text-6xl font-bold mb-6"
         style={{
@@ -24,7 +23,6 @@ export default function BlogPostHeader({ post }) {
         {post.title}
       </h1>
 
-      {/* Meta */}
       <div className="flex flex-wrap items-center gap-4 text-sm opacity-70">
         {post.author && (
           <div className="flex items-center gap-3">

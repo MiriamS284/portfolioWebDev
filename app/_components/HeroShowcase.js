@@ -32,7 +32,7 @@ export default function HeroShowcase() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center px-6 pt-20 pb-16 lg:pt-20 lg:ml-[280px]"
+      className="relative min-h-screen flex items-center px-6 pt-24 pb-16 lg:pt-12 lg:ml-[280px]"
       style={{
         background: "var(--bg)",
         zIndex: 1,
@@ -40,7 +40,6 @@ export default function HeroShowcase() {
       }}
     >
       <div className="max-w-2xl w-full">
-        {/* Intro - Groß & Bold */}
         <h1
           className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
           style={{ color: "var(--ink)" }}
@@ -48,7 +47,6 @@ export default function HeroShowcase() {
           {t.intro}
         </h1>
 
-        {/* Description */}
         <p
           className="text-xl md:text-2xl mb-12 leading-relaxed"
           style={{ color: "var(--muted)" }}
@@ -56,7 +54,6 @@ export default function HeroShowcase() {
           {t.description}
         </p>
 
-        {/* Tags */}
         <div className="flex flex-wrap gap-3 mb-12">
           {t.tags.map((tag, index) => (
             <span
@@ -74,7 +71,6 @@ export default function HeroShowcase() {
           ))}
         </div>
 
-        {/* CTA */}
         <Link href="/projects" className="inline-flex items-center gap-2 group">
           <span
             className="text-sm font-medium uppercase tracking-wider transition-opacity group-hover:opacity-100"
@@ -95,7 +91,6 @@ export default function HeroShowcase() {
         </Link>
       </div>
 
-      {/* Subtle Grid Background */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.015]"
         style={{

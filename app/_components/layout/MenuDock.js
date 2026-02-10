@@ -8,6 +8,19 @@ import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Track scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Close on Escape
   useEffect(() => {
@@ -31,17 +44,16 @@ export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
 
   return (
     <>
-      {/* Mobile Header - Compact top bar (visible until lg breakpoint) */}
+      {/* Mobile Header - Always fixed and centered */}
       <header className="fixed top-0 left-0 right-0 z-50 lg:hidden">
         <div
-          className="flex items-center justify-between px-3 py-2"
+          className="flex items-center justify-between px-4 py-3"
           style={{
-            background: "color-mix(in oklch, var(--bg) 90%, transparent)",
-            backdropFilter: "blur(16px)",
-            WebkitBackdropFilter: "blur(16px)",
+            background: "var(--bg)",
+            borderBottom: "1px solid var(--border)",
           }}
         >
-          {/* Logo + Name */}
+          {/* Logo + Name - Name fades on scroll */}
           <Link href="/" className="flex items-center gap-2">
             <Image
               src={logoSrc}
@@ -55,6 +67,7 @@ export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
                 filter: "drop-shadow(0 4px 12px rgba(0,0,0,.25))",
               }}
             />
+            {/* Name - always visible on mobile */}
             <span
               className="text-sm sm:text-base font-semibold tracking-tight"
               style={{ color: "var(--ink)" }}
@@ -63,7 +76,7 @@ export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
             </span>
           </Link>
 
-          {/* Hamburger Button - minimal */}
+          {/* Hamburger - always visible */}
           <button
             type="button"
             onClick={() => setMenuOpen(true)}
@@ -92,7 +105,7 @@ export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
         </div>
       </header>
 
-      {/* Desktop Sidebar - Left side (visible from lg breakpoint) */}
+      {/* Desktop Sidebar - Logo and Menu always visible */}
       <div className="hidden lg:block fixed left-6 top-6 z-50 select-none">
         <Link href="/" className="block group mb-8">
           <Image
@@ -112,7 +125,6 @@ export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
         </Link>
 
         <div className="flex flex-col items-center gap-6">
-          {/* Menu Button - Click instead of hover */}
           <button
             type="button"
             onClick={() => setMenuOpen(true)}

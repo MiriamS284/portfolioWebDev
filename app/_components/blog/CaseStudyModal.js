@@ -24,7 +24,6 @@ const CloseIcon = () => (
 export default function CaseStudyModal({ study, onClose }) {
   const { lang } = useLanguage();
 
-  // Format date
   const formatDate = (dateString) => {
     if (!dateString) return "";
     const date = new Date(dateString);
@@ -35,7 +34,6 @@ export default function CaseStudyModal({ study, onClose }) {
     });
   };
 
-  // Close on ESC
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape") onClose();
@@ -44,7 +42,6 @@ export default function CaseStudyModal({ study, onClose }) {
     return () => window.removeEventListener("keydown", handleEsc);
   }, [onClose]);
 
-  // Prevent scroll
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -66,7 +63,6 @@ export default function CaseStudyModal({ study, onClose }) {
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110"
@@ -79,12 +75,10 @@ export default function CaseStudyModal({ study, onClose }) {
           <CloseIcon />
         </button>
 
-        {/* Header */}
         <div
           className="p-8 md:p-12 pb-6"
           style={{ borderBottom: "1px solid var(--border)" }}
         >
-          {/* Meta */}
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <span
               className="text-xs font-mono"
@@ -101,7 +95,8 @@ export default function CaseStudyModal({ study, onClose }) {
                     className="text-xs font-mono uppercase tracking-wider px-2 py-0.5 rounded"
                     style={{
                       color: "var(--accent)",
-                      background: "color-mix(in oklch, var(--accent), transparent 90%)",
+                      background:
+                        "color-mix(in oklch, var(--accent), transparent 90%)",
                     }}
                   >
                     {cat}
@@ -111,7 +106,6 @@ export default function CaseStudyModal({ study, onClose }) {
             )}
           </div>
 
-          {/* Title */}
           <h1
             className="text-3xl md:text-4xl font-bold leading-tight"
             style={{ color: "var(--ink)" }}
@@ -119,7 +113,6 @@ export default function CaseStudyModal({ study, onClose }) {
             {study.title}
           </h1>
 
-          {/* Excerpt */}
           {study.excerpt && (
             <p
               className="text-lg leading-relaxed mt-4"
@@ -129,7 +122,6 @@ export default function CaseStudyModal({ study, onClose }) {
             </p>
           )}
 
-          {/* Author */}
           {study.author && (
             <p
               className="text-sm mt-6"
@@ -140,7 +132,6 @@ export default function CaseStudyModal({ study, onClose }) {
           )}
         </div>
 
-        {/* Content */}
         <div className="p-8 md:p-12">
           {study.body ? (
             <div
@@ -157,9 +148,7 @@ export default function CaseStudyModal({ study, onClose }) {
               className="text-center py-12"
               style={{ color: "var(--muted)", opacity: 0.6 }}
             >
-              {lang === "de"
-                ? "Inhalt wird geladen..."
-                : "Content loading..."}
+              {lang === "de" ? "Inhalt wird geladen..." : "Content loading..."}
             </p>
           )}
         </div>
