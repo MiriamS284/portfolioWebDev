@@ -6,22 +6,39 @@ import { useLanguage } from "@/app/_context/LanguageProvider";
 const content = {
   de: {
     intro: "Full-Stack Entwicklerin.",
-    description:
-      "Ich entwickle Web-Applikationen und SaaS-Lösungen. Frontend und Backend. Custom Software für Unternehmen.",
+    line1: "Digitale Lösungen entwickeln. Software mit Anspruch.",
+    line2:
+      "Von Sprache zu Code — transformiere ich Konzepte in performante Systeme.",
+    philosophy1:
+      "Durch Machen lernen. Neue Technologien erkunden. Qualität schaffen. Im Bewusstsein, dass hinter jedem System eine Vision steht.",
+    philosophy2:
+      "Mein Fokus: Full-Stack Lösungen. Frontend, Backend, APIs, Performance — Software as a Service.",
     tags: [
       "B2B SaaS",
       "Problemlöserin",
       "Agile Entwicklung",
-
+      "Frontend & Backend",
       "Automatisierung",
     ],
     cta: "Projekte",
   },
   en: {
     intro: "Full-Stack Developer.",
-    description:
-      "Building web applications and SaaS solutions. Frontend and backend. Custom software for businesses.",
-    tags: ["B2B SaaS", "Problem Solver", "Agile Development", "Automation"],
+    line1:
+      "Crafting digital solutions. Building polished software and web experiences.",
+    line2:
+      "From language to code—transforming concepts into performant systems.",
+    philosophy1:
+      "Developing skill through doing, guiltlessly exploring passion for technology, imbuing quality. Mindful that every system is someone's vision realized.",
+    philosophy2:
+      "All I want to do is build full-stack solutions. Frontend architecture, backend systems, API design, performance—development is an endless medium of opportunity and creativity of which I've only scratched the surface.",
+    tags: [
+      "B2B SaaS",
+      "Problem Solver",
+      "Agile Development",
+      "Frontend & Backend",
+      "Automation",
+    ],
     cta: "Projects",
   },
 };
@@ -41,17 +58,39 @@ export default function HeroShowcase() {
     >
       <div className="max-w-2xl w-full">
         <h1
-          className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
+          className="text-5xl md:text-6xl lg:text-7xl font-bold mt-8 mb-2 leading-tight"
           style={{ color: "var(--ink)" }}
         >
           {t.intro}
         </h1>
 
+        {/* Line 1 */}
         <p
-          className="text-xl md:text-2xl mb-12 leading-relaxed"
+          className="text-xl md:text-2xl mb-4 leading-relaxed"
           style={{ color: "var(--muted)" }}
         >
-          {t.description}
+          {t.line1}
+        </p>
+
+        <p
+          className="text-xl md:text-2xl mb-12 leading-relaxed"
+          style={{ color: "var(--muted)", opacity: 0.9 }}
+        >
+          {t.line2}
+        </p>
+
+        <p
+          className="text-base md:text-lg mb-6 leading-relaxed"
+          style={{ color: "var(--muted)", opacity: 0.7 }}
+        >
+          {t.philosophy1}
+        </p>
+
+        <p
+          className="text-base md:text-lg mb-12 leading-relaxed"
+          style={{ color: "var(--muted)", opacity: 0.7 }}
+        >
+          {t.philosophy2}
         </p>
 
         <div className="flex flex-wrap gap-3 mb-12">
@@ -70,25 +109,6 @@ export default function HeroShowcase() {
             </span>
           ))}
         </div>
-
-        <Link href="/projects" className="inline-flex items-center gap-2 group">
-          <span
-            className="text-sm font-medium uppercase tracking-wider transition-opacity group-hover:opacity-100"
-            style={{
-              color: "var(--accent)",
-              opacity: 0.9,
-              letterSpacing: "0.1em",
-            }}
-          >
-            {t.cta}
-          </span>
-          <span
-            className="transition-transform group-hover:translate-x-1"
-            style={{ color: "var(--accent)" }}
-          >
-            →
-          </span>
-        </Link>
       </div>
 
       <div
@@ -102,6 +122,7 @@ export default function HeroShowcase() {
     </section>
   );
 }
+
 /*
 
 "use client";

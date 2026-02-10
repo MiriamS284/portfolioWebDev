@@ -12,68 +12,100 @@ export default function ProjectNav({ prevProject, nextProject }) {
 
   return (
     <section
-      className="py-20 border-t"
+      className="py-16"
       style={{
         background: "var(--bg)",
-        borderColor: "var(--border)",
+        borderTop: "1px solid var(--border)",
       }}
     >
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid md:grid-cols-2 gap-8">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="flex justify-between items-center">
           {/* Previous */}
-          {prevProject && (
+          {prevProject ? (
             <Link
               href={`/projects/${prevProject.slug.current}`}
-              className="group"
+              className="group flex items-center gap-4"
             >
-              <div className="text-xs uppercase tracking-[0.3em] opacity-40 mb-4">
-                ← Previous
-              </div>
-              <div className="relative aspect-[16/9] rounded-lg overflow-hidden mb-4">
-                {prevProject.coverImage && (
+              <span
+                className="text-sm font-mono transition-transform duration-200 group-hover:-translate-x-1"
+                style={{ color: "var(--muted)" }}
+              >
+                ←
+              </span>
+
+              {/* Logo */}
+              {prevProject.logo && (
+                <div className="relative w-10 h-10 opacity-60 group-hover:opacity-100 transition-opacity">
                   <Image
-                    src={urlFor(prevProject.coverImage)
-                      .width(600)
-                      .height(400)
-                      .url()}
+                    src={urlFor(prevProject.logo).width(80).height(80).url()}
                     alt=""
                     fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-contain"
                   />
-                )}
+                </div>
+              )}
+
+              <div>
+                <div
+                  className="text-xs font-mono uppercase tracking-wider mb-1"
+                  style={{ color: "var(--muted)", opacity: 0.6 }}
+                >
+                  Prev
+                </div>
+                <div
+                  className="text-sm font-medium group-hover:text-[var(--accent)] transition-colors"
+                  style={{ color: "var(--ink)" }}
+                >
+                  {prevProject.title?.[lang] || prevProject.title?.de}
+                </div>
               </div>
-              <h3 className="text-xl font-bold group-hover:opacity-70 transition-opacity">
-                {prevProject.title?.[lang] || prevProject.title?.de}
-              </h3>
             </Link>
+          ) : (
+            <div />
           )}
 
           {/* Next */}
-          {nextProject && (
+          {nextProject ? (
             <Link
               href={`/projects/${nextProject.slug.current}`}
-              className="group"
+              className="group flex items-center gap-4 text-right"
             >
-              <div className="text-xs uppercase tracking-[0.3em] opacity-40 mb-4 text-right">
-                Next →
+              <div>
+                <div
+                  className="text-xs font-mono uppercase tracking-wider mb-1"
+                  style={{ color: "var(--muted)", opacity: 0.6 }}
+                >
+                  Next
+                </div>
+                <div
+                  className="text-sm font-medium group-hover:text-[var(--accent)] transition-colors"
+                  style={{ color: "var(--ink)" }}
+                >
+                  {nextProject.title?.[lang] || nextProject.title?.de}
+                </div>
               </div>
-              <div className="relative aspect-[16/9] rounded-lg overflow-hidden mb-4">
-                {nextProject.coverImage && (
+
+              {/* Logo */}
+              {nextProject.logo && (
+                <div className="relative w-10 h-10 opacity-60 group-hover:opacity-100 transition-opacity">
                   <Image
-                    src={urlFor(nextProject.coverImage)
-                      .width(600)
-                      .height(400)
-                      .url()}
+                    src={urlFor(nextProject.logo).width(80).height(80).url()}
                     alt=""
                     fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-contain"
                   />
-                )}
-              </div>
-              <h3 className="text-xl font-bold text-right group-hover:opacity-70 transition-opacity">
-                {nextProject.title?.[lang] || nextProject.title?.de}
-              </h3>
+                </div>
+              )}
+
+              <span
+                className="text-sm font-mono transition-transform duration-200 group-hover:translate-x-1"
+                style={{ color: "var(--muted)" }}
+              >
+                →
+              </span>
             </Link>
+          ) : (
+            <div />
           )}
         </div>
       </div>

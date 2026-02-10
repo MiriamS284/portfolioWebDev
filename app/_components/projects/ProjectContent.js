@@ -27,8 +27,8 @@ export default function ProjectContent({ project }) {
   const t = texts[lang] || texts.de;
 
   return (
-    <section className="py-20" style={{ background: "var(--bg)" }}>
-      <div className="mx-auto max-w-4xl px-6">
+    <section className="py-16" style={{ background: "var(--bg)" }}>
+      <div className="mx-auto max-w-5xl px-6">
         {/* Description */}
         {project.description?.[lang] && (
           <div className="mb-20">
@@ -46,20 +46,13 @@ export default function ProjectContent({ project }) {
         {project.features && project.features.length > 0 && (
           <div className="mb-20">
             <h2 className="text-3xl font-bold mb-8">{t.features}</h2>
-            <div className="space-y-6">
+            <div className="space-y-8">
               {project.features.map((feature, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 rounded-lg"
-                  style={{
-                    background: "var(--surface)",
-                    border: "1px solid var(--border)",
-                  }}
-                >
-                  <h3 className="text-xl font-bold mb-2">
+                <div key={idx}>
+                  <h3 className="text-xl font-semibold mb-2">
                     {feature.feature?.[lang] || feature.feature?.de}
                   </h3>
-                  <p className="opacity-80">
+                  <p style={{ color: "var(--muted)" }}>
                     {feature.description?.[lang] || feature.description?.de}
                   </p>
                 </div>

@@ -1,5 +1,5 @@
 import { client } from "@/lib/sanity";
-import { featuredProjectsQuery } from "@/lib/sanity/queries";
+import { projectsQuery, allPostsQuery, allSnippetsQuery } from "@/lib/sanity/queries";
 import ClientHomePage from "./_components/ClientHomePage";
 
 export const metadata = {
@@ -11,7 +11,18 @@ export const metadata = {
 export const revalidate = 60;
 
 export default async function Page() {
-  const projects = await client.fetch(featuredProjectsQuery);
+  // Fetch all content in parallel
+  const [projects, posts, snippets] = await Promise.all([
+    client.fetch(projectsQuery),
+    client.fetch(allPostsQuery),
+    client.fetch(allSnippetsQuery),
+  ]);
 
-  return <ClientHomePage projects={projects || []} />;
+  return (
+    <ClientHomePage
+      projects={projects || []}
+      posts={posts || []}
+      snippets={snippets || []}
+    />
+  );
 }

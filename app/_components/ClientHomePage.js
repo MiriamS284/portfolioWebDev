@@ -4,15 +4,15 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import MenuDock from "./layout/MenuDock";
 import HeroShowcase from "./HeroShowcase";
-import FeaturedProjectsClient from "./home/FeaturedProjectsClient";
-import CallToAction from "./home/CallToAction";
+import HomeContentGrid from "./home/HomeContentGrid";
+import HomeContactSection from "./home/HomeContactSection";
 import Footer from "./layout/Footer";
 
 const MERNWriteIntro = dynamic(() => import("./MERNWriteIntro"), {
   ssr: false,
 });
 
-export default function ClientHomePage({ projects }) {
+export default function ClientHomePage({ projects, posts, snippets }) {
   const [introState, setIntroState] = useState("checking");
 
   useEffect(() => {
@@ -41,8 +41,12 @@ export default function ClientHomePage({ projects }) {
       <MenuDock />
       <main>
         <HeroShowcase />
-        <FeaturedProjectsClient projects={projects} />
-        <CallToAction />
+        <HomeContentGrid
+          projects={projects}
+          posts={posts}
+          snippets={snippets}
+        />
+        <HomeContactSection />
       </main>
       <Footer />
     </>
