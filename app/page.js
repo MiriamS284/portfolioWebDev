@@ -1,21 +1,26 @@
 import { client } from "@/lib/sanity";
-import { projectsQuery, allPostsQuery, allSnippetsQuery } from "@/lib/sanity/queries";
+import {
+  projectsQuery,
+  allPostsQuery,
+  allSnippetsQuery,
+  allGardenEntriesQuery,
+} from "@/lib/sanity/queries";
 import ClientHomePage from "./_components/ClientHomePage";
 
 export const metadata = {
   title: "Miriam Sparbrod | Full-Stack Entwicklerin",
   description:
-    "Full-Stack Entwicklerin spezialisiert auf MERN Stack, Next.js und moderne Web-Anwendungen. Von der Linguistik zur Web-Entwicklung.",
+    "Full-Stack Entwicklerin spezialisiert auf MERN Stack, Next.js und moderne Web-Anwendungen. SaaS für B2B.",
 };
 
 export const revalidate = 60;
 
 export default async function Page() {
-  // Fetch all content in parallel
-  const [projects, posts, snippets] = await Promise.all([
+  const [projects, posts, snippets, gardenEntries] = await Promise.all([
     client.fetch(projectsQuery),
     client.fetch(allPostsQuery),
     client.fetch(allSnippetsQuery),
+    client.fetch(allGardenEntriesQuery),
   ]);
 
   return (
@@ -23,6 +28,7 @@ export default async function Page() {
       projects={projects || []}
       posts={posts || []}
       snippets={snippets || []}
+      thoughts={gardenEntries || []}
     />
   );
 }

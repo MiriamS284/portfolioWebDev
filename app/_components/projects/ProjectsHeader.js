@@ -9,14 +9,12 @@ export default function ProjectsHeader() {
     de: {
       label: "Portfolio",
       title: "Projekte",
-      description:
-        "Eine Auswahl meiner Arbeiten – von Full-Stack Web-Anwendungen bis zu Backend-APIs.",
+      description: "Eine Auswahl meiner Arbeiten - Dev & Prod Mode",
     },
     en: {
       label: "Portfolio",
       title: "Projects",
-      description:
-        "A selection of my work – from full-stack web applications to backend APIs.",
+      description: "A selection of my work - Dev & Prod Mode",
     },
   };
 

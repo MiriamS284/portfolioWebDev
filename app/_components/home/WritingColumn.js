@@ -4,12 +4,12 @@ import Link from "next/link";
 
 const texts = {
   de: {
-    title: "Geschriebenes",
-    viewAll: "Alle Beiträge",
+    title: "Case Studies",
+    viewAll: "Alle Case Studies",
   },
   en: {
-    title: "Writing",
-    viewAll: "All writing",
+    title: "Writings",
+    viewAll: "All writings",
   },
 };
 
@@ -18,25 +18,16 @@ export default function WritingColumn({ posts = [], lang = "de" }) {
 
   return (
     <div>
-      {/* Header */}
-      <h2
-        className="text-sm mb-6"
-        style={{ color: "var(--muted)" }}
-      >
+      <h2 className="text-sm mb-6" style={{ color: "var(--muted)" }}>
         {t.title}
       </h2>
 
-      {/* List */}
       <div className="space-y-5">
         {posts.slice(0, 4).map((post) => (
           <WritingItem key={post._id} post={post} />
         ))}
 
-        {/* View All Link */}
-        <Link
-          href="/case-studies"
-          className="group inline-block"
-        >
+        <Link href="/case-studies" className="group inline-block">
           <span
             className="text-sm font-medium underline underline-offset-2 decoration-1 transition-colors group-hover:text-[var(--accent)]"
             style={{ color: "var(--ink)" }}

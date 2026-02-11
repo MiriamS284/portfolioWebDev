@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { imagePresets } from "@/lib/sanity";
+import { LiaSeedlingSolid } from "react-icons/lia";
+import { GiPlantRoots } from "react-icons/gi";
 import CategoryBadge from "../shared/CategoryBadge";
 import GrowthStageBadge from "./GrowthStageBadge";
 import { formatDate } from "@/lib/utils/formatDate";
@@ -46,12 +50,21 @@ export default function GardenCard({ entry }) {
           </p>
         )}
 
-        <div className="flex items-center gap-3 text-xs opacity-60">
-          <span>🌱 {formatDate(entry.plantedAt)}</span>
+        <div
+          className="flex items-center gap-3 text-xs"
+          style={{ color: "var(--muted)" }}
+        >
+          <span className="inline-flex items-center gap-1">
+            <LiaSeedlingSolid className="w-3.5 h-3.5" />
+            {formatDate(entry.plantedAt)}
+          </span>
           {entry.lastTended && (
             <>
-              <span>•</span>
-              <span>🌿 {formatDate(entry.lastTended)}</span>
+              <span style={{ opacity: 0.4 }}>•</span>
+              <span className="inline-flex items-center gap-1">
+                <GiPlantRoots className="w-3.5 h-3.5" />
+                {formatDate(entry.lastTended)}
+              </span>
             </>
           )}
         </div>

@@ -19,11 +19,7 @@ export default function CaseStudyItem({ study, isLast }) {
 
   return (
     <>
-      <Link
-        href={`/case-studies/${slug}`}
-        className="group block py-8"
-      >
-        {/* Title + Date */}
+      <Link href={`/case-studies/${slug}`} className="group block py-8">
         <div className="flex items-baseline justify-between gap-4 mb-2">
           <h2
             className="text-xl md:text-2xl font-semibold transition-colors duration-200"
@@ -47,7 +43,6 @@ export default function CaseStudyItem({ study, isLast }) {
           </span>
         </div>
 
-        {/* Categories - minimal */}
         {study.categories && study.categories.length > 0 && (
           <div className="flex flex-wrap gap-3 mb-3">
             {study.categories.map((cat, idx) => (
@@ -62,7 +57,6 @@ export default function CaseStudyItem({ study, isLast }) {
           </div>
         )}
 
-        {/* Excerpt */}
         {study.excerpt && (
           <p
             className="text-sm leading-relaxed"

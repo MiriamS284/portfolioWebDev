@@ -6,12 +6,12 @@ import { GiPlantRoots, GiSunflower } from "react-icons/gi";
 
 const texts = {
   de: {
-    title: "Digitaler Garten",
-    viewAll: "Zum Garten",
+    title: "Gedanken",
+    viewAll: "Alle Gedanken",
   },
   en: {
-    title: "Digital Garden",
-    viewAll: "Visit garden",
+    title: "Thoughts",
+    viewAll: "All thoughts",
   },
 };
 
@@ -21,30 +21,24 @@ const stageIcons = {
   evergreen: GiSunflower,
 };
 
-export default function GardenColumn({ entries = [], lang = "de" }) {
+export default function ThoughtsColumn({ thoughts = [], lang = "de" }) {
   const t = texts[lang] || texts.de;
 
   return (
     <div>
       {/* Header */}
-      <h2
-        className="text-sm mb-6"
-        style={{ color: "var(--muted)" }}
-      >
+      <h2 className="text-sm mb-6" style={{ color: "var(--muted)" }}>
         {t.title}
       </h2>
 
       {/* List */}
       <div className="space-y-5">
-        {entries.slice(0, 4).map((entry) => (
-          <GardenItem key={entry._id} entry={entry} />
+        {thoughts.slice(0, 4).map((thought) => (
+          <ThoughtItem key={thought._id} thought={thought} />
         ))}
 
         {/* View All Link */}
-        <Link
-          href="/garden"
-          className="group inline-block"
-        >
+        <Link href="/garden" className="group inline-block">
           <span
             className="text-sm font-medium underline underline-offset-2 decoration-1 transition-colors group-hover:text-[var(--accent)]"
             style={{ color: "var(--ink)" }}
@@ -57,11 +51,11 @@ export default function GardenColumn({ entries = [], lang = "de" }) {
   );
 }
 
-function GardenItem({ entry }) {
-  const title = entry.title || "Untitled";
-  const excerpt = entry.excerpt || "";
-  const slug = entry.slug?.current;
-  const stage = entry.growthStage || "seedling";
+function ThoughtItem({ thought }) {
+  const title = thought.title || "Untitled";
+  const excerpt = thought.excerpt || "";
+  const slug = thought.slug?.current;
+  const stage = thought.growthStage || "seedling";
   const StageIcon = stageIcons[stage] || LiaSeedlingSolid;
 
   return (

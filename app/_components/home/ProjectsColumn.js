@@ -18,11 +18,7 @@ export default function ProjectsColumn({ projects = [], lang = "de" }) {
 
   return (
     <div>
-      {/* Header */}
-      <h2
-        className="text-sm mb-6"
-        style={{ color: "var(--muted)" }}
-      >
+      <h2 className="text-sm mb-6" style={{ color: "var(--muted)" }}>
         {t.title}
       </h2>
 
@@ -32,11 +28,7 @@ export default function ProjectsColumn({ projects = [], lang = "de" }) {
           <ProjectItem key={project._id} project={project} lang={lang} />
         ))}
 
-        {/* View All Link */}
-        <Link
-          href="/projects"
-          className="group inline-block"
-        >
+        <Link href="/projects" className="group inline-block">
           <span
             className="text-sm font-medium underline underline-offset-2 decoration-1 transition-colors group-hover:text-[var(--accent)]"
             style={{ color: "var(--ink)" }}

@@ -12,7 +12,7 @@ const MERNWriteIntro = dynamic(() => import("./MERNWriteIntro"), {
   ssr: false,
 });
 
-export default function ClientHomePage({ projects, posts, snippets }) {
+export default function ClientHomePage({ projects, posts, snippets, thoughts }) {
   const [introState, setIntroState] = useState("checking");
 
   useEffect(() => {
@@ -45,6 +45,7 @@ export default function ClientHomePage({ projects, posts, snippets }) {
           projects={projects}
           posts={posts}
           snippets={snippets}
+          thoughts={thoughts}
         />
         <HomeContactSection />
       </main>

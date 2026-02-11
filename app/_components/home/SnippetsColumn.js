@@ -4,8 +4,8 @@ import Link from "next/link";
 
 const texts = {
   de: {
-    title: "Snippets",
-    viewAll: "Alle Snippets",
+    title: "Code-Fragmente",
+    viewAll: "Alle Code-Fragmente",
   },
   en: {
     title: "Snippets",
@@ -24,11 +24,7 @@ export default function SnippetsColumn({ snippets = [], lang = "de" }) {
 
   return (
     <div>
-      {/* Header */}
-      <h2
-        className="text-sm mb-6"
-        style={{ color: "var(--muted)" }}
-      >
+      <h2 className="text-sm mb-6" style={{ color: "var(--muted)" }}>
         {t.title}
       </h2>
 
@@ -39,10 +35,7 @@ export default function SnippetsColumn({ snippets = [], lang = "de" }) {
         ))}
 
         {/* View All Link */}
-        <Link
-          href="/snippets"
-          className="group inline-block"
-        >
+        <Link href="/snippets" className="group inline-block">
           <span
             className="text-sm font-medium underline underline-offset-2 decoration-1 transition-colors group-hover:text-[var(--accent)]"
             style={{ color: "var(--ink)" }}

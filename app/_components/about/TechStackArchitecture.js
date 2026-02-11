@@ -26,7 +26,7 @@ export default function TechStackArchitecture() {
       header: "Technische Expertise",
       title: "Tech Stack",
       subtitle:
-        "Mit welchen Sprachen, Franeworks, Tools & Infrastrukturen ich arbeite",
+        "Mit welchen Sprachen, Frameworks, Tools & Infrastrukturen ich arbeite",
       crossCutting: "Querschnittliche Belange",
       layerLabel: "Schicht",
     },

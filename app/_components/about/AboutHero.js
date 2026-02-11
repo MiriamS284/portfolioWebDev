@@ -47,13 +47,12 @@ export default function AboutHero() {
       },
 
       keywords: [
-        "Linguistin",
         "MERN Stack",
         "SaaS-Entwicklung",
         "Backend & APIs",
         "Problemlöserin",
       ],
-      caption: "Full-Stack Entwicklerin & Sprachwissenschaftlerin",
+      caption: "Das bin ich.",
     },
     en: {
       greeting: "Hi, I'm Miriam",
@@ -82,7 +81,7 @@ export default function AboutHero() {
         "Backend & APIs",
         "Problem Solver",
       ],
-      caption: "Full-Stack Developer & Linguist",
+      caption: "Taht's me.",
     },
   };
 
