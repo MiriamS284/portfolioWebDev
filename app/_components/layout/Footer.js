@@ -71,7 +71,7 @@ export default function Footer() {
               Impressum
             </Link>
             <Link
-              href="/privacy"
+              href="/privatepolicy"
               className="hover:opacity-100 transition-opacity"
             >
               Datenschutz

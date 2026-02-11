@@ -33,8 +33,8 @@ export default function AboutHero() {
       block1: {
         title: "Von Sprache zu Code",
         paragraphs: [
-          "Von der Linguistik zur Web-Entwicklung – meine Reise begann mit einer Faszination für Sprachen. Sowohl die menschlichen als auch die der Programmierung.",
-          "Was mich antreibt? Die Fähigkeit, komplexe menschliche Geschichten und Bedürfnisse in digitale Anwendungen zu übersetzen, die Menschen weltweit verbinden.",
+          "Von der Übersetzung zur Web-Entwicklung – meine Reise begann mit einer Faszination für Sprachen. Sowohl die menschlichen als auch die digitale. Ich entwickle und transformiere Ideen mit Leidenschaft in digitale Experiences.",
+          "Was mich antreibt? Die Fähigkeit, Bedürfnisse und Visionen in digitale Anwendungen zu übersetzen, Prozesse zu vereinfachen, effizienten Workflow zu gewährleisten.",
         ],
       },
 
@@ -62,8 +62,8 @@ export default function AboutHero() {
       block1: {
         title: "From Language to Code",
         paragraphs: [
-          "From linguistics to web development – my journey began with a fascination for languages. Both human and programming ones.",
-          "What drives me? The ability to translate complex human stories and needs into digital applications that connect people globally.",
+          "From translation to web development – my journey began with a fascination for languages, both human and digital. I am passionate about developing and transforming ideas into digital experiences.",
+          "What drives me? The ability to translate needs and visions into digital applications, simplify processes and ensure efficient workflows.",
         ],
       },
 

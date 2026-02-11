@@ -222,13 +222,13 @@ function FormField({
           rows={5}
           placeholder={placeholder}
           {...register(id)}
-          className={`w-full px-0 py-3 bg-transparent text-base outline-none border-0 border-b transition-colors duration-200 resize-none ${
-            hasError ? "" : "focus:border-b-[var(--ink)]"
+          className={`w-full px-0 py-3 bg-transparent text-base border-0 border-b transition-all duration-200 resize-none focus:outline-none focus-visible:outline-none ${
+            hasError
+              ? "border-b-[tomato]"
+              : "border-b-[var(--border)] focus:border-b-[var(--ink)] focus:border-b-2"
           }`}
           style={{
             color: "var(--ink)",
-            borderBottomWidth: "1px",
-            borderBottomColor: hasError ? "tomato" : "var(--border)",
           }}
         />
       ) : (
@@ -247,13 +247,13 @@ function FormField({
                     : "off"
           }
           {...register(id)}
-          className={`w-full px-0 py-3 bg-transparent text-base outline-none border-0 border-b transition-colors duration-200 ${
-            hasError ? "" : "focus:border-b-[var(--ink)]"
+          className={`w-full px-0 py-3 bg-transparent text-base border-0 border-b transition-all duration-200 focus:outline-none focus-visible:outline-none ${
+            hasError
+              ? "border-b-[tomato]"
+              : "border-b-[var(--border)] focus:border-b-[var(--ink)] focus:border-b-2"
           }`}
           style={{
             color: "var(--ink)",
-            borderBottomWidth: "1px",
-            borderBottomColor: hasError ? "tomato" : "var(--border)",
           }}
         />
       )}
