@@ -14,9 +14,7 @@ export default function Footer() {
       }}
     >
       <div className="mx-auto max-w-6xl">
-        {/* Top Section */}
         <div className="grid gap-12 md:grid-cols-3 mb-12">
-          {/* Column 1: About */}
           <div>
             <h3 className="text-sm font-bold mb-4 uppercase tracking-wider opacity-70">
               Miriam Sparbrod
@@ -29,7 +27,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Column 2: Navigation */}
           <div>
             <h3 className="text-sm font-bold mb-4 uppercase tracking-wider opacity-70">
               Navigation
@@ -43,26 +40,27 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Column 3: Connect */}
           <div>
             <h3 className="text-sm font-bold mb-4 uppercase tracking-wider opacity-70">
               Connect
             </h3>
             <nav className="flex flex-col gap-2">
-              <FooterLink href="mailto:your@email.com" external>
+              <FooterLink href="mailto:sparbrod.webdev@gmail.com" external>
                 Email
               </FooterLink>
-              <FooterLink href="https://github.com/yourusername" external>
+              <FooterLink href="https://github.com/MiriamS284" external>
                 GitHub
               </FooterLink>
-              <FooterLink href="https://linkedin.com/in/yourprofile" external>
+              <FooterLink
+                href="https://www.linkedin.com/in/miriam-sparbrod/"
+                external
+              >
                 LinkedIn
               </FooterLink>
             </nav>
           </div>
         </div>
 
-        {/* Bottom Section */}
         <div className="pt-8 border-t border-[var(--border)] flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-60">
           <div>© {currentYear} Miriam Sparbrod. All rights reserved.</div>
           <div className="flex gap-6">
