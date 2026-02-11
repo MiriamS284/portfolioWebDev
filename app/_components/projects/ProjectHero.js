@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/app/_context/LanguageProvider";
 import { urlFor } from "@/lib/sanity";
+import Breadcrumb from "@/app/_components/shared/Breadcrumb";
 
 export default function ProjectHero({ project }) {
   const { lang } = useLanguage();
@@ -17,13 +18,10 @@ export default function ProjectHero({ project }) {
     <section className="py-16 md:py-24" style={{ background: "var(--bg)" }}>
       <div className="mx-auto max-w-5xl px-6">
         {/* Breadcrumb */}
-        <div className="mb-12 flex items-center gap-2 text-sm font-mono" style={{ color: "var(--muted)" }}>
-          <a href="/projects" className="hover:opacity-100 transition-opacity opacity-60">
-            Projekte
-          </a>
-          <span className="opacity-40">/</span>
-          <span className="opacity-60">{project.title?.[lang] || project.title?.de}</span>
-        </div>
+        <Breadcrumb
+          section="projects"
+          title={project.title?.[lang] || project.title?.de}
+        />
 
         {/* Logo + Media Preview Container */}
         <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start mb-12">

@@ -34,7 +34,7 @@ export default function WritingColumn({ posts = [], lang = "de" }) {
 
         {/* View All Link */}
         <Link
-          href="/blog"
+          href="/case-studies"
           className="group inline-block"
         >
           <span
@@ -55,7 +55,7 @@ function WritingItem({ post }) {
   const slug = post.slug?.current;
 
   return (
-    <Link href={`/blog/${slug}`} className="group block">
+    <Link href={`/case-studies/${slug}`} className="group block">
       <div className="flex items-center gap-1">
         <span
           className="text-sm font-medium underline underline-offset-2 decoration-1 transition-colors group-hover:text-[var(--accent)]"

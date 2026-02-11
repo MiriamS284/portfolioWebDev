@@ -38,7 +38,7 @@ export default function Footer() {
               <FooterLink href="/about">Über mich</FooterLink>
               <FooterLink href="/projects">Projekte</FooterLink>
               <FooterLink href="/garden">Digital Garden</FooterLink>
-              <FooterLink href="/blog">Case Studies</FooterLink>
+              <FooterLink href="/case-studies">Case Studies</FooterLink>
               <FooterLink href="/snippets">Code Snippets</FooterLink>
             </nav>
           </div>

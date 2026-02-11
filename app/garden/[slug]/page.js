@@ -8,7 +8,6 @@ import GardenEntryHeader from "@/app/_components/garden/GardenEntryHeader";
 import GardenEntryContent from "@/app/_components/garden/GardenEntryContent";
 import ConnectedNotes from "@/app/_components/garden/ConnectedNotes";
 
-// SEO Metadata
 export async function generateMetadata({ params }) {
   const entry = await client.fetch(gardenEntryBySlugQuery, {
     slug: params.slug,

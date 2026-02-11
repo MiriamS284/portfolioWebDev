@@ -2,15 +2,15 @@ import { client, postBySlugQuery } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanity";
 import { notFound } from "next/navigation";
 import Container from "@/app/_components/shared/Container";
-import BackLink from "@/app/_components/shared/BackLink";
+import Breadcrumb from "@/app/_components/shared/Breadcrumb";
 import BlogPostHeader from "@/app/_components/blog/BlogPostHeader";
 import BlogPostContent from "@/app/_components/blog/BlogPostContent";
 
-// SEO Metadata
 export async function generateMetadata({ params }) {
-  const post = await client.fetch(postBySlugQuery, { slug: params.slug });
+  const { slug } = await params;
+  const post = await client.fetch(postBySlugQuery, { slug });
 
-  if (!post) return { title: "Post nicht gefunden" };
+  if (!post) return { title: "Case Study nicht gefunden" };
 
   return {
     title: `${post.title} | Miriam Sparbrod`,
@@ -23,8 +23,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function BlogPostPage({ params }) {
-  const post = await client.fetch(postBySlugQuery, { slug: params.slug });
+export default async function CaseStudyPage({ params }) {
+  const { slug } = await params;
+  const post = await client.fetch(postBySlugQuery, { slug });
 
   if (!post) notFound();
 
@@ -35,7 +36,7 @@ export default async function BlogPostPage({ params }) {
     >
       <Container>
         <div className="py-12 md:py-20">
-          <BackLink href="/blog">Zurück zum Blog</BackLink>
+          <Breadcrumb section="case-studies" title={post.title} />
           <BlogPostHeader post={post} />
         </div>
       </Container>

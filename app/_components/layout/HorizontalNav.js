@@ -10,14 +10,14 @@ const content = {
     links: [
       { label: "ÜBER MICH", href: "/about" },
       { label: "PROJEKTE", href: "/projects" },
-      { label: "CASE STUDIES", href: "/blog" },
+      { label: "CASE STUDIES", href: "/case-studies" },
     ],
   },
   en: {
     links: [
       { label: "ABOUT", href: "/about" },
       { label: "PROJECTS", href: "/projects" },
-      { label: "CASE STUDIES", href: "/blog" },
+      { label: "CASE STUDIES", href: "/case-studies" },
     ],
   },
 };

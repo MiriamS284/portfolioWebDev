@@ -186,7 +186,7 @@ export default function OverlayMenu({ open, onClose, autoCloseMs = 8000 }) {
               </div>
 
               <div>
-                <MenuLink href="/blog" onClose={onClose}>
+                <MenuLink href="/case-studies" onClose={onClose}>
                   {L.blog}
                 </MenuLink>
                 <div className="mt-2 text-sm opacity-60 tracking-wide">

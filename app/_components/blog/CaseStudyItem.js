@@ -20,7 +20,7 @@ export default function CaseStudyItem({ study, isLast }) {
   return (
     <>
       <Link
-        href={`/blog/${slug}`}
+        href={`/case-studies/${slug}`}
         className="group block py-8"
       >
         {/* Title + Date */}

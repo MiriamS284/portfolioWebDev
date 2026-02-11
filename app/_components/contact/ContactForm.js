@@ -74,7 +74,7 @@ export default function ContactForm() {
     formState: { errors },
   } = useForm({
     resolver: zodResolver(createSchema(lang)),
-    mode: "onBlur", // Validate on blur for immediate feedback
+    mode: "onBlur",
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -116,7 +116,6 @@ export default function ContactForm() {
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* First Name */}
           <FormField
             id="firstName"
             label={t.firstName}
@@ -124,7 +123,6 @@ export default function ContactForm() {
             register={register}
           />
 
-          {/* Last Name */}
           <FormField
             id="lastName"
             label={t.lastName}
@@ -133,7 +131,6 @@ export default function ContactForm() {
           />
         </div>
 
-        {/* Company */}
         <FormField
           id="company"
           label={t.company}
@@ -141,7 +138,6 @@ export default function ContactForm() {
           register={register}
         />
 
-        {/* Email */}
         <FormField
           id="email"
           label={t.email}
@@ -151,7 +147,6 @@ export default function ContactForm() {
           register={register}
         />
 
-        {/* Message */}
         <FormField
           id="message"
           label={t.message}
@@ -161,7 +156,6 @@ export default function ContactForm() {
           register={register}
         />
 
-        {/* Submit Button */}
         <div className="pt-4">
           <button
             type="submit"
@@ -175,7 +169,6 @@ export default function ContactForm() {
           </button>
         </div>
 
-        {/* Status Messages */}
         {status === "success" && (
           <p className="text-sm" style={{ color: "var(--accent)" }}>
             {t.success}
@@ -191,7 +184,6 @@ export default function ContactForm() {
   );
 }
 
-// Reusable Form Field with focus-within for label highlight
 function FormField({
   id,
   label,
@@ -215,11 +207,12 @@ function FormField({
         style={{ color: hasError ? "tomato" : "var(--muted)" }}
       >
         {label}
-        {optional && (
-          <span style={{ opacity: 0.5 }}> ({optional})</span>
-        )}
+        {optional && <span style={{ opacity: 0.5 }}> ({optional})</span>}
         {hint && (
-          <span style={{ opacity: hasError ? 0.7 : 0.4, fontStyle: "italic" }}> — {hint}</span>
+          <span style={{ opacity: hasError ? 0.7 : 0.4, fontStyle: "italic" }}>
+            {" "}
+            — {hint}
+          </span>
         )}
       </label>
 
@@ -243,10 +236,15 @@ function FormField({
           id={id}
           type={type}
           autoComplete={
-            id === "firstName" ? "given-name" :
-            id === "lastName" ? "family-name" :
-            id === "company" ? "organization" :
-            id === "email" ? "email" : "off"
+            id === "firstName"
+              ? "given-name"
+              : id === "lastName"
+                ? "family-name"
+                : id === "company"
+                  ? "organization"
+                  : id === "email"
+                    ? "email"
+                    : "off"
           }
           {...register(id)}
           className={`w-full px-0 py-3 bg-transparent text-base outline-none border-0 border-b transition-colors duration-200 ${
