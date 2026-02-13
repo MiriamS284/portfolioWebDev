@@ -23,7 +23,7 @@ export default function CaseStudiesHeader() {
   const { label, title, description } = content[lang];
 
   return (
-    <div className="max-w-2xl mx-auto text-center mb-16 pt-32 md:pt-40">
+    <div className="mb-16">
       <div
         className="text-xs uppercase tracking-[0.3em] font-mono mb-3"
         style={{ color: "var(--muted)", opacity: 0.6 }}
@@ -31,13 +31,13 @@ export default function CaseStudiesHeader() {
         {label}
       </div>
       <h1
-        className="text-4xl md:text-5xl font-bold mb-6"
+        className="text-4xl md:text-6xl font-bold mb-6"
         style={{ color: "var(--ink)" }}
       >
         {title}
       </h1>
       <p
-        className="text-lg md:text-xl"
+        className="text-lg md:text-xl max-w-3xl"
         style={{ color: "var(--muted)" }}
       >
         {description}

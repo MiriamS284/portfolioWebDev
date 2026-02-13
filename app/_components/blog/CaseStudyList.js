@@ -8,7 +8,7 @@ export default function CaseStudyList({ studies }) {
 
   if (!studies || studies.length === 0) {
     return (
-      <div className="text-center py-20">
+      <div className="py-20">
         <p style={{ color: "var(--muted)", opacity: 0.6 }}>
           {lang === "de"
             ? "Noch keine Case Studies vorhanden."
@@ -19,7 +19,7 @@ export default function CaseStudyList({ studies }) {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div>
       <hr
         className="border-0 h-px mb-0"
         style={{ background: "var(--border)" }}

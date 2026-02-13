@@ -26,7 +26,7 @@ export default function CaseStudyItem({ study, isLast }) {
             style={{ color: "var(--ink)" }}
           >
             <span className="group-hover:text-[var(--accent)] transition-colors">
-              {study.title}
+              {study.title?.[lang] || study.title?.de || study.title}
             </span>
             <span
               className="inline-block ml-2 opacity-0 group-hover:opacity-70 transition-all duration-200 group-hover:translate-x-1"
@@ -57,12 +57,12 @@ export default function CaseStudyItem({ study, isLast }) {
           </div>
         )}
 
-        {study.excerpt && (
+        {(study.excerpt?.[lang] || study.excerpt?.de) && (
           <p
             className="text-sm leading-relaxed"
             style={{ color: "var(--muted)" }}
           >
-            {study.excerpt}
+            {study.excerpt?.[lang] || study.excerpt?.de}
           </p>
         )}
       </Link>

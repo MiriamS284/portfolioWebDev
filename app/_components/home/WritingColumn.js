@@ -24,7 +24,7 @@ export default function WritingColumn({ posts = [], lang = "de" }) {
 
       <div className="space-y-5">
         {posts.slice(0, 4).map((post) => (
-          <WritingItem key={post._id} post={post} />
+          <WritingItem key={post._id} post={post} lang={lang} />
         ))}
 
         <Link href="/case-studies" className="group inline-block">
@@ -40,9 +40,9 @@ export default function WritingColumn({ posts = [], lang = "de" }) {
   );
 }
 
-function WritingItem({ post }) {
-  const title = post.title || "Untitled";
-  const excerpt = post.excerpt || "";
+function WritingItem({ post, lang = "de" }) {
+  const title = post.title?.[lang] || post.title?.de || post.title || "Untitled";
+  const excerpt = post.excerpt?.[lang] || post.excerpt?.de || "";
   const slug = post.slug?.current;
 
   return (

@@ -8,12 +8,10 @@ function getPrefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-export default function MERNWriteIntro({ onDone, logoSrc = "/logo_side.png" }) {
+export default function MERNWriteIntro({ onDone, logoSrc = "/logo_no_text.png" }) {
+  // Phasen: writing -> subtitle -> dragonfly -> flyToNav -> done
   const [phase, setPhase] = useState("writing");
-  const [skipVisible, setSkipVisible] = useState(true);
-  const logoRef = useRef(null);
   const hasCalledDone = useRef(false);
-
   const [prefersReducedMotion] = useState(() => getPrefersReducedMotion());
 
   useEffect(() => {
@@ -25,18 +23,25 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_side.png" }) {
       return;
     }
 
+    // Schnellere Timings
     const timers = [
-      setTimeout(() => setPhase("logoFadeIn"), 4000),
+      // MERN fertig geschrieben + Subtitle erscheint
+      setTimeout(() => setPhase("subtitle"), 2800),
 
-      setTimeout(() => setPhase("logoToCorner"), 5000),
+      // Libelle erscheint und kreist (schneller)
+      setTimeout(() => setPhase("dragonfly"), 3500),
 
+      // Libelle fliegt zur Nav-Position
+      setTimeout(() => setPhase("flyToNav"), 5500),
+
+      // Fertig
       setTimeout(() => {
         setPhase("done");
         if (!hasCalledDone.current) {
           hasCalledDone.current = true;
           onDone?.();
         }
-      }, 6500),
+      }, 6800),
     ];
 
     return () => timers.forEach(clearTimeout);
@@ -44,7 +49,10 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_side.png" }) {
 
   const handleSkip = () => {
     setPhase("done");
-    onDone?.();
+    if (!hasCalledDone.current) {
+      hasCalledDone.current = true;
+      onDone?.();
+    }
   };
 
   if (prefersReducedMotion || phase === "done") {
@@ -53,28 +61,26 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_side.png" }) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
+      className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden"
       style={{ background: "var(--bg)" }}
     >
       {/* Skip Button */}
-      {skipVisible && (
-        <button
-          onClick={handleSkip}
-          className="absolute top-6 right-6 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:opacity-80"
-          style={{
-            color: "var(--muted)",
-            background: "transparent",
-            border: "1px solid var(--border)",
-          }}
-        >
-          Skip
-        </button>
-      )}
+      <button
+        onClick={handleSkip}
+        className="absolute top-6 right-6 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:opacity-80 z-50"
+        style={{
+          color: "var(--muted)",
+          background: "transparent",
+          border: "1px solid var(--border)",
+        }}
+      >
+        Skip
+      </button>
 
       {/* MERN Writing Animation */}
       <div
-        className={`absolute transition-opacity duration-700 ${
-          phase === "writing" ? "opacity-100" : "opacity-0"
+        className={`absolute transition-opacity duration-500 ${
+          phase === "flyToNav" ? "opacity-0" : "opacity-100"
         }`}
       >
         <svg
@@ -128,9 +134,11 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_side.png" }) {
           />
         </svg>
 
-        {/* Subtitle that appears after text */}
+        {/* Subtitle */}
         <p
-          className="mern-subtitle text-center mt-8 text-sm md:text-base tracking-widest uppercase"
+          className={`mern-subtitle text-center mt-8 text-sm md:text-base tracking-widest uppercase transition-opacity duration-400 ${
+            phase === "writing" ? "opacity-0" : "opacity-60"
+          }`}
           style={{
             color: "var(--muted)",
             fontFamily: "var(--font-mono)",
@@ -141,38 +149,26 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_side.png" }) {
         </p>
       </div>
 
-      {/* Logo - fades in center, then moves to corner */}
+      {/* Libelle - kreist schnell und flüssig */}
       <div
-        ref={logoRef}
-        className={`absolute transition-all duration-1000 ease-out ${
-          phase === "logoFadeIn"
-            ? "opacity-100 scale-100"
-            : phase === "logoToCorner"
-              ? "opacity-100 scale-50"
-              : "opacity-0 scale-75"
-        }`}
+        className={`dragonfly-container ${
+          phase === "dragonfly" ? "circling" : ""
+        } ${phase === "flyToNav" ? "fly-to-nav" : ""}`}
         style={{
-          ...(phase === "logoToCorner"
-            ? {
-                top: "24px",
-                left: "16px",
-                transform: "translate(0, 0) scale(0.5)",
-              }
-            : {
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-              }),
+          opacity: phase === "dragonfly" || phase === "flyToNav" ? 1 : 0,
         }}
       >
         <Image
           src={logoSrc}
-          alt="Logo"
-          width={200}
-          height={200}
+          alt="Dragonfly"
+          width={120}
+          height={120}
           priority
-          className="w-32 h-32 md:w-48 md:h-48"
-          style={{ objectFit: "contain" }}
+          className="dragonfly-image"
+          style={{
+            objectFit: "contain",
+            filter: "drop-shadow(0 8px 24px rgba(0,0,0,.4))",
+          }}
         />
       </div>
 
@@ -180,8 +176,7 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_side.png" }) {
         .mern-path {
           stroke-dasharray: 1;
           stroke-dashoffset: 1;
-          animation: drawMERN 3.5s cubic-bezier(0.445, 0.05, 0.55, 0.95)
-            forwards;
+          animation: drawMERN 2.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
         @keyframes drawMERN {
@@ -191,23 +186,211 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_side.png" }) {
         }
 
         .mern-subtitle {
-          opacity: 0;
-          animation: fadeInSubtitle 0.8s ease-out 3.2s forwards;
+          animation: fadeInSubtitle 0.6s ease-out 2.5s forwards;
         }
 
         @keyframes fadeInSubtitle {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
           to {
             opacity: 0.6;
+            transform: translateY(0);
+          }
+        }
+
+        /* Libelle Container */
+        .dragonfly-container {
+          position: absolute;
+          width: 90px;
+          height: 90px;
+          pointer-events: none;
+          will-change: transform, opacity;
+        }
+
+        .dragonfly-container :global(.dragonfly-image) {
+          will-change: transform;
+        }
+
+        /* Schnelles, flüssiges Kreisen */
+        .dragonfly-container.circling {
+          animation: circleAround 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .dragonfly-container.circling :global(.dragonfly-image) {
+          animation: dragonflyFly 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes circleAround {
+          0% {
+            transform: translate(220px, -80px) scale(0.4);
+            opacity: 0;
+          }
+          5% {
+            opacity: 1;
+          }
+          15% {
+            transform: translate(160px, 40px) scale(0.8);
+          }
+          30% {
+            transform: translate(40px, 90px) scale(1);
+          }
+          45% {
+            transform: translate(-100px, 50px) scale(1);
+          }
+          60% {
+            transform: translate(-160px, -30px) scale(1);
+          }
+          75% {
+            transform: translate(-60px, -90px) scale(1);
+          }
+          88% {
+            transform: translate(60px, -50px) scale(1);
+          }
+          100% {
+            transform: translate(0, 0) scale(1);
+          }
+        }
+
+        /* Flüssige Wendungen während des Flugs */
+        @keyframes dragonflyFly {
+          0% {
+            transform: rotateY(0deg) rotateZ(-20deg) rotateX(10deg);
+          }
+          20% {
+            transform: rotateY(90deg) rotateZ(15deg) rotateX(-5deg);
+          }
+          40% {
+            transform: rotateY(180deg) rotateZ(-10deg) rotateX(8deg);
+          }
+          60% {
+            transform: rotateY(270deg) rotateZ(12deg) rotateX(-3deg);
+          }
+          80% {
+            transform: rotateY(360deg) rotateZ(-8deg) rotateX(5deg);
+          }
+          100% {
+            transform: rotateY(360deg) rotateZ(0deg) rotateX(0deg);
+          }
+        }
+
+        /* Fliegen zur Nav-Position */
+        .dragonfly-container.fly-to-nav {
+          animation: flyToNavPosition 1.3s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+        }
+
+        .dragonfly-container.fly-to-nav :global(.dragonfly-image) {
+          animation: dragonflySettle 1.3s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+        }
+
+        @keyframes flyToNavPosition {
+          0% {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            width: 90px;
+            height: 90px;
+          }
+          50% {
+            top: 25%;
+            left: 20%;
+            transform: translate(0, 0) scale(1.05);
+            width: 120px;
+            height: 120px;
+          }
+          100% {
+            top: 24px;
+            left: 24px;
+            transform: translate(0, 0) scale(1);
+            width: 160px;
+            height: 160px;
+          }
+        }
+
+        @keyframes dragonflySettle {
+          0% {
+            transform: rotateY(0deg) rotateZ(0deg);
+          }
+          40% {
+            transform: rotateY(-20deg) rotateZ(-8deg);
+          }
+          70% {
+            transform: rotateY(10deg) rotateZ(4deg);
+          }
+          100% {
+            transform: rotateY(0deg) rotateZ(0deg);
+          }
+        }
+
+        @media (max-width: 1024px) {
+          .dragonfly-container {
+            width: 60px;
+            height: 60px;
+          }
+
+          @keyframes circleAround {
+            0% {
+              transform: translate(150px, -60px) scale(0.4);
+              opacity: 0;
+            }
+            5% {
+              opacity: 1;
+            }
+            15% {
+              transform: translate(100px, 30px) scale(0.8);
+            }
+            30% {
+              transform: translate(20px, 60px) scale(1);
+            }
+            45% {
+              transform: translate(-60px, 35px) scale(1);
+            }
+            60% {
+              transform: translate(-100px, -20px) scale(1);
+            }
+            75% {
+              transform: translate(-40px, -60px) scale(1);
+            }
+            88% {
+              transform: translate(40px, -35px) scale(1);
+            }
+            100% {
+              transform: translate(0, 0) scale(1);
+            }
+          }
+
+          @keyframes flyToNavPosition {
+            0% {
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%) scale(1);
+              width: 60px;
+              height: 60px;
+            }
+            100% {
+              top: 12px;
+              left: 16px;
+              transform: translate(0, 0) scale(1);
+              width: 48px;
+              height: 48px;
+            }
           }
         }
 
         @media (prefers-reduced-motion: reduce) {
+          .mern-path,
+          .mern-subtitle,
+          .dragonfly-container.circling,
+          .dragonfly-container.circling :global(.dragonfly-image),
+          .dragonfly-container.fly-to-nav,
+          .dragonfly-container.fly-to-nav :global(.dragonfly-image) {
+            animation: none !important;
+          }
           .mern-path {
-            animation: none;
             stroke-dashoffset: 0;
           }
           .mern-subtitle {
-            animation: none;
             opacity: 0.6;
           }
         }

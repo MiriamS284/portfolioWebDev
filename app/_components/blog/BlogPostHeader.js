@@ -1,15 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import { imagePresets } from "@/lib/sanity";
+import { useLanguage } from "@/app/_context/LanguageProvider";
 import CategoryBadge from "../shared/CategoryBadge";
 import { formatDate } from "@/lib/utils/formatDate";
 
 export default function BlogPostHeader({ post }) {
+  const { lang } = useLanguage();
+
   return (
     <header>
       {post.categories?.length > 0 && (
         <div className="flex gap-2 mb-6 flex-wrap">
           {post.categories.map((cat) => (
-            <CategoryBadge key={cat.slug.current} title={cat.title} />
+            <CategoryBadge key={cat.slug?.current || cat.title} title={cat.title} />
           ))}
         </div>
       )}
@@ -20,7 +25,7 @@ export default function BlogPostHeader({ post }) {
           textShadow: "0 1px 0 rgba(0,0,0,.22), 0 18px 36px rgba(0,0,0,.28)",
         }}
       >
-        {post.title}
+        {post.title?.[lang] || post.title?.de || post.title}
       </h1>
 
       <div className="flex flex-wrap items-center gap-4 text-sm opacity-70">

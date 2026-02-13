@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import dynamic from "next/dynamic";
 import MenuDock from "./layout/MenuDock";
 import HeroShowcase from "./HeroShowcase";
@@ -13,14 +13,17 @@ const MERNWriteIntro = dynamic(() => import("./MERNWriteIntro"), {
 });
 
 export default function ClientHomePage({ projects, posts, snippets, thoughts }) {
-  const [introState, setIntroState] = useState("checking");
+  // Start mit "show" - Intro wird immer zuerst angezeigt (schwarzer Bildschirm)
+  const [introState, setIntroState] = useState("show");
+  const [isClient, setIsClient] = useState(false);
 
-  useEffect(() => {
+  // Sofort beim Client-Mount prüfen
+  useLayoutEffect(() => {
+    setIsClient(true);
     const hasSeenIntro = sessionStorage.getItem("intro_seen");
-
-    requestAnimationFrame(() => {
-      setIntroState(hasSeenIntro ? "done" : "show");
-    });
+    if (hasSeenIntro) {
+      setIntroState("done");
+    }
   }, []);
 
   const handleIntroDone = () => {
@@ -28,14 +31,22 @@ export default function ClientHomePage({ projects, posts, snippets, thoughts }) 
     setIntroState("done");
   };
 
-  if (introState === "checking") {
-    return null;
+  // Vor Client-Hydration: Schwarzer Bildschirm
+  if (!isClient) {
+    return (
+      <div
+        className="fixed inset-0 z-[9999]"
+        style={{ background: "var(--bg)" }}
+      />
+    );
   }
 
+  // Intro anzeigen
   if (introState === "show") {
-    return <MERNWriteIntro onDone={handleIntroDone} logoSrc="/logo_side.png" />;
+    return <MERNWriteIntro onDone={handleIntroDone} logoSrc="/logo_no_text.png" />;
   }
 
+  // Homepage
   return (
     <>
       <MenuDock />

@@ -9,9 +9,13 @@ export async function generateMetadata({ params }) {
 
   if (!post) return { title: "Case Study nicht gefunden" };
 
+  // Use German as default for metadata
+  const title = post.seo?.metaTitle?.de || post.title?.de || post.title;
+  const description = post.seo?.metaDescription?.de || post.excerpt?.de || "";
+
   return {
-    title: `${post.title} | Miriam Sparbrod`,
-    description: post.excerpt || post.seo?.metaDescription,
+    title: `${title} | Miriam Sparbrod`,
+    description,
     openGraph: post.mainImage
       ? {
           images: [urlFor(post.mainImage).width(1200).height(630).url()],

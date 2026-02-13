@@ -110,15 +110,15 @@ export default function CaseStudyModal({ study, onClose }) {
             className="text-3xl md:text-4xl font-bold leading-tight"
             style={{ color: "var(--ink)" }}
           >
-            {study.title}
+            {study.title?.[lang] || study.title?.de || study.title}
           </h1>
 
-          {study.excerpt && (
+          {(study.excerpt?.[lang] || study.excerpt?.de) && (
             <p
               className="text-lg leading-relaxed mt-4"
               style={{ color: "var(--muted)" }}
             >
-              {study.excerpt}
+              {study.excerpt?.[lang] || study.excerpt?.de}
             </p>
           )}
 
@@ -133,13 +133,13 @@ export default function CaseStudyModal({ study, onClose }) {
         </div>
 
         <div className="p-8 md:p-12">
-          {study.body ? (
+          {(study.body?.[lang] || study.body?.de || study.body) ? (
             <div
               className="prose prose-invert max-w-none"
               style={{ color: "var(--ink)" }}
             >
               <PortableText
-                value={study.body}
+                value={study.body?.[lang] || study.body?.de || study.body}
                 components={portableTextComponents}
               />
             </div>

@@ -20,12 +20,13 @@ export default async function CaseStudiesPage() {
       <MenuDock />
 
       <main
-        className="min-h-screen px-6"
+        className="py-20 md:py-32 px-6 md:ml-[280px] md:pt-[120px]"
         style={{ background: "var(--bg)" }}
       >
-        <CaseStudiesHeader />
-        <CaseStudyList studies={studies} />
-        <div className="py-20" />
+        <div className="max-w-5xl">
+          <CaseStudiesHeader />
+          <CaseStudyList studies={studies} />
+        </div>
       </main>
 
       <Footer />

@@ -29,7 +29,6 @@ export default function CinematicIntroPro({
   const particlesRef = useRef([]);
   const animationFrameRef = useRef(null);
 
-  // Skip callback
   useEffect(() => {
     if (phase === "done" && !playedRef.current) {
       playedRef.current = true;
@@ -37,13 +36,11 @@ export default function CinematicIntroPro({
     }
   }, [phase, onDone]);
 
-  // Phase 1: Acronyms (Buchstaben einfliegen)
   useEffect(() => {
     if (phase !== "acronyms") return;
 
     const currentAcronym = ACRONYMS[acronymIndex];
     if (!currentAcronym) {
-      // Alle Buchstaben da → Unterstrich nach Pause
       const toUnderline = setTimeout(() => setShowUnderline(true), 800);
       return () => clearTimeout(toUnderline);
     }
@@ -62,14 +59,11 @@ export default function CinematicIntroPro({
     }
   }, [phase, acronymIndex, letterIndex, ACRONYMS]);
 
-  // Unterstrich → Label → Logo Particles
   useEffect(() => {
     if (!showUnderline) return;
 
-    // Label nach Unterstrich
     const labelTimer = setTimeout(() => setShowLabel(true), 600);
 
-    // Text ausblenden & Logo Particles starten
     const fadeTimer = setTimeout(() => {
       setFadeOutText(true);
       setTimeout(() => setPhase("logoParticles"), 500);
@@ -81,7 +75,6 @@ export default function CinematicIntroPro({
     };
   }, [showUnderline]);
 
-  // Phase 2: Logo Particles
   useEffect(() => {
     if (phase !== "logoParticles") return;
 
@@ -91,7 +84,6 @@ export default function CinematicIntroPro({
     const ctx = canvas.getContext("2d");
     const dpr = window.devicePixelRatio || 1;
 
-    // Set canvas size
     const size = Math.min(window.innerWidth * 0.8, 600);
     canvas.width = size * dpr;
     canvas.height = size * dpr;
@@ -99,12 +91,10 @@ export default function CinematicIntroPro({
     canvas.style.height = `${size}px`;
     ctx.scale(dpr, dpr);
 
-    // Load logo image
     const img = new window.Image();
     img.src = logoSrc;
 
     img.onload = () => {
-      // Draw image to get pixel data
       const tempCanvas = document.createElement("canvas");
       const tempCtx = tempCanvas.getContext("2d");
       tempCanvas.width = size;
@@ -114,7 +104,6 @@ export default function CinematicIntroPro({
       const imageData = tempCtx.getImageData(0, 0, size, size);
       const pixels = imageData.data;
 
-      // Create particles from logo pixels
       const particles = [];
       const spacing = 4;
 
@@ -145,7 +134,6 @@ export default function CinematicIntroPro({
 
       particlesRef.current = particles;
 
-      // Animate particles
       let frame = 0;
       const animate = () => {
         frame++;
@@ -181,7 +169,6 @@ export default function CinematicIntroPro({
         if (!allArrived) {
           animationFrameRef.current = requestAnimationFrame(animate);
         } else {
-          // Kurze Pause dann zu Corner
           setTimeout(() => {
             setPhase("logoToCorner");
           }, 1000);
@@ -198,7 +185,6 @@ export default function CinematicIntroPro({
     };
   }, [phase, logoSrc]);
 
-  // Phase 3: Logo to corner
   useEffect(() => {
     if (phase !== "logoToCorner") return;
     const t = setTimeout(() => {
@@ -224,7 +210,6 @@ export default function CinematicIntroPro({
         background: "oklch(0.13 0.03 250)",
       }}
     >
-      {/* Skip Button */}
       <button
         type="button"
         onClick={() => {
@@ -246,7 +231,6 @@ export default function CinematicIntroPro({
         Skip
       </button>
 
-      {/* Phase 1: MERN Stack (bleibt stehen!) */}
       {(phase === "acronyms" || showUnderline) && !fadeOutText && (
         <div className="text-center px-6">
           <div className="flex items-center justify-center gap-3 md:gap-6">
@@ -284,7 +268,6 @@ export default function CinematicIntroPro({
               })}
           </div>
 
-          {/* Underline */}
           {showUnderline && (
             <div
               className="mx-auto mt-6 h-1 rounded-full"
@@ -297,7 +280,6 @@ export default function CinematicIntroPro({
             />
           )}
 
-          {/* Label */}
           {showLabel && (
             <div
               className="mt-6 text-2xl md:text-4xl font-heading opacity-70"
@@ -311,7 +293,6 @@ export default function CinematicIntroPro({
         </div>
       )}
 
-      {/* Text Fade Out Overlay */}
       {fadeOutText && phase === "acronyms" && (
         <div
           style={{
@@ -323,7 +304,6 @@ export default function CinematicIntroPro({
         />
       )}
 
-      {/* Phase 2: Particle Logo Assembly */}
       {phase === "logoParticles" && (
         <div className="relative">
           <canvas
@@ -336,7 +316,6 @@ export default function CinematicIntroPro({
         </div>
       )}
 
-      {/* Phase 3: Logo to Corner */}
       {phase === "logoToCorner" && (
         <div
           className="fixed"
