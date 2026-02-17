@@ -1,62 +1,135 @@
 "use client";
 
 import Link from "next/link";
+import { useLanguage } from "@/app/_context/LanguageProvider";
 
-const difficultyColors = {
-  beginner: "var(--accent)",
-  intermediate: "orange",
-  advanced: "tomato",
+const difficultyConfig = {
+  beginner: { color: "#22c55e", label: { de: "Einsteiger", en: "Beginner" } },
+  intermediate: { color: "#f59e0b", label: { de: "Fortgeschritten", en: "Intermediate" } },
+  advanced: { color: "#ef4444", label: { de: "Experte", en: "Advanced" } },
+};
+
+const snippetTypeConfig = {
+  single: { icon: "", label: { de: "Single", en: "Single" } },
+  "multi-panel": { icon: "", label: { de: "Multi-Panel", en: "Multi-Panel" } },
 };
 
 export default function SnippetCard({ snippet }) {
+  const { lang } = useLanguage();
   const slug = snippet.slug?.current;
+
+  // Handle bilingual content
+  const title = typeof snippet.title === "object"
+    ? snippet.title[lang] || snippet.title.de || snippet.title.en
+    : snippet.title;
+
+  const description = typeof snippet.description === "object"
+    ? snippet.description[lang] || snippet.description.de || snippet.description.en
+    : snippet.description;
+
+  const difficulty = difficultyConfig[snippet.difficulty];
+  const snippetType = snippetTypeConfig[snippet.snippetType];
 
   return (
     <Link href={`/snippets/${slug}`} className="group block py-6">
-      <div className="flex items-center gap-3 mb-2">
+      {/* Meta Row */}
+      <div className="flex items-center flex-wrap gap-2 mb-2">
+        {/* Language Badge */}
         {snippet.language && (
           <span
-            className="text-xs font-mono uppercase"
-            style={{ color: "var(--accent)" }}
+            className="text-xs font-mono uppercase px-2 py-0.5 rounded"
+            style={{
+              color: "var(--accent)",
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
+            }}
           >
             {snippet.language}
           </span>
         )}
-        {snippet.difficulty && (
+
+        {/* Category Badge */}
+        {snippet.category && (
           <span
-            className="text-xs font-mono"
+            className="text-xs font-mono px-2 py-0.5 rounded"
             style={{
-              color: difficultyColors[snippet.difficulty] || "var(--muted)",
-              opacity: 0.7,
+              color: "var(--muted)",
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
             }}
           >
-            {snippet.difficulty}
+            {snippet.category}
+          </span>
+        )}
+
+        {/* Snippet Type Badge */}
+        {snippetType && (
+          <span
+            className="text-xs font-mono px-2 py-0.5 rounded"
+            style={{
+              color: "var(--muted)",
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
+            }}
+          >
+            {snippetType.icon} {snippetType.label[lang]}
+          </span>
+        )}
+
+        {/* Difficulty Badge */}
+        {difficulty && (
+          <span
+            className="text-xs font-mono px-2 py-0.5 rounded"
+            style={{
+              color: difficulty.color,
+              background: `${difficulty.color}15`,
+              border: `1px solid ${difficulty.color}30`,
+            }}
+          >
+            {difficulty.label[lang]}
+          </span>
+        )}
+
+        {/* Featured Badge */}
+        {snippet.featured && (
+          <span
+            className="text-xs font-mono px-2 py-0.5 rounded"
+            style={{
+              color: "var(--accent-strong)",
+              background: "var(--accent)15",
+              border: "1px solid var(--accent)30",
+            }}
+          >
+            Featured
           </span>
         )}
       </div>
 
+      {/* Title */}
       <h3
         className="text-lg font-semibold mb-2 transition-colors group-hover:text-[var(--accent)]"
         style={{ color: "var(--ink)" }}
       >
-        {snippet.title}
+        {title}
         <span
           className="inline-block ml-2 opacity-0 group-hover:opacity-60 transition-all duration-200 group-hover:translate-x-1"
           style={{ color: "var(--muted)" }}
         >
-          →
+
         </span>
       </h3>
 
-      {snippet.description && (
+      {/* Description */}
+      {description && (
         <p
-          className="text-sm leading-relaxed mb-3"
+          className="text-sm leading-relaxed mb-3 line-clamp-2"
           style={{ color: "var(--muted)" }}
         >
-          {snippet.description}
+          {description}
         </p>
       )}
 
+      {/* Tags */}
       {snippet.tags && snippet.tags.length > 0 && (
         <div className="flex flex-wrap gap-2">
           {snippet.tags.slice(0, 4).map((tag, idx) => (
@@ -68,6 +141,14 @@ export default function SnippetCard({ snippet }) {
               #{tag}
             </span>
           ))}
+          {snippet.tags.length > 4 && (
+            <span
+              className="text-xs font-mono"
+              style={{ color: "var(--muted)", opacity: 0.4 }}
+            >
+              +{snippet.tags.length - 4}
+            </span>
+          )}
         </div>
       )}
     </Link>

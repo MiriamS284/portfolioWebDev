@@ -8,7 +8,7 @@ import ProjectsHeader from "../_components/projects/ProjectsHeader";
 export const metadata = {
   title: "Projekte | Miriam Sparbrod",
   description:
-    "Full-Stack Projekte – von Web-Anwendungen bis APIs. MERN Stack, Next.js, TypeScript und mehr.",
+    "Full-Stack Projekte von Miriam Sparbrod, spezialisiert auf MERN Stack, Next.js und moderne Web-Anwendungen. Entdecken Sie innovative SaaS-Lösungen für B2B.",
 };
 
 export const revalidate = 60;

@@ -1,50 +1,64 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
 import { useLanguage } from "@/app/_context/LanguageProvider";
+import { PortableText } from "@portabletext/react";
+import { portableTextComponents } from "@/lib/sanity/portableText";
 import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
 import BackLink from "@/app/_components/shared/BackLink";
+import CodeBlock from "@/app/_components/snippets/CodeBlock";
+import MultiPanelCode from "@/app/_components/snippets/MultiPanelCode";
+import LivePreview from "@/app/_components/snippets/LivePreview";
+import RelatedSnippets from "@/app/_components/snippets/RelatedSnippets";
 
 const texts = {
   de: {
     back: "Zurück zu Snippets",
-    copy: "Kopieren",
-    copied: "Kopiert!",
     usage: "Verwendung",
     explanation: "Erklärung",
     dependencies: "Abhängigkeiten",
-    related: "Verwandte Snippets",
+    installCommand: "Installation",
   },
   en: {
     back: "Back to Snippets",
-    copy: "Copy",
-    copied: "Copied!",
     usage: "Usage",
     explanation: "Explanation",
     dependencies: "Dependencies",
-    related: "Related Snippets",
+    installCommand: "Installation",
   },
 };
 
-const difficultyLabels = {
-  de: { beginner: "Einsteiger", intermediate: "Fortgeschritten", advanced: "Experte" },
-  en: { beginner: "Beginner", intermediate: "Intermediate", advanced: "Advanced" },
+const difficultyConfig = {
+  beginner: { color: "#22c55e", label: { de: "Einsteiger", en: "Beginner" } },
+  intermediate: { color: "#f59e0b", label: { de: "Fortgeschritten", en: "Intermediate" } },
+  advanced: { color: "#ef4444", label: { de: "Experte", en: "Advanced" } },
 };
 
 export default function SnippetDetailClient({ snippet }) {
   const { lang } = useLanguage();
   const t = texts[lang] || texts.de;
-  const [copied, setCopied] = useState(false);
 
-  const handleCopy = async () => {
-    if (snippet.code) {
-      await navigator.clipboard.writeText(snippet.code);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
-  };
+  // Handle bilingual content
+  const title = typeof snippet.title === "object"
+    ? snippet.title[lang] || snippet.title.de || snippet.title.en
+    : snippet.title;
+
+  const description = typeof snippet.description === "object"
+    ? snippet.description[lang] || snippet.description.de || snippet.description.en
+    : snippet.description;
+
+  const explanation = typeof snippet.explanation === "object"
+    ? snippet.explanation[lang] || snippet.explanation.de || snippet.explanation.en
+    : snippet.explanation;
+
+  const difficulty = difficultyConfig[snippet.difficulty];
+
+  // Determine if this is a multi-panel snippet
+  const isMultiPanel = snippet.snippetType === "multi-panel" ||
+    (snippet.htmlCode || snippet.cssCode || snippet.jsCode);
+
+  // Show live preview if enabled and has multi-panel code
+  const showPreview = snippet.showLivePreview && isMultiPanel;
 
   return (
     <>
@@ -57,41 +71,58 @@ export default function SnippetDetailClient({ snippet }) {
 
           {/* Header */}
           <header className="mb-12">
-            {/* Meta */}
-            <div className="flex items-center gap-4 mb-4">
+            {/* Meta Badges */}
+            <div className="flex items-center flex-wrap gap-2 mb-4">
+              {/* Language Badge */}
               {snippet.language && (
                 <span
-                  className="text-xs font-mono uppercase"
-                  style={{ color: "var(--accent)" }}
+                  className="text-xs font-mono uppercase px-3 py-1 rounded-lg"
+                  style={{
+                    color: "var(--accent)",
+                    background: "var(--surface)",
+                    border: "1px solid var(--border)",
+                  }}
                 >
                   {snippet.language}
                 </span>
               )}
-              {snippet.difficulty && (
-                <span
-                  className="text-xs font-mono"
-                  style={{ color: "var(--muted)" }}
-                >
-                  {difficultyLabels[lang]?.[snippet.difficulty] || snippet.difficulty}
-                </span>
-              )}
+
+              {/* Category Badge */}
               {snippet.category && (
                 <span
-                  className="text-xs font-mono"
-                  style={{ color: "var(--muted)" }}
+                  className="text-xs font-mono px-3 py-1 rounded-lg"
+                  style={{
+                    color: "var(--muted)",
+                    background: "var(--surface)",
+                    border: "1px solid var(--border)",
+                  }}
                 >
                   {snippet.category}
+                </span>
+              )}
+
+              {/* Difficulty Badge */}
+              {difficulty && (
+                <span
+                  className="text-xs font-mono px-3 py-1 rounded-lg"
+                  style={{
+                    color: difficulty.color,
+                    background: `${difficulty.color}15`,
+                    border: `1px solid ${difficulty.color}30`,
+                  }}
+                >
+                  {difficulty.label[lang]}
                 </span>
               )}
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">{snippet.title}</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">{title}</h1>
 
             {/* Description */}
-            {snippet.description && (
+            {description && (
               <p className="text-lg leading-relaxed" style={{ color: "var(--muted)" }}>
-                {snippet.description}
+                {description}
               </p>
             )}
 
@@ -111,69 +142,60 @@ export default function SnippetDetailClient({ snippet }) {
             )}
           </header>
 
-          {/* Code Block */}
-          {snippet.code && (
-            <section className="mb-12">
-              <div
-                className="relative overflow-hidden"
-                style={{
-                  background: "var(--surface)",
-                  border: "1px solid var(--border)",
-                }}
-              >
-                {/* Copy Button */}
-                <button
-                  onClick={handleCopy}
-                  className="absolute top-3 right-3 text-xs font-mono px-3 py-1.5 transition-colors"
-                  style={{
-                    background: "var(--bg)",
-                    color: copied ? "var(--accent)" : "var(--muted)",
-                    border: "1px solid var(--border)",
-                  }}
-                >
-                  {copied ? t.copied : t.copy}
-                </button>
+          {/* Code Section */}
+          <section className="mb-12">
+            {isMultiPanel ? (
+              <MultiPanelCode
+                htmlCode={snippet.htmlCode}
+                cssCode={snippet.cssCode}
+                jsCode={snippet.jsCode}
+              />
+            ) : snippet.code ? (
+              <CodeBlock
+                code={snippet.code}
+                language={snippet.language}
+                showRawButton={true}
+              />
+            ) : null}
+          </section>
 
-                {/* Code */}
-                <pre className="p-6 overflow-x-auto">
-                  <code
-                    className="text-sm font-mono leading-relaxed"
-                    style={{ color: "var(--ink)" }}
-                  >
-                    {snippet.code}
-                  </code>
-                </pre>
-              </div>
+          {/* Live Preview */}
+          {showPreview && (
+            <section className="mb-12">
+              <LivePreview
+                htmlCode={snippet.htmlCode}
+                cssCode={snippet.cssCode}
+                jsCode={snippet.jsCode}
+              />
             </section>
           )}
 
           {/* Explanation */}
-          {snippet.explanation && (
+          {explanation && (
             <section className="mb-12">
               <h2 className="text-xl font-semibold mb-4">{t.explanation}</h2>
               <div
-                className="prose prose-sm max-w-none leading-relaxed"
+                className="prose prose-sm max-w-none"
                 style={{ color: "var(--muted)" }}
               >
-                <p>{snippet.explanation}</p>
+                {Array.isArray(explanation) ? (
+                  <PortableText value={explanation} components={portableTextComponents} />
+                ) : (
+                  <p className="leading-relaxed">{explanation}</p>
+                )}
               </div>
             </section>
           )}
 
-          {/* Usage */}
+          {/* Usage Example */}
           {snippet.usage && (
             <section className="mb-12">
               <h2 className="text-xl font-semibold mb-4">{t.usage}</h2>
-              <pre
-                className="p-4 overflow-x-auto text-sm font-mono"
-                style={{
-                  background: "var(--surface)",
-                  border: "1px solid var(--border)",
-                  color: "var(--ink)",
-                }}
-              >
-                {snippet.usage}
-              </pre>
+              <CodeBlock
+                code={snippet.usage}
+                language={snippet.language || "javascript"}
+                showLineNumbers={false}
+              />
             </section>
           )}
 
@@ -181,11 +203,27 @@ export default function SnippetDetailClient({ snippet }) {
           {snippet.dependencies && snippet.dependencies.length > 0 && (
             <section className="mb-12">
               <h2 className="text-xl font-semibold mb-4">{t.dependencies}</h2>
+
+              {/* Install Command */}
+              <div
+                className="mb-4 p-4 rounded-xl font-mono text-sm"
+                style={{
+                  background: "var(--surface)",
+                  border: "1px solid var(--border)",
+                }}
+              >
+                <span style={{ color: "var(--muted)" }}>$</span>{" "}
+                <span style={{ color: "var(--ink)" }}>
+                  npm install {snippet.dependencies.join(" ")}
+                </span>
+              </div>
+
+              {/* Dependency List */}
               <div className="flex flex-wrap gap-2">
                 {snippet.dependencies.map((dep, idx) => (
                   <span
                     key={idx}
-                    className="text-sm font-mono px-3 py-1"
+                    className="text-sm font-mono px-3 py-1.5 rounded-lg transition-colors hover:border-[var(--accent)]"
                     style={{
                       background: "var(--surface)",
                       border: "1px solid var(--border)",
@@ -199,39 +237,7 @@ export default function SnippetDetailClient({ snippet }) {
           )}
 
           {/* Related Snippets */}
-          {snippet.relatedSnippets && snippet.relatedSnippets.length > 0 && (
-            <section className="pt-8 border-t" style={{ borderColor: "var(--border)" }}>
-              <h2 className="text-xl font-semibold mb-6">{t.related}</h2>
-              <div className="space-y-3">
-                {snippet.relatedSnippets.map((related, idx) => (
-                  <Link
-                    key={idx}
-                    href={`/snippets/${related.slug?.current}`}
-                    className="group flex items-center gap-3"
-                  >
-                    <span
-                      className="text-xs font-mono uppercase"
-                      style={{ color: "var(--accent)", opacity: 0.8 }}
-                    >
-                      {related.language}
-                    </span>
-                    <span
-                      className="text-sm font-medium transition-colors group-hover:text-[var(--accent)]"
-                      style={{ color: "var(--ink)" }}
-                    >
-                      {related.title}
-                    </span>
-                    <span
-                      className="text-xs opacity-0 group-hover:opacity-60 transition-opacity"
-                      style={{ color: "var(--muted)" }}
-                    >
-                      →
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          )}
+          <RelatedSnippets snippets={snippet.relatedSnippets} />
         </article>
       </main>
 

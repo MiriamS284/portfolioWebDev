@@ -14,9 +14,9 @@ const texts = {
 };
 
 const difficultyLabel = {
-  beginner: "🟢",
-  intermediate: "🟡",
-  advanced: "🔴",
+  beginner: { icon: "", color: "#22c55e" },
+  intermediate: { icon: "", color: "#f59e0b" },
+  advanced: { icon: "", color: "#ef4444" },
 };
 
 export default function SnippetsColumn({ snippets = [], lang = "de" }) {
@@ -31,7 +31,7 @@ export default function SnippetsColumn({ snippets = [], lang = "de" }) {
       {/* List */}
       <div className="space-y-5">
         {snippets.slice(0, 4).map((snippet) => (
-          <SnippetItem key={snippet._id} snippet={snippet} />
+          <SnippetItem key={snippet._id} snippet={snippet} lang={lang} />
         ))}
 
         {/* View All Link */}
@@ -48,9 +48,16 @@ export default function SnippetsColumn({ snippets = [], lang = "de" }) {
   );
 }
 
-function SnippetItem({ snippet }) {
-  const title = snippet.title || "Untitled";
-  const description = snippet.description || "";
+function SnippetItem({ snippet, lang }) {
+  // Handle bilingual content
+  const title = typeof snippet.title === "object"
+    ? snippet.title[lang] || snippet.title.de || snippet.title.en
+    : snippet.title || "Untitled";
+
+  const description = typeof snippet.description === "object"
+    ? snippet.description[lang] || snippet.description.de || snippet.description.en
+    : snippet.description || "";
+
   const slug = snippet.slug?.current;
   const language = snippet.language || "";
 
@@ -75,7 +82,7 @@ function SnippetItem({ snippet }) {
           className="text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           style={{ color: "var(--muted)" }}
         >
-          ↗
+
         </span>
       </div>
       {description && (

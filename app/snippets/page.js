@@ -4,7 +4,7 @@ import SnippetsPageClient from "./SnippetsPageClient";
 
 export const metadata = {
   title: "Code Snippets | Miriam Sparbrod",
-  description: "Nützliche Code-Beispiele und Snippets für Web-Entwicklung - React, Next.js, TypeScript und mehr.",
+  description: "Nützliche Code-Beispiele und Snippets für Web-Entwicklung.",
 };
 
 export const revalidate = 60;

@@ -11,9 +11,18 @@ export async function generateMetadata({ params }) {
     return { title: "Snippet nicht gefunden" };
   }
 
+  // Handle bilingual title and description
+  const title = typeof snippet.title === "object"
+    ? snippet.title.de || snippet.title.en
+    : snippet.title;
+
+  const description = typeof snippet.description === "object"
+    ? snippet.description.de || snippet.description.en
+    : snippet.description;
+
   return {
-    title: `${snippet.title} | Code Snippets | Miriam Sparbrod`,
-    description: snippet.description || `${snippet.language} Code Snippet`,
+    title: `${title} | Code Snippets | Miriam Sparbrod`,
+    description: description || `${snippet.language} Code Snippet`,
   };
 }
 
