@@ -48,15 +48,20 @@ export default function SnippetsColumn({ snippets = [], lang = "de" }) {
   );
 }
 
-function SnippetItem({ snippet, lang }) {
-  // Handle bilingual content
-  const title = typeof snippet.title === "object"
-    ? snippet.title[lang] || snippet.title.de || snippet.title.en
-    : snippet.title || "Untitled";
+// Helper function to safely get text (handles both string and object formats)
+const getText = (field, lang, fallback = "") => {
+  if (!field) return fallback;
+  if (typeof field === "string") return field;
+  if (typeof field === "object" && field !== null) {
+    return field[lang] || field.de || field.en || fallback;
+  }
+  return fallback;
+};
 
-  const description = typeof snippet.description === "object"
-    ? snippet.description[lang] || snippet.description.de || snippet.description.en
-    : snippet.description || "";
+function SnippetItem({ snippet, lang }) {
+  // Handle both simple strings and bilingual objects
+  const title = getText(snippet.title, lang, "Untitled");
+  const description = getText(snippet.description, lang, "");
 
   const slug = snippet.slug?.current;
   const language = snippet.language || "";

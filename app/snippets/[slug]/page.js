@@ -11,14 +11,14 @@ export async function generateMetadata({ params }) {
     return { title: "Snippet nicht gefunden" };
   }
 
-  // Handle bilingual title and description
-  const title = typeof snippet.title === "object"
-    ? snippet.title.de || snippet.title.en
-    : snippet.title;
+  // Handle both simple strings and bilingual objects
+  const title = typeof snippet.title === "object" && snippet.title !== null
+    ? snippet.title.de || snippet.title.en || "Snippet"
+    : snippet.title || "Snippet";
 
-  const description = typeof snippet.description === "object"
-    ? snippet.description.de || snippet.description.en
-    : snippet.description;
+  const description = typeof snippet.description === "object" && snippet.description !== null
+    ? snippet.description.de || snippet.description.en || ""
+    : snippet.description || "";
 
   return {
     title: `${title} | Code Snippets | Miriam Sparbrod`,

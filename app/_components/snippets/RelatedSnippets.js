@@ -18,6 +18,16 @@ const difficultyConfig = {
   advanced: { color: "#ef4444", label: { de: "Experte", en: "Advanced" } },
 };
 
+// Helper function to safely get text (handles both string and object formats)
+const getText = (field, lang) => {
+  if (!field) return "";
+  if (typeof field === "string") return field;
+  if (typeof field === "object" && field !== null) {
+    return field[lang] || field.de || field.en || "";
+  }
+  return "";
+};
+
 export default function RelatedSnippets({ snippets }) {
   const { lang } = useLanguage();
   const t = texts[lang] || texts.de;
@@ -46,10 +56,8 @@ export default function RelatedSnippets({ snippets }) {
 function RelatedSnippetCard({ snippet, lang }) {
   const slug = snippet.slug?.current;
 
-  // Handle bilingual content
-  const title = typeof snippet.title === "object"
-    ? snippet.title[lang] || snippet.title.de || snippet.title.en
-    : snippet.title;
+  // Handle both simple strings and bilingual objects
+  const title = getText(snippet.title, lang);
 
   const difficulty = difficultyConfig[snippet.difficulty];
 

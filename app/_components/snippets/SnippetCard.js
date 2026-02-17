@@ -14,18 +14,23 @@ const snippetTypeConfig = {
   "multi-panel": { icon: "", label: { de: "Multi-Panel", en: "Multi-Panel" } },
 };
 
+// Helper function to safely get text (handles both string and object formats)
+const getText = (field, lang) => {
+  if (!field) return "";
+  if (typeof field === "string") return field;
+  if (typeof field === "object" && field !== null) {
+    return field[lang] || field.de || field.en || "";
+  }
+  return "";
+};
+
 export default function SnippetCard({ snippet }) {
   const { lang } = useLanguage();
   const slug = snippet.slug?.current;
 
-  // Handle bilingual content
-  const title = typeof snippet.title === "object"
-    ? snippet.title[lang] || snippet.title.de || snippet.title.en
-    : snippet.title;
-
-  const description = typeof snippet.description === "object"
-    ? snippet.description[lang] || snippet.description.de || snippet.description.en
-    : snippet.description;
+  // Handle both simple strings and bilingual objects
+  const title = getText(snippet.title, lang);
+  const description = getText(snippet.description, lang);
 
   const difficulty = difficultyConfig[snippet.difficulty];
   const snippetType = snippetTypeConfig[snippet.snippetType];

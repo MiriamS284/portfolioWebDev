@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/app/_context/LanguageProvider";
 import { PortableText } from "@portabletext/react";
 import { portableTextComponents } from "@/lib/sanity/portableText";
+import { urlFor } from "@/lib/sanity/image";
 import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
 import BackLink from "@/app/_components/shared/BackLink";
@@ -18,6 +20,7 @@ const texts = {
     explanation: "Erklärung",
     dependencies: "Abhängigkeiten",
     installCommand: "Installation",
+    preview: "Vorschau",
   },
   en: {
     back: "Back to Snippets",
@@ -25,6 +28,7 @@ const texts = {
     explanation: "Explanation",
     dependencies: "Dependencies",
     installCommand: "Installation",
+    preview: "Preview",
   },
 };
 
@@ -34,22 +38,44 @@ const difficultyConfig = {
   advanced: { color: "#ef4444", label: { de: "Experte", en: "Advanced" } },
 };
 
+// Helper function to safely get text (handles both string and object formats)
+const getText = (field, lang) => {
+  if (!field) return "";
+  if (typeof field === "string") return field;
+  if (typeof field === "object" && field !== null) {
+    // Check if it's an array (Portable Text)
+    if (Array.isArray(field)) return field;
+    return field[lang] || field.de || field.en || "";
+  }
+  return "";
+};
+
+// Helper function to extract code from Sanity's code field type
+// Sanity code plugin stores: { _type: "code", language: "jsx", code: "..." }
+const getCodeContent = (codeField) => {
+  if (!codeField) return { code: "", language: "" };
+  if (typeof codeField === "string") return { code: codeField, language: "" };
+  if (typeof codeField === "object" && codeField !== null) {
+    return {
+      code: codeField.code || "",
+      language: codeField.language || "",
+    };
+  }
+  return { code: "", language: "" };
+};
+
 export default function SnippetDetailClient({ snippet }) {
   const { lang } = useLanguage();
   const t = texts[lang] || texts.de;
 
-  // Handle bilingual content
-  const title = typeof snippet.title === "object"
-    ? snippet.title[lang] || snippet.title.de || snippet.title.en
-    : snippet.title;
+  // Handle both simple strings and bilingual objects
+  const title = getText(snippet.title, lang);
+  const description = getText(snippet.description, lang);
+  const explanation = getText(snippet.explanation, lang);
 
-  const description = typeof snippet.description === "object"
-    ? snippet.description[lang] || snippet.description.de || snippet.description.en
-    : snippet.description;
-
-  const explanation = typeof snippet.explanation === "object"
-    ? snippet.explanation[lang] || snippet.explanation.de || snippet.explanation.en
-    : snippet.explanation;
+  // Extract code from Sanity's code field type
+  const mainCode = getCodeContent(snippet.code);
+  const usageCode = getCodeContent(snippet.usage);
 
   const difficulty = difficultyConfig[snippet.difficulty];
 
@@ -142,6 +168,28 @@ export default function SnippetDetailClient({ snippet }) {
             )}
           </header>
 
+          {/* Preview Image (optional) */}
+          {snippet.previewImage?.asset && (
+            <section className="mb-12">
+              <h2 className="text-xl font-semibold mb-4">{t.preview}</h2>
+              <div
+                className="rounded-xl overflow-hidden"
+                style={{
+                  background: "var(--surface)",
+                  border: "1px solid var(--border)",
+                }}
+              >
+                <Image
+                  src={urlFor(snippet.previewImage).width(1200).url()}
+                  alt={`${title} - Preview`}
+                  width={1200}
+                  height={675}
+                  className="w-full h-auto"
+                />
+              </div>
+            </section>
+          )}
+
           {/* Code Section */}
           <section className="mb-12">
             {isMultiPanel ? (
@@ -150,10 +198,10 @@ export default function SnippetDetailClient({ snippet }) {
                 cssCode={snippet.cssCode}
                 jsCode={snippet.jsCode}
               />
-            ) : snippet.code ? (
+            ) : mainCode.code ? (
               <CodeBlock
-                code={snippet.code}
-                language={snippet.language}
+                code={mainCode.code}
+                language={mainCode.language || snippet.language}
                 showRawButton={true}
               />
             ) : null}
@@ -188,12 +236,12 @@ export default function SnippetDetailClient({ snippet }) {
           )}
 
           {/* Usage Example */}
-          {snippet.usage && (
+          {usageCode.code && (
             <section className="mb-12">
               <h2 className="text-xl font-semibold mb-4">{t.usage}</h2>
               <CodeBlock
-                code={snippet.usage}
-                language={snippet.language || "javascript"}
+                code={usageCode.code}
+                language={usageCode.language || snippet.language || "javascript"}
                 showLineNumbers={false}
               />
             </section>
