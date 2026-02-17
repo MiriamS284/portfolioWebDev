@@ -106,9 +106,9 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="w-full max-w-xl">
+    <div className="w-full">
       <h2
-        className="text-2xl md:text-3xl font-bold mb-8"
+        className="text-xl font-semibold mb-8"
         style={{ color: "var(--ink)" }}
       >
         {t.title}

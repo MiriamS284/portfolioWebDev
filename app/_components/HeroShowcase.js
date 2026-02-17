@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useLanguage } from "@/app/_context/LanguageProvider";
 
 const content = {
@@ -13,14 +12,7 @@ const content = {
       "Durch Machen lernen. Neue Technologien erkunden. Qualität schaffen. Im Bewusstsein, dass hinter jedem System eine Vision steht.",
     philosophy2:
       "Mein Fokus: Full-Stack Lösungen. Frontend, Backend, APIs, Performance — Software as a Service.",
-    tags: [
-      "B2B SaaS",
-      "Problemlöserin",
-      "Agile Entwicklung",
-      "Frontend & Backend",
-      "Automatisierung",
-    ],
-    cta: "Projekte",
+    tags: ["SaaS", "MERN", "Next.js", "APIs", "Automatisierung"],
   },
   en: {
     intro: "Full-Stack Developer.",
@@ -32,14 +24,7 @@ const content = {
       "Developing skill through doing, guiltlessly exploring passion for technology, imbuing quality. Mindful that every system is someone's vision realized.",
     philosophy2:
       "All I want to do is build full-stack solutions. Frontend architecture, backend systems, API design, performance—development is an endless medium of opportunity and creativity of which I've only scratched the surface.",
-    tags: [
-      "B2B SaaS",
-      "Problem Solver",
-      "Agile Development",
-      "Frontend & Backend",
-      "Automation",
-    ],
-    cta: "Projects",
+    tags: ["SaaS", "MERN", "Next.js", "APIs", "Automation"],
   },
 };
 
@@ -49,76 +34,58 @@ export default function HeroShowcase() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center px-6 pt-24 pb-16 lg:pt-12 lg:ml-[280px]"
-      style={{
-        background: "var(--bg)",
-        zIndex: 1,
-        isolation: "isolate",
-      }}
+      className="min-h-screen flex items-center"
+      style={{ background: "var(--bg)" }}
     >
-      <div className="max-w-2xl w-full">
+      <div className="mx-auto max-w-2xl w-full px-6 py-16 md:py-24">
         <h1
-          className="text-5xl md:text-6xl lg:text-7xl font-bold mt-8 mb-2 leading-tight"
+          className="text-3xl md:text-4xl font-semibold mb-6 leading-tight"
           style={{ color: "var(--ink)" }}
         >
           {t.intro}
         </h1>
 
-        {/* Line 1 */}
         <p
-          className="text-xl md:text-2xl mb-4 leading-relaxed"
+          className="text-base mb-4 leading-relaxed"
           style={{ color: "var(--muted)" }}
         >
           {t.line1}
         </p>
 
         <p
-          className="text-xl md:text-2xl mb-12 leading-relaxed"
-          style={{ color: "var(--muted)", opacity: 0.9 }}
+          className="text-base mb-8 leading-relaxed"
+          style={{ color: "var(--muted)" }}
         >
           {t.line2}
         </p>
 
         <p
-          className="text-base md:text-lg mb-6 leading-relaxed"
-          style={{ color: "var(--muted)", opacity: 0.7 }}
+          className="text-base mb-4 leading-relaxed"
+          style={{ color: "var(--muted)", opacity: 0.8 }}
         >
           {t.philosophy1}
         </p>
 
         <p
-          className="text-base md:text-lg mb-12 leading-relaxed"
-          style={{ color: "var(--muted)", opacity: 0.7 }}
+          className="text-base mb-10 leading-relaxed"
+          style={{ color: "var(--muted)", opacity: 0.8 }}
         >
           {t.philosophy2}
         </p>
 
-        <div className="flex flex-wrap gap-3 mb-12">
+        {/* Tags as simple hashtags */}
+        <div className="flex flex-wrap gap-4">
           {t.tags.map((tag, index) => (
             <span
               key={`hero-tag-${index}`}
-              className="text-xs font-mono px-3 py-1 rounded-full transition-opacity hover:opacity-100"
-              style={{
-                color: "var(--muted)",
-                background: "var(--surface)",
-                border: "1px solid var(--border)",
-                opacity: 0.7,
-              }}
+              className="text-sm"
+              style={{ color: "var(--muted)" }}
             >
-              {tag}
+              #{tag}
             </span>
           ))}
         </div>
       </div>
-
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.015]"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, var(--ink) 1px, transparent 0)`,
-          backgroundSize: "48px 48px",
-          zIndex: -1,
-        }}
-      />
     </section>
   );
 }

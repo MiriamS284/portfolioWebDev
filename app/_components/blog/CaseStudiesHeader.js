@@ -7,41 +7,23 @@ export default function CaseStudiesHeader() {
 
   const content = {
     de: {
-      label: "Einblicke",
       title: "Case Studies",
-      description:
-        "Detaillierte Einblicke in Projekte, Prozesse und Lösungen.",
+      description: "Einblicke in Projekte, Prozesse und Lösungen.",
     },
     en: {
-      label: "Insights",
       title: "Case Studies",
-      description:
-        "Detailed insights into projects, processes, and solutions.",
+      description: "Insights into projects, processes, and solutions.",
     },
   };
 
-  const { label, title, description } = content[lang];
+  const { title, description } = content[lang];
 
   return (
-    <div className="mb-16">
-      <div
-        className="text-xs uppercase tracking-[0.3em] font-mono mb-3"
-        style={{ color: "var(--muted)", opacity: 0.6 }}
-      >
-        {label}
-      </div>
-      <h1
-        className="text-4xl md:text-6xl font-bold mb-6"
-        style={{ color: "var(--ink)" }}
-      >
-        {title}
-      </h1>
-      <p
-        className="text-lg md:text-xl max-w-3xl"
-        style={{ color: "var(--muted)" }}
-      >
+    <header className="mb-16">
+      <h1 className="text-2xl font-semibold mb-3">{title}</h1>
+      <p className="text-base" style={{ color: "var(--muted)" }}>
         {description}
       </p>
-    </div>
+    </header>
   );
 }

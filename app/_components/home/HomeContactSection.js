@@ -14,11 +14,11 @@ export default function HomeContactSection() {
 
   return (
     <section className="py-16 md:py-24" style={{ background: "var(--bg)" }}>
-      <div className="mx-auto max-w-4xl px-6">
+      <div className="mx-auto max-w-2xl px-6">
         {/* Label */}
         <div
-          className="text-xs uppercase tracking-[0.3em] mb-8"
-          style={{ color: "var(--muted)", opacity: 0.5 }}
+          className="text-sm font-medium mb-8 pb-2 border-b"
+          style={{ color: "var(--muted)", borderColor: "var(--border)" }}
         >
           {t.label}
         </div>

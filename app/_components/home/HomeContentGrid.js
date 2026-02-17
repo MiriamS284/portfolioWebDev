@@ -22,15 +22,15 @@ export default function HomeContentGrid({
 
   return (
     <section className="py-12 md:py-16" style={{ background: "var(--bg)" }}>
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-2xl px-6">
         <div
-          className="text-xs uppercase tracking-[0.3em] mb-8"
-          style={{ color: "var(--muted)", opacity: 0.5 }}
+          className="text-sm font-medium mb-8 pb-2 border-b"
+          style={{ color: "var(--muted)", borderColor: "var(--border)" }}
         >
           {t.index}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-8">
           <ProjectsColumn projects={projects} lang={lang} />
           <WritingColumn posts={posts} lang={lang} />
           <SnippetsColumn snippets={snippets} lang={lang} />

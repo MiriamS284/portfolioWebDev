@@ -11,18 +11,25 @@ export default function ProjectGallery({ images }) {
 
   if (!images || images.length === 0) return null;
 
-  return (
-    <section className="py-16" style={{ background: "var(--bg)" }}>
-      <div className="mx-auto max-w-5xl px-6">
-        <div
-          className="text-xs uppercase tracking-[0.3em] mb-8"
-          style={{ color: "var(--muted)", opacity: 0.5 }}
-        >
-          Gallery
-        </div>
+  const texts = {
+    de: { gallery: "Galerie", close: "Klicken zum Schließen" },
+    en: { gallery: "Gallery", close: "Click to close" },
+  };
 
-        {/* Grid - clean, no rounded corners */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+  const t = texts[lang] || texts.de;
+
+  return (
+    <section className="py-12" style={{ background: "var(--bg)" }}>
+      <div className="mx-auto max-w-2xl px-6">
+        <h2
+          className="text-sm font-medium mb-6 pb-2 border-b"
+          style={{ color: "var(--muted)", borderColor: "var(--border)" }}
+        >
+          {t.gallery}
+        </h2>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {images.map((image, idx) => (
             <div
               key={idx}
@@ -33,33 +40,20 @@ export default function ProjectGallery({ images }) {
                 src={urlFor(image).width(800).height(600).url()}
                 alt={image.alt?.[lang] || `Image ${idx + 1}`}
                 fill
-                className="object-cover transition-opacity duration-300 group-hover:opacity-90"
+                className="object-cover transition-opacity duration-300 group-hover:opacity-80"
               />
-              {image.caption?.[lang] && (
-                <div
-                  className="absolute bottom-0 left-0 right-0 p-3 text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{
-                    background: "linear-gradient(transparent, rgba(0,0,0,0.7))",
-                    color: "white",
-                  }}
-                >
-                  {image.caption[lang]}
-                </div>
-              )}
             </div>
           ))}
         </div>
 
-        {/* Lightbox - minimal */}
+        {/* Lightbox */}
         {selectedImage && (
           <div
             className="fixed inset-0 z-[9999] flex items-center justify-center p-6 cursor-pointer"
-            style={{
-              background: "rgba(0, 0, 0, 0.95)",
-            }}
+            style={{ background: "rgba(0, 0, 0, 0.95)" }}
             onClick={() => setSelectedImage(null)}
           >
-            <div className="relative max-w-5xl max-h-[90vh] w-full">
+            <div className="relative max-w-4xl max-h-[90vh] w-full">
               <Image
                 src={urlFor(selectedImage).width(1600).url()}
                 alt={selectedImage.alt?.[lang] || ""}
@@ -68,18 +62,16 @@ export default function ProjectGallery({ images }) {
                 className="object-contain w-full h-full"
               />
 
-              {/* Close hint */}
               <div
-                className="absolute top-4 right-4 text-xs font-mono"
+                className="absolute top-4 right-4 text-xs"
                 style={{ color: "rgba(255,255,255,0.5)" }}
               >
-                Click to close
+                {t.close}
               </div>
 
-              {/* Caption */}
               {selectedImage.caption?.[lang] && (
                 <div
-                  className="absolute bottom-4 left-4 text-sm font-mono"
+                  className="absolute bottom-4 left-4 text-sm"
                   style={{ color: "rgba(255,255,255,0.7)" }}
                 >
                   {selectedImage.caption[lang]}

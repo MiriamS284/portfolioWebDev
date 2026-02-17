@@ -2,41 +2,114 @@
 
 import { useLanguage } from "@/app/_context/LanguageProvider";
 import { PortableText } from "@portabletext/react";
-import { portableTextComponents } from "@/lib/sanity/portableText";
+
+// Projekt-spezifische PortableText Komponenten mit einheitlichem Styling
+const projectTextComponents = {
+  block: {
+    h1: ({ children }) => (
+      <h1 className="text-xl font-semibold mt-8 mb-4" style={{ color: "var(--ink)" }}>{children}</h1>
+    ),
+    h2: ({ children }) => (
+      <h2 className="text-lg font-semibold mt-6 mb-3" style={{ color: "var(--ink)" }}>{children}</h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="text-base font-medium mt-4 mb-2" style={{ color: "var(--ink)" }}>{children}</h3>
+    ),
+    h4: ({ children }) => (
+      <h4 className="text-base font-medium mt-4 mb-2" style={{ color: "var(--ink)" }}>{children}</h4>
+    ),
+    blockquote: ({ children }) => (
+      <blockquote
+        className="border-l-2 pl-4 my-4 italic text-base"
+        style={{ borderColor: "var(--border)", color: "var(--muted)" }}
+      >
+        {children}
+      </blockquote>
+    ),
+    normal: ({ children }) => (
+      <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>{children}</p>
+    ),
+  },
+  marks: {
+    link: ({ children, value }) => (
+      <a
+        href={value.href}
+        target={value.blank ? "_blank" : "_self"}
+        rel={!value.href?.startsWith("/") ? "noopener noreferrer" : undefined}
+        className="underline hover:text-[var(--accent)] transition-colors"
+        style={{ color: "var(--ink)" }}
+      >
+        {children}
+      </a>
+    ),
+    code: ({ children }) => (
+      <code
+        className="px-1.5 py-0.5 rounded text-sm font-mono"
+        style={{ background: "var(--surface)", color: "var(--ink)" }}
+      >
+        {children}
+      </code>
+    ),
+  },
+  list: {
+    bullet: ({ children }) => (
+      <ul className="space-y-2 my-4 ml-4" style={{ color: "var(--muted)" }}>{children}</ul>
+    ),
+    number: ({ children }) => (
+      <ol className="space-y-2 my-4 ml-4 list-decimal list-inside" style={{ color: "var(--muted)" }}>{children}</ol>
+    ),
+  },
+  listItem: {
+    bullet: ({ children }) => (
+      <li className="text-base leading-relaxed flex items-start gap-2">
+        <span style={{ color: "var(--accent)" }}>•</span>
+        <span>{children}</span>
+      </li>
+    ),
+    number: ({ children }) => (
+      <li className="text-base leading-relaxed">{children}</li>
+    ),
+  },
+};
 
 export default function ProjectContent({ project }) {
   const { lang } = useLanguage();
 
   const texts = {
     de: {
-      description: "Projektbeschreibung",
-      features: "Hauptfunktionen",
-      challenges: "Herausforderungen & Lösungen",
+      description: "Beschreibung",
+      features: "Funktionen",
+      challenges: "Herausforderungen",
       results: "Ergebnisse",
-      learnings: "Key Learnings",
+      learnings: "Learnings",
     },
     en: {
-      description: "Project Description",
-      features: "Key Features",
-      challenges: "Challenges & Solutions",
+      description: "Description",
+      features: "Features",
+      challenges: "Challenges",
       results: "Results",
-      learnings: "Key Learnings",
+      learnings: "Learnings",
     },
   };
 
   const t = texts[lang] || texts.de;
 
   return (
-    <section className="py-16" style={{ background: "var(--bg)" }}>
-      <div className="mx-auto max-w-5xl px-6">
+    <section className="py-12" style={{ background: "var(--bg)" }}>
+      <div className="mx-auto max-w-2xl px-6 space-y-16">
         {/* Description */}
         {project.description?.[lang] && (
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold mb-8">{t.description}</h2>
-            <div className="prose prose-invert max-w-none">
+          <div>
+            <h2
+              className="text-sm font-medium mb-6 pb-2 border-b"
+              style={{ color: "var(--muted)", borderColor: "var(--border)" }}
+            >
+              {t.description}
+            </h2>
+            <div>
               <PortableText
                 value={project.description[lang]}
-                components={portableTextComponents}
+                components={projectTextComponents}
               />
             </div>
           </div>
@@ -44,15 +117,26 @@ export default function ProjectContent({ project }) {
 
         {/* Features */}
         {project.features && project.features.length > 0 && (
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold mb-8">{t.features}</h2>
-            <div className="space-y-8">
+          <div>
+            <h2
+              className="text-sm font-medium mb-6 pb-2 border-b"
+              style={{ color: "var(--muted)", borderColor: "var(--border)" }}
+            >
+              {t.features}
+            </h2>
+            <div className="space-y-6">
               {project.features.map((feature, idx) => (
                 <div key={idx}>
-                  <h3 className="text-xl font-semibold mb-2">
+                  <h3
+                    className="text-base font-medium mb-2"
+                    style={{ color: "var(--ink)" }}
+                  >
                     {feature.feature?.[lang] || feature.feature?.de}
                   </h3>
-                  <p style={{ color: "var(--muted)" }}>
+                  <p
+                    className="text-base leading-relaxed"
+                    style={{ color: "var(--muted)" }}
+                  >
                     {feature.description?.[lang] || feature.description?.de}
                   </p>
                 </div>
@@ -63,12 +147,17 @@ export default function ProjectContent({ project }) {
 
         {/* Challenges */}
         {project.challenges?.[lang] && (
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold mb-8">{t.challenges}</h2>
-            <div className="prose prose-invert max-w-none">
+          <div>
+            <h2
+              className="text-sm font-medium mb-6 pb-2 border-b"
+              style={{ color: "var(--muted)", borderColor: "var(--border)" }}
+            >
+              {t.challenges}
+            </h2>
+            <div>
               <PortableText
                 value={project.challenges[lang]}
-                components={portableTextComponents}
+                components={projectTextComponents}
               />
             </div>
           </div>
@@ -76,9 +165,17 @@ export default function ProjectContent({ project }) {
 
         {/* Results */}
         {project.results?.[lang] && (
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold mb-8">{t.results}</h2>
-            <p className="text-lg opacity-90 leading-relaxed">
+          <div>
+            <h2
+              className="text-sm font-medium mb-6 pb-2 border-b"
+              style={{ color: "var(--muted)", borderColor: "var(--border)" }}
+            >
+              {t.results}
+            </h2>
+            <p
+              className="text-base leading-relaxed"
+              style={{ color: "var(--muted)" }}
+            >
               {project.results[lang]}
             </p>
           </div>
@@ -87,12 +184,18 @@ export default function ProjectContent({ project }) {
         {/* Learnings */}
         {project.learnings?.[lang] && project.learnings[lang].length > 0 && (
           <div>
-            <h2 className="text-3xl font-bold mb-8">{t.learnings}</h2>
-            <ul className="space-y-3">
+            <h2
+              className="text-sm font-medium mb-6 pb-2 border-b"
+              style={{ color: "var(--muted)", borderColor: "var(--border)" }}
+            >
+              {t.learnings}
+            </h2>
+            <ul className="space-y-2">
               {project.learnings[lang].map((learning, idx) => (
                 <li
                   key={idx}
-                  className="flex items-start gap-3 text-lg opacity-90"
+                  className="flex items-start gap-3 text-base leading-relaxed"
+                  style={{ color: "var(--muted)" }}
                 >
                   <span style={{ color: "var(--accent)" }}>→</span>
                   <span>{learning}</span>

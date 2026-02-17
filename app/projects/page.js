@@ -4,6 +4,7 @@ import MenuDock from "../_components/layout/MenuDock";
 import Footer from "../_components/layout/Footer";
 import ProjectGrid from "../_components/projects/ProjectGrid";
 import ProjectsHeader from "../_components/projects/ProjectsHeader";
+import BackLink from "../_components/shared/BackLink";
 
 export const metadata = {
   title: "Projekte | Miriam Sparbrod",
@@ -21,10 +22,11 @@ export default async function ProjectsPage() {
       <MenuDock />
 
       <main
-        className="py-20 md:py-32 px-6 md:ml-[280px] md:pt-[120px]"
+        className="py-20 md:py-32 px-6"
         style={{ background: "var(--bg)" }}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="mx-auto max-w-2xl">
+          <BackLink href="/">Index</BackLink>
           <ProjectsHeader />
           <ProjectGrid projects={projects} />
         </div>

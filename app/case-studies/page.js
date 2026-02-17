@@ -1,6 +1,7 @@
 import { client, allPostsQuery } from "@/lib/sanity";
 import MenuDock from "../_components/layout/MenuDock";
 import Footer from "../_components/layout/Footer";
+import BackLink from "../_components/shared/BackLink";
 import CaseStudiesHeader from "../_components/blog/CaseStudiesHeader";
 import CaseStudyList from "../_components/blog/CaseStudyList";
 
@@ -20,10 +21,11 @@ export default async function CaseStudiesPage() {
       <MenuDock />
 
       <main
-        className="py-20 md:py-32 px-6 md:ml-[280px] md:pt-[120px]"
-        style={{ background: "var(--bg)" }}
+        className="min-h-screen"
+        style={{ background: "var(--bg)", color: "var(--ink)" }}
       >
-        <div className="max-w-5xl">
+        <div className="mx-auto max-w-2xl px-6 py-16 md:py-24">
+          <BackLink href="/">Index</BackLink>
           <CaseStudiesHeader />
           <CaseStudyList studies={studies} />
         </div>
