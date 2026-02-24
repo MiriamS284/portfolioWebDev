@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
   return {
     title: `${title} | Miriam Sparbrod`,
     description,
-    openGraph: post.mainImage
+    openGraph: post.mainImage?.asset
       ? {
           images: [urlFor(post.mainImage).width(1200).height(630).url()],
         }

@@ -9,30 +9,44 @@ import SnippetCard from "@/app/_components/snippets/SnippetCard";
 const texts = {
   de: {
     title: "Snippets",
-    subtitle: "Code-Beispiele und Patterns aus meiner Arbeit.",
+    subtitle: "Code-Beispiele und Patterns aus meiner Arbeit. Alle Snippets sind auf GitHub verfügbar.",
     back: "Index",
   },
   en: {
     title: "Snippets",
-    subtitle: "Code examples and patterns from my work.",
+    subtitle: "Code examples and patterns from my work. All snippets are available on GitHub.",
     back: "Index",
   },
+};
+
+// Category labels for display
+const categoryLabels = {
+  "react-hooks": "React Hooks",
+  "components": "Components",
+  "forms": "Forms & Validation",
+  "pdf": "PDF Generation",
+  "api": "API Integration",
+  "animations": "Animations",
+  "performance": "Performance",
+  "utilities": "Utilities",
+  "dataviz": "Data Visualization",
+  "auth": "Authentication",
 };
 
 export default function SnippetsPageClient({ snippets }) {
   const { lang } = useLanguage();
   const t = texts[lang] || texts.de;
 
-  // Group snippets by language for subtle organization
-  const groupedByLanguage = snippets.reduce((acc, snippet) => {
-    const language = snippet.language || "Other";
-    if (!acc[language]) acc[language] = [];
-    acc[language].push(snippet);
+  // Group snippets by category
+  const groupedByCategory = snippets.reduce((acc, snippet) => {
+    const category = snippet.category || "other";
+    if (!acc[category]) acc[category] = [];
+    acc[category].push(snippet);
     return acc;
   }, {});
 
-  // Sort languages alphabetically
-  const sortedLanguages = Object.keys(groupedByLanguage).sort();
+  // Sort categories alphabetically
+  const sortedCategories = Object.keys(groupedByCategory).sort();
 
   return (
     <>
@@ -53,18 +67,18 @@ export default function SnippetsPageClient({ snippets }) {
             </p>
           </header>
 
-          {/* Snippets grouped by language */}
+          {/* Snippets grouped by category */}
           <div className="space-y-12">
-            {sortedLanguages.map((language) => (
-              <section key={language}>
+            {sortedCategories.map((category) => (
+              <section key={category}>
                 <h2
                   className="text-sm font-medium mb-4 pb-2 border-b"
                   style={{ color: "var(--muted)", borderColor: "var(--border)" }}
                 >
-                  {language}
+                  {categoryLabels[category] || category}
                 </h2>
                 <div className="space-y-1">
-                  {groupedByLanguage[language].map((snippet) => (
+                  {groupedByCategory[category].map((snippet) => (
                     <SnippetCard key={snippet._id} snippet={snippet} />
                   ))}
                 </div>

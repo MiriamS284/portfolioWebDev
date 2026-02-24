@@ -94,7 +94,7 @@ export default function CaseStudyPageClient({ post }) {
         </section>
 
         {/* Main Image */}
-        {post.mainImage && (
+        {post.mainImage?.asset && (
           <section className="pb-16">
             <div className="mx-auto max-w-5xl px-6">
               <div className="relative aspect-video rounded-2xl overflow-hidden">

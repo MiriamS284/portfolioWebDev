@@ -23,8 +23,13 @@ export default function SnippetCard({ snippet }) {
   return (
     <Link
       href={`/snippets/${slug}`}
-      className="group flex items-baseline gap-4 py-2 transition-colors"
+      className="group flex items-baseline gap-3 py-2 transition-colors"
     >
+      {/* Icon */}
+      {snippet.icon && (
+        <span className="text-base flex-shrink-0">{snippet.icon}</span>
+      )}
+
       {/* Title */}
       <span
         className="group-hover:text-[var(--accent)] transition-colors"

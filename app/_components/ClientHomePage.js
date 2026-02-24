@@ -10,6 +10,9 @@ import Footer from "./layout/Footer";
 
 const MERNWriteIntro = dynamic(() => import("./MERNWriteIntro"), {
   ssr: false,
+  loading: () => (
+    <div className="fixed inset-0 z-[9999]" style={{ background: "var(--bg)" }} />
+  ),
 });
 
 export default function ClientHomePage({ projects, posts, snippets, thoughts }) {

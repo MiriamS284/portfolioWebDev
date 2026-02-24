@@ -17,12 +17,11 @@ export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Check initial position
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close on Escape
   useEffect(() => {
     if (!menuOpen) return;
     const onKey = (e) => e.key === "Escape" && setMenuOpen(false);
@@ -30,7 +29,6 @@ export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
     return () => document.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";

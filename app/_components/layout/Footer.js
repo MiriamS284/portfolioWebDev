@@ -1,6 +1,32 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/app/_context/LanguageProvider";
+
+const texts = {
+  de: {
+    role: "Full-Stack Entwicklerin",
+    tagline: "Ich übersetze komplexe Ideen in performante Web-Anwendungen.",
+    nav: "Navigation",
+    about: "Über mich",
+    projects: "Projekte",
+    imprint: "Impressum",
+    privacy: "Datenschutz",
+  },
+  en: {
+    role: "Full-Stack Developer",
+    tagline: "I translate complex ideas into performant web applications.",
+    nav: "Navigation",
+    about: "About",
+    projects: "Projects",
+    imprint: "Imprint",
+    privacy: "Privacy Policy",
+  },
+};
 
 export default function Footer() {
+  const { lang } = useLanguage();
+  const t = texts[lang] || texts.de;
   const currentYear = new Date().getFullYear();
 
   return (
@@ -20,20 +46,20 @@ export default function Footer() {
               Miriam Sparbrod
             </h3>
             <p className="text-sm opacity-70 leading-relaxed">
-              Full-Stack Entwicklerin
+              {t.role}
             </p>
             <p className="text-sm opacity-70 leading-relaxed mt-2">
-              Ich übersetze komplexe Ideen in performante Web - Anwendungen.
+              {t.tagline}
             </p>
           </div>
 
           <div>
             <h3 className="text-sm font-bold mb-4 uppercase tracking-wider opacity-70">
-              Navigation
+              {t.nav}
             </h3>
             <nav className="flex flex-col gap-2">
-              <FooterLink href="/about">Über mich</FooterLink>
-              <FooterLink href="/projects">Projekte</FooterLink>
+              <FooterLink href="/about">{t.about}</FooterLink>
+              <FooterLink href="/projects">{t.projects}</FooterLink>
               <FooterLink href="/garden">Digital Garden</FooterLink>
               <FooterLink href="/case-studies">Case Studies</FooterLink>
               <FooterLink href="/snippets">Code Snippets</FooterLink>
@@ -68,13 +94,13 @@ export default function Footer() {
               href="/imprint"
               className="hover:opacity-100 transition-opacity"
             >
-              Impressum
+              {t.imprint}
             </Link>
             <Link
               href="/privatepolicy"
               className="hover:opacity-100 transition-opacity"
             >
-              Datenschutz
+              {t.privacy}
             </Link>
           </div>
         </div>

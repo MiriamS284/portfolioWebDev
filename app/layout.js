@@ -28,7 +28,6 @@ export const metadata = {
     "Full-Stack Developer specializing in SaaS solutions, automation, full-stack applications for modern businesses.",
 };
 
-// Inline script to prevent FOUC
 const themeScript = `
   (function() {
     try {
