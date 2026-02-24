@@ -33,32 +33,35 @@ export default function ConnectedNotes({ notes }) {
       </h2>
 
       <div className="space-y-1">
-        {notes.map((note) => (
-          <Link
-            key={note.slug.current}
-            href={`/garden/${note.slug.current}`}
-            className="group flex items-center gap-3 py-2 transition-colors"
-          >
-            <span
-              className="text-sm font-mono"
-              style={{ color: "var(--muted)" }}
+        {notes.map((note) => {
+          const noteTitle = lang === "en" ? note.title_en : note.title_de;
+          return (
+            <Link
+              key={note.slug.current}
+              href={`/garden/${note.slug.current}`}
+              className="group flex items-center gap-3 py-2 transition-colors"
             >
-              {growthStageLabels[note.growthStage] || note.growthStage}
-            </span>
-            <span
-              className="group-hover:text-[var(--accent)] transition-colors"
-              style={{ color: "var(--ink)" }}
-            >
-              {note.title}
-            </span>
-            <span
-              className="ml-auto opacity-0 group-hover:opacity-50 transition-opacity text-sm"
-              style={{ color: "var(--muted)" }}
-            >
-              →
-            </span>
-          </Link>
-        ))}
+              <span
+                className="text-sm font-mono"
+                style={{ color: "var(--muted)" }}
+              >
+                {growthStageLabels[note.growthStage] || note.growthStage}
+              </span>
+              <span
+                className="group-hover:text-[var(--accent)] transition-colors"
+                style={{ color: "var(--ink)" }}
+              >
+                {noteTitle}
+              </span>
+              <span
+                className="ml-auto opacity-0 group-hover:opacity-50 transition-opacity text-sm"
+                style={{ color: "var(--muted)" }}
+              >
+                →
+              </span>
+            </Link>
+          );
+        })}
       </div>
     </section>
   );

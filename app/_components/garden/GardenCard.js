@@ -1,8 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { useLanguage } from "@/app/_context/LanguageProvider";
 
 export default function GardenCard({ entry }) {
+  const { lang } = useLanguage();
+
+  const title = lang === "en" ? entry.title_en : entry.title_de;
+  const excerpt = lang === "en" ? entry.excerpt_en : entry.excerpt_de;
+
   return (
     <Link
       href={`/garden/${entry.slug.current}`}
@@ -13,16 +19,16 @@ export default function GardenCard({ entry }) {
         className="group-hover:text-[var(--accent)] transition-colors"
         style={{ color: "var(--ink)" }}
       >
-        {entry.title}
+        {title}
       </span>
 
       {/* Subtle excerpt on larger screens */}
-      {entry.excerpt && (
+      {excerpt && (
         <span
           className="hidden sm:inline text-sm truncate max-w-[200px]"
           style={{ color: "var(--muted)" }}
         >
-          — {entry.excerpt}
+          — {excerpt}
         </span>
       )}
 

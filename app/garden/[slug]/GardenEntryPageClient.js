@@ -35,6 +35,11 @@ export default function GardenEntryPageClient({ entry }) {
 
   const stageLabel = growthStageLabels[entry.growthStage]?.[lang] || entry.growthStage;
 
+  // Bilingual content
+  const title = lang === "en" ? entry.title_en : entry.title_de;
+  const excerpt = lang === "en" ? entry.excerpt_en : entry.excerpt_de;
+  const body = lang === "en" ? entry.body_en : entry.body_de;
+
   return (
     <>
       <MenuDock />
@@ -60,16 +65,16 @@ export default function GardenEntryPageClient({ entry }) {
 
             {/* Title */}
             <h1 className="text-2xl md:text-3xl font-semibold mb-4">
-              {entry.title}
+              {title}
             </h1>
 
             {/* Excerpt if available */}
-            {entry.excerpt && (
+            {excerpt && (
               <p
                 className="text-base leading-relaxed"
                 style={{ color: "var(--muted)" }}
               >
-                {entry.excerpt}
+                {excerpt}
               </p>
             )}
           </header>
@@ -83,7 +88,7 @@ export default function GardenEntryPageClient({ entry }) {
               >
                 <Image
                   src={imagePresets.hero(entry.mainImage).url()}
-                  alt={entry.mainImage.alt || entry.title}
+                  alt={entry.mainImage.alt || title}
                   fill
                   className="object-cover"
                   priority
@@ -93,20 +98,22 @@ export default function GardenEntryPageClient({ entry }) {
           )}
 
           {/* Content */}
-          <div
-            className="prose prose-lg max-w-none"
-            style={{
-              "--tw-prose-body": "var(--ink)",
-              "--tw-prose-headings": "var(--ink)",
-              "--tw-prose-links": "var(--accent)",
-              "--tw-prose-code": "var(--ink)",
-            }}
-          >
-            <PortableText
-              value={entry.body}
-              components={portableTextComponents}
-            />
-          </div>
+          {body && (
+            <div
+              className="prose prose-lg max-w-none"
+              style={{
+                "--tw-prose-body": "var(--ink)",
+                "--tw-prose-headings": "var(--ink)",
+                "--tw-prose-links": "var(--accent)",
+                "--tw-prose-code": "var(--ink)",
+              }}
+            >
+              <PortableText
+                value={body}
+                components={portableTextComponents}
+              />
+            </div>
+          )}
 
           {/* Connected Notes */}
           <ConnectedNotes notes={entry.connectedNotes} />

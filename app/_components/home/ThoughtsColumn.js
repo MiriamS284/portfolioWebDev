@@ -34,7 +34,7 @@ export default function ThoughtsColumn({ thoughts = [], lang = "de" }) {
       {/* List */}
       <div className="space-y-5">
         {thoughts.slice(0, 4).map((thought) => (
-          <ThoughtItem key={thought._id} thought={thought} />
+          <ThoughtItem key={thought._id} thought={thought} lang={lang} />
         ))}
 
         {/* View All Link */}
@@ -51,9 +51,9 @@ export default function ThoughtsColumn({ thoughts = [], lang = "de" }) {
   );
 }
 
-function ThoughtItem({ thought }) {
-  const title = thought.title || "Untitled";
-  const excerpt = thought.excerpt || "";
+function ThoughtItem({ thought, lang = "de" }) {
+  const title = (lang === "en" ? thought.title_en : thought.title_de) || "Untitled";
+  const excerpt = (lang === "en" ? thought.excerpt_en : thought.excerpt_de) || "";
   const slug = thought.slug?.current;
   const stage = thought.growthStage || "seedling";
   const StageIcon = stageIcons[stage] || LiaSeedlingSolid;
