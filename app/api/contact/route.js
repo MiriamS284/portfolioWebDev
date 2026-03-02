@@ -15,10 +15,8 @@ export async function POST(request) {
     const { Resend } = await import("resend");
     const resend = new Resend(process.env.RESEND_API_KEY);
 
-    // TODO: After domain verification, switch to:
-    // from: "Miriam Sparbrod <contact@miriamsparbrod.dev>",
     await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
+      from: "Miriam Sparbrod <contact@miriamsparbrod.dev>",
       to: "sparbrod.webdev@gmail.com",
       replyTo: email,
       subject: `miriamsparbrod.dev — ${firstName} ${lastName}${company ? ` (${company})` : ""}`,
@@ -32,17 +30,8 @@ export async function POST(request) {
       `,
     });
 
-    console.log("Contact form submission:", {
-      firstName,
-      lastName,
-      company,
-      email,
-      message,
-    });
-
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Contact form error:", error);
     return NextResponse.json(
       { error: "Failed to send message" },
       { status: 500 },

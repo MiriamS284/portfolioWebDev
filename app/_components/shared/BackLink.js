@@ -1,6 +1,12 @@
-import Link from "next/link";
+"use client";
 
-export default function BackLink({ href, children = "Zurück" }) {
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+
+export default function BackLink({ href, children }) {
+  const t = useTranslations("common");
+  const label = children || t("back");
+
   return (
     <Link
       href={href}
@@ -17,7 +23,7 @@ export default function BackLink({ href, children = "Zurück" }) {
       >
         <path d="M10 12L6 8l4-4" />
       </svg>
-      {children}
+      {label}
     </Link>
   );
 }

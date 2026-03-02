@@ -5,7 +5,6 @@ import { useEffect } from "react";
 export default function SpotlightEffect() {
   useEffect(() => {
     const handleMouseMove = (e) => {
-      // Update CSS Custom Properties for mouse position
       document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
       document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
     };

@@ -10,7 +10,6 @@ import {
 
 const ThemeContext = createContext();
 
-// localStorage + System Preference Sync
 function subscribe(callback) {
   window.addEventListener("storage", callback);
   window.addEventListener("theme-change", callback);
@@ -29,14 +28,14 @@ function subscribe(callback) {
 function getSnapshot() {
   const stored = localStorage.getItem("theme");
   if (stored === "light" || stored === "dark") return stored;
-  // System preference
+
   return window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
     : "light";
 }
 
 function getServerSnapshot() {
-  return "dark"; // Default to dark
+  return "dark";
 }
 
 export function ThemeProvider({ children }) {
@@ -53,7 +52,6 @@ export function ThemeProvider({ children }) {
     setTheme(current === "dark" ? "light" : "dark");
   }, [setTheme]);
 
-  // Apply theme to document
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);

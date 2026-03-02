@@ -1,11 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { useLanguage } from "@/app/_context/LanguageProvider";
+import { useLocale } from "next-intl";
+import { usePathname, useRouter } from "@/i18n/navigation";
 
 export default function LanguageSwitcher() {
-  const { lang, setLang } = useLanguage();
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
+
+  const switchLocale = (newLocale) => {
+    router.replace(pathname, { locale: newLocale });
+  };
 
   return (
     <div
@@ -41,21 +48,21 @@ export default function LanguageSwitcher() {
 
           {/* DEU - vertikal */}
           <button
-            onClick={() => setLang("de")}
+            onClick={() => switchLocale("de")}
             className="group transition-opacity hover:opacity-100 animate-fadeIn"
             style={{
               background: "transparent",
               border: "none",
               cursor: "pointer",
               padding: 0,
-              opacity: lang === "de" ? 1 : 0.4,
+              opacity: locale === "de" ? 1 : 0.4,
             }}
           >
             <div
               style={{
                 writingMode: "vertical-rl",
                 textOrientation: "mixed",
-                color: lang === "de" ? "var(--accent)" : "var(--ink)",
+                color: locale === "de" ? "var(--accent)" : "var(--ink)",
                 fontWeight: 700,
                 letterSpacing: "0.3em",
                 fontSize: 11,
@@ -75,21 +82,21 @@ export default function LanguageSwitcher() {
 
           {/* ENG - vertikal */}
           <button
-            onClick={() => setLang("en")}
+            onClick={() => switchLocale("en")}
             className="group transition-opacity hover:opacity-100 animate-fadeIn"
             style={{
               background: "transparent",
               border: "none",
               cursor: "pointer",
               padding: 0,
-              opacity: lang === "en" ? 1 : 0.4,
+              opacity: locale === "en" ? 1 : 0.4,
             }}
           >
             <div
               style={{
                 writingMode: "vertical-rl",
                 textOrientation: "mixed",
-                color: lang === "en" ? "var(--accent)" : "var(--ink)",
+                color: locale === "en" ? "var(--accent)" : "var(--ink)",
                 fontWeight: 700,
                 letterSpacing: "0.3em",
                 fontSize: 11,

@@ -1,12 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import { useLanguage } from "@/app/_context/LanguageProvider";
-
-const texts = {
-  de: { title: "Verbundene Notizen" },
-  en: { title: "Connected Notes" },
-};
+import { useTranslations, useLocale } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const growthStageLabels = {
   seedling: "Seedling",
@@ -15,8 +10,8 @@ const growthStageLabels = {
 };
 
 export default function ConnectedNotes({ notes }) {
-  const { lang } = useLanguage();
-  const t = texts[lang] || texts.de;
+  const t = useTranslations("garden");
+  const locale = useLocale();
 
   if (!notes || notes.length === 0) return null;
 
@@ -29,12 +24,12 @@ export default function ConnectedNotes({ notes }) {
         className="text-sm font-medium mb-4 pb-2"
         style={{ color: "var(--muted)" }}
       >
-        {t.title}
+        {t("connectedNotes")}
       </h2>
 
       <div className="space-y-1">
         {notes.map((note) => {
-          const noteTitle = lang === "en" ? note.title_en : note.title_de;
+          const noteTitle = locale === "en" ? note.title_en : note.title_de;
           return (
             <Link
               key={note.slug.current}

@@ -1,22 +1,15 @@
 "use client";
 
-import { useLanguage } from "@/app/_context/LanguageProvider";
+import { useTranslations } from "next-intl";
 import ProjectCard from "./ProjectCard";
 
 export default function ProjectGrid({ projects }) {
-  const { lang } = useLanguage();
-
-  const labels = {
-    noResults:
-      lang === "de"
-        ? "Keine Projekte gefunden."
-        : "No projects found.",
-  };
+  const t = useTranslations("projects");
 
   if (!projects || projects.length === 0) {
     return (
       <div className="text-center py-12">
-        <p style={{ color: "var(--muted)" }}>{labels.noResults}</p>
+        <p style={{ color: "var(--muted)" }}>{t("noResults")}</p>
       </div>
     );
   }

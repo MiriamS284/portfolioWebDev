@@ -1,19 +1,9 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { LiaSeedlingSolid } from "react-icons/lia";
 import { GiPlantRoots, GiSunflower } from "react-icons/gi";
-
-const texts = {
-  de: {
-    title: "Gedanken",
-    viewAll: "Alle Gedanken",
-  },
-  en: {
-    title: "Thoughts",
-    viewAll: "All thoughts",
-  },
-};
 
 const stageIcons = {
   seedling: LiaSeedlingSolid,
@@ -21,20 +11,20 @@ const stageIcons = {
   evergreen: GiSunflower,
 };
 
-export default function ThoughtsColumn({ thoughts = [], lang = "de" }) {
-  const t = texts[lang] || texts.de;
+export default function ThoughtsColumn({ thoughts = [], locale = "de" }) {
+  const t = useTranslations("thoughts");
 
   return (
     <div>
       {/* Header */}
       <h2 className="text-sm mb-6" style={{ color: "var(--muted)" }}>
-        {t.title}
+        {t("title")}
       </h2>
 
       {/* List */}
       <div className="space-y-5">
         {thoughts.slice(0, 4).map((thought) => (
-          <ThoughtItem key={thought._id} thought={thought} lang={lang} />
+          <ThoughtItem key={thought._id} thought={thought} locale={locale} />
         ))}
 
         {/* View All Link */}
@@ -43,7 +33,7 @@ export default function ThoughtsColumn({ thoughts = [], lang = "de" }) {
             className="text-sm font-medium underline underline-offset-2 decoration-1 transition-colors group-hover:text-[var(--accent)]"
             style={{ color: "var(--ink)" }}
           >
-            {t.viewAll}
+            {t("viewAll")}
           </span>
         </Link>
       </div>
@@ -51,9 +41,9 @@ export default function ThoughtsColumn({ thoughts = [], lang = "de" }) {
   );
 }
 
-function ThoughtItem({ thought, lang = "de" }) {
-  const title = (lang === "en" ? thought.title_en : thought.title_de) || "Untitled";
-  const excerpt = (lang === "en" ? thought.excerpt_en : thought.excerpt_de) || "";
+function ThoughtItem({ thought, locale = "de" }) {
+  const title = (locale === "en" ? thought.title_en : thought.title_de) || "Untitled";
+  const excerpt = (locale === "en" ? thought.excerpt_en : thought.excerpt_de) || "";
   const slug = thought.slug?.current;
   const stage = thought.growthStage || "seedling";
   const StageIcon = stageIcons[stage] || LiaSeedlingSolid;

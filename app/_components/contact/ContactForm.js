@@ -4,68 +4,33 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useLanguage } from "@/app/_context/LanguageProvider";
+import { useTranslations, useLocale } from "next-intl";
 
-const createSchema = (lang) =>
-  z.object({
+export default function ContactForm() {
+  const t = useTranslations("contact");
+  const locale = useLocale();
+  const [status, setStatus] = useState("idle");
+
+  const schema = z.object({
     firstName: z
       .string()
-      .min(2, lang === "de" ? "Mindestens 2 Zeichen" : "At least 2 characters"),
+      .min(2, locale === "de" ? "Mindestens 2 Zeichen" : "At least 2 characters"),
     lastName: z
       .string()
-      .min(2, lang === "de" ? "Mindestens 2 Zeichen" : "At least 2 characters"),
+      .min(2, locale === "de" ? "Mindestens 2 Zeichen" : "At least 2 characters"),
     company: z.string().optional(),
     email: z
       .string()
       .email(
-        lang === "de" ? "Ungültige E-Mail-Adresse" : "Invalid email address",
+        locale === "de" ? "Ungültige E-Mail-Adresse" : "Invalid email address",
       ),
     message: z
       .string()
       .min(
         10,
-        lang === "de" ? "Mindestens 10 Zeichen" : "At least 10 characters",
+        locale === "de" ? "Mindestens 10 Zeichen" : "At least 10 characters",
       ),
   });
-
-const texts = {
-  de: {
-    title: "Lass uns zusammen arbeiten",
-    firstName: "Vorname",
-    lastName: "Nachname",
-    company: "Unternehmen",
-    companyOptional: "optional",
-    email: "E-Mail",
-    emailHint: "email ist immer noch in",
-    message: "Nachricht",
-    messagePlaceholder: "Erzähl mir von deinem Projekt...",
-    submit: "Nachricht senden",
-    sending: "Wird gesendet...",
-    success:
-      "Nachricht gesendet! Wie schön, ich freue mich auf darauf und werde mich zeitnah bei Dir zurückmelden!",
-    error: "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
-  },
-  en: {
-    title: "Let's work together",
-    firstName: "First name",
-    lastName: "Last name",
-    company: "Company",
-    companyOptional: "optional",
-    email: "Email",
-    emailHint: "email is still in",
-    message: "Message",
-    messagePlaceholder: "Tell me about your project...",
-    submit: "Send message",
-    sending: "Sending...",
-    success: "Message sent! Thank you! I'll get back to you soon.",
-    error: "Something went wrong. Please try again.",
-  },
-};
-
-export default function ContactForm() {
-  const { lang } = useLanguage();
-  const t = texts[lang] || texts.de;
-  const [status, setStatus] = useState("idle");
 
   const {
     register,
@@ -73,7 +38,7 @@ export default function ContactForm() {
     reset,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(createSchema(lang)),
+    resolver: zodResolver(schema),
     mode: "onBlur",
     defaultValues: {
       firstName: "",
@@ -111,21 +76,21 @@ export default function ContactForm() {
         className="text-xl font-semibold mb-8"
         style={{ color: "var(--ink)" }}
       >
-        {t.title}
+        {t("title")}
       </h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <FormField
             id="firstName"
-            label={t.firstName}
+            label={t("firstName")}
             error={errors.firstName}
             register={register}
           />
 
           <FormField
             id="lastName"
-            label={t.lastName}
+            label={t("lastName")}
             error={errors.lastName}
             register={register}
           />
@@ -133,25 +98,25 @@ export default function ContactForm() {
 
         <FormField
           id="company"
-          label={t.company}
-          optional={t.companyOptional}
+          label={t("company")}
+          optional={t("companyOptional")}
           register={register}
         />
 
         <FormField
           id="email"
-          label={t.email}
+          label={t("email")}
           type="email"
-          hint={t.emailHint}
+          hint={t("emailHint")}
           error={errors.email}
           register={register}
         />
 
         <FormField
           id="message"
-          label={t.message}
+          label={t("message")}
           type="textarea"
-          placeholder={t.messagePlaceholder}
+          placeholder={t("messagePlaceholder")}
           error={errors.message}
           register={register}
         />
@@ -165,18 +130,18 @@ export default function ContactForm() {
               color: status === "sending" ? "var(--muted)" : "var(--accent)",
             }}
           >
-            {status === "sending" ? t.sending : t.submit} →
+            {status === "sending" ? t("sending") : t("submit")} →
           </button>
         </div>
 
         {status === "success" && (
           <p className="text-sm" style={{ color: "var(--accent)" }}>
-            {t.success}
+            {t("success")}
           </p>
         )}
         {status === "error" && (
           <p className="text-sm" style={{ color: "tomato" }}>
-            {t.error}
+            {t("error")}
           </p>
         )}
       </form>

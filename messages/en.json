@@ -1,0 +1,262 @@
+{
+  "navigation": {
+    "about": "ABOUT",
+    "projects": "PROJECTS",
+    "caseStudies": "CASE STUDIES"
+  },
+  "footer": {
+    "role": "Full-Stack Developer",
+    "tagline": "I translate complex ideas into performant web applications.",
+    "nav": "Navigation",
+    "about": "About",
+    "projects": "Projects",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy"
+  },
+  "menu": {
+    "label": "MENU",
+    "language": "LANGUAGE",
+    "close": "Close",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "about": "About",
+    "projects": "Projects",
+    "projectsSub": "Case Studies & Work",
+    "garden": "Digital Garden",
+    "gardenSub": "Growing thoughts",
+    "blog": "Case - Studies & Tutorials",
+    "blogSub": "Articles & Tutorials",
+    "snippets": "Code Snippets",
+    "snippetsSub": "Reusable code examples",
+    "contact": "Contact",
+    "contactSub": "Let's work together"
+  },
+  "home": {
+    "index": "Index",
+    "contact": "Contact"
+  },
+  "heroShowcase": {
+    "intro": "Full-Stack Developer.",
+    "line1": "Crafting digital solutions. Building polished software and web experiences.",
+    "line2": "From language to code - transforming concepts into performant systems.",
+    "philosophy1": "Developing skill through doing, guiltlessly exploring passion for technology, imbuing quality. Mindful that every system is someone's vision realized.",
+    "philosophy2": "All I want to do is build full-stack solutions. Frontend architecture, backend systems, API design, performance - development is an endless medium of opportunity and creativity of which I've only scratched the surface.",
+    "automation": "Automation"
+  },
+  "whoIAm": {
+    "eyebrow": "Full-Stack Developer",
+    "headline": "I build",
+    "headlineAccent": "B2B web applications and SaaS platforms",
+    "description": "Project-focused, from first meeting to live system. I understand how to capture requirements and implement them technically."
+  },
+  "cta": {
+    "title": "Let's work together",
+    "description": "Have a project in mind? Need help with development? Or just want to talk about tech and code?",
+    "contact": "Get in touch",
+    "viewProjects": "View projects"
+  },
+  "breadcrumb": {
+    "projects": "Projects",
+    "caseStudies": "Case Studies",
+    "garden": "Digital Garden",
+    "snippets": "Code Snippets"
+  },
+  "about": {
+    "greeting": "Hi, I'm Miriam",
+    "subtitle": "Full-Stack Developer",
+    "block1Title": "From Language to Code",
+    "block1P1": "From translation to web development – my journey began with a fascination for languages, both human and digital. I am passionate about developing and transforming ideas into digital experiences.",
+    "block1P2": "What drives me? The ability to translate needs and visions into digital applications, simplify processes and ensure efficient workflows.",
+    "block2Title": "My Approach",
+    "block2P1": "My focus is on the MERN stack (MongoDB, Express, React, Node.js), which enables me to build seamless full-stack applications. Over the past two years, I've been working intensively with React and Next.js.",
+    "block2P2": "I'm particularly passionate about developing SaaS solutions: products that solve real problems, scale effectively, and support people in their work."
+  },
+  "techStack": {
+    "title": "Tech Stack",
+    "subtitle": "Full-Stack Architecture",
+    "crossCutting": "Cross-Cutting Concerns",
+    "tools": "Tools & Resources"
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Let's work together",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "company": "Company",
+    "companyOptional": "optional",
+    "email": "Email",
+    "emailHint": "email is still in",
+    "message": "Message",
+    "messagePlaceholder": "Tell me about your project...",
+    "submit": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent! Thank you! I'll get back to you soon.",
+    "error": "Something went wrong. Please try again.",
+    "validation": {
+      "minChars": "At least {count} characters",
+      "invalidEmail": "Invalid email address"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "A selection of my work",
+    "viewAll": "All projects",
+    "noResults": "No projects found."
+  },
+  "projectDetail": {
+    "role": "Role",
+    "year": "Year",
+    "duration": "Duration",
+    "stack": "Tech Stack",
+    "client": "Client",
+    "server": "Server",
+    "data": "Data",
+    "tools": "Tools",
+    "description": "Description",
+    "features": "Features",
+    "challenges": "Challenges",
+    "results": "Results",
+    "learnings": "Learnings",
+    "gallery": "Gallery",
+    "close": "Close",
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "caseStudies": {
+    "title": "Case Studies",
+    "description": "Insights into projects, processes, and solutions.",
+    "viewAll": "All writings",
+    "noStudies": "No case studies found."
+  },
+  "garden": {
+    "title": "Digital Garden",
+    "subtitle": "Thoughts that grow and evolve.",
+    "viewAll": "Visit garden",
+    "planted": "Planted",
+    "lastTended": "Last tended",
+    "connectedNotes": "Connected Notes",
+    "evergreen": "Evergreen",
+    "growing": "Growing",
+    "seedling": "Seedling",
+    "empty": "The garden is still empty.",
+    "growthStages": {
+      "seedling": "Seedling",
+      "budding": "Growing",
+      "evergreen": "Evergreen"
+    }
+  },
+  "thoughts": {
+    "title": "Thoughts",
+    "viewAll": "All thoughts"
+  },
+  "snippets": {
+    "title": "Snippets",
+    "subtitle": "Reusable code examples from my projects.",
+    "viewAll": "All snippets",
+    "allSnippets": "All Snippets",
+    "categories": "Categories",
+    "languages": "Languages",
+    "difficulty": "Difficulty",
+    "filters": "Filters",
+    "clear": "Clear",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "snippetDetail": {
+    "viewOnGithub": "View on GitHub",
+    "highlights": "Highlights",
+    "technologies": "Technologies",
+    "installation": "Installation",
+    "demos": "Demos",
+    "liveDemo": "Live Demo",
+    "codepen": "CodePen",
+    "stackblitz": "StackBlitz",
+    "usedIn": "Used in",
+    "stats": "Statistics",
+    "lines": "lines",
+    "difficulty": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    }
+  },
+  "common": {
+    "back": "Back",
+    "published": "Published",
+    "untitled": "Untitled"
+  },
+  "imprint": {
+    "label": "Legal",
+    "title": "Legal Notice",
+    "section1Title": "Information according to § 5 DDG",
+    "section1Content": "Miriam Sparbrod\nSparbrod Web Development - Web Application Development\nDorfstraße 75A\n04626 Vollmershain\nGermany\n\nEmail: sparbrod.webdev@gmail.com\nWeb: www.sparbrod-webdev.info",
+    "section2Title": "Legal Form",
+    "section2Content": "Sole Proprietorship\nRepresented by: Miriam Sparbrod (Owner)",
+    "section3Title": "VAT Identification Number",
+    "section3Content": "VAT exempt according to § 19 UStG (German VAT Act)",
+    "section4Title": "Liability for Content",
+    "section4Content": "As a service provider, I am responsible for my own content on these pages in accordance with § 7 para. 1 DDG under general laws. However, according to §§ 8 to 10 DDG, I am not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.\n\nObligations to remove or block the use of information under general laws remain unaffected. However, liability in this regard is only possible from the time of knowledge of a specific legal violation. Upon becoming aware of corresponding legal violations, I will remove this content immediately.",
+    "section5Title": "Liability for Links",
+    "section5Content": "My offer contains links to external third-party websites, over whose content I have no influence. Therefore, I cannot assume any liability for this external content. The respective provider or operator of the pages is always responsible for the content of the linked pages.\n\nThe linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognizable at the time of linking. However, a permanent content control of the linked pages is not reasonable without concrete evidence of a legal violation. Upon becoming aware of legal violations, I will remove such links immediately.",
+    "section6Title": "Copyright",
+    "section6Content": "The content and works created by me on these pages are subject to German copyright law. Reproduction, editing, distribution, and any kind of exploitation outside the limits of copyright require my written consent.\n\nDownloads and copies of this site are only permitted for private, non-commercial use. Insofar as the content on this site was not created by me, the copyrights of third parties are respected. If you become aware of a copyright infringement, please inform me. Upon becoming aware of legal violations, I will remove such content immediately.",
+    "section7Title": "Alternative Dispute Resolution",
+    "section7Content": "The European Commission provides a platform for online dispute resolution (OS): https://ec.europa.eu/consumers/odr\n\nYou can find my email address in the imprint above. I am neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board.",
+    "section8Title": "Source Credits",
+    "section8Content": "Icons: React Icons (https://react-icons.github.io/react-icons/)\nImages: Unsplash (https://unsplash.com) for stock images"
+  },
+  "privacy": {
+    "label": "Legal",
+    "title": "Privacy Policy",
+    "section1Title": "1. Privacy at a Glance",
+    "section1Sub1Title": "General Information",
+    "section1Sub1Text": "The following information provides an overview of how your personal data is processed when you visit this website. Personal data is any data with which you can be personally identified.",
+    "section1Sub2Title": "Who is responsible for data collection?",
+    "section1Sub2Text": "Data processing on this website is carried out by the website operator. You can find their contact details in the section \"Notice about the responsible party\".",
+    "section1Sub3Title": "How do I collect your data?",
+    "section1Sub3Text": "Your data is collected when you provide it to me – for example, via the contact form. Other data is collected automatically or with your consent by my IT systems when you visit the website. This mainly includes technical data (e.g., internet browser, operating system, or time of page access).",
+    "section1Sub4Title": "What do I use your data for?",
+    "section1Sub4Text": "Part of the data is collected to ensure error-free provision of the website. Other data may be used to analyze your user behavior.",
+    "section1Sub5Title": "What rights do you have regarding your data?",
+    "section1Sub5Text": "You have the right to obtain free information about the origin, recipients, and purpose of your stored personal data at any time. You also have the right to request correction or deletion of this data. Under certain circumstances, you may also request restriction of processing. You also have the right to lodge a complaint with the competent supervisory authority.",
+    "section2Title": "2. General Information and Mandatory Information",
+    "section2Sub1Title": "Data Protection",
+    "section2Sub1Text": "I take the protection of your personal data very seriously. I treat your personal data confidentially and in accordance with the statutory data protection regulations and this privacy policy.\n\nPlease note that data transmission over the Internet (e.g., when communicating by email) may have security vulnerabilities. Complete protection of data from third-party access is not possible.",
+    "section2Sub2Title": "Notice about the Responsible Party",
+    "section2Sub2Text": "The responsible party for data processing on this website is:\n\nMiriam Sparbrod\nSparbrod Web Development\nDorfstraße 75A\n04626 Vollmershain\nGermany\n\nEmail: sparbrod.webdev@gmail.com",
+    "section2Sub3Title": "Storage Duration",
+    "section2Sub3Text": "Unless a more specific storage period has been stated in this privacy policy, your personal data will remain with me until the purpose for data processing no longer applies. If you assert a justified deletion request or revoke consent, your data will be deleted unless there are other legally permissible reasons for retaining it.",
+    "section2Sub4Title": "Hosting",
+    "section2Sub4Text": "This website is hosted by Vercel Inc. For more information, please see Vercel's privacy policy: https://vercel.com/legal/privacy-policy",
+    "section3Title": "3. Your Rights",
+    "section3Sub1Title": "Revocation of Your Consent",
+    "section3Sub1Text": "Many data processing operations are only possible with your express consent. You can revoke any consent you have already given at any time without affecting the lawfulness of the processing carried out until revocation.",
+    "section3Sub2Title": "Right to Complain to the Supervisory Authority",
+    "section3Sub2Text": "In the event of violations of the GDPR, you have the right to lodge a complaint with a supervisory authority – particularly in the member state of your habitual residence.",
+    "section3Sub3Title": "Right to Data Portability",
+    "section3Sub3Text": "You have the right to receive data that I process automatically based on your consent or in fulfillment of a contract in a commonly used, machine-readable format.",
+    "section3Sub4Title": "Information, Deletion, and Correction",
+    "section3Sub4Text": "You have the right to free information about your stored personal data, its origin, recipients, and purpose of processing at any time. You also have the right to request correction or deletion of this data.",
+    "section3Sub5Title": "Right to Restriction of Processing",
+    "section3Sub5Text": "Under certain circumstances, you can request the restriction of processing of your personal data. This is possible if you contest the accuracy of the data, the processing is unlawful, or I no longer need the data, but you need it for asserting legal claims.",
+    "section4Title": "4. Data Collection on This Website",
+    "section4Sub1Title": "Server Log Files",
+    "section4Sub1Text": "The provider of this website automatically collects and stores information in server log files that your browser automatically transmits. This includes:\n\n• Browser type and version\n• Operating system used\n• Referrer URL\n• Hostname of the accessing computer\n• Time of server request\n• IP address\n\nThis data is not merged with other data sources. Collection is based on Art. 6 para. 1 lit. f GDPR.",
+    "section4Sub2Title": "Contact Form",
+    "section4Sub2Text": "If you send me inquiries via the contact form, your details from the form will be stored to process the inquiry. Processing is based on Art. 6 para. 1 lit. b GDPR (contract initiation) or Art. 6 para. 1 lit. f GDPR (legitimate interest). Data is not passed on without your consent.",
+    "section4Sub3Title": "Email Contact",
+    "section4Sub3Text": "If you contact me by email, your inquiry including all personal data arising from it will be stored for processing your concern. The data will remain with me until you request deletion or the purpose for storage no longer applies.",
+    "section5Title": "5. Plugins and Tools",
+    "section5Sub1Title": "SSL or TLS Encryption",
+    "section5Sub1Text": "This website uses SSL or TLS encryption to protect confidential content. You can recognize an encrypted connection by the browser address bar changing from \"http://\" to \"https://\" and a lock symbol appearing.",
+    "section5Sub2Title": "External Services",
+    "section5Sub2Text": "This website may embed content from external providers (e.g., YouTube, GitHub). When accessing this content, your IP address is transmitted to the respective provider. Please inform yourself about the data protection practices of the respective providers.",
+    "section6Title": "6. Profiling",
+    "section6Text": "No automated profiling of your personal data takes place on this website. The collected data is used exclusively for the purposes stated in this privacy policy."
+  },
+  "metadata": {
+    "title": "Miriam Sparbrod – Full-Stack Developer",
+    "description": "Full-Stack Developer specializing in SaaS solutions, automation, full-stack applications for modern businesses."
+  }
+}

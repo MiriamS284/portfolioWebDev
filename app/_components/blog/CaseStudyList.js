@@ -1,18 +1,16 @@
 "use client";
 
-import { useLanguage } from "@/app/_context/LanguageProvider";
+import { useTranslations } from "next-intl";
 import CaseStudyItem from "./CaseStudyItem";
 
 export default function CaseStudyList({ studies }) {
-  const { lang } = useLanguage();
+  const t = useTranslations("caseStudies");
 
   if (!studies || studies.length === 0) {
     return (
       <div className="py-20">
         <p style={{ color: "var(--muted)", opacity: 0.6 }}>
-          {lang === "de"
-            ? "Noch keine Case Studies vorhanden."
-            : "No case studies available yet."}
+          {t("noStudies")}
         </p>
       </div>
     );

@@ -3,20 +3,14 @@
 import { useState } from "react";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity";
-import { useLanguage } from "@/app/_context/LanguageProvider";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function ProjectGallery({ images }) {
-  const { lang } = useLanguage();
+  const locale = useLocale();
+  const t = useTranslations("projectDetail");
   const [selectedImage, setSelectedImage] = useState(null);
 
   if (!images || images.length === 0) return null;
-
-  const texts = {
-    de: { gallery: "Galerie", close: "Klicken zum Schließen" },
-    en: { gallery: "Gallery", close: "Click to close" },
-  };
-
-  const t = texts[lang] || texts.de;
 
   return (
     <section className="py-12" style={{ background: "var(--bg)" }}>
@@ -25,7 +19,7 @@ export default function ProjectGallery({ images }) {
           className="text-sm font-medium mb-6 pb-2 border-b"
           style={{ color: "var(--muted)", borderColor: "var(--border)" }}
         >
-          {t.gallery}
+          {t("gallery")}
         </h2>
 
         {/* Grid */}
@@ -38,7 +32,7 @@ export default function ProjectGallery({ images }) {
             >
               <Image
                 src={urlFor(image).width(800).height(600).url()}
-                alt={image.alt?.[lang] || `Image ${idx + 1}`}
+                alt={image.alt?.[locale] || `Image ${idx + 1}`}
                 fill
                 className="object-cover transition-opacity duration-300 group-hover:opacity-80"
               />
@@ -56,7 +50,7 @@ export default function ProjectGallery({ images }) {
             <div className="relative max-w-4xl max-h-[90vh] w-full">
               <Image
                 src={urlFor(selectedImage).width(1600).url()}
-                alt={selectedImage.alt?.[lang] || ""}
+                alt={selectedImage.alt?.[locale] || ""}
                 width={1600}
                 height={1200}
                 className="object-contain w-full h-full"
@@ -66,15 +60,15 @@ export default function ProjectGallery({ images }) {
                 className="absolute top-4 right-4 text-xs"
                 style={{ color: "rgba(255,255,255,0.5)" }}
               >
-                {t.close}
+                {t("close")}
               </div>
 
-              {selectedImage.caption?.[lang] && (
+              {selectedImage.caption?.[locale] && (
                 <div
                   className="absolute bottom-4 left-4 text-sm"
                   style={{ color: "rgba(255,255,255,0.7)" }}
                 >
-                  {selectedImage.caption[lang]}
+                  {selectedImage.caption[locale]}
                 </div>
               )}
             </div>

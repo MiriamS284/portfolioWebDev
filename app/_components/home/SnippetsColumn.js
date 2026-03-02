@@ -1,37 +1,21 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
-const texts = {
-  de: {
-    title: "Code-Fragmente",
-    viewAll: "Alle Code-Fragmente",
-  },
-  en: {
-    title: "Snippets",
-    viewAll: "All snippets",
-  },
-};
-
-const difficultyLabel = {
-  beginner: { icon: "", color: "#22c55e" },
-  intermediate: { icon: "", color: "#f59e0b" },
-  advanced: { icon: "", color: "#ef4444" },
-};
-
-export default function SnippetsColumn({ snippets = [], lang = "de" }) {
-  const t = texts[lang] || texts.de;
+export default function SnippetsColumn({ snippets = [], locale = "de" }) {
+  const t = useTranslations("snippets");
 
   return (
     <div>
       <h2 className="text-sm mb-6" style={{ color: "var(--muted)" }}>
-        {t.title}
+        {t("title")}
       </h2>
 
       {/* List */}
       <div className="space-y-5">
         {snippets.slice(0, 4).map((snippet) => (
-          <SnippetItem key={snippet._id} snippet={snippet} lang={lang} />
+          <SnippetItem key={snippet._id} snippet={snippet} locale={locale} />
         ))}
 
         {/* View All Link */}
@@ -40,7 +24,7 @@ export default function SnippetsColumn({ snippets = [], lang = "de" }) {
             className="text-sm font-medium underline underline-offset-2 decoration-1 transition-colors group-hover:text-[var(--accent)]"
             style={{ color: "var(--ink)" }}
           >
-            {t.viewAll}
+            {t("viewAll")}
           </span>
         </Link>
       </div>
@@ -49,19 +33,19 @@ export default function SnippetsColumn({ snippets = [], lang = "de" }) {
 }
 
 // Helper function to safely get text (handles both string and object formats)
-const getText = (field, lang, fallback = "") => {
+const getText = (field, locale, fallback = "") => {
   if (!field) return fallback;
   if (typeof field === "string") return field;
   if (typeof field === "object" && field !== null) {
-    return field[lang] || field.de || field.en || fallback;
+    return field[locale] || field.de || field.en || fallback;
   }
   return fallback;
 };
 
-function SnippetItem({ snippet, lang }) {
+function SnippetItem({ snippet, locale }) {
   // Handle both simple strings and bilingual objects
-  const title = getText(snippet.title, lang, "Untitled");
-  const description = getText(snippet.description, lang, "");
+  const title = getText(snippet.title, locale, "Untitled");
+  const description = getText(snippet.description, locale, "");
 
   const slug = snippet.slug?.current;
   const language = snippet.language || "";
@@ -87,7 +71,6 @@ function SnippetItem({ snippet, lang }) {
           className="text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           style={{ color: "var(--muted)" }}
         >
-
         </span>
       </div>
       {description && (

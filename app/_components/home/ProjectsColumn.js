@@ -1,31 +1,21 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
-const texts = {
-  de: {
-    title: "Projekte",
-    viewAll: "Alle Projekte",
-  },
-  en: {
-    title: "Projects",
-    viewAll: "All projects",
-  },
-};
-
-export default function ProjectsColumn({ projects = [], lang = "de" }) {
-  const t = texts[lang] || texts.de;
+export default function ProjectsColumn({ projects = [], locale = "de" }) {
+  const t = useTranslations("projects");
 
   return (
     <div>
       <h2 className="text-sm mb-6" style={{ color: "var(--muted)" }}>
-        {t.title}
+        {t("title")}
       </h2>
 
       {/* List */}
       <div className="space-y-5">
         {projects.slice(0, 4).map((project) => (
-          <ProjectItem key={project._id} project={project} lang={lang} />
+          <ProjectItem key={project._id} project={project} locale={locale} />
         ))}
 
         <Link href="/projects" className="group inline-block">
@@ -33,7 +23,7 @@ export default function ProjectsColumn({ projects = [], lang = "de" }) {
             className="text-sm font-medium underline underline-offset-2 decoration-1 transition-colors group-hover:text-[var(--accent)]"
             style={{ color: "var(--ink)" }}
           >
-            {t.viewAll}
+            {t("viewAll")}
           </span>
         </Link>
       </div>
@@ -41,9 +31,9 @@ export default function ProjectsColumn({ projects = [], lang = "de" }) {
   );
 }
 
-function ProjectItem({ project, lang }) {
-  const title = project.title?.[lang] || project.title?.de || "Untitled";
-  const tagline = project.tagline?.[lang] || project.tagline?.de || "";
+function ProjectItem({ project, locale }) {
+  const title = project.title?.[locale] || project.title?.de || "Untitled";
+  const tagline = project.tagline?.[locale] || project.tagline?.de || "";
   const slug = project.slug?.current;
 
   return (

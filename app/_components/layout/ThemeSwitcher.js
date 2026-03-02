@@ -1,62 +1,145 @@
 "use client";
 
+import { useState } from "react";
 import { useTheme } from "@/app/_context/ThemeProvider";
 
 export default function ThemeSwitcher() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <button
-      type="button"
-      onClick={toggleTheme}
-      className="p-3 rounded-xl transition-all hover:bg-[var(--surface)] hover:scale-110 active:scale-95"
-      style={{
-        background: "color-mix(in oklch, var(--surface), transparent 50%)",
-        backdropFilter: "blur(8px)",
-        border: "1px solid var(--border)",
-      }}
-      aria-label={
-        theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-      }
-      title={theme === "dark" ? "Light Mode" : "Dark Mode"}
+    <div
+      className="flex flex-col items-center gap-4"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {theme === "dark" ? (
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          style={{ color: "var(--ink)", opacity: 0.8 }}
-        >
-          <circle cx="12" cy="12" r="5" />
-          <line x1="12" y1="1" x2="12" y2="3" />
-          <line x1="12" y1="21" x2="12" y2="23" />
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-          <line x1="1" y1="12" x2="3" y2="12" />
-          <line x1="21" y1="12" x2="23" y2="12" />
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-        </svg>
-      ) : (
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          style={{ color: "var(--ink)", opacity: 0.8 }}
-        >
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
+      {/* Label - immer sichtbar */}
+      <div
+        className="cursor-pointer"
+        style={{
+          writingMode: "vertical-rl",
+          textOrientation: "mixed",
+          color: "var(--ink)",
+          fontWeight: 700,
+          letterSpacing: "0.5em",
+          fontSize: 11,
+          textTransform: "uppercase",
+          opacity: 0.9,
+        }}
+      >
+        THEME
+      </div>
+
+      {/* Options - nur bei Hover */}
+      {isHovered && (
+        <>
+          {/* Separator Line */}
+          <div
+            className="w-[1px] h-6 animate-fadeIn"
+            style={{ background: "var(--border)", opacity: 0.3 }}
+          />
+
+          {/* DARK - vertikal */}
+          <button
+            onClick={() => setTheme("dark")}
+            className="group transition-opacity hover:opacity-100 animate-fadeIn"
+            style={{
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+              opacity: theme === "dark" ? 1 : 0.4,
+            }}
+            aria-label="Dark mode"
+          >
+            <div
+              style={{
+                writingMode: "vertical-rl",
+                textOrientation: "mixed",
+                color: theme === "dark" ? "var(--accent)" : "var(--ink)",
+                fontWeight: 700,
+                letterSpacing: "0.3em",
+                fontSize: 11,
+                textTransform: "uppercase",
+                transition: "color 0.3s ease",
+              }}
+            >
+              DARK
+            </div>
+          </button>
+
+          {/* Separator Line */}
+          <div
+            className="w-[1px] h-6 animate-fadeIn"
+            style={{ background: "var(--border)", opacity: 0.3 }}
+          />
+
+          {/* LIGHT - vertikal */}
+          <button
+            onClick={() => setTheme("light")}
+            className="group transition-opacity hover:opacity-100 animate-fadeIn"
+            style={{
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+              opacity: theme === "light" ? 1 : 0.4,
+            }}
+            aria-label="Light mode"
+          >
+            <div
+              style={{
+                writingMode: "vertical-rl",
+                textOrientation: "mixed",
+                color: theme === "light" ? "var(--accent)" : "var(--ink)",
+                fontWeight: 700,
+                letterSpacing: "0.3em",
+                fontSize: 11,
+                textTransform: "uppercase",
+                transition: "color 0.3s ease",
+              }}
+            >
+              LIGHT
+            </div>
+          </button>
+        </>
       )}
-    </button>
+    </div>
+  );
+}
+
+// Mobile version for OverlayMenu
+export function MobileThemeSwitcher() {
+  const { theme, setTheme } = useTheme();
+
+  return (
+    <div className="flex items-center gap-2">
+      <button
+        onClick={() => setTheme("dark")}
+        className="px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all"
+        style={{
+          background: theme === "dark" ? "var(--accent)" : "transparent",
+          color: theme === "dark" ? "var(--bg)" : "var(--ink)",
+          opacity: theme === "dark" ? 1 : 0.5,
+          border: theme === "dark" ? "none" : "1px solid var(--border)",
+        }}
+        aria-label="Dark mode"
+      >
+        DARK
+      </button>
+      <button
+        onClick={() => setTheme("light")}
+        className="px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all"
+        style={{
+          background: theme === "light" ? "var(--accent)" : "transparent",
+          color: theme === "light" ? "var(--bg)" : "var(--ink)",
+          opacity: theme === "light" ? 1 : 0.5,
+          border: theme === "light" ? "none" : "1px solid var(--border)",
+        }}
+        aria-label="Light mode"
+      >
+        LIGHT
+      </button>
+    </div>
   );
 }

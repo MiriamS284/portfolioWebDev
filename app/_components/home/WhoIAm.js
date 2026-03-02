@@ -1,59 +1,43 @@
 "use client";
 
 import Container from "../shared/Container";
-import { useLanguage } from "@/app/_context/LanguageProvider";
+import { useTranslations, useLocale } from "next-intl";
 
-const content = {
-  de: {
-    eyebrow: "Full-Stack Entwicklerin",
-    headline: "Ich baue",
-    headlineAccent: "B2B-Webanwendungen und SaaS-Plattformen",
-    description:
-      "Projektbezogen, vom ersten Meeting bis zum Live-System. Ich verstehe Anforderungen zu erfassen und technisch umzusetzen.",
-    tags: [
-      "#B2BSaaS",
-      "#FullStack",
-      "#WebAnwendungen",
-      "#AIAgents",
-      "#Automatisierung",
-      "#ProcessOptimization",
-      "#WebDev",
-      "#SoftwareDevelopment",
-      "DigitaleTransformation",
-      "#Problemlöserin",
-      "#TechfürBusiness",
-      "#AgileDevlopment",
-    ],
-  },
-  en: {
-    eyebrow: "Full-Stack Developer",
-    headline: "I build",
-    headlineAccent: "B2B web applications and SaaS platforms",
-    description:
-      "Project-focused, from first meeting to live system. I understand how to capture requirements and implement them technically.",
-    tags: [
-      "#B2BSaaS",
-      "#FullStack",
-      "#WebApplications",
-      "#AIAutomation",
-      "#AIIntegration",
-      "#ProcessOptimization",
-
-      "#SoftwareDevelopment",
-      "#DigitalTransformation",
-      "#ProblemSolver",
-      "#TechForBusiness",
-      "#AgilDevlopment",
-      "#ProblemSolver",
-      "#TechfürBusiness",
-      "#DigitalSolutions",
-    ],
-  },
+const tags = {
+  de: [
+    "#B2BSaaS",
+    "#FullStack",
+    "#WebAnwendungen",
+    "#AIAgents",
+    "#Automatisierung",
+    "#ProcessOptimization",
+    "#WebDev",
+    "#SoftwareDevelopment",
+    "DigitaleTransformation",
+    "#Problemlöserin",
+    "#TechfürBusiness",
+    "#AgileDevlopment",
+  ],
+  en: [
+    "#B2BSaaS",
+    "#FullStack",
+    "#WebApplications",
+    "#AIAutomation",
+    "#AIIntegration",
+    "#ProcessOptimization",
+    "#SoftwareDevelopment",
+    "#DigitalTransformation",
+    "#ProblemSolver",
+    "#TechForBusiness",
+    "#AgilDevlopment",
+    "#DigitalSolutions",
+  ],
 };
 
 export default function WhoIAm() {
-  const { lang } = useLanguage();
-  const t = content[lang] || content.de;
+  const t = useTranslations("whoIAm");
+  const locale = useLocale();
+  const currentTags = tags[locale] || tags.de;
 
   return (
     <section
@@ -68,11 +52,11 @@ export default function WhoIAm() {
       <Container size="default">
         <div className="max-w-3xl mx-auto text-center">
           <div className="text-xs uppercase tracking-[0.3em] opacity-60 mb-6">
-            {t.eyebrow}
+            {t("eyebrow")}
           </div>
 
           <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight text-balance">
-            {t.headline}{" "}
+            {t("headline")}{" "}
             <span
               style={{
                 background:
@@ -82,37 +66,21 @@ export default function WhoIAm() {
                 backgroundClip: "text",
               }}
             >
-              {t.headlineAccent}
+              {t("headlineAccent")}
             </span>
           </h2>
 
           <p className="text-lg md:text-xl opacity-80 leading-relaxed mb-8">
-            {t.description}
+            {t("description")}
           </p>
 
-          {t.tags && (
-            <div className="flex flex-wrap gap-3 mt-8">
-              {t.tags.map((tag, index) => (
-                <span key={`whoiam-tag-${index}`}> {tag}</span>
-              ))}
-            </div>
-          )}
+          <div className="flex flex-wrap gap-3 mt-8 justify-center">
+            {currentTags.map((tag, index) => (
+              <span key={`whoiam-tag-${index}`}> {tag}</span>
+            ))}
+          </div>
         </div>
       </Container>
     </section>
-  );
-}
-
-function Stat({ number, label }) {
-  return (
-    <div>
-      <div
-        className="text-3xl md:text-4xl font-bold mb-2"
-        style={{ color: "var(--accent)" }}
-      >
-        {number}
-      </div>
-      <div className="text-sm opacity-70">{label}</div>
-    </div>
   );
 }

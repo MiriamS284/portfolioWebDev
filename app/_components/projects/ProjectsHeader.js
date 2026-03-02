@@ -1,22 +1,9 @@
 "use client";
 
-import { useLanguage } from "@/app/_context/LanguageProvider";
+import { useTranslations } from "next-intl";
 
 export default function ProjectsHeader() {
-  const { lang } = useLanguage();
-
-  const content = {
-    de: {
-      title: "Projekte",
-      description: "Eine Auswahl meiner Arbeiten",
-    },
-    en: {
-      title: "Projects",
-      description: "A selection of my work",
-    },
-  };
-
-  const { title, description } = content[lang];
+  const t = useTranslations("projects");
 
   return (
     <header className="mb-12">
@@ -24,10 +11,10 @@ export default function ProjectsHeader() {
         className="text-2xl font-semibold mb-2"
         style={{ color: "var(--ink)" }}
       >
-        {title}
+        {t("title")}
       </h1>
       <p className="text-base" style={{ color: "var(--muted)" }}>
-        {description}
+        {t("description")}
       </p>
     </header>
   );

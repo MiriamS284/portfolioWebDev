@@ -1,15 +1,15 @@
 "use client";
 
-import Link from "next/link";
-import { useLanguage } from "@/app/_context/LanguageProvider";
+import { useLocale } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function CaseStudyItem({ study, isLast }) {
-  const { lang } = useLanguage();
+  const locale = useLocale();
 
   const formatDate = (dateString) => {
     if (!dateString) return "";
     const date = new Date(dateString);
-    return date.toLocaleDateString(lang === "de" ? "de-DE" : "en-US", {
+    return date.toLocaleDateString(locale === "de" ? "de-DE" : "en-US", {
       year: "numeric",
       month: "short",
     });
@@ -26,7 +26,7 @@ export default function CaseStudyItem({ study, isLast }) {
             style={{ color: "var(--ink)" }}
           >
             <span className="group-hover:text-[var(--accent)] transition-colors">
-              {study.title?.[lang] || study.title?.de || study.title}
+              {study.title?.[locale] || study.title?.de || study.title}
             </span>
             <span
               className="inline-block ml-2 opacity-0 group-hover:opacity-70 transition-all duration-200 group-hover:translate-x-1"
@@ -57,12 +57,12 @@ export default function CaseStudyItem({ study, isLast }) {
           </div>
         )}
 
-        {(study.excerpt?.[lang] || study.excerpt?.de) && (
+        {(study.excerpt?.[locale] || study.excerpt?.de) && (
           <p
             className="text-sm leading-relaxed"
             style={{ color: "var(--muted)" }}
           >
-            {study.excerpt?.[lang] || study.excerpt?.de}
+            {study.excerpt?.[locale] || study.excerpt?.de}
           </p>
         )}
       </Link>

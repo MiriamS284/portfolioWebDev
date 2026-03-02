@@ -1,30 +1,20 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
-const texts = {
-  de: {
-    title: "Case Studies",
-    viewAll: "Alle Case Studies",
-  },
-  en: {
-    title: "Writings",
-    viewAll: "All writings",
-  },
-};
-
-export default function WritingColumn({ posts = [], lang = "de" }) {
-  const t = texts[lang] || texts.de;
+export default function WritingColumn({ posts = [], locale = "de" }) {
+  const t = useTranslations("caseStudies");
 
   return (
     <div>
       <h2 className="text-sm mb-6" style={{ color: "var(--muted)" }}>
-        {t.title}
+        {t("title")}
       </h2>
 
       <div className="space-y-5">
         {posts.slice(0, 4).map((post) => (
-          <WritingItem key={post._id} post={post} lang={lang} />
+          <WritingItem key={post._id} post={post} locale={locale} />
         ))}
 
         <Link href="/case-studies" className="group inline-block">
@@ -32,7 +22,7 @@ export default function WritingColumn({ posts = [], lang = "de" }) {
             className="text-sm font-medium underline underline-offset-2 decoration-1 transition-colors group-hover:text-[var(--accent)]"
             style={{ color: "var(--ink)" }}
           >
-            {t.viewAll}
+            {t("viewAll")}
           </span>
         </Link>
       </div>
@@ -40,9 +30,9 @@ export default function WritingColumn({ posts = [], lang = "de" }) {
   );
 }
 
-function WritingItem({ post, lang = "de" }) {
-  const title = post.title?.[lang] || post.title?.de || post.title || "Untitled";
-  const excerpt = post.excerpt?.[lang] || post.excerpt?.de || "";
+function WritingItem({ post, locale = "de" }) {
+  const title = post.title?.[locale] || post.title?.de || post.title || "Untitled";
+  const excerpt = post.excerpt?.[locale] || post.excerpt?.de || "";
   const slug = post.slug?.current;
 
   return (

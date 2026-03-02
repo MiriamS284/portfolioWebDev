@@ -78,6 +78,16 @@
   color-scheme: light;
 }
 
+/* ═══ Light Mode - Logo & Navigation Adjustments ═══ */
+[data-theme="light"] .logo-adaptive {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+[data-theme="light"] .nav-text-adaptive {
+  opacity: 1 !important;
+  text-shadow: none;
+}
+
 /* ══════════════════════════════════════════════════════════
    Base Styles
    ══════════════════════════════════════════════════════════ */

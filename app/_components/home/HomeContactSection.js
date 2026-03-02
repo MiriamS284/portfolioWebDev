@@ -1,16 +1,10 @@
 "use client";
 
-import { useLanguage } from "@/app/_context/LanguageProvider";
+import { useTranslations } from "next-intl";
 import ContactForm from "@/app/_components/contact/ContactForm";
 
-const texts = {
-  de: { label: "Kontakt" },
-  en: { label: "Contact" },
-};
-
 export default function HomeContactSection() {
-  const { lang } = useLanguage();
-  const t = texts[lang] || texts.de;
+  const t = useTranslations("home");
 
   return (
     <section className="py-16 md:py-24" style={{ background: "var(--bg)" }}>
@@ -20,7 +14,7 @@ export default function HomeContactSection() {
           className="text-sm font-medium mb-8 pb-2 border-b"
           style={{ color: "var(--muted)", borderColor: "var(--border)" }}
         >
-          {t.label}
+          {t("contact")}
         </div>
 
         {/* Form */}

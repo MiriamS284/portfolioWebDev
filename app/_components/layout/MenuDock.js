@@ -2,11 +2,14 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import OverlayMenu from "./OverlayMenu";
 import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
+  const t = useTranslations("menu");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -59,10 +62,9 @@ export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
               width={120}
               height={120}
               priority
-              className="w-10 h-10 sm:w-12 sm:h-12"
+              className="w-10 h-10 sm:w-12 sm:h-12 logo-adaptive"
               style={{
                 objectFit: "contain",
-                filter: "drop-shadow(0 4px 12px rgba(0,0,0,.25))",
               }}
             />
             {/* Name - always visible on mobile */}
@@ -82,7 +84,7 @@ export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
             style={{
               background: "transparent",
             }}
-            aria-label="Menü öffnen"
+            aria-label={t("openMenu")}
             aria-expanded={menuOpen}
           >
             <div className="flex flex-col gap-1">
@@ -112,12 +114,10 @@ export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
             width={200}
             height={200}
             priority
-            className="w-32 h-32 lg:w-40 lg:h-40 xl:w-44 xl:h-44 transition-transform duration-300 group-hover:scale-110"
+            className="w-32 h-32 lg:w-40 lg:h-40 xl:w-44 xl:h-44 transition-transform duration-300 group-hover:scale-110 logo-adaptive"
             style={{
               display: "block",
               objectFit: "contain",
-              opacity: 0.96,
-              filter: "drop-shadow(0 10px 28px rgba(0,0,0,.35))",
             }}
           />
         </Link>
@@ -128,7 +128,7 @@ export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
             onClick={() => setMenuOpen(true)}
             className="cursor-pointer group"
             style={{ background: "transparent" }}
-            aria-label="Menü öffnen"
+            aria-label={t("openMenu")}
             aria-expanded={menuOpen}
           >
             <div
@@ -155,6 +155,11 @@ export default function MenuDock({ logoSrc = "/logo_no_text.png" }) {
 
           <LanguageSwitcher />
         </div>
+      </div>
+
+      {/* Desktop Theme Switcher - Right Side, below nav level */}
+      <div className="hidden lg:block fixed right-6 top-52 z-50 select-none">
+        <ThemeSwitcher />
       </div>
 
       <OverlayMenu open={menuOpen} onClose={() => setMenuOpen(false)} />

@@ -1,6 +1,5 @@
 "use client";
 
-import { LanguageProvider } from "../../_context/LanguageProvider";
 import { ThemeProvider } from "../../_context/ThemeProvider";
 import SpotlightEffect from "../effects/SpotlightEffect";
 import MenuDock from "./MenuDock";
@@ -10,13 +9,11 @@ import NameLabel from "./NameLabel";
 export default function ClientLayout({ children }) {
   return (
     <ThemeProvider>
-      <LanguageProvider>
-        <SpotlightEffect />
-        <MenuDock />
-        <NameLabel />
-        <HorizontalNav />
-        {children}
-      </LanguageProvider>
+      <SpotlightEffect />
+      <MenuDock />
+      <NameLabel />
+      <HorizontalNav />
+      {children}
     </ThemeProvider>
   );
 }

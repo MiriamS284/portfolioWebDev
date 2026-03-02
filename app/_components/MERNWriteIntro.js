@@ -8,8 +8,10 @@ function getPrefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-export default function MERNWriteIntro({ onDone, logoSrc = "/logo_no_text.png" }) {
-  // Phasen: writing -> subtitle -> dragonfly -> flyToNav -> done
+export default function MERNWriteIntro({
+  onDone,
+  logoSrc = "/logo_no_text.png",
+}) {
   const [phase, setPhase] = useState("writing");
   const hasCalledDone = useRef(false);
   const [prefersReducedMotion] = useState(() => getPrefersReducedMotion());
@@ -23,18 +25,13 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_no_text.png" }
       return;
     }
 
-    // Schnellere Timings
     const timers = [
-      // MERN fertig geschrieben + Subtitle erscheint
       setTimeout(() => setPhase("subtitle"), 2800),
 
-      // Libelle erscheint und kreist (schneller)
       setTimeout(() => setPhase("dragonfly"), 3500),
 
-      // Libelle fliegt zur Nav-Position
       setTimeout(() => setPhase("flyToNav"), 5500),
 
-      // Fertig
       setTimeout(() => {
         setPhase("done");
         if (!hasCalledDone.current) {
@@ -64,7 +61,6 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_no_text.png" }
       className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden"
       style={{ background: "var(--bg)" }}
     >
-      {/* Skip Button */}
       <button
         onClick={handleSkip}
         className="absolute top-6 right-6 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:opacity-80 z-50"
@@ -77,7 +73,6 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_no_text.png" }
         Skip
       </button>
 
-      {/* MERN Writing Animation */}
       <div
         className={`absolute transition-opacity duration-500 ${
           phase === "flyToNav" ? "opacity-0" : "opacity-100"
@@ -134,7 +129,6 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_no_text.png" }
           />
         </svg>
 
-        {/* Subtitle */}
         <p
           className={`mern-subtitle text-center mt-8 text-sm md:text-base tracking-widest uppercase transition-opacity duration-400 ${
             phase === "writing" ? "opacity-0" : "opacity-60"
@@ -149,7 +143,6 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_no_text.png" }
         </p>
       </div>
 
-      {/* Libelle - kreist schnell und flüssig */}
       <div
         className={`dragonfly-container ${
           phase === "dragonfly" ? "circling" : ""
@@ -200,7 +193,6 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_no_text.png" }
           }
         }
 
-        /* Libelle Container */
         .dragonfly-container {
           position: absolute;
           width: 90px;
@@ -213,7 +205,6 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_no_text.png" }
           will-change: transform;
         }
 
-        /* Schnelles, flüssiges Kreisen */
         .dragonfly-container.circling {
           animation: circleAround 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
@@ -253,7 +244,6 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_no_text.png" }
           }
         }
 
-        /* Flüssige Wendungen während des Flugs */
         @keyframes dragonflyFly {
           0% {
             transform: rotateY(0deg) rotateZ(-20deg) rotateX(10deg);
@@ -275,13 +265,14 @@ export default function MERNWriteIntro({ onDone, logoSrc = "/logo_no_text.png" }
           }
         }
 
-        /* Fliegen zur Nav-Position */
         .dragonfly-container.fly-to-nav {
-          animation: flyToNavPosition 1.3s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+          animation: flyToNavPosition 1.3s cubic-bezier(0.34, 1.2, 0.64, 1)
+            forwards;
         }
 
         .dragonfly-container.fly-to-nav :global(.dragonfly-image) {
-          animation: dragonflySettle 1.3s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+          animation: dragonflySettle 1.3s cubic-bezier(0.34, 1.2, 0.64, 1)
+            forwards;
         }
 
         @keyframes flyToNavPosition {

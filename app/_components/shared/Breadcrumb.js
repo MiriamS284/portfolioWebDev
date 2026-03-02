@@ -1,27 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { useLanguage } from "@/app/_context/LanguageProvider";
-
-const labels = {
-  de: {
-    projects: "Projekte",
-    "case-studies": "Case Studies",
-    garden: "Digital Garden",
-    snippets: "Code Snippets",
-  },
-  en: {
-    projects: "Projects",
-    "case-studies": "Case Studies",
-    garden: "Digital Garden",
-    snippets: "Code Snippets",
-  },
-};
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function Breadcrumb({ section, title }) {
-  const { lang } = useLanguage();
-  const t = labels[lang] || labels.de;
-  const sectionLabel = t[section] || section;
+  const t = useTranslations("breadcrumb");
+  const sectionLabel = t(section) || section;
 
   return (
     <div

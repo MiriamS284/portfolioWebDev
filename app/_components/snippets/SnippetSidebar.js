@@ -1,32 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useLanguage } from "@/app/_context/LanguageProvider";
-
-const texts = {
-  de: {
-    allSnippets: "Alle Snippets",
-    categories: "Kategorien",
-    languages: "Sprachen",
-    difficulty: "Schwierigkeit",
-    filters: "Filter",
-    clear: "Zurücksetzen",
-    beginner: "Einsteiger",
-    intermediate: "Fortgeschritten",
-    advanced: "Experte",
-  },
-  en: {
-    allSnippets: "All Snippets",
-    categories: "Categories",
-    languages: "Languages",
-    difficulty: "Difficulty",
-    filters: "Filters",
-    clear: "Clear",
-    beginner: "Beginner",
-    intermediate: "Intermediate",
-    advanced: "Advanced",
-  },
-};
+import { useTranslations } from "next-intl";
 
 export default function SnippetSidebar({
   snippets,
@@ -37,8 +12,7 @@ export default function SnippetSidebar({
   activeDifficulty,
   setActiveDifficulty,
 }) {
-  const { lang } = useLanguage();
-  const t = texts[lang] || texts.de;
+  const t = useTranslations("snippets");
   const [isExpanded, setIsExpanded] = useState(false);
 
   // Calculate counts
@@ -109,7 +83,7 @@ export default function SnippetSidebar({
           onClick={clearFilters}
           count={totalCount}
         >
-          {t.allSnippets}
+          {t("allSnippets")}
         </FilterButton>
       </div>
 
@@ -124,7 +98,7 @@ export default function SnippetSidebar({
             border: "1px solid var(--border)",
           }}
         >
-          {t.clear}
+          {t("clear")}
         </button>
       )}
 
@@ -135,7 +109,7 @@ export default function SnippetSidebar({
             className="text-xs uppercase tracking-wider mb-3"
             style={{ color: "var(--muted)", opacity: 0.7 }}
           >
-            {t.categories}
+            {t("categories")}
           </h3>
           <div className="space-y-1">
             {categories.map(([category, count]) => (
@@ -159,7 +133,7 @@ export default function SnippetSidebar({
             className="text-xs uppercase tracking-wider mb-3"
             style={{ color: "var(--muted)", opacity: 0.7 }}
           >
-            {t.languages}
+            {t("languages")}
           </h3>
           <div className="space-y-1">
             {languages.map(([language, count]) => (
@@ -183,7 +157,7 @@ export default function SnippetSidebar({
             className="text-xs uppercase tracking-wider mb-3"
             style={{ color: "var(--muted)", opacity: 0.7 }}
           >
-            {t.difficulty}
+            {t("difficulty")}
           </h3>
           <div className="space-y-1">
             {["beginner", "intermediate", "advanced"].map((diff) => {
@@ -196,7 +170,7 @@ export default function SnippetSidebar({
                   onClick={() => setActiveDifficulty(activeDifficulty === diff ? "all" : diff)}
                   count={count}
                 >
-                  {t[diff]}
+                  {t(diff)}
                 </FilterButton>
               );
             })}
@@ -219,7 +193,7 @@ export default function SnippetSidebar({
           }}
         >
           <span className="text-sm font-medium" style={{ color: "var(--ink)" }}>
-            {t.filters}
+            {t("filters")}
             {hasActiveFilters && (
               <span
                 className="ml-2 px-2 py-0.5 rounded text-xs"

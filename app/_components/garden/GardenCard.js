@@ -1,13 +1,13 @@
 "use client";
 
-import Link from "next/link";
-import { useLanguage } from "@/app/_context/LanguageProvider";
+import { useLocale } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function GardenCard({ entry }) {
-  const { lang } = useLanguage();
+  const locale = useLocale();
 
-  const title = lang === "en" ? entry.title_en : entry.title_de;
-  const excerpt = lang === "en" ? entry.excerpt_en : entry.excerpt_de;
+  const title = locale === "en" ? entry.title_en : entry.title_de;
+  const excerpt = locale === "en" ? entry.excerpt_en : entry.excerpt_de;
 
   return (
     <Link

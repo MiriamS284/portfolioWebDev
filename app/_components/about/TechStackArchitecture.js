@@ -1,34 +1,27 @@
 "use client";
 
-import { useLanguage } from "@/app/_context/LanguageProvider";
+import { useTranslations } from "next-intl";
 
 export default function TechStackArchitecture() {
-  const { lang } = useLanguage();
-
-  const texts = {
-    de: {
-      title: "Tech Stack",
-      subtitle: "Full-Stack Architektur",
-      crossCutting: "Cross-Cutting Concerns",
-      tools: "Tools & Ressourcen",
-    },
-    en: {
-      title: "Tech Stack",
-      subtitle: "Full-Stack Architecture",
-      crossCutting: "Cross-Cutting Concerns",
-      tools: "Tools & Resources",
-    },
-  };
-  const t = texts[lang] || texts.de;
+  const t = useTranslations("techStack");
 
   // Architecture layers - vollständig
   const architecture = [
     {
       layer: "Presentation",
       technologies: [
-        { name: "HTML5", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
-        { name: "CSS3", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
-        { name: "JavaScript", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+        {
+          name: "HTML5",
+          url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+        },
+        {
+          name: "CSS3",
+          url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+        },
+        {
+          name: "JavaScript",
+          url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+        },
         { name: "TypeScript", url: "https://www.typescriptlang.org/" },
         { name: "React", url: "https://react.dev/" },
         { name: "Next.js", url: "https://nextjs.org/" },
@@ -42,7 +35,10 @@ export default function TechStackArchitecture() {
       technologies: [
         { name: "NGINX", url: "https://nginx.org/" },
         { name: "Express.js", url: "https://expressjs.com/" },
-        { name: "Windows Server", url: "https://www.microsoft.com/en-us/windows-server" },
+        {
+          name: "Windows Server",
+          url: "https://www.microsoft.com/en-us/windows-server",
+        },
         { name: "Linux (Ubuntu)", url: "https://ubuntu.com/" },
       ],
     },
@@ -91,7 +87,10 @@ export default function TechStackArchitecture() {
         { name: "Mocha", url: "https://mochajs.org/" },
         { name: "Cypress", url: "https://www.cypress.io/" },
         { name: "Playwright", url: "https://playwright.dev/" },
-        { name: "Lighthouse", url: "https://developer.chrome.com/docs/lighthouse/" },
+        {
+          name: "Lighthouse",
+          url: "https://developer.chrome.com/docs/lighthouse/",
+        },
       ],
     },
     {
@@ -113,59 +112,81 @@ export default function TechStackArchitecture() {
   ];
 
   const tools = [
-    { category: "Animation", items: [
-      { name: "Framer Motion", url: "https://www.framer.com/motion/" },
-      { name: "GSAP", url: "https://greensock.com/gsap/" },
-      { name: "Three.js", url: "https://threejs.org/" },
-      { name: "React Spring", url: "https://www.react-spring.dev/" },
-    ]},
-    { category: "Design", items: [
-      { name: "Figma", url: "https://www.figma.com/" },
-      { name: "Excalidraw", url: "https://excalidraw.com/" },
-      { name: "Lucide Icons", url: "https://lucide.dev/" },
-      { name: "Coolors", url: "https://coolors.co/" },
-    ]},
-    { category: "Dev Tools", items: [
-      { name: "VS Code", url: "https://code.visualstudio.com/" },
-      { name: "Postman", url: "https://www.postman.com/" },
-      { name: "Git", url: "https://git-scm.com/" },
-      { name: "ESLint", url: "https://eslint.org/" },
-      { name: "Prettier", url: "https://prettier.io/" },
-    ]},
-    { category: "Learning", items: [
-      { name: "MDN Web Docs", url: "https://developer.mozilla.org/" },
-      { name: "React Docs", url: "https://react.dev/" },
-      { name: "Stack Overflow", url: "https://stackoverflow.com/" },
-      { name: "DevDocs", url: "https://devdocs.io/" },
-    ]},
-    { category: "Performance", items: [
-      { name: "Lighthouse", url: "https://developer.chrome.com/docs/lighthouse/" },
-      { name: "Bundle Analyzer", url: "https://www.npmjs.com/package/webpack-bundle-analyzer" },
-      { name: "WebPageTest", url: "https://www.webpagetest.org/" },
-    ]},
-    { category: "Productivity", items: [
-      { name: "Notion", url: "https://www.notion.so/" },
-      { name: "Linear", url: "https://linear.app/" },
-      { name: "Raycast", url: "https://www.raycast.com/" },
-    ]},
+    {
+      category: "Animation",
+      items: [
+        { name: "Framer Motion", url: "https://www.framer.com/motion/" },
+        { name: "GSAP", url: "https://greensock.com/gsap/" },
+        { name: "Three.js", url: "https://threejs.org/" },
+        { name: "React Spring", url: "https://www.react-spring.dev/" },
+      ],
+    },
+    {
+      category: "Design",
+      items: [
+        { name: "Figma", url: "https://www.figma.com/" },
+        { name: "Excalidraw", url: "https://excalidraw.com/" },
+        { name: "Lucide Icons", url: "https://lucide.dev/" },
+        { name: "Coolors", url: "https://coolors.co/" },
+      ],
+    },
+    {
+      category: "Dev Tools",
+      items: [
+        { name: "VS Code", url: "https://code.visualstudio.com/" },
+        { name: "Postman", url: "https://www.postman.com/" },
+        { name: "Git", url: "https://git-scm.com/" },
+        { name: "ESLint", url: "https://eslint.org/" },
+        { name: "Prettier", url: "https://prettier.io/" },
+      ],
+    },
+    {
+      category: "Learning",
+      items: [
+        { name: "MDN Web Docs", url: "https://developer.mozilla.org/" },
+        { name: "React Docs", url: "https://react.dev/" },
+        { name: "Stack Overflow", url: "https://stackoverflow.com/" },
+        { name: "DevDocs", url: "https://devdocs.io/" },
+      ],
+    },
+    {
+      category: "Performance",
+      items: [
+        {
+          name: "Lighthouse",
+          url: "https://developer.chrome.com/docs/lighthouse/",
+        },
+        {
+          name: "Bundle Analyzer",
+          url: "https://www.npmjs.com/package/webpack-bundle-analyzer",
+        },
+        { name: "WebPageTest", url: "https://www.webpagetest.org/" },
+      ],
+    },
+    {
+      category: "Productivity",
+      items: [
+        { name: "Notion", url: "https://www.notion.so/" },
+        { name: "Linear", url: "https://linear.app/" },
+        { name: "Raycast", url: "https://www.raycast.com/" },
+      ],
+    },
   ];
 
   return (
     <div className="mt-16 space-y-16">
-      {/* Header */}
       <header>
         <h2
           className="text-sm font-medium mb-2 pb-2 border-b"
           style={{ color: "var(--muted)", borderColor: "var(--border)" }}
         >
-          {t.title}
+          {t("title")}
         </h2>
         <p className="text-base" style={{ color: "var(--muted)" }}>
-          {t.subtitle}
+          {t("subtitle")}
         </p>
       </header>
 
-      {/* Architecture Stack */}
       <div className="space-y-0">
         {architecture.map((layer, idx) => (
           <div key={layer.layer} className="relative">
@@ -206,13 +227,12 @@ export default function TechStackArchitecture() {
         ))}
       </div>
 
-      {/* Cross-Cutting Concerns */}
       <div>
         <h3
           className="text-sm font-medium mb-6 pb-2 border-b"
           style={{ color: "var(--muted)", borderColor: "var(--border)" }}
         >
-          {t.crossCutting}
+          {t("crossCutting")}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {crossCutting.map((concern) => (
@@ -242,13 +262,12 @@ export default function TechStackArchitecture() {
         </div>
       </div>
 
-      {/* Tools & Resources */}
       <div>
         <h3
           className="text-sm font-medium mb-6 pb-2 border-b"
           style={{ color: "var(--muted)", borderColor: "var(--border)" }}
         >
-          {t.tools}
+          {t("tools")}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {tools.map((section) => (

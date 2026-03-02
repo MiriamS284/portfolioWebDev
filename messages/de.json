@@ -1,0 +1,262 @@
+{
+  "navigation": {
+    "about": "ÜBER MICH",
+    "projects": "PROJEKTE",
+    "caseStudies": "CASE STUDIES"
+  },
+  "footer": {
+    "role": "Full-Stack Entwicklerin",
+    "tagline": "Ich übersetze komplexe Ideen in performante Web-Anwendungen.",
+    "nav": "Navigation",
+    "about": "Über mich",
+    "projects": "Projekte",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz"
+  },
+  "menu": {
+    "label": "MENU",
+    "language": "LANGUAGE",
+    "close": "Schließen",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "about": "Über mich",
+    "projects": "Projekte",
+    "projectsSub": "Case Studies & Arbeiten",
+    "garden": "Digital Garden",
+    "gardenSub": "Gedanken die wachsen",
+    "blog": "Case - Studies & Tutorials",
+    "blogSub": "Artikel & Tutorials",
+    "snippets": "Code Snippets",
+    "snippetsSub": "Wiederverwendbare Code-Beispiele",
+    "contact": "Kontakt",
+    "contactSub": "Lass uns über eine Zusammenarbeit sprechen"
+  },
+  "home": {
+    "index": "Index",
+    "contact": "Kontakt"
+  },
+  "heroShowcase": {
+    "intro": "Full-Stack Entwicklerin.",
+    "line1": "Digitale Lösungen entwickeln. Software mit Anspruch.",
+    "line2": "Von Sprache zu Code - transformiere ich Konzepte in performante Systeme.",
+    "philosophy1": "Durch Machen lernen. Neue Technologien erkunden. Qualität schaffen. Im Bewusstsein, dass hinter jedem System eine Vision steht.",
+    "philosophy2": "Mein Fokus: Full-Stack Lösungen. Frontend, Backend, APIs, Performance - Software as a Service.",
+    "automation": "Automatisierung"
+  },
+  "whoIAm": {
+    "eyebrow": "Full-Stack Entwicklerin",
+    "headline": "Ich baue",
+    "headlineAccent": "B2B-Webanwendungen und SaaS-Plattformen",
+    "description": "Projektbezogen, vom ersten Meeting bis zum Live-System. Ich verstehe Anforderungen zu erfassen und technisch umzusetzen."
+  },
+  "cta": {
+    "title": "Lass uns zusammenarbeiten",
+    "description": "Du hast ein Projekt im Kopf? Brauchst Unterstützung bei der Entwicklung? Oder möchtest einfach über Tech und Code sprechen?",
+    "contact": "Kontakt aufnehmen",
+    "viewProjects": "Projekte ansehen"
+  },
+  "breadcrumb": {
+    "projects": "Projekte",
+    "caseStudies": "Case Studies",
+    "garden": "Digital Garden",
+    "snippets": "Code Snippets"
+  },
+  "about": {
+    "greeting": "Hi, ich bin Miriam",
+    "subtitle": "Full-Stack Entwicklerin",
+    "block1Title": "Von Sprache zu Code",
+    "block1P1": "Von der Übersetzung zur Web-Entwicklung – meine Reise begann mit einer Faszination für Sprachen. Sowohl die menschlichen als auch die digitale. Ich entwickle und transformiere Ideen mit Leidenschaft in digitale Experiences.",
+    "block1P2": "Was mich antreibt? Die Fähigkeit, Bedürfnisse und Visionen in digitale Anwendungen zu übersetzen, Prozesse zu vereinfachen, effizienten Workflow zu gewährleisten.",
+    "block2Title": "Mein Ansatz",
+    "block2P1": "Mein Fokus liegt auf dem MERN Stack (MongoDB, Express, React, Node.js), mit dem ich nahtlose Full-Stack-Anwendungen entwickle. In den letzten zwei Jahren habe ich mich intensiv mit React und Next.js auseinandergesetzt.",
+    "block2P2": "Besonders liegt mir die Entwicklung von SaaS-Lösungen am Herzen: Produkte, die echte Probleme lösen, skalierbar sind und Menschen in ihrer Arbeit unterstützen."
+  },
+  "techStack": {
+    "title": "Tech Stack",
+    "subtitle": "Full-Stack Architektur",
+    "crossCutting": "Cross-Cutting Concerns",
+    "tools": "Tools & Ressourcen"
+  },
+  "contact": {
+    "label": "Kontakt",
+    "title": "Lass uns zusammen arbeiten",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "company": "Unternehmen",
+    "companyOptional": "optional",
+    "email": "E-Mail",
+    "emailHint": "email ist immer noch in",
+    "message": "Nachricht",
+    "messagePlaceholder": "Erzähl mir von deinem Projekt...",
+    "submit": "Nachricht senden",
+    "sending": "Wird gesendet...",
+    "success": "Nachricht gesendet! Wie schön, ich freue mich auf darauf und werde mich zeitnah bei Dir zurückmelden!",
+    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    "validation": {
+      "minChars": "Mindestens {count} Zeichen",
+      "invalidEmail": "Ungültige E-Mail-Adresse"
+    }
+  },
+  "projects": {
+    "title": "Projekte",
+    "description": "Eine Auswahl meiner Arbeiten",
+    "viewAll": "Alle Projekte",
+    "noResults": "Keine Projekte gefunden."
+  },
+  "projectDetail": {
+    "role": "Rolle",
+    "year": "Jahr",
+    "duration": "Dauer",
+    "stack": "Tech Stack",
+    "client": "Client",
+    "server": "Server",
+    "data": "Daten",
+    "tools": "Tools",
+    "description": "Beschreibung",
+    "features": "Features",
+    "challenges": "Herausforderungen",
+    "results": "Ergebnisse",
+    "learnings": "Learnings",
+    "gallery": "Galerie",
+    "close": "Schließen",
+    "prev": "Zurück",
+    "next": "Weiter"
+  },
+  "caseStudies": {
+    "title": "Case Studies",
+    "description": "Einblicke in Projekte, Prozesse und Lösungen.",
+    "viewAll": "Alle Case Studies",
+    "noStudies": "Keine Case Studies gefunden."
+  },
+  "garden": {
+    "title": "Digitaler Garten",
+    "subtitle": "Gedanken, die wachsen und sich entwickeln.",
+    "viewAll": "Zum Garten",
+    "planted": "Gepflanzt",
+    "lastTended": "Zuletzt gepflegt",
+    "connectedNotes": "Verbundene Notizen",
+    "evergreen": "Immergrün",
+    "growing": "Wachsend",
+    "seedling": "Keimling",
+    "empty": "Der Garten ist noch leer.",
+    "growthStages": {
+      "seedling": "Keimling",
+      "budding": "Wachsend",
+      "evergreen": "Immergrün"
+    }
+  },
+  "thoughts": {
+    "title": "Gedanken",
+    "viewAll": "Alle Gedanken"
+  },
+  "snippets": {
+    "title": "Code-Fragmente",
+    "subtitle": "Wiederverwendbare Code-Beispiele aus meinen Projekten.",
+    "viewAll": "Alle Code-Fragmente",
+    "allSnippets": "Alle Snippets",
+    "categories": "Kategorien",
+    "languages": "Sprachen",
+    "difficulty": "Schwierigkeit",
+    "filters": "Filter",
+    "clear": "Zurücksetzen",
+    "beginner": "Einsteiger",
+    "intermediate": "Fortgeschritten",
+    "advanced": "Experte"
+  },
+  "snippetDetail": {
+    "viewOnGithub": "Auf GitHub ansehen",
+    "highlights": "Highlights",
+    "technologies": "Technologien",
+    "installation": "Installation",
+    "demos": "Demos",
+    "liveDemo": "Live Demo",
+    "codepen": "CodePen",
+    "stackblitz": "StackBlitz",
+    "usedIn": "Verwendet in",
+    "stats": "Statistiken",
+    "lines": "Zeilen",
+    "difficulty": {
+      "beginner": "Einsteiger",
+      "intermediate": "Fortgeschritten",
+      "advanced": "Experte"
+    }
+  },
+  "common": {
+    "back": "Zurück",
+    "published": "Veröffentlicht",
+    "untitled": "Ohne Titel"
+  },
+  "imprint": {
+    "label": "Rechtliches",
+    "title": "Impressum",
+    "section1Title": "Angaben gemäß § 5 DDG",
+    "section1Content": "Miriam Sparbrod\nSparbrod Webentwicklung - Web Application Development\nDorfstraße 75A\n04626 Vollmershain\nDeutschland\n\nE-Mail: sparbrod.webdev@gmail.com\nWeb: www.sparbrod-webdev.info",
+    "section2Title": "Rechtsform",
+    "section2Content": "Einzelunternehmen\nVertreten durch: Miriam Sparbrod (Inhaberin)",
+    "section3Title": "Umsatzsteuer-Identifikationsnummer",
+    "section3Content": "Umsatzsteuerbefreit gemäß § 19 UStG",
+    "section4Title": "Haftung für Inhalte",
+    "section4Content": "Als Diensteanbieter bin ich gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.\n\nVerpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.",
+    "section5Title": "Haftung für Links",
+    "section5Content": "Mein Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der/die jeweilige Anbieter*in oder Betreiber*in der Seiten verantwortlich.\n\nDie verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.",
+    "section6Title": "Urheberrecht",
+    "section6Content": "Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen meiner schriftlichen Zustimmung.\n\nDownloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht von mir erstellt wurden, werden die Urheberrechte Dritter beachtet. Solltest Du trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.",
+    "section7Title": "Alternative Streitbeilegung",
+    "section7Content": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr\n\nMeine E-Mail-Adresse findest Du oben im Impressum. Ich bin nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+    "section8Title": "Quellenangaben",
+    "section8Content": "Icons: React Icons (https://react-icons.github.io/react-icons/)\nBildmaterial: Unsplash (https://unsplash.com) für Stock Images"
+  },
+  "privacy": {
+    "label": "Rechtliches",
+    "title": "Datenschutzerklärung",
+    "section1Title": "1. Datenschutz auf einen Blick",
+    "section1Sub1Title": "Allgemeine Hinweise",
+    "section1Sub1Text": "Die folgenden Hinweise geben einen Überblick darüber, wie Deine personenbezogenen Daten beim Besuch dieser Website verarbeitet werden. Personenbezogene Daten sind alle Daten, mit denen Du persönlich identifiziert werden kannst.",
+    "section1Sub2Title": "Wer ist verantwortlich für die Datenerfassung?",
+    "section1Sub2Text": "Die Datenverarbeitung auf dieser Website erfolgt durch die Websitebetreiberin. Deren Kontaktdaten findest Du im Abschnitt 'Hinweis zur Verantwortlichen'.",
+    "section1Sub3Title": "Wie erfasse ich Deine Daten?",
+    "section1Sub3Text": "Deine Daten werden zum einen dadurch erhoben, dass Du mir diese mitteilst – beispielsweise über das Kontaktformular. Andere Daten werden automatisch oder nach Deiner Einwilligung beim Besuch der Website durch meine IT-Systeme erfasst. Hierbei handelt es sich vor allem um technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).",
+    "section1Sub4Title": "Wofür nutze ich Deine Daten?",
+    "section1Sub4Text": "Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Deines Nutzerverhaltens verwendet werden.",
+    "section1Sub5Title": "Welche Rechte hast Du bezüglich Deiner Daten?",
+    "section1Sub5Text": "Du hast jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Deiner gespeicherten personenbezogenen Daten zu erhalten. Außerdem hast Du das Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Unter bestimmten Umständen kannst Du auch die Einschränkung der Verarbeitung verlangen. Zudem steht Dir ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.",
+    "section2Title": "2. Allgemeine Hinweise und Pflichtinformationen",
+    "section2Sub1Title": "Datenschutz",
+    "section2Sub1Text": "Ich nehme den Schutz Deiner persönlichen Daten sehr ernst. Ich behandle Deine personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.\n\nBitte beachte, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.",
+    "section2Sub2Title": "Hinweis zur Verantwortlichen",
+    "section2Sub2Text": "Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:\n\nMiriam Sparbrod\nSparbrod Webentwicklung\nDorfstraße 75A\n04626 Vollmershain\nDeutschland\n\nE-Mail: sparbrod.webdev@gmail.com",
+    "section2Sub3Title": "Speicherdauer",
+    "section2Sub3Text": "Sofern innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Deine personenbezogenen Daten bei mir, bis der Zweck für die Datenverarbeitung entfällt. Solltest Du ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung widerrufen, werden Deine Daten gelöscht, sofern keine anderen rechtlich zulässigen Gründe dagegensprechen.",
+    "section2Sub4Title": "Hosting",
+    "section2Sub4Text": "Diese Website wird bei Vercel Inc. gehostet. Weitere Informationen findest Du in der Datenschutzerklärung von Vercel: https://vercel.com/legal/privacy-policy",
+    "section3Title": "3. Deine Rechte",
+    "section3Sub1Title": "Widerruf Deiner Einwilligung",
+    "section3Sub1Text": "Viele Datenverarbeitungsvorgänge sind nur mit Deiner ausdrücklichen Einwilligung möglich. Du kannst eine bereits erteilte Einwilligung jederzeit widerrufen, ohne dass die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung berührt wird.",
+    "section3Sub2Title": "Beschwerderecht bei der Aufsichtsbehörde",
+    "section3Sub2Text": "Im Falle von Verstößen gegen die DSGVO hast Du das Recht, Dich bei einer Aufsichtsbehörde zu beschweren – insbesondere in dem Mitgliedstaat, in dem Du Deinen gewöhnlichen Aufenthalt hast.",
+    "section3Sub3Title": "Recht auf Datenübertragbarkeit",
+    "section3Sub3Text": "Du hast das Recht, Daten, die ich auf Grundlage Deiner Einwilligung oder zur Vertragserfüllung automatisiert verarbeite, in einem gängigen, maschinenlesbaren Format zu erhalten.",
+    "section3Sub4Title": "Auskunft, Löschung und Berichtigung",
+    "section3Sub4Text": "Du hast jederzeit das Recht auf unentgeltliche Auskunft über Deine gespeicherten personenbezogenen Daten, deren Herkunft, Empfänger und Zweck der Verarbeitung. Ebenso hast Du das Recht, Berichtigung oder Löschung dieser Daten zu verlangen.",
+    "section3Sub5Title": "Recht auf Einschränkung der Verarbeitung",
+    "section3Sub5Text": "Du kannst unter bestimmten Umständen die Einschränkung der Verarbeitung Deiner personenbezogenen Daten verlangen. Dies ist möglich, wenn Du die Richtigkeit der Daten bestreitest, die Verarbeitung unrechtmäßig ist, oder ich die Daten nicht mehr benötige, Du sie jedoch zur Geltendmachung von Rechtsansprüchen benötigst.",
+    "section4Title": "4. Datenerfassung auf dieser Website",
+    "section4Sub1Title": "Server-Log-Dateien",
+    "section4Sub1Text": "Der Provider dieser Website erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Dein Browser automatisch übermittelt. Dies umfasst:\n\n• Browsertyp und Browserversion\n• Verwendetes Betriebssystem\n• Referrer URL\n• Hostname des zugreifenden Rechners\n• Uhrzeit der Serveranfrage\n• IP-Adresse\n\nEine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.",
+    "section4Sub2Title": "Kontaktformular",
+    "section4Sub2Text": "Wenn Du mir per Kontaktformular Anfragen zukommen lässt, werden Deine Angaben aus dem Formular zur Bearbeitung der Anfrage gespeichert. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) oder Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Eine Weitergabe der Daten erfolgt nicht ohne Deine Einwilligung.",
+    "section4Sub3Title": "Anfrage per E-Mail",
+    "section4Sub3Text": "Wenn Du mich per E-Mail kontaktierst, wird Deine Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten zur Bearbeitung Deines Anliegens gespeichert. Die Daten verbleiben bei mir, bis Du zur Löschung aufforderst oder der Zweck der Speicherung entfällt.",
+    "section5Title": "5. Plugins und Tools",
+    "section5Sub1Title": "SSL- bzw. TLS-Verschlüsselung",
+    "section5Sub1Text": "Diese Website nutzt eine SSL- bzw. TLS-Verschlüsselung zum Schutz vertraulicher Inhalte. Eine verschlüsselte Verbindung erkennst Du daran, dass die Adresszeile des Browsers von 'http://' auf 'https://' wechselt und ein Schloss-Symbol erscheint.",
+    "section5Sub2Title": "Externe Dienste",
+    "section5Sub2Text": "Diese Website kann Inhalte von externen Anbietern einbinden (z. B. YouTube, GitHub). Beim Abruf dieser Inhalte wird Deine IP-Adresse an den jeweiligen Anbieter übermittelt. Informiere Dich bitte bei den jeweiligen Anbietern über deren Datenschutzpraktiken.",
+    "section6Title": "6. Profiling",
+    "section6Text": "Auf dieser Website findet kein automatisiertes Profiling Deiner personenbezogenen Daten statt. Die erhobenen Daten werden ausschließlich für die in dieser Datenschutzerklärung genannten Zwecke verwendet."
+  },
+  "metadata": {
+    "title": "Miriam Sparbrod – Full-Stack Entwicklerin",
+    "description": "Full-Stack Entwicklerin spezialisiert auf SaaS-Lösungen, Automatisierung und Full-Stack-Anwendungen für moderne Unternehmen."
+  }
+}

@@ -2,34 +2,41 @@
 
 import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import { useLanguage } from "../../_context/LanguageProvider";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { MobileThemeSwitcher } from "./ThemeSwitcher";
 
 function MobileLanguageSwitcher() {
-  const { lang, setLang } = useLanguage();
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const switchLocale = (newLocale) => {
+    router.replace(pathname, { locale: newLocale });
+  };
 
   return (
     <div className="flex items-center gap-2">
       <button
-        onClick={() => setLang("de")}
+        onClick={() => switchLocale("de")}
         className="px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all"
         style={{
-          background: lang === "de" ? "var(--accent)" : "transparent",
-          color: lang === "de" ? "var(--bg)" : "var(--ink)",
-          opacity: lang === "de" ? 1 : 0.5,
-          border: lang === "de" ? "none" : "1px solid var(--border)",
+          background: locale === "de" ? "var(--accent)" : "transparent",
+          color: locale === "de" ? "var(--bg)" : "var(--ink)",
+          opacity: locale === "de" ? 1 : 0.5,
+          border: locale === "de" ? "none" : "1px solid var(--border)",
         }}
       >
         DE
       </button>
       <button
-        onClick={() => setLang("en")}
+        onClick={() => switchLocale("en")}
         className="px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all"
         style={{
-          background: lang === "en" ? "var(--accent)" : "transparent",
-          color: lang === "en" ? "var(--bg)" : "var(--ink)",
-          opacity: lang === "en" ? 1 : 0.5,
-          border: lang === "en" ? "none" : "1px solid var(--border)",
+          background: locale === "en" ? "var(--accent)" : "transparent",
+          color: locale === "en" ? "var(--bg)" : "var(--ink)",
+          opacity: locale === "en" ? 1 : 0.5,
+          border: locale === "en" ? "none" : "1px solid var(--border)",
         }}
       >
         EN
@@ -39,7 +46,7 @@ function MobileLanguageSwitcher() {
 }
 
 export default function OverlayMenu({ open, onClose, autoCloseMs = 8000 }) {
-  const { lang } = useLanguage();
+  const t = useTranslations("menu");
   const firstLinkRef = useRef(null);
   const rootRef = useRef(null);
 
@@ -56,10 +63,10 @@ export default function OverlayMenu({ open, onClose, autoCloseMs = 8000 }) {
 
   useEffect(() => {
     if (!open || !autoCloseMs) return;
-    let t = setTimeout(onClose, autoCloseMs);
+    let timer = setTimeout(onClose, autoCloseMs);
     const reset = () => {
-      clearTimeout(t);
-      t = setTimeout(onClose, autoCloseMs);
+      clearTimeout(timer);
+      timer = setTimeout(onClose, autoCloseMs);
     };
     const el = rootRef.current || document;
     el.addEventListener("mousemove", reset);
@@ -67,34 +74,13 @@ export default function OverlayMenu({ open, onClose, autoCloseMs = 8000 }) {
     el.addEventListener("click", reset);
     el.addEventListener("focusin", reset);
     return () => {
-      clearTimeout(t);
+      clearTimeout(timer);
       el.removeEventListener("mousemove", reset);
       el.removeEventListener("keydown", reset);
       el.removeEventListener("click", reset);
       el.removeEventListener("focusin", reset);
     };
   }, [open, onClose, autoCloseMs]);
-
-  const L = {
-    about: lang === "de" ? "Über mich" : "About",
-    projects: lang === "de" ? "Projekte" : "Projects",
-    projectsSub:
-      lang === "de" ? "Case Studies & Arbeiten" : "Case Studies & Work",
-    garden: lang === "de" ? "Digital Garden" : "Digital Garden",
-    gardenSub: lang === "de" ? "Gedanken die wachsen" : "Growing thoughts",
-    blog: "Case - Studies & Tutorials",
-    blogSub: lang === "de" ? "Artikel & Tutorials" : "Articles & Tutorials",
-    snippets: "Code Snippets",
-    snippetsSub:
-      lang === "de"
-        ? "Wiederverwendbare Code-Beispiele"
-        : "Reusable code examples",
-    contact: lang === "de" ? "Kontakt" : "Contact",
-    contactSub:
-      lang === "de"
-        ? "Lass uns über eine Zusammenarbeit sprechen"
-        : "Let's work together",
-  };
 
   return (
     <AnimatePresence>
@@ -121,8 +107,9 @@ export default function OverlayMenu({ open, onClose, autoCloseMs = 8000 }) {
             className="relative z-[81] mx-auto max-w-5xl px-6 py-12 md:py-16"
           >
             <div className="flex items-center justify-between text-[var(--ink)]">
-              <div className="lg:hidden">
+              <div className="lg:hidden flex items-center gap-4">
                 <MobileLanguageSwitcher />
+                <MobileThemeSwitcher />
               </div>
 
               <div
@@ -136,10 +123,10 @@ export default function OverlayMenu({ open, onClose, autoCloseMs = 8000 }) {
                 type="button"
                 onClick={onClose}
                 className="inline-flex items-center gap-2 text-sm opacity-70 hover:opacity-100 transition-opacity"
-                aria-label={lang === "de" ? "Menü schließen" : "Close menu"}
+                aria-label={t("closeMenu")}
               >
                 <span className="hidden lg:inline">
-                  {lang === "de" ? "Schließen" : "Close"}
+                  {t("close")}
                 </span>
                 <svg
                   width="16"
@@ -157,55 +144,55 @@ export default function OverlayMenu({ open, onClose, autoCloseMs = 8000 }) {
 
             <nav className="mt-12 space-y-8 md:space-y-10">
               <MenuLink href="/" refEl={firstLinkRef} onClose={onClose}>
-                {L.home}
+                Home
               </MenuLink>
 
               <MenuLink href="/about" onClose={onClose}>
-                {L.about}
+                {t("about")}
               </MenuLink>
 
               <div>
                 <MenuLink href="/projects" onClose={onClose}>
-                  {L.projects}
+                  {t("projects")}
                 </MenuLink>
                 <div className="mt-2 text-sm opacity-60 tracking-wide">
-                  {L.projectsSub}
+                  {t("projectsSub")}
                 </div>
               </div>
 
               <div>
                 <MenuLink href="/garden" onClose={onClose}>
-                  {L.garden}
+                  {t("garden")}
                 </MenuLink>
                 <div className="mt-2 text-sm opacity-60 tracking-wide">
-                  {L.gardenSub}
+                  {t("gardenSub")}
                 </div>
               </div>
 
               <div>
                 <MenuLink href="/case-studies" onClose={onClose}>
-                  {L.blog}
+                  {t("blog")}
                 </MenuLink>
                 <div className="mt-2 text-sm opacity-60 tracking-wide">
-                  {L.blogSub}
+                  {t("blogSub")}
                 </div>
               </div>
 
               <div>
                 <MenuLink href="/snippets" onClose={onClose}>
-                  {L.snippets}
+                  {t("snippets")}
                 </MenuLink>
                 <div className="mt-2 text-sm opacity-60 tracking-wide">
-                  {L.snippetsSub}
+                  {t("snippetsSub")}
                 </div>
               </div>
 
               <div>
                 <MenuLink href="/contact" onClose={onClose}>
-                  {L.contact}
+                  {t("contact")}
                 </MenuLink>
                 <div className="mt-2 text-sm opacity-60 tracking-wide">
-                  {L.contactSub}
+                  {t("contactSub")}
                 </div>
               </div>
             </nav>

@@ -1,19 +1,13 @@
 "use client";
 
-import Link from "next/link";
-import { useLanguage } from "@/app/_context/LanguageProvider";
+import { Link } from "@/i18n/navigation";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function ProjectNav({ prevProject, nextProject }) {
-  const { lang } = useLanguage();
+  const locale = useLocale();
+  const t = useTranslations("projectDetail");
 
   if (!prevProject && !nextProject) return null;
-
-  const texts = {
-    de: { prev: "Vorheriges", next: "Nächstes" },
-    en: { prev: "Previous", next: "Next" },
-  };
-
-  const t = texts[lang] || texts.de;
 
   return (
     <section
@@ -25,7 +19,6 @@ export default function ProjectNav({ prevProject, nextProject }) {
     >
       <div className="mx-auto max-w-2xl px-6">
         <div className="flex justify-between items-center">
-          {/* Previous */}
           {prevProject ? (
             <Link
               href={`/projects/${prevProject.slug.current}`}
@@ -35,20 +28,19 @@ export default function ProjectNav({ prevProject, nextProject }) {
                 className="text-xs block mb-1"
                 style={{ color: "var(--muted)", opacity: 0.6 }}
               >
-                ← {t.prev}
+                ← {t("prev")}
               </span>
               <span
                 className="text-sm group-hover:text-[var(--accent)] transition-colors"
                 style={{ color: "var(--ink)" }}
               >
-                {prevProject.title?.[lang] || prevProject.title?.de}
+                {prevProject.title?.[locale] || prevProject.title?.de}
               </span>
             </Link>
           ) : (
             <div />
           )}
 
-          {/* Next */}
           {nextProject ? (
             <Link
               href={`/projects/${nextProject.slug.current}`}
@@ -58,13 +50,13 @@ export default function ProjectNav({ prevProject, nextProject }) {
                 className="text-xs block mb-1"
                 style={{ color: "var(--muted)", opacity: 0.6 }}
               >
-                {t.next} →
+                {t("next")} →
               </span>
               <span
                 className="text-sm group-hover:text-[var(--accent)] transition-colors"
                 style={{ color: "var(--ink)" }}
               >
-                {nextProject.title?.[lang] || nextProject.title?.de}
+                {nextProject.title?.[locale] || nextProject.title?.de}
               </span>
             </Link>
           ) : (

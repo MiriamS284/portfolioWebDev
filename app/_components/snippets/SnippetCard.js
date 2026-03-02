@@ -1,24 +1,24 @@
 "use client";
 
-import Link from "next/link";
-import { useLanguage } from "@/app/_context/LanguageProvider";
+import { Link } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
 
 // Helper function to safely get text (handles both string and object formats)
-const getText = (field, lang) => {
+const getText = (field, locale) => {
   if (!field) return "";
   if (typeof field === "string") return field;
   if (typeof field === "object" && field !== null) {
-    return field[lang] || field.de || field.en || "";
+    return field[locale] || field.de || field.en || "";
   }
   return "";
 };
 
 export default function SnippetCard({ snippet }) {
-  const { lang } = useLanguage();
+  const locale = useLocale();
   const slug = snippet.slug?.current;
 
-  const title = getText(snippet.title, lang);
-  const description = getText(snippet.description, lang);
+  const title = getText(snippet.title, locale);
+  const description = getText(snippet.description, locale);
 
   return (
     <Link

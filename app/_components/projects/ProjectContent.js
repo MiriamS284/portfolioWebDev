@@ -1,22 +1,41 @@
 "use client";
 
-import { useLanguage } from "@/app/_context/LanguageProvider";
+import { useLocale, useTranslations } from "next-intl";
 import { PortableText } from "@portabletext/react";
 
-// Projekt-spezifische PortableText Komponenten mit einheitlichem Styling
 const projectTextComponents = {
   block: {
     h1: ({ children }) => (
-      <h1 className="text-xl font-semibold mt-8 mb-4" style={{ color: "var(--ink)" }}>{children}</h1>
+      <h1
+        className="text-xl font-semibold mt-8 mb-4"
+        style={{ color: "var(--ink)" }}
+      >
+        {children}
+      </h1>
     ),
     h2: ({ children }) => (
-      <h2 className="text-lg font-semibold mt-6 mb-3" style={{ color: "var(--ink)" }}>{children}</h2>
+      <h2
+        className="text-lg font-semibold mt-6 mb-3"
+        style={{ color: "var(--ink)" }}
+      >
+        {children}
+      </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-base font-medium mt-4 mb-2" style={{ color: "var(--ink)" }}>{children}</h3>
+      <h3
+        className="text-base font-medium mt-4 mb-2"
+        style={{ color: "var(--ink)" }}
+      >
+        {children}
+      </h3>
     ),
     h4: ({ children }) => (
-      <h4 className="text-base font-medium mt-4 mb-2" style={{ color: "var(--ink)" }}>{children}</h4>
+      <h4
+        className="text-base font-medium mt-4 mb-2"
+        style={{ color: "var(--ink)" }}
+      >
+        {children}
+      </h4>
     ),
     blockquote: ({ children }) => (
       <blockquote
@@ -27,7 +46,12 @@ const projectTextComponents = {
       </blockquote>
     ),
     normal: ({ children }) => (
-      <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>{children}</p>
+      <p
+        className="text-base leading-relaxed mb-4"
+        style={{ color: "var(--muted)" }}
+      >
+        {children}
+      </p>
     ),
   },
   marks: {
@@ -53,10 +77,17 @@ const projectTextComponents = {
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="space-y-2 my-4 ml-4" style={{ color: "var(--muted)" }}>{children}</ul>
+      <ul className="space-y-2 my-4 ml-4" style={{ color: "var(--muted)" }}>
+        {children}
+      </ul>
     ),
     number: ({ children }) => (
-      <ol className="space-y-2 my-4 ml-4 list-decimal list-inside" style={{ color: "var(--muted)" }}>{children}</ol>
+      <ol
+        className="space-y-2 my-4 ml-4 list-decimal list-inside"
+        style={{ color: "var(--muted)" }}
+      >
+        {children}
+      </ol>
     ),
   },
   listItem: {
@@ -73,56 +104,36 @@ const projectTextComponents = {
 };
 
 export default function ProjectContent({ project }) {
-  const { lang } = useLanguage();
-
-  const texts = {
-    de: {
-      description: "Beschreibung",
-      features: "Funktionen",
-      challenges: "Herausforderungen",
-      results: "Ergebnisse",
-      learnings: "Learnings",
-    },
-    en: {
-      description: "Description",
-      features: "Features",
-      challenges: "Challenges",
-      results: "Results",
-      learnings: "Learnings",
-    },
-  };
-
-  const t = texts[lang] || texts.de;
+  const locale = useLocale();
+  const t = useTranslations("projectDetail");
 
   return (
     <section className="py-12" style={{ background: "var(--bg)" }}>
       <div className="mx-auto max-w-2xl px-6 space-y-16">
-        {/* Description */}
-        {project.description?.[lang] && (
+        {project.description?.[locale] && (
           <div>
             <h2
               className="text-sm font-medium mb-6 pb-2 border-b"
               style={{ color: "var(--muted)", borderColor: "var(--border)" }}
             >
-              {t.description}
+              {t("description")}
             </h2>
             <div>
               <PortableText
-                value={project.description[lang]}
+                value={project.description[locale]}
                 components={projectTextComponents}
               />
             </div>
           </div>
         )}
 
-        {/* Features */}
         {project.features && project.features.length > 0 && (
           <div>
             <h2
               className="text-sm font-medium mb-6 pb-2 border-b"
               style={{ color: "var(--muted)", borderColor: "var(--border)" }}
             >
-              {t.features}
+              {t("features")}
             </h2>
             <div className="space-y-6">
               {project.features.map((feature, idx) => (
@@ -131,13 +142,13 @@ export default function ProjectContent({ project }) {
                     className="text-base font-medium mb-2"
                     style={{ color: "var(--ink)" }}
                   >
-                    {feature.feature?.[lang] || feature.feature?.de}
+                    {feature.feature?.[locale] || feature.feature?.de}
                   </h3>
                   <p
                     className="text-base leading-relaxed"
                     style={{ color: "var(--muted)" }}
                   >
-                    {feature.description?.[lang] || feature.description?.de}
+                    {feature.description?.[locale] || feature.description?.de}
                   </p>
                 </div>
               ))}
@@ -145,53 +156,50 @@ export default function ProjectContent({ project }) {
           </div>
         )}
 
-        {/* Challenges */}
-        {project.challenges?.[lang] && (
+        {project.challenges?.[locale] && (
           <div>
             <h2
               className="text-sm font-medium mb-6 pb-2 border-b"
               style={{ color: "var(--muted)", borderColor: "var(--border)" }}
             >
-              {t.challenges}
+              {t("challenges")}
             </h2>
             <div>
               <PortableText
-                value={project.challenges[lang]}
+                value={project.challenges[locale]}
                 components={projectTextComponents}
               />
             </div>
           </div>
         )}
 
-        {/* Results */}
-        {project.results?.[lang] && (
+        {project.results?.[locale] && (
           <div>
             <h2
               className="text-sm font-medium mb-6 pb-2 border-b"
               style={{ color: "var(--muted)", borderColor: "var(--border)" }}
             >
-              {t.results}
+              {t("results")}
             </h2>
             <p
               className="text-base leading-relaxed"
               style={{ color: "var(--muted)" }}
             >
-              {project.results[lang]}
+              {project.results[locale]}
             </p>
           </div>
         )}
 
-        {/* Learnings */}
-        {project.learnings?.[lang] && project.learnings[lang].length > 0 && (
+        {project.learnings?.[locale] && project.learnings[locale].length > 0 && (
           <div>
             <h2
               className="text-sm font-medium mb-6 pb-2 border-b"
               style={{ color: "var(--muted)", borderColor: "var(--border)" }}
             >
-              {t.learnings}
+              {t("learnings")}
             </h2>
             <ul className="space-y-2">
-              {project.learnings[lang].map((learning, idx) => (
+              {project.learnings[locale].map((learning, idx) => (
                 <li
                   key={idx}
                   className="flex items-start gap-3 text-base leading-relaxed"

@@ -1,7 +1,12 @@
-import Link from "next/link";
+"use client";
+
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import Container from "../shared/Container";
 
 export default function CallToAction() {
+  const t = useTranslations("cta");
+
   return (
     <section
       className="relative py-20 md:py-32"
@@ -16,11 +21,10 @@ export default function CallToAction() {
       <Container>
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Lass uns zusammenarbeiten
+            {t("title")}
           </h2>
           <p className="text-lg md:text-xl opacity-80 mb-10 leading-relaxed">
-            Du hast ein Projekt im Kopf? Brauchst Unterstützung bei der
-            Entwicklung? Oder möchtest einfach über Tech und Code sprechen?
+            {t("description")}
           </p>
 
           <div className="flex gap-4 justify-center flex-wrap">
@@ -33,7 +37,7 @@ export default function CallToAction() {
                 boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
               }}
             >
-              Kontakt aufnehmen
+              {t("contact")}
             </Link>
             <Link
               href="/projects"
@@ -43,7 +47,7 @@ export default function CallToAction() {
                 background: "transparent",
               }}
             >
-              Projekte ansehen
+              {t("viewProjects")}
             </Link>
           </div>
         </div>

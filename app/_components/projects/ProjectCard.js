@@ -1,15 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { useLanguage } from "@/app/_context/LanguageProvider";
+import { useLocale } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { urlFor } from "@/lib/sanity";
 
 export default function ProjectCard({ project }) {
-  const { lang } = useLanguage();
+  const locale = useLocale();
 
-  const title = project.title?.[lang] || project.title?.de || "Untitled";
-  const tagline = project.tagline?.[lang] || project.tagline?.de;
+  const title = project.title?.[locale] || project.title?.de || "Untitled";
+  const tagline = project.tagline?.[locale] || project.tagline?.de;
   const slug = project.slug?.current;
 
   return (
@@ -18,19 +18,17 @@ export default function ProjectCard({ project }) {
       className="group flex items-start gap-4 py-4 border-b transition-colors"
       style={{ borderColor: "var(--border)" }}
     >
-      {/* Logo */}
       {project.logo && (
         <div className="relative w-12 h-12 flex-shrink-0">
           <Image
             src={urlFor(project.logo).width(96).height(96).url()}
             alt={title}
             fill
-            className="object-contain"
+            className="object-contain logo-adaptive"
           />
         </div>
       )}
 
-      {/* Content */}
       <div className="flex-1 min-w-0">
         <h3
           className="text-base font-medium mb-1 group-hover:text-[var(--accent)] transition-colors"
@@ -46,10 +44,7 @@ export default function ProjectCard({ project }) {
         </h3>
 
         {tagline && (
-          <p
-            className="text-sm truncate"
-            style={{ color: "var(--muted)" }}
-          >
+          <p className="text-sm truncate" style={{ color: "var(--muted)" }}>
             {tagline}
           </p>
         )}

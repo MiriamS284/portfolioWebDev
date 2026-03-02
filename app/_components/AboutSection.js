@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-/* kleine Cookie-Utils ohne extra Lib */
 function getCookie(name) {
   if (typeof document === "undefined") return "";
   const m = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
@@ -15,7 +14,7 @@ function setCookie(name, value, days) {
   const d = new Date();
   d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
   document.cookie = `${name}=${encodeURIComponent(
-    value
+    value,
   )};expires=${d.toUTCString()};path=/;SameSite=Lax`;
 }
 
@@ -23,7 +22,6 @@ export default function AboutSection() {
   const sectionRef = useRef(null);
   const [showBanner, setShowBanner] = useState(false);
 
-  // Banner erst anzeigen, wenn Section im Viewport ist (und noch kein Consent existiert)
   useEffect(() => {
     if (getCookie("cookie_consent")) return;
     const el = sectionRef.current;
@@ -33,7 +31,7 @@ export default function AboutSection() {
       ([entry]) => {
         if (entry.isIntersecting) setShowBanner(true);
       },
-      { root: null, threshold: 0.4 }
+      { root: null, threshold: 0.4 },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -55,7 +53,6 @@ export default function AboutSection() {
       className="px-6 py-16 bg-white text-[oklch(0.22_0.03_250)]"
     >
       <div className="mx-auto max-w-6xl space-y-16">
-      
         <div className="grid md:grid-cols-5 gap-8 items-center">
           <motion.div
             className="md:col-span-3 order-2 md:order-1 text-base leading-relaxed"

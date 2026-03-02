@@ -1,32 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useLanguage } from "@/app/_context/LanguageProvider";
-
-const content = {
-  de: {
-    links: [
-      { label: "ÜBER MICH", href: "/about" },
-      { label: "PROJEKTE", href: "/projects" },
-      { label: "CASE STUDIES", href: "/case-studies" },
-    ],
-  },
-  en: {
-    links: [
-      { label: "ABOUT", href: "/about" },
-      { label: "PROJECTS", href: "/projects" },
-      { label: "CASE STUDIES", href: "/case-studies" },
-    ],
-  },
-};
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 
 export default function HorizontalNav() {
-  const { lang } = useLanguage();
+  const t = useTranslations("navigation");
   const pathname = usePathname();
-  const t = content[lang] || content.de;
   const [scrolled, setScrolled] = useState(false);
+
+  const links = [
+    { label: t("about"), href: "/about" },
+    { label: t("projects"), href: "/projects" },
+    { label: t("caseStudies"), href: "/case-studies" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +41,7 @@ export default function HorizontalNav() {
           pointerEvents: scrolled ? "none" : "auto",
         }}
       >
-        {t.links.map((link) => {
+        {links.map((link) => {
           const isActive = pathname === link.href;
           return (
             <Link
