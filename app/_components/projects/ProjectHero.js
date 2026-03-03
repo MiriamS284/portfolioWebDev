@@ -193,6 +193,40 @@ function TechArchitecture({ technologies }) {
       return "data";
     }
 
+    if (
+      [
+        "docker",
+        "nginx",
+        "pm2",
+        "linux",
+        "ubuntu",
+        "debian",
+        "aws",
+        "azure",
+        "gcp",
+        "vercel",
+        "netlify",
+        "heroku",
+        "digitalocean",
+        "kubernetes",
+        "k8s",
+        "ci/cd",
+        "github actions",
+        "jenkins",
+        "terraform",
+        "ansible",
+        "cloudflare",
+        "ssl",
+        "https",
+        "server",
+        "vps",
+        "hosting",
+        "deployment",
+      ].some((t) => lower.includes(t))
+    ) {
+      return "devops";
+    }
+
     return "tools";
   };
 
@@ -200,6 +234,7 @@ function TechArchitecture({ technologies }) {
     client: { label: t("client"), items: [] },
     server: { label: t("server"), items: [] },
     data: { label: t("data"), items: [] },
+    devops: { label: t("devops"), items: [] },
     tools: { label: t("tools"), items: [] },
   };
 
