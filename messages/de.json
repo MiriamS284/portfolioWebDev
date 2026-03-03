@@ -247,16 +247,25 @@
     "section4Sub2Text": "Wenn Du mir per Kontaktformular Anfragen zukommen lässt, werden Deine Angaben aus dem Formular zur Bearbeitung der Anfrage gespeichert. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) oder Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Eine Weitergabe der Daten erfolgt nicht ohne Deine Einwilligung.",
     "section4Sub3Title": "Anfrage per E-Mail",
     "section4Sub3Text": "Wenn Du mich per E-Mail kontaktierst, wird Deine Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten zur Bearbeitung Deines Anliegens gespeichert. Die Daten verbleiben bei mir, bis Du zur Löschung aufforderst oder der Zweck der Speicherung entfällt.",
-    "section5Title": "5. Plugins und Tools",
-    "section5Sub1Title": "SSL- bzw. TLS-Verschlüsselung",
-    "section5Sub1Text": "Diese Website nutzt eine SSL- bzw. TLS-Verschlüsselung zum Schutz vertraulicher Inhalte. Eine verschlüsselte Verbindung erkennst Du daran, dass die Adresszeile des Browsers von 'http://' auf 'https://' wechselt und ein Schloss-Symbol erscheint.",
-    "section5Sub2Title": "Externe Dienste",
-    "section5Sub2Text": "Diese Website kann Inhalte von externen Anbietern einbinden (z. B. YouTube, GitHub). Beim Abruf dieser Inhalte wird Deine IP-Adresse an den jeweiligen Anbieter übermittelt. Informiere Dich bitte bei den jeweiligen Anbietern über deren Datenschutzpraktiken.",
-    "section6Title": "6. Profiling",
-    "section6Text": "Auf dieser Website findet kein automatisiertes Profiling Deiner personenbezogenen Daten statt. Die erhobenen Daten werden ausschließlich für die in dieser Datenschutzerklärung genannten Zwecke verwendet."
+    "section5Title": "5. Analyse-Tools",
+    "section5Sub1Title": "Google Analytics",
+    "section5Sub1Text": "Diese Website nutzt Google Analytics 4, einen Webanalysedienst der Google Ireland Limited ('Google'). Google Analytics verwendet Cookies, die eine Analyse der Benutzung der Website ermöglichen. Die Nutzung erfolgt nur mit Deiner ausdrücklichen Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).\n\nDie durch Cookies erzeugten Informationen werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Google ist unter dem EU-US Data Privacy Framework zertifiziert.\n\nDu kannst Deine Einwilligung jederzeit widerrufen, indem Du die Cookies in Deinem Browser löschst. Mehr Informationen findest Du unter: https://policies.google.com/privacy",
+    "section6Title": "6. Plugins und Tools",
+    "section6Sub1Title": "SSL- bzw. TLS-Verschlüsselung",
+    "section6Sub1Text": "Diese Website nutzt eine SSL- bzw. TLS-Verschlüsselung zum Schutz vertraulicher Inhalte. Eine verschlüsselte Verbindung erkennst Du daran, dass die Adresszeile des Browsers von 'http://' auf 'https://' wechselt und ein Schloss-Symbol erscheint.",
+    "section6Sub2Title": "Externe Dienste",
+    "section6Sub2Text": "Diese Website kann Inhalte von externen Anbietern einbinden (z. B. YouTube, GitHub). Beim Abruf dieser Inhalte wird Deine IP-Adresse an den jeweiligen Anbieter übermittelt. Informiere Dich bitte bei den jeweiligen Anbietern über deren Datenschutzpraktiken.",
+    "section7Title": "7. Profiling",
+    "section7Text": "Auf dieser Website findet kein automatisiertes Profiling Deiner personenbezogenen Daten statt. Die erhobenen Daten werden ausschließlich für die in dieser Datenschutzerklärung genannten Zwecke verwendet."
   },
   "metadata": {
     "title": "Miriam Sparbrod – Full-Stack Entwicklerin",
     "description": "Full-Stack Entwicklerin spezialisiert auf SaaS-Lösungen, Automatisierung und Full-Stack-Anwendungen für moderne Unternehmen."
+  },
+  "cookies": {
+    "message": "Diese Website verwendet Cookies für Analysen.",
+    "learnMore": "Mehr erfahren",
+    "accept": "Akzeptieren",
+    "decline": "Ablehnen"
   }
 }

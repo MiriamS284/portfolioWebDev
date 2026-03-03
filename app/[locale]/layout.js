@@ -4,6 +4,8 @@ import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
 import ClientLayout from "../_components/layout/ClientLayout";
 import { Inter, Space_Grotesk, Source_Code_Pro } from "next/font/google";
+import Analytics from '../_components/shared/Analytics';
+import CookieBanner from '../_components/shared/CookieBanner';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -87,6 +89,8 @@ export default async function LocaleLayout({ children, params }) {
       >
         <NextIntlClientProvider messages={messages}>
           <ClientLayout>{children}</ClientLayout>
+          <Analytics />
+          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>

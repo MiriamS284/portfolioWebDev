@@ -50,12 +50,18 @@ export default function PrivacyPageClient() {
       title: t("section5Title"),
       subsections: [
         { subtitle: t("section5Sub1Title"), text: t("section5Sub1Text") },
-        { subtitle: t("section5Sub2Title"), text: t("section5Sub2Text") },
       ],
     },
     {
       title: t("section6Title"),
-      subsections: [{ subtitle: "", text: t("section6Text") }],
+      subsections: [
+        { subtitle: t("section6Sub1Title"), text: t("section6Sub1Text") },
+        { subtitle: t("section6Sub2Title"), text: t("section6Sub2Text") },
+      ],
+    },
+    {
+      title: t("section7Title"),
+      subsections: [{ subtitle: "", text: t("section7Text") }],
     },
   ];
 
