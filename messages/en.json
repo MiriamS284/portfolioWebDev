@@ -5,13 +5,14 @@
     "caseStudies": "CASE STUDIES"
   },
   "footer": {
-    "role": "Full-Stack Developer",
-    "tagline": "I translate complex ideas into performant web applications.",
+    "role": "Software Developer",
+    "tagline": "Custom software, AI integration and operations. Based in Thuringia, working for companies and organisations.",
     "nav": "Navigation",
     "about": "About",
     "projects": "Projects",
     "imprint": "Imprint",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "rights": "All rights reserved."
   },
   "menu": {
     "label": "MENU",
@@ -36,12 +37,18 @@
     "contact": "Contact"
   },
   "heroShowcase": {
-    "intro": "Full-Stack Developer.",
-    "line1": "Crafting digital solutions. Building polished software and web experiences.",
-    "line2": "From language to code - transforming concepts into performant systems.",
-    "philosophy1": "Developing skill through doing, guiltlessly exploring passion for technology, imbuing quality. Mindful that every system is someone's vision realized.",
-    "philosophy2": "All I want to do is build full-stack solutions. Frontend architecture, backend systems, API design, performance - development is an endless medium of opportunity and creativity of which I've only scratched the surface.",
-    "automation": "Automation"
+    "intro": "Custom software for companies and organisations.",
+    "line1": "I design and build web-based business applications, apps and AI integrations for small and medium-sized enterprises and organisations.",
+    "line2": "With a well-defined role and permission model, a multilingual data architecture and secure operation on servers in Germany.",
+    "philosophy1": "From requirements analysis to ongoing operation, with direct accountability instead of agency layers.",
+    "philosophy2": "From language to code: trained as a translator, I turn business requirements into precise technical solutions.",
+    "tags": [
+      "Business applications",
+      "Apps & SaaS",
+      "AI integration",
+      "Hosting & operations",
+      "Privacy by design"
+    ]
   },
   "whoIAm": {
     "eyebrow": "Full-Stack Developer",
@@ -79,19 +86,19 @@
   },
   "contact": {
     "label": "Contact",
-    "title": "Let's work together",
+    "title": "Your project",
     "firstName": "First name",
     "lastName": "Last name",
-    "company": "Company",
+    "company": "Company / organisation",
     "companyOptional": "optional",
     "email": "Email",
-    "emailHint": "email is still in",
+    "emailHint": "",
     "message": "Message",
-    "messagePlaceholder": "Tell me about your project...",
-    "submit": "Send message",
-    "sending": "Sending...",
-    "success": "Message sent! Thank you! I'll get back to you soon.",
-    "error": "Something went wrong. Please try again.",
+    "messagePlaceholder": "Briefly describe your current situation and objective.",
+    "submit": "Send enquiry",
+    "sending": "Sending …",
+    "success": "Thank you for your enquiry. You will receive a response within one working day.",
+    "error": "Your enquiry could not be sent. Please try again.",
     "validation": {
       "minChars": "At least {count} characters",
       "invalidEmail": "Invalid email address"
@@ -260,8 +267,9 @@
     "section7Text": "No automated profiling of your personal data takes place on this website. The collected data is used exclusively for the purposes stated in this privacy policy."
   },
   "metadata": {
-    "title": "Miriam Sparbrod – Full-Stack Developer",
-    "description": "Full-Stack Developer specializing in SaaS solutions, automation, full-stack applications for modern businesses."
+    "title": "Miriam Sparbrod – Custom Software & AI Integration",
+    "description": "Web-based business applications, apps and AI integrations for SMEs and organisations. Designed, built and securely operated in Germany.",
+    "ogTitle": "Custom software for companies and organisations"
   },
   "cookies": {
     "message": "This website uses cookies for analytics.",

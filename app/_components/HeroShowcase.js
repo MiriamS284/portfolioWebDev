@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 export default function HeroShowcase() {
   const t = useTranslations("heroShowcase");
 
-  const tags = ["SaaS", "MERN", "Next.js", "APIs", t("automation")];
+  const tags = t.raw("tags");
 
   return (
     <section
@@ -48,7 +48,7 @@ export default function HeroShowcase() {
           {t("philosophy2")}
         </p>
 
-        {/* Tags as simple hashtags */}
+        {/* Schwerpunkte als schlichte Tag-Zeile */}
         <div className="flex flex-wrap gap-4">
           {tags.map((tag, index) => (
             <span
@@ -56,7 +56,7 @@ export default function HeroShowcase() {
               className="text-sm"
               style={{ color: "var(--muted)" }}
             >
-              #{tag}
+              {tag}
             </span>
           ))}
         </div>

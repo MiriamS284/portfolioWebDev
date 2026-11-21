@@ -1,40 +1,102 @@
 import { NextResponse } from "next/server";
+import { z } from "zod";
+
+// Serverseitige Prüfung: Der Browser kann umgangen werden, deshalb wird hier erneut validiert.
+const contactSchema = z.object({
+  firstName: z.string().trim().min(2).max(100),
+  lastName: z.string().trim().min(2).max(100),
+  company: z.string().trim().max(200).optional().default(""),
+  email: z.string().trim().email().max(254),
+  message: z.string().trim().min(10).max(5000),
+  website: z.string().optional().default(""), // Honeypot: echte Nutzer lassen das Feld leer
+});
+
+// Einfache Begrenzung pro IP (gilt pro Server-Instanz; für mehrere Instanzen später z. B. Redis verwenden)
+const WINDOW_MS = 10 * 60 * 1000;
+const MAX_REQUESTS = 5;
+const requests = new Map();
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const recent = (requests.get(ip) || []).filter((time) => now - time < WINDOW_MS);
+  recent.push(now);
+  requests.set(ip, recent);
+  return recent.length > MAX_REQUESTS;
+}
+
+// Eingaben vor dem Einfügen ins E-Mail-HTML maskieren (verhindert HTML-Injection)
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
 export async function POST(request) {
+  const ip =
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    request.headers.get("x-real-ip") ||
+    "unknown";
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+  }
+
+  let body;
   try {
-    const data = await request.json();
-    const { firstName, lastName, company, email, message } = data;
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+  }
 
-    if (!firstName || !lastName || !email || !message) {
-      return NextResponse.json(
-        { error: "Missing required fields" },
-        { status: 400 },
-      );
-    }
+  const parsed = contactSchema.safeParse(body);
+  if (!parsed.success) {
+    return NextResponse.json({ error: "Invalid input" }, { status: 400 });
+  }
 
+  const { firstName, lastName, company, email, message, website } = parsed.data;
+
+  // Bot hat das versteckte Feld ausgefüllt: Erfolg vortäuschen, nichts senden
+  if (website) {
+    return NextResponse.json({ success: true });
+  }
+
+  try {
     const { Resend } = await import("resend");
     const resend = new Resend(process.env.RESEND_API_KEY);
 
+    const name = `${firstName} ${lastName}`;
+    const subjectCompany = company ? ` (${company})` : "";
+
     await resend.emails.send({
       from: "Miriam Sparbrod <contact@miriamsparbrod.dev>",
-      to: "sparbrod.webdev@gmail.com",
+      to: process.env.CONTACT_TO_EMAIL || "sparbrod.webdev@gmail.com",
       replyTo: email,
-      subject: `miriamsparbrod.dev — ${firstName} ${lastName}${company ? ` (${company})` : ""}`,
+      subject: `miriamsparbrod.dev — ${name}${subjectCompany}`.replace(/[\r\n]+/g, " "),
+      text: [
+        `Name: ${name}`,
+        company ? `Unternehmen/Organisation: ${company}` : null,
+        `E-Mail: ${email}`,
+        "",
+        message,
+      ]
+        .filter((line) => line !== null)
+        .join("\n"),
       html: `
-        <h2>Neue Kontaktanfrage</h2>
-        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-        ${company ? `<p><strong>Unternehmen:</strong> ${company}</p>` : ""}
-        <p><strong>E-Mail:</strong> ${email}</p>
+        <h2>Neue Anfrage</h2>
+        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+        ${company ? `<p><strong>Unternehmen/Organisation:</strong> ${escapeHtml(company)}</p>` : ""}
+        <p><strong>E-Mail:</strong> ${escapeHtml(email)}</p>
         <p><strong>Nachricht:</strong></p>
-        <p>${message.replace(/\n/g, "<br>")}</p>
+        <p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
       `,
     });
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to send message" },
-      { status: 500 },
-    );
+    console.error("Contact form error:", error);
+    return NextResponse.json({ error: "Failed to send message" }, { status: 500 });
   }
 }

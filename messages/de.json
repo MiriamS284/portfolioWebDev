@@ -5,13 +5,14 @@
     "caseStudies": "CASE STUDIES"
   },
   "footer": {
-    "role": "Full-Stack Entwicklerin",
-    "tagline": "Ich übersetze komplexe Ideen in performante Web-Anwendungen.",
+    "role": "Softwareentwicklerin",
+    "tagline": "Individualsoftware, KI-Integration und Betrieb. Aus Thüringen, für Unternehmen und Organisationen.",
     "nav": "Navigation",
     "about": "Über mich",
     "projects": "Projekte",
     "imprint": "Impressum",
-    "privacy": "Datenschutz"
+    "privacy": "Datenschutz",
+    "rights": "Alle Rechte vorbehalten."
   },
   "menu": {
     "label": "MENU",
@@ -36,12 +37,18 @@
     "contact": "Kontakt"
   },
   "heroShowcase": {
-    "intro": "Full-Stack Entwicklerin.",
-    "line1": "Digitale Lösungen entwickeln. Software mit Anspruch.",
-    "line2": "Von Sprache zu Code - transformiere ich Konzepte in performante Systeme.",
-    "philosophy1": "Durch Machen lernen. Neue Technologien erkunden. Qualität schaffen. Im Bewusstsein, dass hinter jedem System eine Vision steht.",
-    "philosophy2": "Mein Fokus: Full-Stack Lösungen. Frontend, Backend, APIs, Performance - Software as a Service.",
-    "automation": "Automatisierung"
+    "intro": "Individualsoftware für Unternehmen und Organisationen.",
+    "line1": "Ich konzipiere und entwickle webbasierte Fachanwendungen, Apps und KI-Integrationen für kleine und mittlere Unternehmen sowie Organisationen.",
+    "line2": "Mit durchdachtem Rollen- und Rechtekonzept, mehrsprachiger Datenarchitektur und sicherem Betrieb auf Servern in Deutschland.",
+    "philosophy1": "Von der Anforderungsanalyse bis zum laufenden Betrieb aus einer Hand, mit direkter Verantwortung statt Agenturstrukturen.",
+    "philosophy2": "Von der Sprache zum Code: Als studierte Übersetzerin übertrage ich fachliche Anforderungen präzise in technische Lösungen.",
+    "tags": [
+      "Fachanwendungen",
+      "Apps & SaaS",
+      "KI-Integration",
+      "Hosting & Betrieb",
+      "Datenschutz by Design"
+    ]
   },
   "whoIAm": {
     "eyebrow": "Full-Stack Entwicklerin",
@@ -79,19 +86,19 @@
   },
   "contact": {
     "label": "Kontakt",
-    "title": "Lass uns zusammen arbeiten",
+    "title": "Ihr Vorhaben",
     "firstName": "Vorname",
     "lastName": "Nachname",
-    "company": "Unternehmen",
+    "company": "Unternehmen / Organisation",
     "companyOptional": "optional",
     "email": "E-Mail",
-    "emailHint": "email ist immer noch in",
+    "emailHint": "",
     "message": "Nachricht",
-    "messagePlaceholder": "Erzähl mir von deinem Projekt...",
-    "submit": "Nachricht senden",
-    "sending": "Wird gesendet...",
-    "success": "Nachricht gesendet! Wie schön, ich freue mich auf darauf und werde mich zeitnah bei Dir zurückmelden!",
-    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    "messagePlaceholder": "Beschreiben Sie kurz Ausgangslage und Ziel.",
+    "submit": "Anfrage senden",
+    "sending": "Wird gesendet …",
+    "success": "Vielen Dank für Ihre Anfrage. Sie erhalten innerhalb eines Werktags eine Rückmeldung.",
+    "error": "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
     "validation": {
       "minChars": "Mindestens {count} Zeichen",
       "invalidEmail": "Ungültige E-Mail-Adresse"
@@ -260,8 +267,9 @@
     "section7Text": "Auf dieser Website findet kein automatisiertes Profiling Deiner personenbezogenen Daten statt. Die erhobenen Daten werden ausschließlich für die in dieser Datenschutzerklärung genannten Zwecke verwendet."
   },
   "metadata": {
-    "title": "Miriam Sparbrod – Full-Stack Entwicklerin",
-    "description": "Full-Stack Entwicklerin spezialisiert auf SaaS-Lösungen, Automatisierung und Full-Stack-Anwendungen für moderne Unternehmen."
+    "title": "Miriam Sparbrod – Individualsoftware & KI-Integration",
+    "description": "Webbasierte Fachanwendungen, Apps und KI-Integrationen für KMU und Organisationen. Konzipiert, entwickelt und sicher betrieben in Deutschland.",
+    "ogTitle": "Individualsoftware für Unternehmen und Organisationen"
   },
   "cookies": {
     "message": "Diese Website verwendet Cookies für Analysen.",

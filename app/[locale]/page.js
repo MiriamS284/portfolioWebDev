@@ -7,11 +7,18 @@ import {
 } from "@/lib/sanity/queries";
 import ClientHomePage from "@/app/_components/ClientHomePage";
 
-export const metadata = {
-  title: "Miriam Sparbrod | Full-Stack Entwicklerin",
-  description:
-    "Full-Stack Entwicklerin spezialisiert auf MERN Stack, Next.js und moderne Web-Anwendungen. SaaS für B2B.",
-};
+// Canonical und Sprachversionen nur für die Startseite.
+// (Vorher stand das im Layout und galt damit fälschlich für alle Unterseiten.)
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  return {
+    alternates: {
+      canonical: `/${locale}`,
+      languages: { de: "/de", en: "/en", "x-default": "/de" },
+    },
+    openGraph: { url: `/${locale}` },
+  };
+}
 
 export const revalidate = 60;
 

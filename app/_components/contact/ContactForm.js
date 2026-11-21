@@ -30,6 +30,7 @@ export default function ContactForm() {
         10,
         locale === "de" ? "Mindestens 10 Zeichen" : "At least 10 characters",
       ),
+    website: z.string().optional(),
   });
 
   const {
@@ -46,6 +47,7 @@ export default function ContactForm() {
       company: "",
       email: "",
       message: "",
+      website: "",
     },
   });
 
@@ -80,6 +82,15 @@ export default function ContactForm() {
       </h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        {/* Honeypot gegen Spam-Bots: für Menschen unsichtbar, nicht per Tab erreichbar */}
+        <input
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          {...register("website")}
+          style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+        />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <FormField
             id="firstName"

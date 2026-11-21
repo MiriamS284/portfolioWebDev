@@ -66,7 +66,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-[var(--border)] flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-60">
-          <div>© {currentYear} Miriam Sparbrod. All rights reserved.</div>
+          <div>© {currentYear} Miriam Sparbrod. {t("rights")}</div>
           <div className="flex gap-6">
             <Link
               href="/imprint"
