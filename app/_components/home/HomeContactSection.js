@@ -7,7 +7,7 @@ export default function HomeContactSection() {
   const t = useTranslations("home");
 
   return (
-    <section className="py-16 md:py-24" style={{ background: "var(--bg)" }}>
+    <section id="kontakt" className="py-16 md:py-24" style={{ background: "var(--bg)" }}>
       <div className="mx-auto max-w-2xl px-6">
         {/* Label */}
         <div

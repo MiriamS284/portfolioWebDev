@@ -105,9 +105,9 @@
     }
   },
   "projects": {
-    "title": "Projekte",
-    "description": "Eine Auswahl meiner Arbeiten",
-    "viewAll": "Alle Projekte",
+    "title": "Referenzen",
+    "description": "Kundenprojekte und eigene Produkte aus den Bereichen Fachanwendungen, Apps und KI-Integration.",
+    "viewAll": "Alle Referenzen",
     "noResults": "Keine Projekte gefunden."
   },
   "projectDetail": {
@@ -154,8 +154,8 @@
     }
   },
   "thoughts": {
-    "title": "Gedanken",
-    "viewAll": "Alle Gedanken"
+    "title": "Fachbeiträge",
+    "viewAll": "Alle Fachbeiträge"
   },
   "snippets": {
     "title": "Code-Fragmente",
@@ -276,5 +276,157 @@
     "learnMore": "Mehr erfahren",
     "accept": "Akzeptieren",
     "decline": "Ablehnen"
+  },
+  "homeSections": {
+    "servicesShort": {
+      "title": "Leistungsfelder",
+      "viewAll": "Alle Leistungen",
+      "items": [
+        {
+          "title": "Fachanwendungen und Portale",
+          "text": "Prozesse digitalisieren, die Standardsoftware nicht abbildet."
+        },
+        {
+          "title": "Apps und SaaS-Produkte",
+          "text": "Kunden- und Mitgliederbereiche, mandantenfähig."
+        },
+        {
+          "title": "KI-Integration",
+          "text": "Sprachmodelle dort, wo sie messbar entlasten."
+        },
+        {
+          "title": "Betrieb und Infrastruktur",
+          "text": "Hosting in Deutschland, gehärtet und überwacht."
+        }
+      ]
+    },
+    "services": {
+      "title": "Leistungsfelder",
+      "items": [
+        {
+          "title": "Fachanwendungen und Portale",
+          "text": "Ich digitalisiere Geschäftsprozesse, die mit Standardsoftware nicht abbildbar sind: Fachportale mit differenziertem Rollen- und Rechtekonzept, geschützten Dokumentenbereichen, Redaktionsworkflows und Schnittstellen zu bestehenden Systemen."
+        },
+        {
+          "title": "Apps und SaaS-Produkte",
+          "text": "Kunden- und Mitgliederbereiche, Termin- und Vertragsverwaltung, Zahlungsabwicklung. Auf Wunsch mandantenfähig, sodass Sie Ihre Anwendung später als eigenes Produkt anbieten können. Ich entwickle sie über den Start hinaus kontinuierlich weiter."
+        },
+        {
+          "title": "KI-Integration",
+          "text": "Ich binde große Sprachmodelle dort in Ihre Prozesse ein, wo sie messbar entlasten: Auswertung und Klassifikation von Dokumenten, Entwürfe für Texte und Antworten, Assistenzfunktionen in bestehenden Anwendungen. Datenschutzkonform, nachvollziehbar und mit menschlicher Freigabe an den entscheidenden Stellen."
+        },
+        {
+          "title": "Betrieb und Infrastruktur",
+          "text": "Ich betreibe Ihre Anwendung auf Servern in Deutschland: containerisiert, gehärtet, mit automatisierten Backups, Monitoring und regelmäßigem Patch-Management. Administrative Zugänge sind gesondert abgesichert. Ihre Daten bleiben unter Ihrer Kontrolle."
+        }
+      ]
+    },
+    "approach": {
+      "title": "Vorgehen",
+      "note": "In der Entwicklung setze ich KI-Werkzeuge nach festen Regeln ein. Jede Änderung wird geprüft, getestet und von mir verantwortet.",
+      "items": [
+        {
+          "title": "Anforderungsanalyse",
+          "text": "Ich nehme Ihre Prozesse auf, kläre Beteiligte, Datenflüsse und Rahmenbedingungen wie Datenschutz oder Barrierefreiheit."
+        },
+        {
+          "title": "Fachkonzept und Architektur",
+          "text": "Datenmodell, Rollen- und Rechtekonzept, Schnittstellen und Betriebsmodell. Schriftlich dokumentiert, mit Aufwand und Meilensteinen."
+        },
+        {
+          "title": "Iterative Entwicklung",
+          "text": "Umsetzung in Meilensteinen auf einer separaten Testumgebung. Sie prüfen jeden Stand, bevor er produktiv geht."
+        },
+        {
+          "title": "Qualitätssicherung",
+          "text": "Statische Typprüfung, Validierung aller Eingaben, Sicherheits- und Barrierefreiheitsprüfungen vor jedem Release."
+        },
+        {
+          "title": "Inbetriebnahme und Übergabe",
+          "text": "Deployment, technische und fachliche Dokumentation, Einweisung Ihrer Mitarbeitenden."
+        },
+        {
+          "title": "Betrieb und Weiterentwicklung",
+          "text": "Wartung, Monitoring und neue Funktionen auf Basis eines Servicevertrags."
+        }
+      ]
+    },
+    "principles": {
+      "title": "Grundsätze",
+      "items": [
+        {
+          "title": "Datenhoheit",
+          "text": "Hosting in Deutschland, keine unnötige Abhängigkeit von US-Cloud-Diensten. Sie wissen jederzeit, wo Ihre Daten liegen."
+        },
+        {
+          "title": "Security by Design",
+          "text": "Zugriffskontrolle, Eingabevalidierung, Begrenzung von Anfragen und verschlüsselte Übertragung sind Teil der Architektur, nicht nachträglich ergänzt."
+        },
+        {
+          "title": "Wartbarkeit",
+          "text": "TypeScript, etablierte Standards und vollständige Dokumentation. Der Quellcode gehört Ihnen."
+        },
+        {
+          "title": "KI mit Augenmaß",
+          "text": "Einsatz nur mit klarem Nutzen, transparenter Datenverarbeitung und menschlicher Kontrolle."
+        }
+      ]
+    },
+    "collaboration": {
+      "title": "Zusammenarbeit",
+      "cta": "Erstgespräch vereinbaren",
+      "items": [
+        {
+          "title": "Erstgespräch (30 Minuten, kostenfrei)",
+          "text": "Sie schildern Ihr Vorhaben, ich gebe eine erste fachliche Einschätzung."
+        },
+        {
+          "title": "Konzeptphase (Festpreis, bei Beauftragung angerechnet)",
+          "text": "Ergebnis ist ein Fachkonzept mit Funktionsumfang, Architektur, Aufwand und Zeitplan, auch als Grundlage für Förder- oder Haushaltsanträge."
+        },
+        {
+          "title": "Umsetzung",
+          "text": "Verbindliches Angebot, Abrechnung nach Meilensteinen. Für öffentliche Auftraggeber auch über mehrere Haushaltsjahre."
+        },
+        {
+          "title": "Servicevertrag",
+          "text": "Betrieb, Wartung und Weiterentwicklung mit vereinbarten Reaktionszeiten und Kontingent."
+        }
+      ]
+    },
+    "profile": {
+      "title": "Von der Sprache zum Code",
+      "text": "Ich habe Romanistik und Übersetzungswissenschaft studiert und sechs Jahre als selbständige Übersetzerin gearbeitet. Seit 2023 entwickle ich Software, heute von der Anforderungsanalyse bis zum Serverbetrieb. Die Kernkompetenz ist geblieben: Anforderungen genau verstehen und präzise in eine funktionierende Lösung übertragen.",
+      "link": "Zum Profil"
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "items": [
+        {
+          "title": "Entwickeln Sie auch Websites?",
+          "text": "Nein. Mein Schwerpunkt ist Software. Öffentlich zugängliche Bereiche entstehen nur als Teil einer Anwendung."
+        },
+        {
+          "title": "Wo werden unsere Daten gespeichert?",
+          "text": "Auf Servern in Deutschland. Datenschutz und Auftragsverarbeitung plane ich von Beginn an mit."
+        },
+        {
+          "title": "Wie gehen Sie bei KI mit sensiblen Daten um?",
+          "text": "Ich wähle Anbieter und Konfiguration so, dass Ihre Daten nicht für das Training von Modellen verwendet werden. Wo nötig, werden personenbezogene Daten vor der Verarbeitung entfernt oder die Verarbeitung findet gar nicht extern statt."
+        },
+        {
+          "title": "Gehört uns der Quellcode?",
+          "text": "Ja, einschließlich Dokumentation. Die Anwendung kann auch von anderen Entwicklern weitergeführt werden."
+        },
+        {
+          "title": "Arbeiten Sie für öffentliche Auftraggeber?",
+          "text": "Ja. Haushaltsvorbehalte und mehrjährige Abrechnung sind mir vertraut."
+        },
+        {
+          "title": "Was kostet ein Projekt?",
+          "text": "Das klärt die Konzeptphase. Danach erhalten Sie ein verbindliches Angebot."
+        }
+      ]
+    }
   }
 }

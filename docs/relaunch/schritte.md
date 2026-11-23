@@ -39,7 +39,11 @@ Erledigt am 21.11.2026 (Commit „feat: Neupositionierung Schritt 1 …“):
 
 ---
 
-## Schritt 3 – Index-Raster und neue Abschnitte auf der Startseite
+## Schritt 3 – Index-Raster und neue Abschnitte auf der Startseite ✅
+
+Erledigt am 23.11.2026: Spalten „Referenzen“, „Case Studies“, „Leistungsfelder“ (neu, ServicesColumn), „Fachbeiträge“; darunter Leistungsfelder, Vorgehen, Grundsätze, Zusammenarbeit, Profil-Teaser, FAQ (HomeSections, Server Component); Kontakt mit id="kontakt"; Snippets werden auf der Startseite nicht mehr geladen; Open Graph der Startseite vollständig. Geprüft: H1, alle Abschnitte und Metadaten stehen im Server-HTML (DE/EN).
+
+Ursprünglicher Prompt (zur Referenz):
 
 ```markdown
 Lies CLAUDE.md (Abschnitt „Relaunch“) und docs/relaunch/texte.md. Wir sind auf dem Branch feat/positionierung.

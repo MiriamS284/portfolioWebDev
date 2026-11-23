@@ -105,9 +105,9 @@
     }
   },
   "projects": {
-    "title": "Projects",
-    "description": "A selection of my work",
-    "viewAll": "All projects",
+    "title": "References",
+    "description": "Client projects and own products in business applications, apps and AI integration.",
+    "viewAll": "All references",
     "noResults": "No projects found."
   },
   "projectDetail": {
@@ -154,8 +154,8 @@
     }
   },
   "thoughts": {
-    "title": "Thoughts",
-    "viewAll": "All thoughts"
+    "title": "Articles",
+    "viewAll": "All articles"
   },
   "snippets": {
     "title": "Snippets",
@@ -276,5 +276,157 @@
     "learnMore": "Learn more",
     "accept": "Accept",
     "decline": "Decline"
+  },
+  "homeSections": {
+    "servicesShort": {
+      "title": "Services",
+      "viewAll": "All services",
+      "items": [
+        {
+          "title": "Business applications and portals",
+          "text": "Digitising processes that standard software cannot handle."
+        },
+        {
+          "title": "Apps and SaaS products",
+          "text": "Client and member areas, multi-tenant."
+        },
+        {
+          "title": "AI integration",
+          "text": "Language models where they deliver measurable relief."
+        },
+        {
+          "title": "Operations and infrastructure",
+          "text": "Hosting in Germany, hardened and monitored."
+        }
+      ]
+    },
+    "services": {
+      "title": "Services",
+      "items": [
+        {
+          "title": "Business applications and portals",
+          "text": "I digitise business processes that standard software cannot handle: specialist portals with granular role and permission models, protected document areas, editorial workflows and interfaces to existing systems."
+        },
+        {
+          "title": "Apps and SaaS products",
+          "text": "Client and member areas, scheduling and contract management, payment processing. Multi-tenant on request, so you can later offer your application as a product in its own right. I continue to develop it well beyond launch."
+        },
+        {
+          "title": "AI integration",
+          "text": "I integrate large language models where they deliver measurable relief: analysing and classifying documents, drafting texts and replies, assistant features within existing applications. Privacy-compliant, traceable and with human approval at the decisive points."
+        },
+        {
+          "title": "Operations and infrastructure",
+          "text": "I run your application on servers in Germany: containerised, hardened, with automated backups, monitoring and regular patch management. Administrative access is separately secured. Your data stays under your control."
+        }
+      ]
+    },
+    "approach": {
+      "title": "Approach",
+      "note": "I use AI tools in development under strict rules. Every change is reviewed, tested and owned by me.",
+      "items": [
+        {
+          "title": "Requirements analysis",
+          "text": "I map your processes, stakeholders, data flows and constraints such as data protection or accessibility."
+        },
+        {
+          "title": "Functional specification and architecture",
+          "text": "Data model, role and permission model, interfaces and operating model. Documented in writing, with effort and milestones."
+        },
+        {
+          "title": "Iterative development",
+          "text": "Delivery in milestones on a separate staging environment. You review each stage before it goes live."
+        },
+        {
+          "title": "Quality assurance",
+          "text": "Static type checking, validation of all inputs, security and accessibility checks before every release."
+        },
+        {
+          "title": "Go-live and handover",
+          "text": "Deployment, technical and user documentation, training for your staff."
+        },
+        {
+          "title": "Operations and further development",
+          "text": "Maintenance, monitoring and new features under a service agreement."
+        }
+      ]
+    },
+    "principles": {
+      "title": "Principles",
+      "items": [
+        {
+          "title": "Data sovereignty",
+          "text": "Hosting in Germany, no unnecessary dependence on US cloud services. You always know where your data resides."
+        },
+        {
+          "title": "Security by design",
+          "text": "Access control, input validation, rate limiting and encrypted transport are part of the architecture, not added later."
+        },
+        {
+          "title": "Maintainability",
+          "text": "TypeScript, established standards and complete documentation. The source code is yours."
+        },
+        {
+          "title": "AI with judgement",
+          "text": "Used only where the benefit is clear, with transparent data processing and human oversight."
+        }
+      ]
+    },
+    "collaboration": {
+      "title": "Working together",
+      "cta": "Book an initial consultation",
+      "items": [
+        {
+          "title": "Initial consultation (30 minutes, free of charge)",
+          "text": "You outline your project; I provide an initial professional assessment."
+        },
+        {
+          "title": "Concept phase (fixed fee, credited upon commission)",
+          "text": "The result is a functional specification covering scope, architecture, effort and timeline, also suitable as a basis for funding or budget applications."
+        },
+        {
+          "title": "Development",
+          "text": "A binding quote, invoiced by milestone. For public-sector clients, also across several budget years."
+        },
+        {
+          "title": "Service agreement",
+          "text": "Operations, maintenance and further development with agreed response times and a set number of hours."
+        }
+      ]
+    },
+    "profile": {
+      "title": "From language to code",
+      "text": "I studied Romance languages and translation and worked as a self-employed translator for six years. Since 2023 I have been developing software, today from requirements analysis to server operations. The core skill has remained the same: understanding requirements precisely and translating them into a solution that works.",
+      "link": "View profile"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "title": "Do you build websites?",
+          "text": "No. My focus is software. Publicly accessible areas are created only as part of an application."
+        },
+        {
+          "title": "Where is our data stored?",
+          "text": "On servers in Germany. Data protection and data processing agreements are planned from the outset."
+        },
+        {
+          "title": "How do you handle sensitive data with AI?",
+          "text": "I select providers and configurations so that your data is not used to train models. Where necessary, personal data is removed before processing, or processing does not take place externally at all."
+        },
+        {
+          "title": "Do we own the source code?",
+          "text": "Yes, including documentation. Other developers can continue the work."
+        },
+        {
+          "title": "Do you work for public-sector clients?",
+          "text": "Yes. I am familiar with budget reservations and multi-year invoicing."
+        },
+        {
+          "title": "What does a project cost?",
+          "text": "The concept phase establishes this. You then receive a binding quote."
+        }
+      ]
+    }
   }
 }
