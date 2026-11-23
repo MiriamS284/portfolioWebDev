@@ -37,15 +37,15 @@
     "contact": "Contact"
   },
   "heroShowcase": {
-    "intro": "Software that makes your work easier.",
+    "intro": "Understand the problem. Solve it in software.",
     "line1": "I develop business applications, apps and AI features for small and medium-sized enterprises and organisations.",
     "line2": "With clear access rights, multilingual where needed, and securely operated on servers in Germany.",
-    "philosophy1": "I support your project from analysis through to ongoing operation.",
+    "philosophy1": "I analyse your processes, build the software and keep it running securely.",
     "philosophy2": "From language to code: as a translator, I learned to listen closely. Today I translate requirements into software.",
     "tags": [
       "BusinessApplications",
-      "Apps",
       "AIIntegration",
+      "DigitalTransformation",
       "HostedInGermany",
       "Privacy"
     ]
@@ -269,7 +269,7 @@
   "metadata": {
     "title": "Miriam Sparbrod – Custom Software & AI Integration",
     "description": "Web-based business applications, apps and AI integrations for SMEs and organisations. Designed, built and securely operated in Germany.",
-    "ogTitle": "Software that makes your work easier"
+    "ogTitle": "Understand the problem. Solve it in software."
   },
   "cookies": {
     "message": "This website uses cookies for analytics.",
