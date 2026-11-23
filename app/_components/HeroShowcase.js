@@ -48,7 +48,7 @@ export default function HeroShowcase() {
           {t("philosophy2")}
         </p>
 
-        {/* Schwerpunkte als schlichte Tag-Zeile */}
+        {/* Tags as simple hashtags */}
         <div className="flex flex-wrap gap-4">
           {tags.map((tag, index) => (
             <span
@@ -56,7 +56,7 @@ export default function HeroShowcase() {
               className="text-sm"
               style={{ color: "var(--muted)" }}
             >
-              {tag}
+              #{tag}
             </span>
           ))}
         </div>
