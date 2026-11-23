@@ -6,7 +6,7 @@ Quelle für alle Texte der Neupositionierung. Platzhalter in [eckigen Klammern] 
 
 | Bestehender Baustein | Neuer Inhalt |
 | --- | --- |
-| `HeroShowcase` (H1, line1, line2, philosophy1, philosophy2, Tag-Zeile) | ✅ erledigt in Schritt 1 |
+| `HeroShowcase` (H1, line1, line2, philosophy1, philosophy2, Tag-Zeile) | ✅ erledigt (Fassung vom 23.11., siehe unten) |
 | Index-Raster, Spalte „Projekte“ (`ProjectsColumn`) | Label „Referenzen“ / „References“ |
 | Index-Raster, Spalte „Case Studies“ (`WritingColumn`) | bleibt „Case Studies“ |
 | Index-Raster, Spalte „Code-Fragmente“ (`SnippetsColumn`) | „Leistungsfelder“ / „Services“: statische Liste aus messages, gleicher Listenstil, Link „Alle Leistungen“ → `#leistungen` |
@@ -17,6 +17,15 @@ Quelle für alle Texte der Neupositionierung. Platzhalter in [eckigen Klammern] 
 ---
 
 ## DEUTSCH
+
+### Startseite – Hero (✅ erledigt, Fassung vom 23.11.)
+
+- H1: Software, die Ihre Arbeit leichter macht.
+- Zeile 1: Ich entwickle Fachanwendungen, Apps und KI-Funktionen für kleine und mittlere Unternehmen und Organisationen.
+- Zeile 2: Mit klaren Zugriffsrechten, mehrsprachig, wo es nötig ist, und sicher betrieben auf Servern in Deutschland.
+- Zeile 3: Ich begleite Ihr Vorhaben von der Analyse bis zum laufenden Betrieb.
+- Zeile 4: Von der Sprache zum Code: Als Übersetzerin habe ich gelernt, genau zuzuhören. Heute übersetze ich Anforderungen in Software.
+- Tags: Fachanwendungen · Apps · KI-Integration · Hosting in Deutschland · Datenschutz von Anfang an
 
 ### Startseite – Meta (✅ erledigt)
 
@@ -132,6 +141,15 @@ Label: Häufige Fragen
 ---
 
 ## ENGLISH
+
+### Home – hero (✅ done, version of 23 Nov)
+
+- H1: Software that makes your work easier.
+- Line 1: I develop business applications, apps and AI features for small and medium-sized enterprises and organisations.
+- Line 2: With clear access rights, multilingual where needed, and securely operated on servers in Germany.
+- Line 3: I support your project from analysis through to ongoing operation.
+- Line 4: From language to code: as a translator, I learned to listen closely. Today I translate requirements into software.
+- Tags: Business applications · Apps · AI integration · Hosting in Germany · Privacy from the start
 
 ### Home – services (index column)
 

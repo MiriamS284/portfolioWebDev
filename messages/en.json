@@ -37,17 +37,17 @@
     "contact": "Contact"
   },
   "heroShowcase": {
-    "intro": "Custom software for companies and organisations.",
-    "line1": "I design and build web-based business applications, apps and AI integrations for small and medium-sized enterprises and organisations.",
-    "line2": "With a well-defined role and permission model, a multilingual data architecture and secure operation on servers in Germany.",
-    "philosophy1": "From requirements analysis to ongoing operation, with direct accountability instead of agency layers.",
-    "philosophy2": "From language to code: trained as a translator, I turn business requirements into precise technical solutions.",
+    "intro": "Software that makes your work easier.",
+    "line1": "I develop business applications, apps and AI features for small and medium-sized enterprises and organisations.",
+    "line2": "With clear access rights, multilingual where needed, and securely operated on servers in Germany.",
+    "philosophy1": "I support your project from analysis through to ongoing operation.",
+    "philosophy2": "From language to code: as a translator, I learned to listen closely. Today I translate requirements into software.",
     "tags": [
       "Business applications",
-      "Apps & SaaS",
+      "Apps",
       "AI integration",
-      "Hosting & operations",
-      "Privacy by design"
+      "Hosting in Germany",
+      "Privacy from the start"
     ]
   },
   "whoIAm": {
@@ -269,7 +269,7 @@
   "metadata": {
     "title": "Miriam Sparbrod – Custom Software & AI Integration",
     "description": "Web-based business applications, apps and AI integrations for SMEs and organisations. Designed, built and securely operated in Germany.",
-    "ogTitle": "Custom software for companies and organisations"
+    "ogTitle": "Software that makes your work easier"
   },
   "cookies": {
     "message": "This website uses cookies for analytics.",

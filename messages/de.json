@@ -37,17 +37,17 @@
     "contact": "Kontakt"
   },
   "heroShowcase": {
-    "intro": "Individualsoftware für Unternehmen und Organisationen.",
-    "line1": "Ich konzipiere und entwickle webbasierte Fachanwendungen, Apps und KI-Integrationen für kleine und mittlere Unternehmen sowie Organisationen.",
-    "line2": "Mit durchdachtem Rollen- und Rechtekonzept, mehrsprachiger Datenarchitektur und sicherem Betrieb auf Servern in Deutschland.",
-    "philosophy1": "Von der Anforderungsanalyse bis zum laufenden Betrieb aus einer Hand, mit direkter Verantwortung statt Agenturstrukturen.",
-    "philosophy2": "Von der Sprache zum Code: Als studierte Übersetzerin übertrage ich fachliche Anforderungen präzise in technische Lösungen.",
+    "intro": "Software, die Ihre Arbeit leichter macht.",
+    "line1": "Ich entwickle Fachanwendungen, Apps und KI-Funktionen für kleine und mittlere Unternehmen und Organisationen.",
+    "line2": "Mit klaren Zugriffsrechten, mehrsprachig, wo es nötig ist, und sicher betrieben auf Servern in Deutschland.",
+    "philosophy1": "Ich begleite Ihr Vorhaben von der Analyse bis zum laufenden Betrieb.",
+    "philosophy2": "Von der Sprache zum Code: Als Übersetzerin habe ich gelernt, genau zuzuhören. Heute übersetze ich Anforderungen in Software.",
     "tags": [
       "Fachanwendungen",
-      "Apps & SaaS",
+      "Apps",
       "KI-Integration",
-      "Hosting & Betrieb",
-      "Datenschutz by Design"
+      "Hosting in Deutschland",
+      "Datenschutz von Anfang an"
     ]
   },
   "whoIAm": {
@@ -269,7 +269,7 @@
   "metadata": {
     "title": "Miriam Sparbrod – Individualsoftware & KI-Integration",
     "description": "Webbasierte Fachanwendungen, Apps und KI-Integrationen für KMU und Organisationen. Konzipiert, entwickelt und sicher betrieben in Deutschland.",
-    "ogTitle": "Individualsoftware für Unternehmen und Organisationen"
+    "ogTitle": "Software, die Ihre Arbeit leichter macht"
   },
   "cookies": {
     "message": "Diese Website verwendet Cookies für Analysen.",
