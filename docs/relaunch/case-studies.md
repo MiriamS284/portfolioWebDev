@@ -21,86 +21,98 @@ Fachportal mit geschütztem Fachkräftebereich: Netzwerk Kinderschutz & Frühe H
 A specialist portal with a protected area for professionals: Child Protection & Early Support Network, Altenburger Land
 
 ## excerpt.de
-Ein zweisprachiges Fachportal für Familien und Fachkräfte: Angebote nach Zielgruppe und Thema, Termine mit Serien und Kalenderexport, eine interaktive Karte und ein geschützter Bereich, in dem Dokumente nur nach Anmeldung und über zeitlich begrenzte Links abrufbar sind.
+Ein zweisprachiges Fachportal, das verstreute Informationen für Familien und Fachkräfte im Landkreis bündelt: Angebote nach Zielgruppe und Thema, Termine mit Serien und Kalenderexport, eine interaktive Karte der Anlaufstellen und ein geschützter Bereich für Fachkräfte. Die Verwaltung pflegt alle Inhalte selbst.
 
 ## excerpt.en
-A bilingual specialist portal for families and professionals: services by audience and topic, events with recurring series and calendar export, an interactive map and a protected area where documents are only available after login and via time-limited links.
+A bilingual specialist portal that brings together scattered information for families and professionals in the district: services by audience and topic, events with recurring series and calendar export, an interactive map of contact points and a protected area for professionals. The administration maintains all content itself.
 
 ## body.de
 
 ### Ausgangslage und Ziel
 
-Das Netzwerk Kinderschutz & Frühe Hilfen bündelt im Landkreis Altenburger Land Angebote für Eltern, Kinder und Jugendliche sowie Fachkräfte. Ziel war ein zentraler Ort, an dem Familien Angebote, Termine und Anlaufstellen finden, Fachkräfte geschützt auf interne Unterlagen zugreifen und die Verwaltung alle Inhalte selbst pflegt, ohne technische Vorkenntnisse. [Ausgangslage vorher ergänzen: Wie wurden Informationen bisher verteilt?]
+Das Netzwerk Kinderschutz & Frühe Hilfen bündelt im Landkreis Altenburger Land Angebote für Eltern, Kinder und Jugendliche sowie Fachkräfte. Die bisherige WordPress-Seite war vor allem als Präsentationsseite angelegt: Inhalte und Struktur ließen sich nur eingeschränkt selbst anpassen. Gleichzeitig waren Informationen für die Zielgruppen über mehrere Portale verteilt, die unabhängig voneinander und unterschiedlich aktuell gepflegt wurden. Für Familien war dadurch schwer zu erkennen, wo sie welches Angebot finden. Für die Netzwerkpartner fehlte ein gemeinsamer, verlässlicher Ort.
+
+Ziel war deshalb eine zentrale Fachanwendung für den Landkreis und seine Netzwerkpartner: Angebote, Termine und Anlaufstellen gebündelt an einer Stelle, eine interaktive Karte, über die Familien schnell die passende Anlaufstelle finden, und ein geschützter Bereich für Fachkräfte. Die Verwaltung sollte Inhalte, Karte und Struktur eigenständig pflegen und erweitern können, ohne für jede Änderung auf externe Unterstützung angewiesen zu sein. Wartung und Weiterentwicklung erfolgen planbar über einen mehrjährigen Rahmen.
+
+### Die eigentliche Herausforderung: weniger zeigen, schneller finden
+
+Viele Informationsportale haben nicht zu wenige Inhalte, sondern zu viele, ohne klare Ordnung. Wer in einer belastenden Situation Hilfe sucht, braucht keinen vollständigen Katalog, sondern in wenigen Schritten die eine passende Antwort. Deshalb habe ich die Inhalte nicht nach Organisationen oder Zuständigkeiten geordnet, sondern nach den Menschen, die das Portal nutzen: Zuerst wählt man, wer man ist (Eltern, Kinder und Jugendliche, Fachkräfte), dann, worum es geht. Die Karte zeigt Anlaufstellen nach Kategorien gefiltert statt alle auf einmal, Termine lassen sich mit einem Klick in den eigenen Kalender übernehmen.
 
 ### Lösung und Architektur
 
 - Next.js (App Router) mit TypeScript, Supabase (PostgreSQL, Authentifizierung, Speicher), Datenbank in Frankfurt
+- Informationsarchitektur nach zwei Achsen: Zielgruppe und Thema
+- Termine mit wiederkehrenden Serien und iCal-Export, „Familiennavi“ als interaktive Karte mit filterbaren Anlaufstellen, Netzwerkdiagramm der Partner
 - Rollen- und Rechtekonzept für Fachkräfte und Redaktion, durchgesetzt mit Row Level Security direkt in der Datenbank
 - Zweisprachige Inhalte (Deutsch/Englisch) auf Datenebene: Die Redaktion pflegt beide Sprachen an einer Stelle
-- Informationsarchitektur nach zwei Achsen: Zielgruppe (Eltern, Kinder und Jugendliche, Fachkräfte) und Thema
-- Termine mit wiederkehrenden Serien und iCal-Export, „Familiennavi“ als interaktive Karte mit filterbaren Anlaufstellen, Netzwerkdiagramm der Partner
 - Redaktions-Dashboard für Termine, Aktuelles, Anlaufstellen, Angebote und Dokumente
 - Weiterentwicklung des Datenmodells über mehr als 50 versionierte Migrationen, automatisierte Tests mit Playwright einschließlich Barrierefreiheitsprüfungen
 
-### Die schwierige Stelle: Dokumente, die wirklich geschützt sind
+### Geschützte Dokumente, mehrstufig abgesichert
 
-In einer frühen Version lagen Dokumente für Fachkräfte in einem öffentlich lesbaren Speicher. Wer die Adresse kannte, hätte sie ohne Anmeldung öffnen können. Ich habe den Speicher auf privat umgestellt. Downloads laufen seitdem nur noch über eine Serverroute, die zuerst die Berechtigung prüft und dann einen zeitlich begrenzten, signierten Link erzeugt. Hochladen und Löschen ist nur der Redaktion erlaubt. Öffentliche Materialien liegen getrennt davon in einem eigenen Bereich.
+Fachkräfte tauschen über das Portal interne Unterlagen aus. In einer frühen Version lagen diese Dokumente in einem öffentlich lesbaren Speicher: Wer die Adresse kannte, hätte sie ohne Anmeldung öffnen können. Ich habe den Zugriff deshalb auf mehreren Ebenen abgesichert. Die Datenbank gibt Fachkraft-Dokumente nur an Nutzer mit Fachkraft-Rolle heraus. Der Speicher ist privat. Downloads laufen über eine Serverroute, die die Berechtigung prüft und einen signierten Link erzeugt, der nach fünf Minuten verfällt. Hochladen und Löschen ist ausschließlich der Redaktion erlaubt, öffentliche Materialien liegen getrennt in einem eigenen Bereich.
 
 ```sql
--- Bucket privat: Fachkraft-Dokumente nicht mehr über die URL abrufbar
-UPDATE storage.buckets SET public = false WHERE id = 'documents';
+-- Dokumente in der Datenbank: Fachkraft-Inhalte nur für Fachkräfte
+create policy documents_read on documents for select
+  using (access_level = 'public'
+         or (access_level = 'fachkraefte' and is_staff()));
 
--- Hochladen nur für die Redaktion
-CREATE POLICY "CMS users can upload documents"
-  ON storage.objects FOR INSERT TO authenticated
-  WITH CHECK (bucket_id = 'documents' AND public.is_cms_user());
+-- Speicher privat: Dateien nicht mehr über die URL abrufbar
+UPDATE storage.buckets SET public = false WHERE id = 'documents';
 ```
 
 ### Ergebnis
 
-Familien und Fachkräfte finden Angebote, Termine und Anlaufstellen an einer Stelle. Die Redaktion pflegt alle Inhalte selbst, unterstützt durch ein ausführliches Benutzerhandbuch. Interne Dokumente sind nur für berechtigte Fachkräfte erreichbar. [Ergebnis oder Zitat der Auftraggeberin ergänzen]
+Familien, Fachkräfte und Netzwerkpartner finden Angebote, Termine und Anlaufstellen jetzt an einer Stelle, über den Einstieg, der zu ihnen passt. Statt mehrere Portale zu durchsuchen, führen wenige Schritte zur passenden Information oder zur nächsten Anlaufstelle auf der Karte. Die Verwaltung pflegt Inhalte, Termine und Karte selbst, in beiden Sprachen und mit einem ausführlichen Benutzerhandbuch. Interne Unterlagen sind nur für berechtigte Fachkräfte zugänglich. Das Portal ist modular aufgebaut, sodass weitere Themen und Netzwerkpartner mit überschaubarem Aufwand hinzukommen können.
 
 ### Was ich mitgenommen habe
 
-Sicherheit gehört in die Datenbank, nicht nur in die Oberfläche. Seitdem plane ich Zugriffsregeln, bevor ich die erste Seite baue.
+Die wichtigste Arbeit an diesem Projekt war nicht der Code, sondern das Verstehen: Wer sucht hier was, in welcher Situation, und wie schnell muss die Antwort da sein? Viele Portale scheitern nicht an fehlenden Informationen, sondern an zu vielen, zu ungeordneten. Eine gute Fachanwendung reduziert und führt. Und sie schützt, was geschützt werden muss: Zugriffsregeln gehören in die Datenbank, nicht nur in die Oberfläche.
 
 ## body.en
 
 ### Context and goal
 
-The Child Protection & Early Support Network brings together services for parents, children and young people, and professionals in the district of Altenburger Land. The goal was a single place where families find services, events and contact points, professionals securely access internal documents, and the administration maintains all content itself without technical knowledge. [Add the previous situation]
+The Child Protection & Early Support Network brings together services for parents, children and young people, and professionals in the district of Altenburger Land. The previous WordPress site was primarily designed as a presentation site: content and structure could only be adapted to a limited extent in-house. At the same time, information for the target groups was spread across several portals, each maintained separately and to varying degrees of currency. This made it hard for families to see where to find which service, and network partners lacked a shared, reliable place.
+
+The goal was therefore a central application for the district and its network partners: services, events and contact points consolidated in one place, an interactive map that helps families quickly find the right contact point, and a protected area for professionals. The administration should be able to maintain and extend content, the map and the structure independently, without relying on outside help for every change. Maintenance and further development follow a predictable multi-year framework.
+
+### The real challenge: show less, find faster
+
+Many information portals do not have too little content but too much, without a clear order. Someone looking for help in a difficult situation does not need a complete catalogue but the one right answer in a few steps. So I did not organise content by organisations or responsibilities but by the people who use the portal: first you choose who you are (parents, children and young people, professionals), then what it is about. The map shows contact points filtered by category instead of all at once, and events can be added to your own calendar with one click.
 
 ### Solution and architecture
 
 - Next.js (App Router) with TypeScript, Supabase (PostgreSQL, authentication, storage), database hosted in Frankfurt
+- Information architecture along two axes: audience and topic
+- Events with recurring series and iCal export, “Familiennavi” as an interactive map of filterable contact points, a network diagram of partners
 - Role and permission model for professionals and editors, enforced with row level security directly in the database
 - Bilingual content (German/English) at data level: editors maintain both languages in one place
-- Information architecture along two axes: audience (parents, children and young people, professionals) and topic
-- Events with recurring series and iCal export, “Familiennavi” as an interactive map of filterable contact points, a network diagram of partners
 - Editorial dashboard for events, news, contact points, services and documents
 - Data model evolved through more than 50 versioned migrations, automated tests with Playwright including accessibility checks
 
-### The hard part: documents that are genuinely protected
+### Protected documents, secured on several levels
 
-In an early version, documents for professionals were stored in a publicly readable bucket. Anyone with the URL could have opened them without logging in. I made the bucket private. Downloads now only go through a server route that checks permissions first and then issues a time-limited signed link. Only editors can upload and delete. Public materials are kept separately in their own area.
+Professionals use the portal to share internal documents. In an early version, these documents were stored in a publicly readable bucket: anyone with the URL could have opened them without logging in. I therefore secured access on several levels. The database only returns documents for professionals to users with the professional role. Storage is private. Downloads go through a server route that checks permissions and issues a signed link that expires after five minutes. Only editors can upload and delete, and public materials are kept separately in their own area.
 
 ```sql
--- Private bucket: documents for professionals are no longer reachable by URL
-UPDATE storage.buckets SET public = false WHERE id = 'documents';
+-- Documents in the database: content for professionals only for professionals
+create policy documents_read on documents for select
+  using (access_level = 'public'
+         or (access_level = 'fachkraefte' and is_staff()));
 
--- Upload only for editors
-CREATE POLICY "CMS users can upload documents"
-  ON storage.objects FOR INSERT TO authenticated
-  WITH CHECK (bucket_id = 'documents' AND public.is_cms_user());
+-- Private storage: files are no longer reachable by URL
+UPDATE storage.buckets SET public = false WHERE id = 'documents';
 ```
 
 ### Outcome
 
-Families and professionals find services, events and contact points in one place. The editorial team maintains all content itself, supported by a detailed user manual. Internal documents are only accessible to authorised professionals. [Add outcome or client quote]
+Families, professionals and network partners now find services, events and contact points in one place, through the entry point that suits them. Instead of searching several portals, a few steps lead to the right information or to the nearest contact point on the map. The administration maintains content, events and the map itself, in both languages and with a detailed user manual. Internal documents are only accessible to authorised professionals. The portal is modular, so further topics and network partners can be added with manageable effort.
 
 ### What I took away
 
-Security belongs in the database, not just in the interface. Since then, I design access rules before I build the first page.
+The most important work on this project was not the code but the understanding: who is looking for what here, in which situation, and how quickly does the answer need to be there? Many portals do not fail for lack of information but because there is too much of it, too disorganised. A good specialist application reduces and guides. And it protects what needs protecting: access rules belong in the database, not just in the interface.
 
 ---
 
