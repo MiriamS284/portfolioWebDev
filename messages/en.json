@@ -1,15 +1,15 @@
 {
   "navigation": {
-    "about": "ABOUT",
-    "projects": "PROJECTS",
+    "about": "PROFILE",
+    "projects": "REFERENCES",
     "caseStudies": "CASE STUDIES"
   },
   "footer": {
     "role": "Software Developer",
     "tagline": "Custom software, AI integration and operations. Based in Thuringia, working for companies and organisations.",
     "nav": "Navigation",
-    "about": "About",
-    "projects": "Projects",
+    "about": "Profile",
+    "projects": "References",
     "imprint": "Imprint",
     "privacy": "Privacy Policy",
     "rights": "All rights reserved.",
@@ -21,17 +21,17 @@
     "close": "Close",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "about": "About",
-    "projects": "Projects",
-    "projectsSub": "Case Studies & Work",
+    "about": "Profile",
+    "projects": "References",
+    "projectsSub": "Client projects and own products",
     "garden": "Digital Garden",
-    "gardenSub": "Growing thoughts",
+    "gardenSub": "Articles and notes",
     "blog": "Case - Studies & Tutorials",
     "blogSub": "Articles & Tutorials",
     "snippets": "Code Snippets",
     "snippetsSub": "Reusable code examples",
     "contact": "Contact",
-    "contactSub": "Let's work together"
+    "contactSub": "Discuss your project"
   },
   "home": {
     "index": "Index",
@@ -70,14 +70,23 @@
     "snippets": "Code Snippets"
   },
   "about": {
-    "greeting": "Hi, I'm Miriam",
-    "subtitle": "Full-Stack Developer",
-    "block1Title": "From Language to Code",
-    "block1P1": "From translation to web development – my journey began with a fascination for languages, both human and digital. I am passionate about developing and transforming ideas into digital experiences.",
-    "block1P2": "What drives me? The ability to translate needs and visions into digital applications, simplify processes and ensure efficient workflows.",
-    "block2Title": "My Approach",
-    "block2P1": "My focus is on the MERN stack (MongoDB, Express, React, Node.js), which enables me to build seamless full-stack applications. Over the past two years, I've been working intensively with React and Next.js.",
-    "block2P2": "I'm particularly passionate about developing SaaS solutions: products that solve real problems, scale effectively, and support people in their work."
+    "metaTitle": "Profile – Miriam Sparbrod, Software Developer",
+    "metaDescription": "Software developer for business applications, apps and AI integration. Trained translator, developing software since 2022, hosting in Germany.",
+    "greeting": "Miriam Sparbrod",
+    "subtitle": "Software developer for business applications, apps and AI integration",
+    "block1Title": "From language to code",
+    "block1P1": "I studied Romance languages and translation in Jena and then lived and worked in Argentina, Uruguay and Chile. From 2017 to 2023 I worked as a self-employed translator in Berlin: with binding deadlines, confidential documents and clients who relied on me.",
+    "block1P2": "I began developing software in 2022. Today I am responsible for projects from requirements analysis to server operations, including a specialist portal for a district administration with role-based access control and a multi-tenant platform for coaches. I used to translate between languages and cultures; today I translate human language into the language of software. The attitude has stayed the same: understand precisely first, then carry it over with care.",
+    "block2Title": "How I work and where I'm heading",
+    "block2P1": "With me, you have one point of contact from the first analysis to ongoing operation. I document decisions on architecture, roles and interfaces in writing, plan for security and data protection from the start, and the source code, documentation and access credentials belong to you.",
+    "block2P2": "My goal is to support companies and organisations over the long term: with software that grows with them, with my own infrastructure in Germany, which I am currently building, and with my own products such as the platform for coaches. Learning new technologies and understanding them thoroughly is not a duty for me; it is the reason I enjoy this work.",
+    "keywords": [
+      "BusinessApplications",
+      "AIIntegration",
+      "Multilingual",
+      "Privacy",
+      "LifelongLearning"
+    ]
   },
   "techStack": {
     "title": "Tech Stack",

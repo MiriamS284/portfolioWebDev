@@ -6,12 +6,7 @@ import Image from "next/image";
 export default function AboutHero() {
   const t = useTranslations("about");
 
-  const keywords = [
-    "MERN",
-    "SaaS",
-    "APIs",
-    t("greeting").includes("Miriam") ? "Problemlöserin" : "Problem Solver",
-  ];
+  const keywords = t.raw("keywords");
 
   return (
     <div className="space-y-12">

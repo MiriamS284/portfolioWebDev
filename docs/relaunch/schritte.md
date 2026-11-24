@@ -80,7 +80,11 @@ Lies CLAUDE.md und docs/relaunch/texte.md (Abschnitt Kontakt). Branch feat/posit
 
 ---
 
-## Schritt 5 – Profil-Seite und Navigation
+## Schritt 5 – Profil-Seite und Navigation ✅
+
+Erledigt am 24.11.2026: Profilseite als Server-Page mit Metadaten, neue Texte DE/EN (Werdegang, Arbeitsweise und Ziel), Hashtags aus messages, Tech Stack erweitert (AI Integration, Accessibility u. a.), Navigation/Menü/Footer: Profil, Referenzen.
+
+Ursprünglicher Prompt (zur Referenz):
 
 ```markdown
 Lies CLAUDE.md und docs/relaunch/texte.md (Profil, Navigation). Branch feat/positionierung.

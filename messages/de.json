@@ -1,15 +1,15 @@
 {
   "navigation": {
-    "about": "ÜBER MICH",
-    "projects": "PROJEKTE",
+    "about": "PROFIL",
+    "projects": "REFERENZEN",
     "caseStudies": "CASE STUDIES"
   },
   "footer": {
     "role": "Softwareentwicklerin",
     "tagline": "Individualsoftware, KI-Integration und Betrieb. Aus Thüringen, für Unternehmen und Organisationen.",
     "nav": "Navigation",
-    "about": "Über mich",
-    "projects": "Projekte",
+    "about": "Profil",
+    "projects": "Referenzen",
     "imprint": "Impressum",
     "privacy": "Datenschutz",
     "rights": "Alle Rechte vorbehalten.",
@@ -21,17 +21,17 @@
     "close": "Schließen",
     "openMenu": "Menü öffnen",
     "closeMenu": "Menü schließen",
-    "about": "Über mich",
-    "projects": "Projekte",
-    "projectsSub": "Case Studies & Arbeiten",
+    "about": "Profil",
+    "projects": "Referenzen",
+    "projectsSub": "Kundenprojekte und eigene Produkte",
     "garden": "Digital Garden",
-    "gardenSub": "Gedanken die wachsen",
+    "gardenSub": "Fachbeiträge und Notizen",
     "blog": "Case - Studies & Tutorials",
     "blogSub": "Artikel & Tutorials",
     "snippets": "Code Snippets",
     "snippetsSub": "Wiederverwendbare Code-Beispiele",
     "contact": "Kontakt",
-    "contactSub": "Lass uns über eine Zusammenarbeit sprechen"
+    "contactSub": "Ihr Vorhaben besprechen"
   },
   "home": {
     "index": "Index",
@@ -70,14 +70,23 @@
     "snippets": "Code Snippets"
   },
   "about": {
-    "greeting": "Hi, ich bin Miriam",
-    "subtitle": "Full-Stack Entwicklerin",
-    "block1Title": "Von Sprache zu Code",
-    "block1P1": "Von der Übersetzung zur Web-Entwicklung – meine Reise begann mit einer Faszination für Sprachen. Sowohl die menschlichen als auch die digitale. Ich entwickle und transformiere Ideen mit Leidenschaft in digitale Experiences.",
-    "block1P2": "Was mich antreibt? Die Fähigkeit, Bedürfnisse und Visionen in digitale Anwendungen zu übersetzen, Prozesse zu vereinfachen, effizienten Workflow zu gewährleisten.",
-    "block2Title": "Mein Ansatz",
-    "block2P1": "Mein Fokus liegt auf dem MERN Stack (MongoDB, Express, React, Node.js), mit dem ich nahtlose Full-Stack-Anwendungen entwickle. In den letzten zwei Jahren habe ich mich intensiv mit React und Next.js auseinandergesetzt.",
-    "block2P2": "Besonders liegt mir die Entwicklung von SaaS-Lösungen am Herzen: Produkte, die echte Probleme lösen, skalierbar sind und Menschen in ihrer Arbeit unterstützen."
+    "metaTitle": "Profil – Miriam Sparbrod, Softwareentwicklerin",
+    "metaDescription": "Softwareentwicklerin für Fachanwendungen, Apps und KI-Integration. Studierte Übersetzerin, seit 2022 in der Softwareentwicklung, Betrieb in Deutschland.",
+    "greeting": "Miriam Sparbrod",
+    "subtitle": "Softwareentwicklerin für Fachanwendungen, Apps und KI-Integration",
+    "block1Title": "Von der Sprache zum Code",
+    "block1P1": "Ich habe in Jena Romanistik und Übersetzungswissenschaft studiert und danach in Argentinien, Uruguay und Chile gelebt und gearbeitet. Von 2017 bis 2023 war ich in Berlin als selbständige Übersetzerin tätig: mit verbindlichen Fristen, vertraulichen Unterlagen und Kunden, die sich auf mich verlassen haben.",
+    "block1P2": "2022 habe ich mit der Softwareentwicklung begonnen. Heute verantworte ich Projekte von der Anforderungsanalyse bis zum Serverbetrieb, darunter ein Fachportal für eine Kreisverwaltung mit rollenbasierter Zugriffskontrolle und eine mandantenfähige Plattform für Coaches. Früher habe ich zwischen Sprachen und Kulturräumen übersetzt, heute übersetze ich menschliche Sprache in digitale. Die Haltung ist dieselbe geblieben: erst genau verstehen, dann präzise übertragen.",
+    "block2Title": "Arbeitsweise und Ziel",
+    "block2P1": "Bei mir haben Sie von der ersten Analyse bis zum laufenden Betrieb eine Ansprechpartnerin. Entscheidungen zu Architektur, Rollen und Schnittstellen halte ich schriftlich fest, Sicherheit und Datenschutz plane ich von Anfang an mit, und Quellcode, Dokumentation und Zugänge gehören Ihnen.",
+    "block2P2": "Mein Ziel ist es, Unternehmen und Organisationen langfristig zu begleiten: mit Software, die mitwächst, mit eigener Infrastruktur in Deutschland, die ich derzeit aufbaue, und mit eigenen Produkten wie der Plattform für Coaches. Neue Technologien zu lernen und gründlich zu verstehen, ist für mich kein Pflichtteil, sondern der Grund, warum ich diese Arbeit gern mache.",
+    "keywords": [
+      "Fachanwendungen",
+      "KI-Integration",
+      "Mehrsprachigkeit",
+      "Datenschutz",
+      "LebenslangesLernen"
+    ]
   },
   "techStack": {
     "title": "Tech Stack",
