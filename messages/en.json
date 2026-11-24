@@ -111,10 +111,27 @@
     "error": "Your enquiry could not be sent. Please try again.",
     "validation": {
       "minChars": "At least {count} characters",
-      "invalidEmail": "Invalid email address"
+      "invalidEmail": "Invalid email address",
+      "required": "Please select an option",
+      "privacy": "Please agree to the processing of your data",
+      "phone": "Please enter a valid phone number"
     },
     "metaTitle": "Contact – Miriam Sparbrod",
-    "metaDescription": "Tell me about your project: business applications, apps, AI integration or operations. Response within one working day."
+    "metaDescription": "Tell me about your project: business applications, apps, AI integration or operations. Response within one working day.",
+    "phone": "Phone",
+    "projectType": "Type of project",
+    "projectTypePlaceholder": "Please select",
+    "projectTypes": {
+      "portal": "Business application or portal",
+      "app": "App or SaaS product",
+      "ai": "AI integration",
+      "website": "Website with a custom CMS",
+      "hosting": "Operations and hosting",
+      "existing": "Further development of existing software",
+      "open": "Not sure yet"
+    },
+    "privacyText": "I agree that my details will be stored in order to process my enquiry. More in the",
+    "privacyLink": "privacy policy"
   },
   "projects": {
     "title": "References",

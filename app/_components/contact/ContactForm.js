@@ -4,32 +4,30 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function ContactForm() {
   const t = useTranslations("contact");
-  const locale = useLocale();
   const [status, setStatus] = useState("idle");
 
+  const PROJECT_TYPES = ["portal", "app", "ai", "website", "hosting", "existing", "open"];
+
   const schema = z.object({
-    firstName: z
-      .string()
-      .min(2, locale === "de" ? "Mindestens 2 Zeichen" : "At least 2 characters"),
-    lastName: z
-      .string()
-      .min(2, locale === "de" ? "Mindestens 2 Zeichen" : "At least 2 characters"),
+    firstName: z.string().trim().min(2, t("validation.minChars", { count: 2 })),
+    lastName: z.string().trim().min(2, t("validation.minChars", { count: 2 })),
     company: z.string().optional(),
-    email: z
+    email: z.string().trim().email(t("validation.invalidEmail")),
+    phone: z
       .string()
-      .email(
-        locale === "de" ? "Ungültige E-Mail-Adresse" : "Invalid email address",
-      ),
-    message: z
-      .string()
-      .min(
-        10,
-        locale === "de" ? "Mindestens 10 Zeichen" : "At least 10 characters",
-      ),
+      .trim()
+      .max(50)
+      .regex(/^[+()\d\s/-]*$/, t("validation.phone"))
+      .optional()
+      .or(z.literal("")),
+    projectType: z.enum(PROJECT_TYPES, { message: t("validation.required") }),
+    message: z.string().trim().min(10, t("validation.minChars", { count: 10 })),
+    privacy: z.literal(true, { message: t("validation.privacy") }),
     website: z.string().optional(),
   });
 
@@ -46,7 +44,10 @@ export default function ContactForm() {
       lastName: "",
       company: "",
       email: "",
+      phone: "",
+      projectType: "",
       message: "",
+      privacy: false,
       website: "",
     },
   });
@@ -124,6 +125,27 @@ export default function ContactForm() {
         />
 
         <FormField
+          id="phone"
+          label={t("phone")}
+          optional={t("companyOptional")}
+          type="tel"
+          error={errors.phone}
+          register={register}
+        />
+
+        <SelectField
+          id="projectType"
+          label={t("projectType")}
+          placeholder={t("projectTypePlaceholder")}
+          options={PROJECT_TYPES.map((value) => ({
+            value,
+            label: t(`projectTypes.${value}`),
+          }))}
+          error={errors.projectType}
+          register={register}
+        />
+
+        <FormField
           id="message"
           label={t("message")}
           type="textarea"
@@ -131,6 +153,36 @@ export default function ContactForm() {
           error={errors.message}
           register={register}
         />
+
+        <div>
+          <label
+            htmlFor="privacy"
+            className="flex items-start gap-3 text-sm leading-relaxed cursor-pointer"
+            style={{ color: errors.privacy ? "tomato" : "var(--muted)" }}
+          >
+            <input
+              id="privacy"
+              type="checkbox"
+              {...register("privacy")}
+              className="mt-1 shrink-0 accent-[var(--accent)]"
+            />
+            <span>
+              {t("privacyText")}{" "}
+              <Link
+                href="/privatepolicy"
+                className="underline underline-offset-2 hover:text-[var(--accent)]"
+              >
+                {t("privacyLink")}
+              </Link>
+              .
+            </span>
+          </label>
+          {errors.privacy && (
+            <p className="text-xs mt-2 font-mono" style={{ color: "tomato" }}>
+              {errors.privacy.message}
+            </p>
+          )}
+        </div>
 
         <div className="pt-4">
           <button
@@ -220,7 +272,9 @@ function FormField({
                   ? "organization"
                   : id === "email"
                     ? "email"
-                    : "off"
+                    : id === "phone"
+                      ? "tel"
+                      : "off"
           }
           {...register(id)}
           className={`w-full px-0 py-3 bg-transparent text-base border-0 border-b transition-all duration-200 focus:outline-none focus-visible:outline-none ${
@@ -233,6 +287,51 @@ function FormField({
           }}
         />
       )}
+
+      {hasError && (
+        <p className="text-xs mt-2 font-mono" style={{ color: "tomato" }}>
+          {error.message}
+        </p>
+      )}
+    </div>
+  );
+}
+
+function SelectField({ id, label, placeholder, options, error, register }) {
+  const hasError = !!error;
+
+  return (
+    <div className="group/field">
+      <label
+        htmlFor={id}
+        className={`block text-sm font-mono mb-2 transition-colors duration-200 ${
+          hasError ? "" : "group-focus-within/field:text-[var(--ink)]"
+        }`}
+        style={{ color: hasError ? "tomato" : "var(--muted)" }}
+      >
+        {label}
+      </label>
+
+      <select
+        id={id}
+        defaultValue=""
+        {...register(id)}
+        className={`w-full px-0 py-3 bg-transparent text-base border-0 border-b transition-all duration-200 focus:outline-none focus-visible:outline-none ${
+          hasError
+            ? "border-b-[tomato]"
+            : "border-b-[var(--border)] focus:border-b-[var(--ink)] focus:border-b-2"
+        }`}
+        style={{ color: "var(--ink)" }}
+      >
+        <option value="" disabled style={{ background: "var(--bg)" }}>
+          {placeholder}
+        </option>
+        {options.map((option) => (
+          <option key={option.value} value={option.value} style={{ background: "var(--bg)" }}>
+            {option.label}
+          </option>
+        ))}
+      </select>
 
       {hasError && (
         <p className="text-xs mt-2 font-mono" style={{ color: "tomato" }}>

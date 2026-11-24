@@ -66,7 +66,11 @@ Zeig mir nach Schritt 1 deinen Plan und warte auf mein OK. Committe am Ende mit 
 
 ---
 
-## Schritt 4 – Kontaktformular erweitern
+## Schritt 4 – Kontaktformular erweitern ✅
+
+Erledigt am 24.11.2026: Felder Telefon (optional), Art des Vorhabens (inkl. „Website mit individuellem CMS“), Pflicht-Checkbox Datenschutz; Validierungstexte aus messages; API prüft alle Felder serverseitig; Versandfehler von Resend werden jetzt erkannt (vorher meldete das Formular trotzdem Erfolg). Getestet: gültig, fehlende Einwilligung, falsche Auswahl, ungültige Telefonnummer, Honeypot, Rate-Limit, Versandfehler.
+
+Ursprünglicher Prompt (zur Referenz):
 
 ```markdown
 Lies CLAUDE.md und docs/relaunch/texte.md (Abschnitt Kontakt). Branch feat/positionierung.

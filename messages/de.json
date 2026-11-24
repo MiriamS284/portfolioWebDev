@@ -111,10 +111,27 @@
     "error": "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
     "validation": {
       "minChars": "Mindestens {count} Zeichen",
-      "invalidEmail": "Ungültige E-Mail-Adresse"
+      "invalidEmail": "Ungültige E-Mail-Adresse",
+      "required": "Bitte auswählen",
+      "privacy": "Bitte stimmen Sie der Verarbeitung zu",
+      "phone": "Bitte eine gültige Telefonnummer angeben"
     },
     "metaTitle": "Kontakt – Miriam Sparbrod",
-    "metaDescription": "Beschreiben Sie Ihr Vorhaben: Fachanwendungen, Apps, KI-Integration oder Betrieb. Rückmeldung innerhalb eines Werktags."
+    "metaDescription": "Beschreiben Sie Ihr Vorhaben: Fachanwendungen, Apps, KI-Integration oder Betrieb. Rückmeldung innerhalb eines Werktags.",
+    "phone": "Telefon",
+    "projectType": "Art des Vorhabens",
+    "projectTypePlaceholder": "Bitte auswählen",
+    "projectTypes": {
+      "portal": "Fachanwendung oder Portal",
+      "app": "App oder SaaS-Produkt",
+      "ai": "KI-Integration",
+      "website": "Website mit individuellem CMS",
+      "hosting": "Betrieb und Hosting",
+      "existing": "Weiterentwicklung bestehender Software",
+      "open": "Noch offen"
+    },
+    "privacyText": "Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage gespeichert werden. Mehr dazu in der",
+    "privacyLink": "Datenschutzerklärung"
   },
   "projects": {
     "title": "Referenzen",
