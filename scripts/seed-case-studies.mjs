@@ -284,8 +284,8 @@ The first version made one coach's daily work easier. The second is meant to do 
       en: "A concert pianist's website with its own editing system",
     },
     excerpt: {
-      de: "Die WordPress-Seite eines Konzertpianisten habe ich durch eine dreisprachige Anwendung ersetzt. Konzerte pflegen das Repertoire automatisch mit, abrufbar als PDF in drei Sprachen.",
-      en: "I replaced a concert pianist's WordPress site with a trilingual application. Entering a concert updates the repertoire automatically, downloadable as a PDF in three languages.",
+      de: "Die WordPress-Seite eines Konzertpianisten habe ich durch eine dreisprachige Anwendung ersetzt. Ein eingetragenes Konzert ergänzt automatisch das Repertoire, das es als PDF in drei Sprachen gibt.",
+      en: "I replaced a concert pianist's WordPress site with a trilingual application. Entering a concert automatically updates his repertoire, which is available as a PDF in three languages.",
     },
     body: {
       de: `### Ausgangslage
@@ -381,8 +381,8 @@ This project taught me to design a CMS around the daily routine of the person wh
       en: "An application for LinkedIn posts in your own voice",
     },
     excerpt: {
-      de: "Mein erstes Kundenprojekt 2024: Eine Anwendung, die mit Nutzern einen Stil-Leitfaden erarbeitet und darauf abgestimmte LinkedIn-Beiträge schreibt. Gebaut mit React, Node.js und der OpenAI API.",
-      en: "My first client project from 2024: an application that creates a style guide with each user and writes LinkedIn posts on that basis. Built with React, Node.js and the OpenAI API.",
+      de: "Eines meiner ersten Kundenprojekte (2024): eine Anwendung, die mit Nutzern einen Stil-Leitfaden erarbeitet und darauf abgestimmte LinkedIn-Beiträge schreibt. React, Node.js, OpenAI API.",
+      en: "One of my first client projects (2024): an application that works out a style guide with each user and writes LinkedIn posts on that basis. React, Node.js and the OpenAI API.",
     },
     body: {
       de: `### Ausgangslage
