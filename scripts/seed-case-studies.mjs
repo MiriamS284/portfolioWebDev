@@ -61,7 +61,6 @@ const client = createClient({
 const caseStudies = [
   {
     slug: "fachportal-netzwerk-kinderschutz-fruehe-hilfen",
-    publishedAt: "2026-11-24",
     title: {
       de: "Ein Fachportal für das Netzwerk Kinderschutz & Frühe Hilfen im Altenburger Land",
       en: "A specialist portal for the Child Protection & Early Support Network in Altenburger Land",
@@ -163,7 +162,6 @@ Early on, I spent most of my time on questions: who is looking for what here, in
   },
   {
     slug: "von-der-einzelloesung-zur-plattform-coaching-app",
-    publishedAt: "2026-11-23",
     title: {
       de: "Eine Coaching-App, die einem Coach die Verwaltung abnimmt und zur Plattform wächst",
       en: "A coaching app that takes admin off a coach's hands and is now growing into a platform",
@@ -281,7 +279,6 @@ The first version made one coach's daily work easier. The second is meant to do 
   },
   {
     slug: "von-wordpress-zur-dreisprachigen-plattform-konzertpianist",
-    publishedAt: "2026-11-22",
     title: {
       de: "Die Website eines Konzertpianisten mit eigenem Redaktionssystem",
       en: "A concert pianist's website with its own editing system",
@@ -379,7 +376,6 @@ This project taught me to design a CMS around the daily routine of the person wh
   },
   {
     slug: "linkedin-beitraege-im-eigenen-stil",
-    publishedAt: "2026-11-21",
     title: {
       de: "Eine Anwendung für LinkedIn-Beiträge im eigenen Stil",
       en: "An application for LinkedIn posts in your own voice",
@@ -549,7 +545,6 @@ function buildDocuments() {
     slug: { _type: "slug", current: cs.slug },
     excerpt: { de: cs.excerpt.de, en: cs.excerpt.en },
     body: { de: markdownToPortableText(cs.body.de), en: markdownToPortableText(cs.body.en) },
-    publishedAt: cs.publishedAt,
   }));
 }
 
