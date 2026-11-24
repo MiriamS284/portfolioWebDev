@@ -165,8 +165,8 @@ Early on, I spent most of my time on questions: who is looking for what here, in
     slug: "von-der-einzelloesung-zur-plattform-coaching-app",
     publishedAt: "2026-11-23",
     title: {
-      de: "Eine Coaching-App, die einem selbständigen Coach die Verwaltung abnimmt und jetzt zur Plattform wächst",
-      en: "A coaching app that takes admin off a self-employed coach's hands and is now growing into a platform",
+      de: "Eine Coaching-App, die einem Coach die Verwaltung abnimmt und zur Plattform wächst",
+      en: "A coaching app that takes admin off a coach's hands and is now growing into a platform",
     },
     excerpt: {
       de: "Für einen selbständigen Health Coach habe ich ein Portal für Termine, Angebote und Trainings- und Ernährungspläne gebaut. Jetzt wird daraus eine Plattform für mehrere Coaches mit eigenem Kundenbereich.",
