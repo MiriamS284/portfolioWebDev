@@ -4,7 +4,7 @@ Aufbau dieser Datei (für das Seed-Skript):
 - `# Case Study N` beginnt ein Dokument.
 - `## title.de`, `## title.en`, `## excerpt.de`, `## excerpt.en`, `## body.de`, `## body.en` sind die Felder.
 - Im Body wird `###` zu einer H2-Überschrift, `-` zu einer Aufzählung, ```sql / ```typescript zu einem Code-Block.
-- `publishedAt` steuert die Reihenfolge (neueste oben).
+- Titel max. 100 Zeichen, Excerpt max. 200 Zeichen (Sanity-Validierung). `publishedAt` setzt Miriam beim Veröffentlichen im Studio.
 - Auftraggeber werden nur genannt, wenn eine Freigabe vorliegt (Case Study 1). Alle anderen bleiben anonym.
 
 ---
@@ -12,7 +12,6 @@ Aufbau dieser Datei (für das Seed-Skript):
 # Case Study 1
 
 slug: fachportal-netzwerk-kinderschutz-fruehe-hilfen
-publishedAt: 2026-11-24
 
 ## title.de
 Ein Fachportal für das Netzwerk Kinderschutz & Frühe Hilfen im Altenburger Land
@@ -21,10 +20,10 @@ Ein Fachportal für das Netzwerk Kinderschutz & Frühe Hilfen im Altenburger Lan
 A specialist portal for the Child Protection & Early Support Network in Altenburger Land
 
 ## excerpt.de
-Familien, Fachkräfte und Netzwerkpartner im Landkreis finden Angebote, Termine und Anlaufstellen jetzt an einem Ort. Dazu gehören eine Karte mit allen Anlaufstellen, ein geschützter Bereich für Fachkräfte und eine Redaktion, die alles selbst pflegt, auf Deutsch und Englisch.
+Familien, Fachkräfte und Netzwerkpartner finden Angebote, Termine und Anlaufstellen an einem Ort: mit Karte, geschütztem Bereich für Fachkräfte und Redaktionssystem in zwei Sprachen.
 
 ## excerpt.en
-Families, professionals and network partners in the district now find services, events and contact points in one place. The portal includes a map of all contact points, a protected area for professionals and an editorial back end that the administration runs itself, in German and English.
+Families, professionals and network partners find services, events and contact points in one place: with a map, a protected area for professionals and a bilingual editorial system.
 
 ## body.de
 
@@ -125,19 +124,18 @@ Early on, I spent most of my time on questions: who is looking for what here, in
 # Case Study 2
 
 slug: von-der-einzelloesung-zur-plattform-coaching-app
-publishedAt: 2026-11-23
 
 ## title.de
-Eine Coaching-App, die einem selbständigen Coach die Verwaltung abnimmt und jetzt zur Plattform wächst
+Eine Coaching-App, die einem Coach die Verwaltung abnimmt und zur Plattform wächst
 
 ## title.en
-A coaching app that takes admin off a self-employed coach's hands and is now growing into a platform
+A coaching app that takes admin off a coach's hands and is now growing into a platform
 
 ## excerpt.de
-Für einen selbständigen Health Coach habe ich 2025 ein Portal gebaut, das ihm Verwaltungsarbeit abnimmt: Termine, Angebote und Rechnungen, Blog, ein digitaler Anamnesebogen und eine Bibliothek, aus der er Trainings- und Ernährungspläne für jeden Kunden zusammenstellt. Jetzt wird daraus eine Plattform für mehrere Coaches, mit einem Kundenbereich, in dem Kunden ihre Pläne und Fortschritte selbst im Blick haben.
+Für einen Health Coach habe ich ein Portal für Termine, Angebote und Trainingspläne gebaut. Jetzt wird daraus eine Plattform für mehrere Coaches mit Kundenbereich.
 
 ## excerpt.en
-In 2025 I built a portal for a self-employed health coach that takes administrative work off his hands: appointments, quotes and invoices, a blog, a digital intake questionnaire and a library from which he puts together training and nutrition plans for each client. It is now becoming a platform for several coaches, with a client area where clients keep track of their own plans and progress.
+I built a portal for a health coach covering appointments, quotes and training plans. It is now becoming a platform for several coaches, with a client area.
 
 ## body.de
 
@@ -254,7 +252,6 @@ The first version made one coach's daily work easier. The second is meant to do 
 # Case Study 3
 
 slug: von-wordpress-zur-dreisprachigen-plattform-konzertpianist
-publishedAt: 2026-11-22
 
 ## title.de
 Die Website eines Konzertpianisten mit eigenem Redaktionssystem
@@ -263,10 +260,10 @@ Die Website eines Konzertpianisten mit eigenem Redaktionssystem
 A concert pianist's website with its own editing system
 
 ## excerpt.de
-Die alte WordPress-Seite eines Konzertpianisten habe ich durch eine dreisprachige Anwendung mit Next.js und Sanity ersetzt. Das Redaktionssystem ist auf seinen Alltag zugeschnitten: Wer ein Konzert einträgt, ergänzt damit automatisch das Repertoire, und das Repertoire lässt sich als PDF in drei Sprachen herunterladen.
+Die WordPress-Seite eines Konzertpianisten habe ich durch eine dreisprachige Anwendung ersetzt. Ein eingetragenes Konzert ergänzt automatisch das Repertoire, das es als PDF in drei Sprachen gibt.
 
 ## excerpt.en
-I replaced a concert pianist's old WordPress site with a trilingual application built on Next.js and Sanity. The editing system fits his daily routine: entering a concert automatically updates his repertoire, which can be downloaded as a PDF in three languages.
+I replaced a concert pianist's WordPress site with a trilingual application. Entering a concert automatically updates his repertoire, which is available as a PDF in three languages.
 
 ## body.de
 
@@ -363,7 +360,6 @@ This project taught me to design a CMS around the daily routine of the person wh
 # Case Study 4
 
 slug: linkedin-beitraege-im-eigenen-stil
-publishedAt: 2026-11-21
 
 ## title.de
 Eine Anwendung für LinkedIn-Beiträge im eigenen Stil
@@ -372,10 +368,10 @@ Eine Anwendung für LinkedIn-Beiträge im eigenen Stil
 An application for LinkedIn posts in your own voice
 
 ## excerpt.de
-Eines meiner ersten Kundenprojekte aus dem Jahr 2024: Die Anwendung erarbeitet mit Nutzerinnen und Nutzern einen persönlichen Stil-Leitfaden und schreibt auf dieser Grundlage LinkedIn-Beiträge. Gebaut mit React, Node.js, MongoDB und der OpenAI API.
+Eines meiner ersten Kundenprojekte (2024): eine Anwendung, die mit Nutzern einen Stil-Leitfaden erarbeitet und darauf abgestimmte LinkedIn-Beiträge schreibt. React, Node.js, OpenAI API.
 
 ## excerpt.en
-One of my first client projects, from 2024: the application works out a personal style guide with each user and writes LinkedIn posts on that basis. Built with React, Node.js, MongoDB and the OpenAI API.
+One of my first client projects (2024): an application that works out a style guide with each user and writes LinkedIn posts on that basis. React, Node.js and the OpenAI API.
 
 ## body.de
 
