@@ -128,30 +128,47 @@ slug: von-der-einzelloesung-zur-plattform-coaching-app
 publishedAt: 2026-11-23
 
 ## title.de
-Wie aus einer Coaching-App für einen Kunden eine Plattform für viele Coaches wird
+Eine Coaching-App, die einem selbständigen Coach die Verwaltung abnimmt und jetzt zur Plattform wächst
 
 ## title.en
-How a coaching app for one client is becoming a platform for many coaches
+A coaching app that takes admin off a self-employed coach's hands and is now growing into a platform
 
 ## excerpt.de
-2025 habe ich für einen Health Coach eine App für Kunden, Trainingspläne und Termine gebaut. Jetzt entwickle ich sie neu, damit mehrere Coaches sie nutzen können, jeder mit eigenen Kunden, eigenen Daten und klaren Rollen.
+Für einen selbständigen Health Coach habe ich 2025 ein Portal gebaut, das ihm Verwaltungsarbeit abnimmt: Termine, Angebote und Rechnungen, Blog, ein digitaler Anamnesebogen und eine Bibliothek, aus der er Trainings- und Ernährungspläne für jeden Kunden zusammenstellt. Jetzt wird daraus eine Plattform für mehrere Coaches, mit einem Kundenbereich, in dem Kunden ihre Pläne und Fortschritte selbst im Blick haben.
 
 ## excerpt.en
-In 2025 I built an app for a health coach to manage clients, training plans and appointments. I am now rebuilding it so that several coaches can use it, each with their own clients, their own data and clear roles.
+In 2025 I built a portal for a self-employed health coach that takes administrative work off his hands: appointments, quotes and invoices, a blog, a digital intake questionnaire and a library from which he puts together training and nutrition plans for each client. It is now becoming a platform for several coaches, with a client area where clients keep track of their own plans and progress.
 
 ## body.de
 
 ### Ausgangslage
 
-Die erste Version entstand 2025 für einen Health Coach: Kundenverwaltung, Kalender, Trainingspläne und PDF-Dokumente, gebaut mit Next.js und Supabase. Sie ist bis heute im Einsatz. Je mehr dazukam, desto deutlicher wurden die Grenzen. Die App war auf einen einzigen Kunden zugeschnitten, und jede neue Funktion machte sie schwerer zu ändern. Andere Coaches hätten sie in dieser Form nicht nutzen können.
+Ein selbständiger Health Coach möchte seine Zeit mit seinen Kunden verbringen. Tatsächlich ging viel davon in Verwaltung: Termine abstimmen, Angebote und Rechnungen schreiben, für jeden Kunden Ziele, Trainings- und Ernährungspläne zusammenstellen und Gesundheitsangaben einholen. Ziel war ein Portal, das diese Arbeit bündelt und so weit wie möglich abnimmt.
 
-### Umsetzung
+### Version 1: ein Portal für den Alltag des Coaches
 
-Bei der Neuentwicklung habe ich mir zuerst die Struktur vorgenommen. Website und App sind getrennt. Gemeinsame Teile wie Design, Fachlogik, Datenbankzugriff und E-Mails liegen in eigenen Paketen eines Monorepos mit Turborepo und pnpm. Alles ist in TypeScript geschrieben. Regeln wie „Wer darf was?“ oder „Welcher Status darf auf welchen folgen?“ stehen an genau einer Stelle, unabhängig vom Framework.
+Die erste Version habe ich 2025 mit Next.js und Supabase gebaut. Sie ist bis heute im Einsatz und deckt die wiederkehrenden Aufgaben ab:
 
-Jeder Coach ist ein eigener Mandant. Jede Tabelle hat eine Mandanten-ID, und die Datenbank sorgt per Row Level Security selbst dafür, dass niemand fremde Daten sieht. Es gibt drei Rollen: Admin, Trainer und Kunde. Trainer sehen nur die Kunden, die ihnen zugewiesen sind. Gesundheitsdaten werden erst gespeichert, wenn die Einwilligung vorliegt.
+- Termine verwaltet er in einem Kalender, den er auch als Abo in seinen eigenen Kalender übernehmen kann.
+- Angebote und Rechnungen entstehen im Portal, fortlaufend nummeriert und als PDF. Ein angenommenes Angebot wird mit einem Klick zur Rechnung.
+- Blogbeiträge schreibt und veröffentlicht er selbst.
+- Kunden füllen den Anamnesebogen online in ihrem geschützten Bereich aus. Der Coach bekommt die Angaben strukturiert zur Auswertung, ohne dass Gesundheitsdaten per E-Mail hin- und hergehen.
 
-Fachlich übernimmt die Plattform alles aus der ersten Version und baut es aus: Anamnese in acht Schritten, SMART-Ziele, Trainings- und Ernährungspläne, Fortschritt, Journal und Check-ins. Bezahlt wird über Stripe, und ob etwas bezahlt ist, entscheidet allein der Stripe-Webhook. Betrieben wird das Ganze mit Docker und Caddy auf einem eigenen Server.
+Am meisten Zeit spart die zentrale Bibliothek. Dort legt der Coach SMART-Ziele, Trainingsvorlagen, Rezepte und Ernährungsstrategien einmal an. Für einen neuen Kunden stellt er daraus die Pläne zusammen und passt nur an, was bei diesem Menschen anders ist.
+
+### Warum eine Neuentwicklung
+
+Mit jeder neuen Funktion wurde sichtbar, wo die erste Version an ihre Grenzen kommt. Sie war auf genau einen Coach zugeschnitten, und Änderungen wurden zunehmend aufwendiger. Gleichzeitig zeigte sich, dass andere Coaches vor denselben Aufgaben stehen. Deshalb entwickle ich die App jetzt als Plattform neu.
+
+### Version 2: eine Plattform für viele Coaches
+
+Jeder Coach wird ein eigener Mandant mit eigenen Kunden und eigenen Daten. Jede Tabelle trägt eine Mandanten-ID, und die Datenbank sorgt per Row Level Security selbst dafür, dass niemand fremde Daten sieht. Vorbereitet ist außerdem, dass jeder Coach seinen Auftritt mit eigenen Farben, Logo und Texten erhält.
+
+Neu ist vor allem der Kundenbereich. Kunden sehen dort ihre Ziele, Trainings- und Ernährungspläne, haken erledigte Tagesziele ab und machen einen kurzen Wochen-Check. Sie protokollieren ihr Training, geben Rückmeldung und tragen ihre Werte ein. Ihre Entwicklung sehen sie in vier Bereichen über die Zeit. So können sie ihren Fortschritt selbst verfolgen, und der Coach sieht auf einen Blick, wo er nachsteuern sollte.
+
+Dazu kommen klare Rollen. Admins sehen alles, Trainer nur die Kunden, die ihnen zugewiesen sind. Gesundheitsdaten werden erst gespeichert, wenn die Einwilligung vorliegt. Bezahlt wird über Stripe, und ob etwas bezahlt ist, entscheidet allein der Stripe-Webhook.
+
+Technisch ist die Plattform ein Monorepo mit Turborepo und pnpm, durchgängig in TypeScript. Website und App sind getrennt, gemeinsame Teile wie Design, Fachlogik, Datenbankzugriff und E-Mails liegen in eigenen Paketen. Betrieben wird sie mit Docker und Caddy auf einem eigenen Server.
 
 ### Jede Aktion durch dieselbe Tür
 
@@ -171,25 +188,42 @@ export function friendlyError(err: unknown): string {
 
 ### Stand
 
-Das Datenbankschema für alle Bereiche der bisherigen App ist fertig, die wichtigsten Module laufen. Der bisherige Kunde ist der erste Mandant. Weitere Coaches können dazukommen, ohne dass sich an der Struktur etwas ändern muss.
+Das Datenbankschema für alle Bereiche der ersten Version ist fertig, die wichtigsten Module laufen, auch der neue Kundenbereich. Der bisherige Coach ist der erste Mandant. Als Nächstes folgen das eigene Erscheinungsbild je Coach und die Zuordnung über die eigene Domain.
 
 ### Rückblick
 
-Ohne die erste Version wüsste ich nicht, was Coaches im Alltag wirklich brauchen. Die zweite baue ich so, dass sie mit diesen Anforderungen wachsen kann.
+Die erste Version hat einem Coach den Alltag leichter gemacht. Die zweite soll das für viele tun und den Kunden mehr Verantwortung für ihren eigenen Fortschritt geben. Ohne die erste wüsste ich nicht, was Coaches im Alltag wirklich brauchen.
 
 ## body.en
 
 ### Background
 
-The first version was built in 2025 for a health coach: client management, calendar, training plans and PDF documents, using Next.js and Supabase. It is still in use today. The more was added, the clearer its limits became. The app was tailored to a single client, and every new feature made it harder to change. Other coaches could not have used it in that form.
+A self-employed health coach wants to spend his time with his clients. In practice, much of it went into admin: scheduling appointments, writing quotes and invoices, putting together goals, training and nutrition plans for each client and collecting health information. The goal was a portal that brings this work together and takes as much of it off his hands as possible.
 
-### How it is built
+### Version 1: a portal for the coach's daily work
 
-For the rebuild, I started with the structure. Website and app are separate. Shared parts such as design, business logic, data access and email live in their own packages in a monorepo with Turborepo and pnpm. Everything is written in TypeScript. Rules like “who may do what?” or “which status may follow which?” are defined in exactly one place, independent of the framework.
+I built the first version in 2025 with Next.js and Supabase. It is still in use and covers the recurring tasks:
 
-Each coach is a separate tenant. Every table has a tenant ID, and the database itself uses row level security to make sure nobody sees anyone else's data. There are three roles: admin, trainer and client. Trainers only see the clients assigned to them. Health data is only stored once consent has been given.
+- He manages appointments in a calendar that he can also subscribe to in his own calendar app.
+- Quotes and invoices are created in the portal, numbered consecutively and exported as PDF. An accepted quote becomes an invoice with one click.
+- He writes and publishes blog posts himself.
+- Clients fill in the intake questionnaire online in their protected area. The coach receives the answers in a structured form for review, without health data being sent back and forth by email.
 
-Functionally, the platform takes over everything from the first version and extends it: an eight-step anamnesis, SMART goals, training and nutrition plans, progress, journal and check-ins. Payments run through Stripe, and only the Stripe webhook decides whether something has been paid. The whole thing runs with Docker and Caddy on a self-managed server.
+The central library saves the most time. The coach sets up SMART goals, training templates, recipes and nutrition strategies once. For a new client, he puts the plans together from there and only adjusts what is different for that person.
+
+### Why a rebuild
+
+With every new feature it became clearer where the first version reached its limits. It was tailored to exactly one coach, and changes were becoming more and more costly. At the same time, it turned out that other coaches face the same tasks. So I am now rebuilding the app as a platform.
+
+### Version 2: a platform for many coaches
+
+Each coach becomes a separate tenant with their own clients and their own data. Every table carries a tenant ID, and the database itself uses row level security to make sure nobody sees anyone else's data. The groundwork is also in place for each coach to get their own look with their own colours, logo and texts.
+
+The biggest addition is the client area. Clients see their goals and their training and nutrition plans there, tick off completed daily goals and do a short weekly check-in. They log their training, give feedback and enter their measurements. They can see how they develop in four areas over time. This lets them track their own progress, and the coach sees at a glance where to adjust.
+
+On top of that come clear roles. Admins see everything, trainers only the clients assigned to them. Health data is only stored once consent has been given. Payments run through Stripe, and only the Stripe webhook decides whether something has been paid.
+
+Technically, the platform is a monorepo with Turborepo and pnpm, written in TypeScript throughout. Website and app are separate, and shared parts such as design, business logic, data access and email live in their own packages. It runs with Docker and Caddy on a self-managed server.
 
 ### Every action through the same door
 
@@ -209,11 +243,11 @@ export function friendlyError(err: unknown): string {
 
 ### Status
 
-The database schema for every area of the previous app is complete, and the main modules are running. The original client is the first tenant. Further coaches can join without any change to the structure.
+The database schema for every area of the first version is complete, and the main modules are running, including the new client area. The original coach is the first tenant. Next come each coach's own look and assignment via their own domain.
 
 ### Looking back
 
-Without the first version, I would not know what coaches really need day to day. I am building the second so that it can grow with those needs.
+The first version made one coach's daily work easier. The second is meant to do that for many, and to give clients more responsibility for their own progress. Without the first, I would not know what coaches really need day to day.
 
 ---
 
