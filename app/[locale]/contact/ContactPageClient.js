@@ -5,6 +5,7 @@ import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
 import BackLink from "@/app/_components/shared/BackLink";
 import ContactForm from "@/app/_components/contact/ContactForm";
+import FaqList from "@/app/_components/shared/FaqList";
 
 export default function ContactPageClient() {
   const t = useTranslations("contact");
@@ -28,6 +29,8 @@ export default function ContactPageClient() {
           </div>
 
           <ContactForm />
+
+          <FaqList />
         </div>
       </main>
 

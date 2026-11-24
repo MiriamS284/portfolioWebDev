@@ -41,6 +41,7 @@ export default function Footer() {
               <FooterLink href="/garden">Digital Garden</FooterLink>
               <FooterLink href="/case-studies">Case Studies</FooterLink>
               <FooterLink href="/snippets">Code Snippets</FooterLink>
+              <FooterLink href="/contact#faq">{t("faq")}</FooterLink>
             </nav>
           </div>
 

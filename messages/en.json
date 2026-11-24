@@ -12,7 +12,8 @@
     "projects": "Projects",
     "imprint": "Imprint",
     "privacy": "Privacy Policy",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "faq": "FAQ"
   },
   "menu": {
     "label": "MENU",
@@ -102,7 +103,9 @@
     "validation": {
       "minChars": "At least {count} characters",
       "invalidEmail": "Invalid email address"
-    }
+    },
+    "metaTitle": "Contact – Miriam Sparbrod",
+    "metaDescription": "Tell me about your project: business applications, apps, AI integration or operations. Response within one working day."
   },
   "projects": {
     "title": "References",
@@ -403,8 +406,8 @@
       "title": "Frequently asked questions",
       "items": [
         {
-          "title": "Do you build websites?",
-          "text": "No. My focus is software. Publicly accessible areas are created only as part of an application."
+          "title": "Do you also build websites?",
+          "text": "Yes, when they need to do more than serve as a digital business card: with a custom CMS, interactive features or as part of an application. My focus is software that solves a specific problem."
         },
         {
           "title": "Where is our data stored?",

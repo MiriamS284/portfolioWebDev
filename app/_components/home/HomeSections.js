@@ -88,10 +88,6 @@ export default async function HomeSections() {
           <TextLink href="/about">{t("profile.link")} →</TextLink>
         </div>
       </Section>
-
-      <Section id="faq" label={t("faq.title")}>
-        <ItemList items={t.raw("faq.items")} />
-      </Section>
     </>
   );
 }

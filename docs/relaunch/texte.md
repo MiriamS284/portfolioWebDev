@@ -11,7 +11,7 @@ Quelle für alle Texte der Neupositionierung. Platzhalter in [eckigen Klammern] 
 | Index-Raster, Spalte „Case Studies“ (`WritingColumn`) | bleibt „Case Studies“ |
 | Index-Raster, Spalte „Code-Fragmente“ (`SnippetsColumn`) | „Leistungsfelder“ / „Services“: statische Liste aus messages, gleicher Listenstil, Link „Alle Leistungen“ → `#leistungen` |
 | Index-Raster, Spalte „Gedanken“ (`ThoughtsColumn`) | „Fachbeiträge“ / „Articles“ |
-| Neu unter dem Raster, Stil wie Label „Index“ + Liste wie `ProjectsColumn` | Leistungsfelder (id="leistungen"), Vorgehen, Grundsätze, Zusammenarbeit, Profil, FAQ |
+| Neu unter dem Raster, Stil wie Label „Index“ + Liste wie `ProjectsColumn` | Leistungsfelder (id="leistungen"), Vorgehen, Grundsätze, Zusammenarbeit, Profil (FAQ auf der Kontaktseite) |
 | `HomeContactSection` | „Ihr Vorhaben“ / „Your project“ |
 
 ---
@@ -90,11 +90,11 @@ Ich habe Romanistik und Übersetzungswissenschaft studiert und sechs Jahre als s
 
 Link: Zum Profil →
 
-### Startseite – FAQ
+### FAQ (auf der Kontaktseite /contact#faq, Link im Footer)
 
 Label: Häufige Fragen
 
-- **Entwickeln Sie auch Websites?** – Nein. Mein Schwerpunkt ist Software. Öffentlich zugängliche Bereiche entstehen nur als Teil einer Anwendung.
+- **Entwickeln Sie auch Websites?** – Ja, wenn sie mehr leisten sollen als eine digitale Visitenkarte: mit individuellem CMS, interaktiven Funktionen oder als Teil einer Anwendung. Mein Schwerpunkt liegt auf Software, die ein konkretes Problem löst.
 - **Wo werden unsere Daten gespeichert?** – Auf Servern in Deutschland. Datenschutz und Auftragsverarbeitung plane ich von Beginn an mit.
 - **Wie gehen Sie bei KI mit sensiblen Daten um?** – Ich wähle Anbieter und Konfiguration so, dass Ihre Daten nicht für das Training von Modellen verwendet werden. Wo nötig, werden personenbezogene Daten vor der Verarbeitung entfernt oder die Verarbeitung findet gar nicht extern statt.
 - **Gehört uns der Quellcode?** – Ja, einschließlich Dokumentation. Die Anwendung kann auch von anderen Entwicklern weitergeführt werden.
@@ -209,11 +209,11 @@ I studied Romance languages and translation and worked as a self-employed transl
 
 Link: View profile →
 
-### Home – FAQ
+### FAQ (on the contact page /contact#faq, footer link)
 
 Label: Frequently asked questions
 
-- **Do you build websites?** – No. My focus is software. Publicly accessible areas are created only as part of an application.
+- **Do you also build websites?** – Yes, when they need to do more than serve as a digital business card: with a custom CMS, interactive features or as part of an application. My focus is software that solves a specific problem.
 - **Where is our data stored?** – On servers in Germany. Data protection and data processing agreements are planned from the outset.
 - **How do you handle sensitive data with AI?** – I select providers and configurations so that your data is not used to train models. Where necessary, personal data is removed before processing, or processing does not take place externally at all.
 - **Do we own the source code?** – Yes, including documentation. Other developers can continue the work.

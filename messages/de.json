@@ -12,7 +12,8 @@
     "projects": "Projekte",
     "imprint": "Impressum",
     "privacy": "Datenschutz",
-    "rights": "Alle Rechte vorbehalten."
+    "rights": "Alle Rechte vorbehalten.",
+    "faq": "Häufige Fragen"
   },
   "menu": {
     "label": "MENU",
@@ -102,7 +103,9 @@
     "validation": {
       "minChars": "Mindestens {count} Zeichen",
       "invalidEmail": "Ungültige E-Mail-Adresse"
-    }
+    },
+    "metaTitle": "Kontakt – Miriam Sparbrod",
+    "metaDescription": "Beschreiben Sie Ihr Vorhaben: Fachanwendungen, Apps, KI-Integration oder Betrieb. Rückmeldung innerhalb eines Werktags."
   },
   "projects": {
     "title": "Referenzen",
@@ -404,7 +407,7 @@
       "items": [
         {
           "title": "Entwickeln Sie auch Websites?",
-          "text": "Nein. Mein Schwerpunkt ist Software. Öffentlich zugängliche Bereiche entstehen nur als Teil einer Anwendung."
+          "text": "Ja, wenn sie mehr leisten sollen als eine digitale Visitenkarte: mit individuellem CMS, interaktiven Funktionen oder als Teil einer Anwendung. Mein Schwerpunkt liegt auf Software, die ein konkretes Problem löst."
         },
         {
           "title": "Wo werden unsere Daten gespeichert?",
