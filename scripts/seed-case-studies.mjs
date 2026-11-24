@@ -67,8 +67,8 @@ const caseStudies = [
       en: "A specialist portal for the Child Protection & Early Support Network in Altenburger Land",
     },
     excerpt: {
-      de: "Familien, Fachkräfte und Netzwerkpartner im Landkreis finden Angebote, Termine und Anlaufstellen jetzt an einem Ort. Dazu gehören eine Karte mit allen Anlaufstellen, ein geschützter Bereich für Fachkräfte und eine Redaktion, die alles selbst pflegt, auf Deutsch und Englisch.",
-      en: "Families, professionals and network partners in the district now find services, events and contact points in one place. The portal includes a map of all contact points, a protected area for professionals and an editorial back end that the administration runs itself, in German and English.",
+      de: "Familien, Fachkräfte und Netzwerkpartner finden Angebote, Termine und Anlaufstellen an einem Ort: mit Karte, geschütztem Bereich für Fachkräfte und Redaktionssystem in zwei Sprachen.",
+      en: "Families, professionals and network partners find services, events and contact points in one place: with a map, a protected area for professionals and a bilingual editorial system.",
     },
     body: {
       de: `### Ausgangslage
@@ -287,8 +287,8 @@ The first version made one coach's daily work easier. The second is meant to do 
       en: "A concert pianist's website with its own editing system",
     },
     excerpt: {
-      de: "Die alte WordPress-Seite eines Konzertpianisten habe ich durch eine dreisprachige Anwendung mit Next.js und Sanity ersetzt. Das Redaktionssystem ist auf seinen Alltag zugeschnitten: Wer ein Konzert einträgt, ergänzt damit automatisch das Repertoire, und das Repertoire lässt sich als PDF in drei Sprachen herunterladen.",
-      en: "I replaced a concert pianist's old WordPress site with a trilingual application built on Next.js and Sanity. The editing system fits his daily routine: entering a concert automatically updates his repertoire, which can be downloaded as a PDF in three languages.",
+      de: "Die WordPress-Seite eines Konzertpianisten habe ich durch eine dreisprachige Anwendung ersetzt. Konzerte pflegen das Repertoire automatisch mit, abrufbar als PDF in drei Sprachen.",
+      en: "I replaced a concert pianist's WordPress site with a trilingual application. Entering a concert updates the repertoire automatically, downloadable as a PDF in three languages.",
     },
     body: {
       de: `### Ausgangslage
@@ -385,8 +385,8 @@ This project taught me to design a CMS around the daily routine of the person wh
       en: "An application for LinkedIn posts in your own voice",
     },
     excerpt: {
-      de: "Eines meiner ersten Kundenprojekte aus dem Jahr 2024: Die Anwendung erarbeitet mit Nutzerinnen und Nutzern einen persönlichen Stil-Leitfaden und schreibt auf dieser Grundlage LinkedIn-Beiträge. Gebaut mit React, Node.js, MongoDB und der OpenAI API.",
-      en: "One of my first client projects, from 2024: the application works out a personal style guide with each user and writes LinkedIn posts on that basis. Built with React, Node.js, MongoDB and the OpenAI API.",
+      de: "Mein erstes Kundenprojekt 2024: Eine Anwendung, die mit Nutzern einen Stil-Leitfaden erarbeitet und darauf abgestimmte LinkedIn-Beiträge schreibt. Gebaut mit React, Node.js und der OpenAI API.",
+      en: "My first client project from 2024: an application that creates a style guide with each user and writes LinkedIn posts on that basis. Built with React, Node.js and the OpenAI API.",
     },
     body: {
       de: `### Ausgangslage
