@@ -24,7 +24,7 @@ Quelle für alle Texte der Neupositionierung. Platzhalter in [eckigen Klammern] 
 - Zeile 1: Ich entwickle Fachanwendungen, Apps und KI-Funktionen für kleine und mittlere Unternehmen und Organisationen.
 - Zeile 2: Mit klaren Zugriffsrechten, mehrsprachig, wo es nötig ist, und sicher betrieben auf Servern in Deutschland.
 - Zeile 3: Ich analysiere Ihre Prozesse, entwickle die Software und sorge für einen sicheren Betrieb.
-- Zeile 4: Von der Sprache zum Code: Als Übersetzerin habe ich gelernt, genau zuzuhören. Heute übersetze ich Anforderungen in Software.
+- Zeile 4: Von der Sprache zum Code: Früher habe ich zwischen Sprachen und Kulturräumen übersetzt, heute übersetze ich menschliche Sprache in digitale.
 - Tags (als Hashtags): #Fachanwendungen #KI-Integration #DigitaleTransformation #HostingInDeutschland #Datenschutz
 
 ### Startseite – Meta (✅ erledigt)
@@ -148,7 +148,7 @@ Label: Häufige Fragen
 - Line 1: I develop business applications, apps and AI features for small and medium-sized enterprises and organisations.
 - Line 2: With clear access rights, multilingual where needed, and securely operated on servers in Germany.
 - Line 3: I analyse your processes, build the software and keep it running securely.
-- Line 4: From language to code: as a translator, I learned to listen closely. Today I translate requirements into software.
+- Line 4: From language to code: I used to translate between languages and cultures; today I translate human language into the language of software.
 - Tags (as hashtags): #BusinessApplications #AIIntegration #DigitalTransformation #HostedInGermany #Privacy
 
 ### Home – services (index column)
