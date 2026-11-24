@@ -169,8 +169,8 @@ Early on, I spent most of my time on questions: who is looking for what here, in
       en: "A coaching app that takes admin off a coach's hands and is now growing into a platform",
     },
     excerpt: {
-      de: "Für einen selbständigen Health Coach habe ich ein Portal für Termine, Angebote und Trainings- und Ernährungspläne gebaut. Jetzt wird daraus eine Plattform für mehrere Coaches mit eigenem Kundenbereich.",
-      en: "I built a portal for a self-employed health coach covering appointments, quotes and training plans. It is now becoming a platform for several coaches, with a client area for tracking their progress.",
+      de: "Für einen Health Coach habe ich ein Portal für Termine, Angebote und Trainingspläne gebaut. Jetzt wird daraus eine Plattform für mehrere Coaches mit Kundenbereich.",
+      en: "I built a portal for a health coach covering appointments, quotes and training plans. It is now becoming a platform for several coaches, with a client area.",
     },
     body: {
       de: `### Ausgangslage
