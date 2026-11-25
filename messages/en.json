@@ -229,7 +229,7 @@
     "label": "Legal",
     "title": "Legal Notice",
     "section1Title": "Information according to § 5 DDG",
-    "section1Content": "Miriam Sparbrod\nSparbrod Web Development - Web Application Development\nDorfstraße 75A\n04626 Vollmershain\nGermany\n\nEmail: sparbrod.webdev@gmail.com\nWeb: www.sparbrod-webdev.info",
+    "section1Content": "Miriam Sparbrod\nSparbrod Web Development - Web Application Development\nDorfstraße 75A\n04626 Vollmershain\nGermany\n\nEmail: sparbrod.webdev@gmail.com\nWeb: miriamsparbrod.dev",
     "section2Title": "Legal Form",
     "section2Content": "Sole Proprietorship\nRepresented by: Miriam Sparbrod (Owner)",
     "section3Title": "VAT Identification Number",
@@ -475,5 +475,34 @@
         }
       ]
     }
+  },
+  "seo": {
+    "projects": {
+      "title": "References",
+      "description": "Selected projects: specialist portals, platforms and applications I have built for businesses and organisations."
+    },
+    "caseStudies": {
+      "title": "Case Studies",
+      "description": "How specific problems became digital solutions: starting point, approach and outcome of selected projects."
+    },
+    "garden": {
+      "title": "Digital Garden",
+      "description": "Thoughts and notes on software development, AI and the path from language to code."
+    },
+    "snippets": {
+      "title": "Code snippets",
+      "description": "Reusable code examples from my work, each with a short explanation."
+    },
+    "imprint": {
+      "title": "Legal notice",
+      "description": "Legal notice and provider information for Miriam Sparbrod, software development."
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "description": "How personal data is handled on this website."
+    },
+    "notFound": "Page not found",
+    "serviceName": "Miriam Sparbrod – Software Development",
+    "jobTitle": "Software Developer"
   }
 }

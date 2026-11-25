@@ -5,28 +5,24 @@ import {
   allGardenEntriesQuery,
 } from "@/lib/sanity/queries";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { pageMetadata, homeJsonLd } from "@/lib/seo";
+import JsonLd from "@/app/_components/shared/JsonLd";
 import ClientHomePage from "@/app/_components/ClientHomePage";
 
-// Canonical und Sprachversionen nur für die Startseite.
-// (Vorher stand das im Layout und galt damit fälschlich für alle Unterseiten.)
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
-  return {
-    alternates: {
-      canonical: `/${locale}`,
-      languages: { de: "/de", en: "/en", "x-default": "/de" },
-    },
-    // openGraph wird von Next nicht mit dem Layout zusammengeführt, deshalb hier vollständig
-    openGraph: {
-      type: "website",
-      url: `/${locale}`,
-      siteName: "Miriam Sparbrod",
-      title: t("ogTitle"),
-      description: t("description"),
-      locale: locale === "de" ? "de_DE" : "en_GB",
-    },
-  };
+  const meta = pageMetadata({
+    locale,
+    path: "",
+    title: t("title"),
+    absoluteTitle: true,
+    description: t("description"),
+  });
+  // Für geteilte Links der Leitsatz aus dem Hero statt des Seitentitels
+  meta.openGraph.title = t("ogTitle");
+  meta.twitter.title = t("ogTitle");
+  return meta;
 }
 
 export const revalidate = 60;
@@ -41,11 +37,26 @@ export default async function Page({ params }) {
     client.fetch(allGardenEntriesQuery),
   ]);
 
+  const tMeta = await getTranslations({ locale, namespace: "metadata" });
+  const tSeo = await getTranslations({ locale, namespace: "seo" });
+  const tHome = await getTranslations({ locale, namespace: "homeSections" });
+
   return (
-    <ClientHomePage
-      projects={projects || []}
-      posts={posts || []}
-      thoughts={gardenEntries || []}
-    />
+    <>
+      <JsonLd
+        data={homeJsonLd({
+          locale,
+          name: tSeo("serviceName"),
+          jobTitle: tSeo("jobTitle"),
+          description: tMeta("description"),
+          services: tHome.raw("services.items"),
+        })}
+      />
+      <ClientHomePage
+        projects={projects || []}
+        posts={posts || []}
+        thoughts={gardenEntries || []}
+      />
+    </>
   );
 }

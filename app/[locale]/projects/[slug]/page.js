@@ -1,4 +1,7 @@
-import { client } from "@/lib/sanity";
+import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { client, urlFor } from "@/lib/sanity";
+import { pageMetadata, notFoundMetadata, pick } from "@/lib/seo";
 import { projectBySlugQuery } from "@/lib/sanity/queries";
 import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
@@ -8,19 +11,23 @@ import ProjectGallery from "@/app/_components/projects/ProjectGallery";
 import ProjectNav from "@/app/_components/projects/ProjectNav";
 
 export async function generateMetadata({ params }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const project = await client.fetch(projectBySlugQuery, { slug });
 
   if (!project) {
-    return {
-      title: "Project Not Found",
-    };
+    const t = await getTranslations({ locale, namespace: "seo" });
+    return notFoundMetadata(t("notFound"));
   }
 
-  return {
-    title: `${project.title?.de || "Project"} | Miriam Sparbrod`,
-    description: project.tagline?.de || project.tagline?.en || "",
-  };
+  return pageMetadata({
+    locale,
+    path: `/projects/${slug}`,
+    title: pick(project.title, locale) || "Project",
+    description: pick(project.tagline, locale),
+    images: project.coverImage?.asset
+      ? [urlFor(project.coverImage).width(1200).height(630).url()]
+      : undefined,
+  });
 }
 
 export const revalidate = 60;
@@ -29,13 +36,7 @@ export default async function ProjectPage({ params }) {
   const { slug } = await params;
   const project = await client.fetch(projectBySlugQuery, { slug });
 
-  if (!project) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p>Project not found</p>
-      </div>
-    );
-  }
+  if (!project) notFound();
 
   return (
     <>

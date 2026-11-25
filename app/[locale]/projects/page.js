@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server";
+import { pageMetadata } from "@/lib/seo";
 import { client } from "@/lib/sanity";
 import { projectsQuery } from "@/lib/sanity/queries";
 import MenuDock from "@/app/_components/layout/MenuDock";
@@ -6,11 +8,16 @@ import ProjectGrid from "@/app/_components/projects/ProjectGrid";
 import ProjectsHeader from "@/app/_components/projects/ProjectsHeader";
 import BackLink from "@/app/_components/shared/BackLink";
 
-export const metadata = {
-  title: "Projekte | Miriam Sparbrod",
-  description:
-    "Full-Stack Projekte von Miriam Sparbrod, spezialisiert auf MERN Stack, Next.js und moderne Web-Anwendungen. Entdecken Sie innovative SaaS-Lösungen für B2B.",
-};
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "seo.projects" });
+  return pageMetadata({
+    locale,
+    path: "/projects",
+    title: t("title"),
+    description: t("description"),
+  });
+}
 
 export const revalidate = 60;
 
