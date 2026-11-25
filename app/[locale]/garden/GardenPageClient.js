@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
 import BackLink from "@/app/_components/shared/BackLink";
 import GardenCard from "@/app/_components/garden/GardenCard";
@@ -15,7 +14,6 @@ export default function GardenPageClient({ entries }) {
 
   return (
     <>
-      <MenuDock />
 
       <main
         className="min-h-screen"

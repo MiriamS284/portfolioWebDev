@@ -1,6 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/seo";
-import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
 import BackLink from "@/app/_components/shared/BackLink";
 import AboutHero from "@/app/_components/about/AboutHero";
@@ -24,7 +23,6 @@ export default async function AboutPage({ params }) {
 
   return (
     <>
-      <MenuDock />
       <main
         className="min-h-screen"
         style={{ background: "var(--bg)", color: "var(--ink)" }}

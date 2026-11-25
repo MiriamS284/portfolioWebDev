@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
 import BackLink from "@/app/_components/shared/BackLink";
 
@@ -67,7 +66,6 @@ export default function PrivacyPageClient() {
 
   return (
     <>
-      <MenuDock />
 
       <main
         className="min-h-screen"

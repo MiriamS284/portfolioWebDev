@@ -92,7 +92,7 @@ export default function OverlayMenu({ open, onClose, autoCloseMs = 8000 }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[80] bg-black/70 backdrop-blur-lg"
+          className="fixed inset-0 z-[80] overflow-y-auto bg-black/70 backdrop-blur-lg"
         >
           <div
             className="absolute inset-0"
@@ -143,13 +143,22 @@ export default function OverlayMenu({ open, onClose, autoCloseMs = 8000 }) {
             </div>
 
             <nav className="mt-12 space-y-8 md:space-y-10">
-              <MenuLink href="/" refEl={firstLinkRef} onClose={onClose}>
-                Home
-              </MenuLink>
+              <MenuItem
+                href="/"
+                refEl={firstLinkRef}
+                onClose={onClose}
+                label={t("home")}
+                sub={t("homeSub")}
+              />
 
-              <MenuLink href="/about" onClose={onClose}>
-                {t("about")}
-              </MenuLink>
+              <MenuItem href="/about" onClose={onClose} label={t("about")} sub={t("aboutSub")} />
+
+              <MenuItem
+                href={{ pathname: "/", hash: "leistungen" }}
+                onClose={onClose}
+                label={t("services")}
+                sub={t("servicesSub")}
+              />
 
               <div>
                 <MenuLink href="/projects" onClose={onClose}>
@@ -230,6 +239,18 @@ export default function OverlayMenu({ open, onClose, autoCloseMs = 8000 }) {
         </motion.div>
       )}
     </AnimatePresence>
+  );
+}
+
+// Menüpunkt mit Untertitel, gleicher Aufbau für alle Einträge
+function MenuItem({ href, label, sub, onClose, refEl }) {
+  return (
+    <div>
+      <MenuLink href={href} onClose={onClose} refEl={refEl}>
+        {label}
+      </MenuLink>
+      {sub && <div className="mt-2 text-sm opacity-60 tracking-wide">{sub}</div>}
+    </div>
   );
 }
 

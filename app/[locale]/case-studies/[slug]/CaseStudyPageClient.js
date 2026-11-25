@@ -5,7 +5,6 @@ import { PortableText } from "next-sanity";
 import { useLocale, useTranslations } from "next-intl";
 import { portableTextComponents, imagePresets } from "@/lib/sanity";
 import { formatDate } from "@/lib/utils/formatDate";
-import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
 import Breadcrumb from "@/app/_components/shared/Breadcrumb";
 import CategoryBadge from "@/app/_components/shared/CategoryBadge";
@@ -23,7 +22,6 @@ export default function CaseStudyPageClient({ post }) {
 
   return (
     <>
-      <MenuDock />
 
       <article
         className="min-h-screen"

@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { pageMetadata } from "@/lib/seo";
 import { client, allPostsQuery } from "@/lib/sanity";
-import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
 import BackLink from "@/app/_components/shared/BackLink";
 import CaseStudiesHeader from "@/app/_components/blog/CaseStudiesHeader";
@@ -25,7 +24,6 @@ export default async function CaseStudiesPage() {
 
   return (
     <>
-      <MenuDock />
 
       <main
         className="min-h-screen"

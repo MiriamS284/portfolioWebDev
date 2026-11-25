@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { urlFor } from "@/lib/sanity/image";
-import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
 import BackLink from "@/app/_components/shared/BackLink";
 
@@ -51,7 +50,6 @@ export default function SnippetDetailClient({ snippet }) {
 
   return (
     <>
-      <MenuDock />
 
       <main
         className="min-h-screen"

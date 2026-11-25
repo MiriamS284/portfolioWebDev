@@ -1,4 +1,3 @@
-import MenuDock from "./layout/MenuDock";
 import HeroShowcase from "./HeroShowcase";
 import HomeContentGrid from "./home/HomeContentGrid";
 import HomeContactSection from "./home/HomeContactSection";
@@ -9,7 +8,6 @@ import Footer from "./layout/Footer";
 export default function ClientHomePage({ projects, posts, thoughts }) {
   return (
     <>
-      <MenuDock />
       <main>
         <HeroShowcase />
         <HomeContentGrid

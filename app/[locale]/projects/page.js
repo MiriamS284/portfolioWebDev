@@ -2,7 +2,6 @@ import { getTranslations } from "next-intl/server";
 import { pageMetadata } from "@/lib/seo";
 import { client } from "@/lib/sanity";
 import { projectsQuery } from "@/lib/sanity/queries";
-import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
 import ProjectGrid from "@/app/_components/projects/ProjectGrid";
 import ProjectsHeader from "@/app/_components/projects/ProjectsHeader";
@@ -26,7 +25,6 @@ export default async function ProjectsPage() {
 
   return (
     <>
-      <MenuDock />
 
       <main
         className="py-20 md:py-32 px-6"

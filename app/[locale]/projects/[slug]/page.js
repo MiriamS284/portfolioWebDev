@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { client, urlFor } from "@/lib/sanity";
 import { pageMetadata, notFoundMetadata, pick } from "@/lib/seo";
 import { projectBySlugQuery } from "@/lib/sanity/queries";
-import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
 import ProjectHero from "@/app/_components/projects/ProjectHero";
 import ProjectContent from "@/app/_components/projects/ProjectContent";
@@ -40,7 +39,6 @@ export default async function ProjectPage({ params }) {
 
   return (
     <>
-      <MenuDock />
 
       <main style={{ background: "var(--bg)" }}>
         <ProjectHero project={project} />
