@@ -310,8 +310,8 @@
   },
   "homeSections": {
     "servicesShort": {
-      "title": "Leistungsfelder",
-      "viewAll": "Alle Leistungen",
+      "title": "Leistungsbereiche",
+      "viewAll": "Mehr zu den Leistungen",
       "items": [
         {
           "title": "Fachanwendungen und CRM",
@@ -340,7 +340,7 @@
       ]
     },
     "services": {
-      "title": "Leistungsfelder",
+      "title": "Was ich für Sie entwickle",
       "items": [
         {
           "title": "Fachanwendungen und CRM",

@@ -311,7 +311,7 @@
   "homeSections": {
     "servicesShort": {
       "title": "Services",
-      "viewAll": "All services",
+      "viewAll": "More about my services",
       "items": [
         {
           "title": "Business applications and CRM",
@@ -340,7 +340,7 @@
       ]
     },
     "services": {
-      "title": "Services",
+      "title": "What I build for you",
       "items": [
         {
           "title": "Business applications and CRM",
