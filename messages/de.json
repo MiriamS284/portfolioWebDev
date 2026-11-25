@@ -229,7 +229,7 @@
     "label": "Rechtliches",
     "title": "Impressum",
     "section1Title": "Angaben gemäß § 5 DDG",
-    "section1Content": "Miriam Sparbrod\nSparbrod Webentwicklung - Web Application Development\nDorfstraße 75A\n04626 Vollmershain\nDeutschland\n\nE-Mail: sparbrod.webdev@gmail.com\nWeb: www.sparbrod-webdev.info",
+    "section1Content": "Miriam Sparbrod\nSparbrod Webentwicklung - Web Application Development\nDorfstraße 75A\n04626 Vollmershain\nDeutschland\n\nE-Mail: sparbrod.webdev@gmail.com\nWeb: miriamsparbrod.dev",
     "section2Title": "Rechtsform",
     "section2Content": "Einzelunternehmen\nVertreten durch: Miriam Sparbrod (Inhaberin)",
     "section3Title": "Umsatzsteuer-Identifikationsnummer",
@@ -475,5 +475,34 @@
         }
       ]
     }
+  },
+  "seo": {
+    "projects": {
+      "title": "Referenzen",
+      "description": "Ausgewählte Projekte: Fachportale, Plattformen und Anwendungen, die ich für Unternehmen und Organisationen entwickelt habe."
+    },
+    "caseStudies": {
+      "title": "Case Studies",
+      "description": "Wie aus konkreten Problemen digitale Lösungen wurden: Ausgangslage, Vorgehen und Ergebnis ausgewählter Projekte."
+    },
+    "garden": {
+      "title": "Digital Garden",
+      "description": "Gedanken und Notizen zu Softwareentwicklung, KI und dem Weg von der Sprache zum Code."
+    },
+    "snippets": {
+      "title": "Code-Snippets",
+      "description": "Wiederverwendbare Code-Beispiele aus meiner Arbeit, jeweils mit kurzer Erklärung."
+    },
+    "imprint": {
+      "title": "Impressum",
+      "description": "Impressum und Anbieterangaben von Miriam Sparbrod, Softwareentwicklung."
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "description": "Wie auf dieser Website mit personenbezogenen Daten umgegangen wird."
+    },
+    "notFound": "Seite nicht gefunden",
+    "serviceName": "Miriam Sparbrod – Softwareentwicklung",
+    "jobTitle": "Softwareentwicklerin"
   }
 }

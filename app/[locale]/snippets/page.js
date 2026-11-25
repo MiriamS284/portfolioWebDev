@@ -1,11 +1,19 @@
+import { getTranslations } from "next-intl/server";
+import { pageMetadata } from "@/lib/seo";
 import { client } from "@/lib/sanity";
 import { allSnippetsQuery } from "@/lib/sanity/queries";
 import SnippetsPageClient from "./SnippetsPageClient";
 
-export const metadata = {
-  title: "Code Snippets | Miriam Sparbrod",
-  description: "Nützliche Code-Beispiele und Snippets für Web-Entwicklung.",
-};
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "seo.snippets" });
+  return pageMetadata({
+    locale,
+    path: "/snippets",
+    title: t("title"),
+    description: t("description"),
+  });
+}
 
 export const revalidate = 60;
 

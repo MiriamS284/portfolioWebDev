@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { pageMetadata } from "@/lib/seo";
 import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
 import BackLink from "@/app/_components/shared/BackLink";
@@ -8,14 +9,13 @@ import TechStackArchitecture from "@/app/_components/about/TechStackArchitecture
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "about" });
-  return {
+  return pageMetadata({
+    locale,
+    path: "/about",
     title: t("metaTitle"),
+    absoluteTitle: true,
     description: t("metaDescription"),
-    alternates: {
-      canonical: `/${locale}/about`,
-      languages: { de: "/de/about", en: "/en/about", "x-default": "/de/about" },
-    },
-  };
+  });
 }
 
 export default async function AboutPage({ params }) {

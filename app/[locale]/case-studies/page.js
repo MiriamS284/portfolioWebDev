@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server";
+import { pageMetadata } from "@/lib/seo";
 import { client, allPostsQuery } from "@/lib/sanity";
 import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
@@ -5,11 +7,16 @@ import BackLink from "@/app/_components/shared/BackLink";
 import CaseStudiesHeader from "@/app/_components/blog/CaseStudiesHeader";
 import CaseStudyList from "@/app/_components/blog/CaseStudyList";
 
-export const metadata = {
-  title: "Case Studies | Miriam Sparbrod",
-  description:
-    "Detaillierte Einblicke in Projekte, Prozesse und technische Lösungen.",
-};
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "seo.caseStudies" });
+  return pageMetadata({
+    locale,
+    path: "/case-studies",
+    title: t("title"),
+    description: t("description"),
+  });
+}
 
 export const revalidate = 60;
 

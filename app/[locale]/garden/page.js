@@ -1,12 +1,19 @@
+import { getTranslations } from "next-intl/server";
+import { pageMetadata } from "@/lib/seo";
 import { client } from "@/lib/sanity";
 import { allGardenEntriesQuery } from "@/lib/sanity/queries";
 import GardenPageClient from "./GardenPageClient";
 
-export const metadata = {
-  title: "Digital Garden | Miriam Sparbrod",
-  description:
-    "Ein lebendiger Raum für Gedanken, Ideen und Wissen - ständig wachsend und sich entwickelnd",
-};
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "seo.garden" });
+  return pageMetadata({
+    locale,
+    path: "/garden",
+    title: t("title"),
+    description: t("description"),
+  });
+}
 
 export const revalidate = 60;
 

@@ -1,30 +1,29 @@
+import { getTranslations } from "next-intl/server";
+import { pageMetadata, notFoundMetadata, pick } from "@/lib/seo";
 import { client } from "@/lib/sanity";
 import { snippetBySlugQuery } from "@/lib/sanity/queries";
 import { notFound } from "next/navigation";
 import SnippetDetailClient from "./SnippetDetailClient";
 
 export async function generateMetadata({ params }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const snippet = await client.fetch(snippetBySlugQuery, { slug });
 
   if (!snippet) {
-    return { title: "Snippet nicht gefunden" };
+    const t = await getTranslations({ locale, namespace: "seo" });
+    return notFoundMetadata(t("notFound"));
   }
 
-  const title =
-    typeof snippet.title === "object" && snippet.title !== null
-      ? snippet.title.de || snippet.title.en || "Snippet"
-      : snippet.title || "Snippet";
-
+  const title = pick(snippet.title, locale) || "Snippet";
   const description =
-    typeof snippet.description === "object" && snippet.description !== null
-      ? snippet.description.de || snippet.description.en || ""
-      : snippet.description || "";
+    pick(snippet.description, locale) || `${snippet.language || "Code"} Snippet`;
 
-  return {
-    title: `${title} | Code Snippets | Miriam Sparbrod`,
-    description: description || `${snippet.language} Code Snippet`,
-  };
+  return pageMetadata({
+    locale,
+    path: `/snippets/${slug}`,
+    title: `${title} – Code-Snippets`,
+    description,
+  });
 }
 
 export const revalidate = 60;
