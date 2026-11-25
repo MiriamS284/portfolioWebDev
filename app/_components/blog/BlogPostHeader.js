@@ -4,6 +4,7 @@ import Image from "next/image";
 import { imagePresets } from "@/lib/sanity";
 import { useLanguage } from "@/app/_context/LanguageProvider";
 import CategoryBadge from "../shared/CategoryBadge";
+import { categoryTitle } from "@/lib/utils/categoryTitle";
 import { formatDate } from "@/lib/utils/formatDate";
 
 export default function BlogPostHeader({ post }) {
@@ -14,7 +15,7 @@ export default function BlogPostHeader({ post }) {
       {post.categories?.length > 0 && (
         <div className="flex gap-2 mb-6 flex-wrap">
           {post.categories.map((cat) => (
-            <CategoryBadge key={cat.slug?.current || cat.title} title={cat.title} />
+            <CategoryBadge key={cat.slug?.current || cat.title} title={categoryTitle(cat, lang)} />
           ))}
         </div>
       )}

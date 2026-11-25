@@ -2,6 +2,7 @@
 
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { categoryTitle } from "@/lib/utils/categoryTitle";
 
 export default function CaseStudyItem({ study, isLast }) {
   const locale = useLocale();
@@ -51,7 +52,7 @@ export default function CaseStudyItem({ study, isLast }) {
                 className="text-xs font-mono"
                 style={{ color: "var(--muted)", opacity: 0.6 }}
               >
-                {cat}
+                {categoryTitle(cat, locale)}
               </span>
             ))}
           </div>

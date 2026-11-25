@@ -59,12 +59,43 @@ const client = createClient({
 // ─── Case Study Data ─────────────────────────────────────────────────────────
 // Single source of truth: docs/relaunch/case-studies.md
 
+// Leistungsbereiche = category-Dokumente (Typ wird auch vom Digital Garden genutzt).
+// Sie werden nur angelegt, wenn sie noch nicht existieren (createIfNotExists),
+// Änderungen im Studio bleiben also erhalten.
+const LEISTUNGSBEREICHE = {
+  "fachanwendungen-und-crm": { de: "Fachanwendungen und CRM", en: "Business applications and CRM" },
+  "portale-und-plattformen": { de: "Portale und Plattformen", en: "Portals and platforms" },
+  "mobile-anwendungen": { de: "Mobile Anwendungen", en: "Mobile applications" },
+  "abloesung-bestehender-systeme": { de: "Ablösung bestehender Systeme", en: "Replacing existing systems" },
+  "ki-und-automatisierung": { de: "KI und Automatisierung", en: "AI and automation" },
+  "wartung-und-weiterentwicklung": { de: "Wartung und Weiterentwicklung", en: "Maintenance and further development" },
+};
+
+const categoryId = (slug) => `category-leistung-${slug}`;
+
+function buildCategoryDocuments() {
+  return Object.entries(LEISTUNGSBEREICHE).map(([slug, t]) => ({
+    _id: categoryId(slug),
+    _type: "category",
+    title: t.de,
+    titleEn: t.en,
+    slug: { _type: "slug", current: slug },
+    description: "Leistungsbereich (Case Studies)",
+  }));
+}
+
 function parseCaseStudies(markdown) {
   return markdown
     .split(/^# Case Study \d+\s*$/m)
     .slice(1)
     .map((chunk) => {
       const slug = chunk.match(/^slug:\s*(\S+)/m)?.[1];
+      const categories = (chunk.match(/^categories:\s*(.+)$/m)?.[1] || "")
+        .split(",")
+        .map((c) => c.trim())
+        .filter(Boolean);
+      for (const c of categories)
+        if (!LEISTUNGSBEREICHE[c]) throw new Error(`${slug}: unknown category "${c}"`);
       const fields = {};
       const parts = chunk.split(/^## (title|excerpt|body)\.(de|en)\s*$/m);
       for (let i = 1; i < parts.length; i += 3) {
@@ -80,7 +111,7 @@ function parseCaseStudies(markdown) {
         throw new Error(`${slug}: title longer than 100 characters`);
       if (fields.excerpt.de.length > 200 || fields.excerpt.en.length > 200)
         throw new Error(`${slug}: excerpt longer than 200 characters`);
-      return { slug, ...fields };
+      return { slug, categories, ...fields };
     });
 }
 
@@ -206,6 +237,11 @@ function buildDocuments() {
     slug: { _type: "slug", current: cs.slug },
     excerpt: { de: cs.excerpt.de, en: cs.excerpt.en },
     body: { de: markdownToPortableText(cs.body.de), en: markdownToPortableText(cs.body.en) },
+    categories: cs.categories.map((c) => ({
+      _type: "reference",
+      _ref: categoryId(c),
+      _key: generateKey(),
+    })),
   }));
 }
 
@@ -244,6 +280,7 @@ async function main() {
     console.log(`Title: ${doc.title.de}`);
         console.log(`Body DE: ${doc.body.de.length} blocks`);
     console.log(`Body EN: ${doc.body.en.length} blocks`);
+    console.log(`Leistungsbereiche: ${doc.categories.map((c) => c._ref.replace("category-leistung-", "")).join(", ")}`);
   }
 
   console.log(`─────────────────────────────────────────────────────────\n`);
@@ -256,6 +293,7 @@ async function main() {
   console.log("Creating drafts in Sanity...\n");
 
   const transaction = client.transaction();
+  for (const cat of buildCategoryDocuments()) transaction.createIfNotExists(cat);
   for (const doc of documents) {
     transaction.createOrReplace(doc);
   }

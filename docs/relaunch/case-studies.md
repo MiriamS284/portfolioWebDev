@@ -1,7 +1,7 @@
 # Case Studies – Texte für Sanity (Typ `blogPost`)
 
 Aufbau dieser Datei (das Seed-Skript liest sie direkt ein):
-- `# Case Study N` beginnt ein Dokument, darunter `slug: …`.
+- `# Case Study N` beginnt ein Dokument, darunter `slug: …` und `categories: …` (Leistungsbereiche, Slugs aus `LEISTUNGSBEREICHE` im Seed-Skript).
 - `## title.de`, `## title.en`, `## excerpt.de`, `## excerpt.en`, `## body.de`, `## body.en` sind die Felder.
 - Im Body wird `###` zu einer H2-Überschrift, `-` zu einer Aufzählung, ```sql / ```typescript zu einem Code-Block.
 - Titel max. 100 Zeichen, Excerpt max. 200 Zeichen (Sanity-Validierung). `publishedAt` setzt Miriam beim Veröffentlichen im Studio.
@@ -15,6 +15,7 @@ Aufbau dieser Datei (das Seed-Skript liest sie direkt ein):
 # Case Study 1
 
 slug: fachportal-netzwerk-kinderschutz-fruehe-hilfen
+categories: portale-und-plattformen, abloesung-bestehender-systeme, wartung-und-weiterentwicklung
 
 ## title.de
 Ein Fachportal für das Netzwerk Kinderschutz & Frühe Hilfen im Altenburger Land
@@ -29,8 +30,6 @@ Familien, Fachkräfte und Netzwerkpartner finden Angebote, Termine und Anlaufste
 Families, professionals and network partners find services, events and contact points in one place: with a map, a protected area for professionals and a bilingual editorial system.
 
 ## body.de
-
-Leistungsbereiche: Portale und Plattformen · Ablösung bestehender Systeme · Wartung und Weiterentwicklung
 
 ### Auftraggeber: Netzwerk Kinderschutz & Frühe Hilfen, Landratsamt Altenburger Land
 
@@ -71,8 +70,6 @@ Für Wartung und Weiterentwicklung gibt es einen mehrjährigen Rahmen. Ich bleib
 Familien, Fachkräfte und Netzwerkpartner haben jetzt einen gemeinsamen Ort, wo vorher mehrere Portale waren. Über ihren Einstieg finden sie in wenigen Schritten die passende Information oder die nächste Anlaufstelle auf der Karte. Die Redaktion pflegt Inhalte, Termine und Karte selbst, in beiden Sprachen und mit einem Benutzerhandbuch. Neue Themen oder Partner lassen sich ergänzen, ohne das Portal umzubauen.
 
 ## body.en
-
-Services: Portals and platforms · Replacing existing systems · Maintenance and further development
 
 ### Client: Child Protection & Early Support Network, Altenburger Land District Office
 
@@ -117,6 +114,7 @@ Families, professionals and network partners now share one place where there use
 # Case Study 2
 
 slug: kundenportal-und-verwaltung-health-coach
+categories: fachanwendungen-und-crm, portale-und-plattformen
 
 ## title.de
 Kundenportal und Verwaltung für Health Coach Karsten Gerth
@@ -131,8 +129,6 @@ Für Karsten Gerth habe ich eine Anwendung mit Verwaltungsbereich und Kundenport
 For Karsten Gerth, I built an application with a back office and a client portal: clients, appointments, quotes, invoices and individual plans in one place.
 
 ## body.de
-
-Leistungsbereiche: Fachanwendungen und CRM · Portale und Plattformen
 
 ### Auftraggeber: Karsten Gerth, Health Coach
 
@@ -170,8 +166,6 @@ Die Anwendung ist im Einsatz und wird von mir betreut. Aus der Arbeit damit ist 
 Kunden, Termine, Angebote, Rechnungen und Pläne liegen jetzt an einem Ort. Für neue Kunden stellt Karsten Gerth die Betreuung aus seiner Bibliothek zusammen, statt jedes Mal von vorn zu beginnen. Gesundheitsangaben kommen strukturiert und geschützt bei ihm an. So bleibt mehr Zeit für das, worum es ihm geht: Menschen dabei zu helfen, im Alltag gesünder zu leben.
 
 ## body.en
-
-Services: Business applications and CRM · Portals and platforms
 
 ### Client: Karsten Gerth, health coach
 
@@ -213,6 +207,7 @@ Clients, appointments, quotes, invoices and plans are now in one place. For new 
 # Case Study 3
 
 slug: von-der-einzelloesung-zur-plattform-coaching-app
+categories: portale-und-plattformen, wartung-und-weiterentwicklung
 
 ## title.de
 Eine mandantenfähige Plattform für Coaches und ihre Kunden
@@ -227,8 +222,6 @@ Aus der Anwendung für einen Coach entsteht eine Plattform für viele: jeder Coa
 The application for one coach is becoming a platform for many: each coach with their own space and branding, their clients with their own access to plans and progress.
 
 ## body.de
-
-Leistungsbereiche: Portale und Plattformen · Wartung und Weiterentwicklung
 
 ### Über das Projekt
 
@@ -261,8 +254,6 @@ Die Plattform ist durchgängig in TypeScript geschrieben und als Monorepo mit Tu
 Das Datenbankschema für alle Bereiche ist fertig, die wichtigsten Module laufen, auch der neue Kundenbereich. Als Nächstes folgen das eigene Erscheinungsbild je Coach und die Zuordnung über die eigene Domain. Die Erfahrungen aus der ersten Version fließen in jede Entscheidung ein: Ohne sie wüsste ich nicht, was Coaches im Alltag wirklich brauchen.
 
 ## body.en
-
-Services: Portals and platforms · Maintenance and further development
 
 ### About the project
 
@@ -299,6 +290,7 @@ The database schema for all areas is complete, and the most important modules ar
 # Case Study 4
 
 slug: von-wordpress-zur-dreisprachigen-plattform-konzertpianist
+categories: abloesung-bestehender-systeme
 
 ## title.de
 Eine moderne Webpräsenz mit eigenem Redaktionssystem für einen Konzertpianisten
@@ -313,8 +305,6 @@ Die WordPress-Seite eines Konzertpianisten habe ich durch eine dreisprachige Anw
 I replaced a concert pianist's WordPress site with a trilingual application. Entering a concert automatically updates his repertoire, which is available as a PDF in three languages.
 
 ## body.de
-
-Leistungsbereiche: Ablösung bestehender Systeme · Eigenes Redaktionssystem
 
 ### Auftraggeber: ein international auftretender Konzertpianist
 
@@ -348,8 +338,6 @@ Die Website ist mit Next.js, TypeScript und Tailwind CSS entwickelt. Seiten werd
 Der Pianist pflegt seine Website selbst, in drei Sprachen und auf jedem Gerät gut lesbar. Ein neues Konzert einzutragen genügt, damit Programm und Repertoire aktuell sind. Für Veranstalter hat er sein Repertoire jederzeit als aktuelles PDF zur Hand.
 
 ## body.en
-
-Services: Replacing existing systems · Custom editing system
 
 ### Client: an internationally performing concert pianist
 
@@ -387,6 +375,7 @@ The pianist maintains his website himself, in three languages and easy to read o
 # Case Study 5
 
 slug: linkedin-beitraege-im-eigenen-stil
+categories: ki-und-automatisierung
 
 ## title.de
 KI-gestützte LinkedIn-Beiträge im eigenen Stil
@@ -401,8 +390,6 @@ Eines meiner ersten Kundenprojekte (2024): eine Anwendung, die mit Nutzern einen
 One of my first client projects (2024): an application that works out a style guide with each user and writes LinkedIn posts on that basis. React, Node.js and the OpenAI API.
 
 ## body.de
-
-Leistungsbereiche: KI und Automatisierung
 
 ### Über das Projekt
 
@@ -429,8 +416,6 @@ Das Frontend ist mit React (Vite), React Query und styled-components gebaut, das
 Die Anwendung wurde vollständig umgesetzt, von der Anmeldung über den Assistenten bis zur Verwaltung der Beiträge, und an den Auftraggeber übergeben. Hier habe ich zum ersten Mal ein Sprachmodell in eine Anwendung eingebunden. In heutigen KI-Projekten prüfe ich die Ausgaben strenger, versioniere Prompts und arbeite durchgängig mit TypeScript.
 
 ## body.en
-
-Services: AI and automation
 
 ### About the project
 
@@ -461,6 +446,7 @@ The application was fully implemented, from login through the wizard to post man
 # Case Study 6
 
 slug: website-und-unterrichtsportal-sopranistin
+categories: portale-und-plattformen, fachanwendungen-und-crm
 
 ## title.de
 Website und Unterrichtsportal für eine Sopranistin
@@ -475,8 +461,6 @@ Eine moderne Website mit eigenem Redaktionssystem und ein Portal für den Gesang
 A modern website with its own editing system and a portal for singing lessons: materials for students, lesson booking and invoicing in one place. Ongoing project.
 
 ## body.de
-
-Leistungsbereiche: Portale und Plattformen · Fachanwendungen und CRM · Eigenes Redaktionssystem
 
 ### Auftraggeberin: eine Sopranistin
 
@@ -500,8 +484,6 @@ Die Website erhält ein eigenes Redaktionssystem, zugeschnitten auf das, was sie
 Das Projekt befindet sich in der Umsetzung. Ich ergänze diese Case Study, sobald die ersten Bereiche im Einsatz sind.
 
 ## body.en
-
-Services: Portals and platforms · Business applications and CRM · Custom editing system
 
 ### Client: a soprano
 
