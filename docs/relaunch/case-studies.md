@@ -1,11 +1,14 @@
 # Case Studies – Texte für Sanity (Typ `blogPost`)
 
-Aufbau dieser Datei (für das Seed-Skript):
-- `# Case Study N` beginnt ein Dokument.
+Aufbau dieser Datei (das Seed-Skript liest sie direkt ein):
+- `# Case Study N` beginnt ein Dokument, darunter `slug: …`.
 - `## title.de`, `## title.en`, `## excerpt.de`, `## excerpt.en`, `## body.de`, `## body.en` sind die Felder.
 - Im Body wird `###` zu einer H2-Überschrift, `-` zu einer Aufzählung, ```sql / ```typescript zu einem Code-Block.
 - Titel max. 100 Zeichen, Excerpt max. 200 Zeichen (Sanity-Validierung). `publishedAt` setzt Miriam beim Veröffentlichen im Studio.
-- Auftraggeber werden nur genannt, wenn eine Freigabe vorliegt (Case Study 1). Alle anderen bleiben anonym.
+- Aufbau jeder Case Study: Auftraggeber/Projekt, Ausgangslage und Zielsetzung, Lösung, Technik, ggf. Betreuung, Ergebnis bzw. Stand.
+- Auftraggeber werden nur mit Freigabe genannt (Case Study 1, Case Study 2 nach Rücksprache). Alle anderen bleiben anonym.
+- Case Study 1 erst veröffentlichen, wenn der Fix für den Dokumenten-Speicher im Kinderschutz-Portal live ist.
+- Case Study 6 beschreibt ein laufendes Projekt und wird ergänzt, sobald erste Bereiche im Einsatz sind.
 
 ---
 
@@ -29,243 +32,279 @@ Families, professionals and network partners find services, events and contact p
 
 Leistungsbereiche: Portale und Plattformen · Ablösung bestehender Systeme · Wartung und Weiterentwicklung
 
-### Ausgangslage
+### Auftraggeber: Netzwerk Kinderschutz & Frühe Hilfen, Landratsamt Altenburger Land
 
-Das Netzwerk Kinderschutz & Frühe Hilfen verbindet im Altenburger Land Angebote für Eltern, für Kinder und Jugendliche und für Fachkräfte. Es gab eine WordPress-Seite, die vor allem präsentieren sollte. Inhalte oder Struktur selbst zu ändern, war kaum möglich. Daneben lagen Informationen auf mehreren Portalen, jedes anders gepflegt und unterschiedlich aktuell. Wer als Mutter oder Vater schnell eine Beratungsstelle brauchte, musste erst wissen, wo man überhaupt nachschaut.
+Das Netzwerk Kinderschutz & Frühe Hilfen verbindet im Altenburger Land Einrichtungen und Fachkräfte, die mit Eltern, Kindern und Jugendlichen arbeiten. Es soll dafür sorgen, dass Familien früh die passende Unterstützung finden, besonders werdende Eltern und Familien mit kleinen Kindern. Damit das gelingt, müssen Informationen schnell auffindbar und aktuell sein, für Familien genauso wie für die Fachkräfte im Netzwerk.
 
-Der Landkreis wollte das bündeln: ein Portal für Familien und Netzwerkpartner, eine Karte mit den Anlaufstellen und einen geschützten Bereich für Fachkräfte. Die Verwaltung sollte alles selbst pflegen und erweitern können. Für Wartung und Weiterentwicklung gibt es einen mehrjährigen Rahmen.
+### Ausgangslage und Zielsetzung
 
-### Weniger zeigen, schneller helfen
+Das Netzwerk hatte eine WordPress-Seite, die vor allem präsentieren sollte. Inhalte oder Struktur selbst anzupassen, war kaum möglich. Daneben lagen Informationen auf mehreren Portalen, jedes anders gepflegt und unterschiedlich aktuell. Wer als Mutter oder Vater schnell eine Beratungsstelle brauchte, musste erst wissen, wo man überhaupt nachschaut.
 
-Informationsportale wachsen mit der Zeit gern in die Breite, bis man darin kaum noch etwas findet. Wer Hilfe sucht, oft in einer belastenden Situation, will in wenigen Schritten bei der passenden Stelle sein. Ich habe das Portal deshalb nach den Menschen sortiert, die es benutzen. Am Anfang steht die Frage, wer man ist: Eltern, Kinder und Jugendliche oder Fachkraft. Erst danach geht es um Themen. Die Karte zeigt Anlaufstellen nach Kategorien gefiltert, und Termine lassen sich mit einem Klick in den eigenen Kalender übernehmen.
+Der Landkreis wollte das an einem Ort bündeln: ein Portal für Familien und Netzwerkpartner, eine Karte mit allen Anlaufstellen und einen geschützten Bereich für Fachkräfte. Die Verwaltung sollte Inhalte selbst pflegen und das Portal ohne fremde Hilfe erweitern können.
 
-### Umsetzung
+### Die Lösung
 
-Das Portal läuft auf Next.js mit TypeScript und Supabase, die Datenbank steht in Frankfurt. Rollen und Rechte für Fachkräfte und Redaktion sind direkt in der Datenbank festgelegt, mit Row Level Security. Deutsch und Englisch liegen in denselben Datensätzen, so pflegt die Redaktion beide Sprachen an einer Stelle.
+Am Anfang standen viele Fragen: Wer sucht hier was, in welcher Lage, und wie schnell muss die Antwort da sein? Daraus ergab sich der Aufbau des Portals. Es ist nach den Menschen geordnet, die es nutzen. Zuerst wählt man, wer man ist: Eltern, Kinder und Jugendliche oder Fachkraft. Erst danach geht es um Themen. So kommt man auch in einer belastenden Situation in wenigen Schritten zur passenden Stelle.
 
-Weitere Bausteine:
+Zum Portal gehören:
 
-- Termine mit wiederkehrenden Serien und iCal-Export
-- „Familiennavi“, eine interaktive Karte mit filterbaren Anlaufstellen
-- ein Netzwerkdiagramm der Partner
-- ein Redaktionsbereich für Termine, Neuigkeiten, Anlaufstellen, Angebote und Dokumente
+- das „Familiennavi“, eine interaktive Karte, deren Anlaufstellen sich nach Kategorien filtern lassen
+- ein Terminkalender mit wiederkehrenden Serien, aus dem man Termine mit einem Klick in den eigenen Kalender übernimmt
+- eine Übersicht des Netzwerks und seiner Partner
+- ein geschützter Bereich, in dem Fachkräfte interne Unterlagen austauschen
+- ein Redaktionsbereich für Termine, Neuigkeiten, Anlaufstellen, Angebote und Dokumente, auf Deutsch und Englisch
 
-Das Datenmodell ist über gut 50 Migrationen gewachsen. Playwright-Tests prüfen die wichtigsten Abläufe, auch auf Barrierefreiheit.
+### Zugriffsrechte und Datenschutz
 
-### Wer darf welche Datei sehen?
+Welche Person welche Inhalte sehen darf, ist direkt in der Datenbank festgelegt. Damit gelten die Regeln an jeder Stelle des Portals. Interne Dokumente liegen in einem privaten Speicher. Ausgeliefert werden sie nur nach einer Berechtigungsprüfung, über Links, die nach wenigen Minuten verfallen. Die Datenbank wird in Frankfurt betrieben.
 
-Fachkräfte tauschen über das Portal interne Unterlagen aus. Bei einer Sicherheitsprüfung fiel mir auf, dass diese Dateien in einem öffentlich lesbaren Speicher lagen. Mit der richtigen Adresse hätte man sie ohne Anmeldung öffnen können. Ich habe das an mehreren Stellen geschlossen. Die Datenbank gibt Fachkraft-Dokumente nur an Nutzer mit Fachkraft-Rolle heraus, der Speicher ist privat, und heruntergeladen wird über eine Serverroute. Sie prüft die Berechtigung und erzeugt einen Link, der nach fünf Minuten nicht mehr funktioniert. Hochladen und löschen darf nur die Redaktion.
+### Technik
 
-```sql
--- Fachkraft-Dokumente gibt die Datenbank nur an Fachkräfte heraus
-create policy documents_read on documents for select
-  using (access_level = 'public'
-         or (access_level = 'fachkraefte' and is_staff()));
+Das Portal ist mit Next.js und TypeScript entwickelt. Die Daten liegen in einer PostgreSQL-Datenbank bei Supabase, die Zugriffsrechte sind mit Row Level Security abgesichert. Das Datenmodell ist über mehr als 50 Migrationen gewachsen. Automatisierte Tests mit Playwright prüfen die wichtigsten Abläufe, auch auf Barrierefreiheit.
 
--- Der Speicher ist privat, Dateien sind nicht mehr über die URL erreichbar
-UPDATE storage.buckets SET public = false WHERE id = 'documents';
-```
+### Betreuung und Weiterentwicklung
+
+Für Wartung und Weiterentwicklung gibt es einen mehrjährigen Rahmen. Ich bleibe Ansprechpartnerin der Redaktion, kümmere mich um Updates und Sicherheit und ergänze neue Funktionen, wenn das Netzwerk sie braucht.
 
 ### Ergebnis
 
-Familien, Fachkräfte und Netzwerkpartner haben jetzt einen gemeinsamen Ort statt mehrerer Portale. Über ihren Einstieg kommen sie in wenigen Schritten zur passenden Information oder zur nächsten Anlaufstelle auf der Karte. Die Redaktion pflegt Inhalte, Termine und Karte selbst, in beiden Sprachen und mit einem Benutzerhandbuch zur Seite. Neue Themen oder Partner lassen sich ergänzen, ohne das Portal umzubauen.
-
-### Rückblick
-
-Am meisten Zeit habe ich anfangs mit Fragen verbracht: Wer sucht hier was, in welcher Lage, und wie schnell muss die Antwort da sein? Die Antworten darauf haben mehr Entscheidungen bestimmt als jede technische Überlegung. Technisch nehme ich mit, Zugriffsregeln von Anfang an in der Datenbank festzulegen. Dort greifen sie auch dann, wenn an der Oberfläche einmal etwas übersehen wird.
+Familien, Fachkräfte und Netzwerkpartner haben jetzt einen gemeinsamen Ort, wo vorher mehrere Portale waren. Über ihren Einstieg finden sie in wenigen Schritten die passende Information oder die nächste Anlaufstelle auf der Karte. Die Redaktion pflegt Inhalte, Termine und Karte selbst, in beiden Sprachen und mit einem Benutzerhandbuch. Neue Themen oder Partner lassen sich ergänzen, ohne das Portal umzubauen.
 
 ## body.en
 
 Services: Portals and platforms · Replacing existing systems · Maintenance and further development
 
-### Background
+### Client: Child Protection & Early Support Network, Altenburger Land District Office
 
-The Child Protection & Early Support Network connects services for parents, for children and young people and for professionals in the district of Altenburger Land. There was a WordPress site, built mainly to present the network. Changing content or structure in-house was hardly possible. On top of that, information sat on several portals, each maintained differently and kept up to date to different degrees. A parent who urgently needed a counselling service first had to know where to look.
+The Child Protection & Early Support Network brings together institutions and professionals in Altenburger Land who work with parents, children and young people. Its aim is to help families find the right support early on, especially expectant parents and families with young children. For that to work, information has to be easy to find and up to date, for families as well as for the professionals in the network.
 
-The district wanted to bring this together: one portal for families and network partners, a map of contact points and a protected area for professionals. The administration should be able to maintain and extend everything itself. Maintenance and further development run within a multi-year framework.
+### Starting point and objectives
 
-### Show less, help faster
+The network had a WordPress site that was mainly meant to present. Changing content or structure without outside help was hardly possible. On top of that, information was spread across several portals, each maintained differently and up to date to a different degree. A parent who urgently needed a counselling service first had to know where to look.
 
-Information portals tend to grow wider over time until it is hard to find anything in them. People looking for help, often in a stressful situation, want to reach the right place in a few steps. So I organised the portal around the people who use it. It starts with who you are: parent, child or young person, or professional. Topics come after that. The map shows contact points filtered by category, and events can be added to your own calendar with one click.
+The district wanted to bring all of this together in one place: a portal for families and network partners, a map of all contact points and a protected area for professionals. The administration should be able to maintain the content itself and extend the portal without outside help.
 
-### How it is built
+### The solution
 
-The portal runs on Next.js with TypeScript and Supabase, with the database in Frankfurt. Roles and permissions for professionals and editors are defined directly in the database using row level security. German and English live in the same records, so editors maintain both languages in one place.
+The project started with a lot of questions: who is looking for what here, in what situation, and how quickly does the answer need to be there? The structure of the portal grew out of the answers. It is organised around the people who use it. First you choose who you are: parent, child or young person, or professional. Topics come after that. This way, even someone in a stressful situation reaches the right place in a few steps.
 
-Other building blocks:
+The portal includes:
 
-- Events with recurring series and iCal export
-- “Familiennavi”, an interactive map with filterable contact points
-- A network diagram of the partners
-- An editorial area for events, news, contact points, services and documents
+- the "Familiennavi", an interactive map whose contact points can be filtered by category
+- an events calendar with recurring series, from which events can be added to your own calendar with one click
+- an overview of the network and its partners
+- a protected area where professionals share internal documents
+- an editorial area for events, news, contact points, services and documents, in German and English
 
-The data model has grown over more than 50 migrations. Playwright tests cover the key flows, including accessibility.
+### Access rights and data protection
 
-### Who may see which file?
+Who may see which content is defined directly in the database, so the rules apply everywhere in the portal. Internal documents are kept in private storage. They are only delivered after a permission check, through links that expire after a few minutes. The database is hosted in Frankfurt.
 
-Professionals use the portal to share internal documents. During a security review I noticed that these files were stored in a publicly readable bucket. With the right URL, anyone could have opened them without logging in. I closed this at several points. The database only returns documents for professionals to users with that role, storage is private, and downloads go through a server route. It checks permissions and creates a link that stops working after five minutes. Only editors can upload and delete.
+### Technology
 
-```sql
--- The database only returns documents for professionals to professionals
-create policy documents_read on documents for select
-  using (access_level = 'public'
-         or (access_level = 'fachkraefte' and is_staff()));
+The portal is built with Next.js and TypeScript. The data is stored in a PostgreSQL database on Supabase, with access rights secured by Row Level Security. The data model has grown over more than 50 migrations. Automated tests with Playwright check the most important workflows, including accessibility.
 
--- Storage is private, files can no longer be reached by URL
-UPDATE storage.buckets SET public = false WHERE id = 'documents';
-```
+### Support and further development
+
+Maintenance and further development are covered by a multi-year framework. I remain the editorial team's point of contact, take care of updates and security, and add new features when the network needs them.
 
 ### Outcome
 
-Families, professionals and network partners now share one place instead of several portals. From their own entry point, a few steps take them to the right information or to the nearest contact point on the map. The editorial team maintains content, events and the map itself, in both languages and with a user manual to hand. New topics or partners can be added without rebuilding the portal.
-
-### Looking back
-
-Early on, I spent most of my time on questions: who is looking for what here, in which situation, and how quickly do they need an answer? The answers shaped more decisions than any technical consideration. On the technical side, I take away the habit of defining access rules in the database from the start. That way they still hold if something is ever overlooked in the interface.
+Families, professionals and network partners now share one place where there used to be several portals. Starting from their entry point, they reach the right information or the nearest contact point on the map in a few steps. The editorial team maintains content, events and the map itself, in both languages and with a user handbook. New topics or partners can be added without rebuilding the portal.
 
 ---
 
 # Case Study 2
 
-slug: von-der-einzelloesung-zur-plattform-coaching-app
+slug: kundenportal-und-verwaltung-health-coach
 
 ## title.de
-Eine Coaching-App, die einem Coach die Verwaltung abnimmt und zur Plattform wächst
+Kundenportal und Verwaltung für Health Coach Karsten Gerth
 
 ## title.en
-A coaching app that takes admin off a coach's hands and is now growing into a platform
+Client portal and back office for health coach Karsten Gerth
 
 ## excerpt.de
-Für einen Health Coach habe ich ein Portal für Termine, Angebote und Trainingspläne gebaut. Jetzt wird daraus eine Plattform für mehrere Coaches mit Kundenbereich.
+Für Karsten Gerth habe ich eine Anwendung mit Verwaltungsbereich und Kundenportal entwickelt: Kunden, Termine, Angebote, Rechnungen und individuelle Pläne an einem Ort.
 
 ## excerpt.en
-I built a portal for a health coach covering appointments, quotes and training plans. It is now becoming a platform for several coaches, with a client area.
+For Karsten Gerth, I built an application with a back office and a client portal: clients, appointments, quotes, invoices and individual plans in one place.
 
 ## body.de
 
 Leistungsbereiche: Fachanwendungen und CRM · Portale und Plattformen
 
-### Ausgangslage
+### Auftraggeber: Karsten Gerth, Health Coach
 
-Ein selbständiger Health Coach möchte seine Zeit mit seinen Kunden verbringen. Tatsächlich ging viel davon in Verwaltung: Termine abstimmen, Angebote und Rechnungen schreiben, für jeden Kunden Ziele, Trainings- und Ernährungspläne zusammenstellen und Gesundheitsangaben einholen. Ziel war ein Portal, das diese Arbeit bündelt und so weit wie möglich abnimmt.
+Karsten Gerth war als Personal Trainer tätig und hat sich zum Health Coach weiterentwickelt. Er begleitet vor allem Eltern, die im Alltag wenig Zeit haben und trotzdem gesünder leben möchten: mit mehr Bewegung, ausgewogener Ernährung und Zielen, die in einen vollen Familienalltag passen. Gerade diese Menschen brauchen eine Begleitung, die ihnen Arbeit abnimmt und keine zusätzliche macht.
 
-### Version 1: ein Portal für den Alltag des Coaches
+### Ausgangslage und Zielsetzung
 
-Die erste Version habe ich 2025 mit Next.js und Supabase gebaut. Sie ist bis heute im Einsatz und deckt die wiederkehrenden Aufgaben ab:
+Als Selbständiger möchte Karsten Gerth seine Zeit mit seinen Kunden verbringen. Tatsächlich ging viel davon in Verwaltung: Termine abstimmen, Angebote und Rechnungen schreiben, für jeden Kunden Ziele, Trainings- und Ernährungspläne zusammenstellen und Gesundheitsangaben einholen. Mit jedem neuen Kunden wuchs dieser Aufwand.
 
-- Termine verwaltet er in einem Kalender, den er auch als Abo in seinen eigenen Kalender übernehmen kann.
-- Angebote und Rechnungen entstehen im Portal, fortlaufend nummeriert und als PDF. Ein angenommenes Angebot wird mit einem Klick zur Rechnung.
-- Blogbeiträge schreibt und veröffentlicht er selbst.
-- Kunden füllen den Anamnesebogen online in ihrem geschützten Bereich aus. Der Coach bekommt die Angaben strukturiert zur Auswertung, ohne dass Gesundheitsdaten per E-Mail hin- und hergehen.
+Ziel war eine Anwendung mit zwei Seiten: ein Verwaltungsbereich, der seine wiederkehrenden Aufgaben bündelt, und ein geschützter Zugang für seine Kunden. Gesundheitsangaben sollten sicher übermittelt werden, ohne per E-Mail hin- und herzugehen.
 
-Am meisten Zeit spart die zentrale Bibliothek. Dort legt der Coach SMART-Ziele, Trainingsvorlagen, Rezepte und Ernährungsstrategien einmal an. Für einen neuen Kunden stellt er daraus die Pläne zusammen und passt nur an, was bei diesem Menschen anders ist.
+### Die Lösung
 
-### Warum eine Neuentwicklung
+Im Verwaltungsbereich laufen die Aufgaben zusammen, die sonst auf viele Stellen verteilt wären:
 
-Mit jeder neuen Funktion wurde sichtbar, wo die erste Version an ihre Grenzen kommt. Sie war auf genau einen Coach zugeschnitten, und Änderungen wurden zunehmend aufwendiger. Gleichzeitig zeigte sich, dass andere Coaches vor denselben Aufgaben stehen. Deshalb entwickle ich die App jetzt als Plattform neu.
+- Kundenverwaltung mit Kontaktdaten, Anamnese, Zielen und Plänen je Kunde
+- Termine in einem Kalender, den er auch als Abo in seinen eigenen Kalender übernehmen kann
+- Angebote und Rechnungen, fortlaufend nummeriert und als PDF; ein angenommenes Angebot wird mit einem Klick zur Rechnung
+- ein Blog, in dem er Beiträge selbst schreibt und veröffentlicht
 
-### Version 2: eine Plattform für viele Coaches
+Am meisten Zeit spart die zentrale Bibliothek. Dort legt er SMART-Ziele, Trainingsvorlagen, Rezepte und Ernährungsstrategien einmal an. Für einen neuen Kunden stellt er daraus die Pläne zusammen und passt nur an, was bei diesem Menschen anders ist.
 
-Jeder Coach wird ein eigener Mandant mit eigenen Kunden und eigenen Daten. Jede Tabelle trägt eine Mandanten-ID, und die Datenbank sorgt per Row Level Security selbst dafür, dass niemand fremde Daten sieht. Vorbereitet ist außerdem, dass jeder Coach seinen Auftritt mit eigenen Farben, Logo und Texten erhält.
+Seine Kunden haben einen eigenen, geschützten Zugang. Dort füllen sie den Anamnesebogen online aus. Er erhält die Angaben strukturiert zur Auswertung, und die Gesundheitsdaten bleiben in der Anwendung.
 
-Neu ist vor allem der Kundenbereich. Kunden sehen dort ihre Ziele, Trainings- und Ernährungspläne, haken erledigte Tagesziele ab und machen einen kurzen Wochen-Check. Sie protokollieren ihr Training, geben Rückmeldung und tragen ihre Werte ein. Ihre Entwicklung sehen sie in vier Bereichen über die Zeit. So können sie ihren Fortschritt selbst verfolgen, und der Coach sieht auf einen Blick, wo er nachsteuern sollte.
+### Technik
 
-Dazu kommen klare Rollen. Admins sehen alles, Trainer nur die Kunden, die ihnen zugewiesen sind. Gesundheitsdaten werden erst gespeichert, wenn die Einwilligung vorliegt. Bezahlt wird über Stripe, und ob etwas bezahlt ist, entscheidet allein der Stripe-Webhook.
+Die Anwendung entstand 2025 mit Next.js und Supabase. Verwaltungsbereich und Kundenportal sind getrennt geschützt, Angebote und Rechnungen werden als PDF erzeugt.
 
-Technisch ist die Plattform ein Monorepo mit Turborepo und pnpm, durchgängig in TypeScript. Website und App sind getrennt, gemeinsame Teile wie Design, Fachlogik, Datenbankzugriff und E-Mails liegen in eigenen Paketen. Betrieben wird sie mit Docker und Caddy auf einem eigenen Server.
+### Betreuung und Weiterentwicklung
 
-### Jede Aktion durch dieselbe Tür
+Die Anwendung ist im Einsatz und wird von mir betreut. Aus der Arbeit damit ist die Idee entstanden, sie auch anderen Coaches anzubieten. Diese Weiterentwicklung zu einer Plattform beschreibe ich in einer eigenen Case Study.
 
-Jede Änderung an Daten muss dieselben Fragen beantworten: Wer ist angemeldet, mit welcher Rolle, für welchen Mandanten, mit welchem Recht? Und sind die Eingaben gültig? Ich wollte nicht, dass diese Prüfungen in jeder Funktion neu geschrieben werden und irgendwann an einer Stelle fehlen. Deshalb läuft jede Server Action durch einen gemeinsamen Wrapper, der sie in fester Reihenfolge abarbeitet. Fehler aus der Datenbank übersetzt er in Meldungen, mit denen Nutzer etwas anfangen können, ohne interne Details zu verraten. Dazu prüfen 64 automatisierte Tests, ob die Regeln in der Datenbank wirklich greifen.
+### Ergebnis
 
-```typescript
-/** Übersetzt Datenbank-Fehler in verständliche Meldungen, ohne Interna preiszugeben. */
-export function friendlyError(err: unknown): string {
-  const e = errorInfo(err);
-  if (e.code === "42501" || e.message?.includes("row-level security"))
-    return "Dafür fehlt dir die Berechtigung.";
-  if (e.message?.startsWith("invalid_transition"))
-    return "Dieser Statuswechsel ist nicht möglich.";
-  return "Das hat nicht geklappt. Bitte versuch es noch einmal.";
-}
-```
-
-### Stand
-
-Das Datenbankschema für alle Bereiche der ersten Version ist fertig, die wichtigsten Module laufen, auch der neue Kundenbereich. Der bisherige Coach ist der erste Mandant. Als Nächstes folgen das eigene Erscheinungsbild je Coach und die Zuordnung über die eigene Domain.
-
-### Rückblick
-
-Die erste Version hat einem Coach den Alltag leichter gemacht. Die zweite soll das für viele tun und den Kunden mehr Verantwortung für ihren eigenen Fortschritt geben. Ohne die erste wüsste ich nicht, was Coaches im Alltag wirklich brauchen.
+Kunden, Termine, Angebote, Rechnungen und Pläne liegen jetzt an einem Ort. Für neue Kunden stellt Karsten Gerth die Betreuung aus seiner Bibliothek zusammen, statt jedes Mal von vorn zu beginnen. Gesundheitsangaben kommen strukturiert und geschützt bei ihm an. So bleibt mehr Zeit für das, worum es ihm geht: Menschen dabei zu helfen, im Alltag gesünder zu leben.
 
 ## body.en
 
 Services: Business applications and CRM · Portals and platforms
 
-### Background
+### Client: Karsten Gerth, health coach
 
-A self-employed health coach wants to spend his time with his clients. In practice, much of it went into admin: scheduling appointments, writing quotes and invoices, putting together goals, training and nutrition plans for each client and collecting health information. The goal was a portal that brings this work together and takes as much of it off his hands as possible.
+Karsten Gerth worked as a personal trainer and has since become a health coach. He mainly supports parents who have little time in their daily lives but still want to live more healthily: with more exercise, a balanced diet and goals that fit into a busy family life. These are exactly the people who need support that takes work off their plate and doesn't add more.
 
-### Version 1: a portal for the coach's daily work
+### Starting point and objectives
 
-I built the first version in 2025 with Next.js and Supabase. It is still in use and covers the recurring tasks:
+As a self-employed coach, Karsten Gerth wants to spend his time with his clients. In practice, much of it went into admin: arranging appointments, writing quotes and invoices, putting together goals, training and nutrition plans for each client, and collecting health information. With every new client, this effort grew.
 
-- He manages appointments in a calendar that he can also subscribe to in his own calendar app.
-- Quotes and invoices are created in the portal, numbered consecutively and exported as PDF. An accepted quote becomes an invoice with one click.
-- He writes and publishes blog posts himself.
-- Clients fill in the intake questionnaire online in their protected area. The coach receives the answers in a structured form for review, without health data being sent back and forth by email.
+The goal was an application with two sides: a back office that brings his recurring tasks together, and a protected login for his clients. Health information should be transmitted securely without going back and forth by email.
 
-The central library saves the most time. The coach sets up SMART goals, training templates, recipes and nutrition strategies once. For a new client, he puts the plans together from there and only adjusts what is different for that person.
+### The solution
 
-### Why a rebuild
+The back office brings together tasks that would otherwise be spread across many places:
 
-With every new feature it became clearer where the first version reached its limits. It was tailored to exactly one coach, and changes were becoming more and more costly. At the same time, it turned out that other coaches face the same tasks. So I am now rebuilding the app as a platform.
+- client management with contact details, health history, goals and plans for each client
+- appointments in a calendar that he can also subscribe to in his own calendar
+- quotes and invoices, numbered consecutively and as PDF; an accepted quote becomes an invoice with one click
+- a blog where he writes and publishes posts himself
 
-### Version 2: a platform for many coaches
+The central library saves the most time. He creates SMART goals, training templates, recipes and nutrition strategies there once. For a new client, he puts the plans together from these building blocks and only adjusts what is different for that person.
 
-Each coach becomes a separate tenant with their own clients and their own data. Every table carries a tenant ID, and the database itself uses row level security to make sure nobody sees anyone else's data. The groundwork is also in place for each coach to get their own look with their own colours, logo and texts.
+His clients have their own protected login, where they fill in the health questionnaire online. He receives the information in a structured form for review, and the health data stays inside the application.
 
-The biggest addition is the client area. Clients see their goals and their training and nutrition plans there, tick off completed daily goals and do a short weekly check-in. They log their training, give feedback and enter their measurements. They can see how they develop in four areas over time. This lets them track their own progress, and the coach sees at a glance where to adjust.
+### Technology
 
-On top of that come clear roles. Admins see everything, trainers only the clients assigned to them. Health data is only stored once consent has been given. Payments run through Stripe, and only the Stripe webhook decides whether something has been paid.
+The application was built in 2025 with Next.js and Supabase. The back office and the client portal are protected separately, and quotes and invoices are generated as PDFs.
 
-Technically, the platform is a monorepo with Turborepo and pnpm, written in TypeScript throughout. Website and app are separate, and shared parts such as design, business logic, data access and email live in their own packages. It runs with Docker and Caddy on a self-managed server.
+### Support and further development
 
-### Every action through the same door
+The application is in use and I look after it. Working with it led to the idea of offering it to other coaches as well. I describe this development into a platform in a separate case study.
 
-Every change to data has to answer the same questions: who is logged in, with which role, for which tenant, with which permission? And is the input valid? I did not want these checks rewritten in every function, only to go missing somewhere one day. So every server action runs through a shared wrapper that works through them in a fixed order. It turns database errors into messages users can act on, without revealing internal details. On top of that, 64 automated tests check that the database rules really hold.
+### Outcome
 
-```typescript
-/** Translates database errors into clear messages without exposing internals. */
-export function friendlyError(err: unknown): string {
-  const e = errorInfo(err);
-  if (e.code === "42501" || e.message?.includes("row-level security"))
-    return "Dafür fehlt dir die Berechtigung.";
-  if (e.message?.startsWith("invalid_transition"))
-    return "Dieser Statuswechsel ist nicht möglich.";
-  return "Das hat nicht geklappt. Bitte versuch es noch einmal.";
-}
-```
-
-### Status
-
-The database schema for every area of the first version is complete, and the main modules are running, including the new client area. The original coach is the first tenant. Next come each coach's own look and assignment via their own domain.
-
-### Looking back
-
-The first version made one coach's daily work easier. The second is meant to do that for many, and to give clients more responsibility for their own progress. Without the first, I would not know what coaches really need day to day.
+Clients, appointments, quotes, invoices and plans are now in one place. For new clients, Karsten Gerth puts together their programme from his library instead of starting from scratch each time. Health information reaches him in a structured, protected way. This leaves more time for what matters to him: helping people live more healthily in everyday life.
 
 ---
 
 # Case Study 3
 
+slug: von-der-einzelloesung-zur-plattform-coaching-app
+
+## title.de
+Eine mandantenfähige Plattform für Coaches und ihre Kunden
+
+## title.en
+A multi-tenant platform for coaches and their clients
+
+## excerpt.de
+Aus der Anwendung für einen Coach entsteht eine Plattform für viele: jeder Coach mit eigenem Bereich und Erscheinungsbild, seine Kunden mit eigenem Zugang zu Plänen und Fortschritt.
+
+## excerpt.en
+The application for one coach is becoming a platform for many: each coach with their own space and branding, their clients with their own access to plans and progress.
+
+## body.de
+
+Leistungsbereiche: Portale und Plattformen · Wartung und Weiterentwicklung
+
+### Über das Projekt
+
+Die Plattform baut auf der Anwendung auf, die ich für Health Coach Karsten Gerth entwickelt habe. Sie richtet sich an selbständige Coaches, die ihren Kunden eine professionelle digitale Begleitung bieten möchten, ohne eigene Software entwickeln zu lassen. Karsten Gerth ist der erste Coach auf der Plattform.
+
+### Ausgangslage und Zielsetzung
+
+Mit jeder neuen Funktion zeigte sich, wo die erste Version an ihre Grenzen kommt. Sie war auf genau einen Coach zugeschnitten, und Änderungen wurden zunehmend aufwendiger. Gleichzeitig wurde deutlich, dass andere Coaches vor denselben Aufgaben stehen.
+
+Ziel ist eine Plattform, die mehrere Coaches unabhängig voneinander nutzen, jeder mit eigenen Kunden, eigenen Daten und eigenem Auftritt. Ihre Kunden sollen dabei mehr Verantwortung für den eigenen Fortschritt übernehmen können.
+
+### Die Lösung
+
+Jeder Coach erhält einen eigenen Bereich auf der Plattform. Seine Daten sind von denen anderer Coaches vollständig getrennt, und er kann den Auftritt mit eigenen Farben, Logo und Texten an sein Angebot anpassen.
+
+Neu ist vor allem der Kundenbereich. Kunden sehen dort ihre Ziele, Trainings- und Ernährungspläne, haken erledigte Tagesziele ab und machen einen kurzen Wochen-Check. Sie protokollieren ihr Training, geben Rückmeldung und tragen ihre Werte ein. Ihre Entwicklung sehen sie in vier Bereichen über die Zeit. So verfolgen sie ihren Fortschritt selbst, und der Coach sieht auf einen Blick, wo er nachsteuern sollte.
+
+Dazu kommen klare Rollen: Admins sehen alles, Trainer nur die Kunden, die ihnen zugewiesen sind. Gesundheitsdaten werden erst gespeichert, wenn die Einwilligung vorliegt. Bezahlt wird über Stripe.
+
+### Sicherheit
+
+Jede Änderung an Daten muss dieselben Fragen beantworten: Wer ist angemeldet, mit welcher Rolle, für welchen Coach, mit welchem Recht? Und sind die Eingaben gültig? Diese Prüfungen laufen an einer zentralen Stelle in fester Reihenfolge ab, damit sie in keiner Funktion fehlen können. Zusätzlich sorgt die Datenbank selbst dafür, dass niemand Daten eines anderen Coaches sieht. 64 automatisierte Tests prüfen, ob diese Regeln greifen.
+
+### Technik
+
+Die Plattform ist durchgängig in TypeScript geschrieben und als Monorepo mit Turborepo und pnpm aufgebaut. Website und Anwendung sind getrennt, gemeinsame Teile wie Design, Fachlogik, Datenbankzugriff und E-Mails liegen in eigenen Paketen. Die Mandantentrennung ist mit Row Level Security in der Datenbank umgesetzt. Betrieben wird die Plattform mit Docker und Caddy auf einem eigenen Server in Deutschland.
+
+### Stand
+
+Das Datenbankschema für alle Bereiche ist fertig, die wichtigsten Module laufen, auch der neue Kundenbereich. Als Nächstes folgen das eigene Erscheinungsbild je Coach und die Zuordnung über die eigene Domain. Die Erfahrungen aus der ersten Version fließen in jede Entscheidung ein: Ohne sie wüsste ich nicht, was Coaches im Alltag wirklich brauchen.
+
+## body.en
+
+Services: Portals and platforms · Maintenance and further development
+
+### About the project
+
+The platform builds on the application I developed for health coach Karsten Gerth. It is aimed at self-employed coaches who want to offer their clients professional digital support without commissioning their own software. Karsten Gerth is the first coach on the platform.
+
+### Starting point and objectives
+
+With every new feature, it became clearer where the first version reached its limits. It was tailored to exactly one coach, and changes were becoming increasingly complex. At the same time, it became apparent that other coaches face the same tasks.
+
+The goal is a platform that several coaches use independently of each other, each with their own clients, their own data and their own branding. Their clients should be able to take more responsibility for their own progress.
+
+### The solution
+
+Each coach gets their own space on the platform. Their data is completely separated from that of other coaches, and they can adapt the look with their own colours, logo and texts to match their offering.
+
+The main new feature is the client area. Clients see their goals, training and nutrition plans, tick off completed daily goals and do a short weekly check-in. They log their training, give feedback and enter their measurements. They can follow their development in four areas over time. This way, they track their progress themselves, and the coach sees at a glance where to adjust.
+
+On top of that come clear roles: admins see everything, trainers only the clients assigned to them. Health data is only stored once consent has been given. Payments are handled via Stripe.
+
+### Security
+
+Every change to data has to answer the same questions: who is logged in, with which role, for which coach, with which permission? And is the input valid? These checks run in one central place in a fixed order, so they cannot be missing from any function. In addition, the database itself ensures that nobody sees another coach's data. 64 automated tests check that these rules hold.
+
+### Technology
+
+The platform is written entirely in TypeScript and set up as a monorepo with Turborepo and pnpm. The website and the application are separate; shared parts such as design, business logic, database access and emails live in their own packages. Tenant separation is implemented with Row Level Security in the database. The platform runs with Docker and Caddy on its own server in Germany.
+
+### Status
+
+The database schema for all areas is complete, and the most important modules are running, including the new client area. Next come individual branding per coach and assignment via each coach's own domain. The experience from the first version informs every decision: without it, I wouldn't know what coaches really need in their daily work.
+
+---
+
+# Case Study 4
+
 slug: von-wordpress-zur-dreisprachigen-plattform-konzertpianist
 
 ## title.de
-Die Website eines Konzertpianisten mit eigenem Redaktionssystem
+Eine moderne Webpräsenz mit eigenem Redaktionssystem für einen Konzertpianisten
 
 ## title.en
-A concert pianist's website with its own editing system
+A modern web presence with its own editing system for a concert pianist
 
 ## excerpt.de
 Die WordPress-Seite eines Konzertpianisten habe ich durch eine dreisprachige Anwendung ersetzt. Ein eingetragenes Konzert ergänzt automatisch das Repertoire, das es als PDF in drei Sprachen gibt.
@@ -277,107 +316,83 @@ I replaced a concert pianist's WordPress site with a trilingual application. Ent
 
 Leistungsbereiche: Ablösung bestehender Systeme · Eigenes Redaktionssystem
 
-### Ausgangslage
+### Auftraggeber: ein international auftretender Konzertpianist
 
-Die bisherige Seite lief auf WordPress. Inhalte zu ändern war mühsam, auf dem Smartphone sah sie nicht gut aus, und zum Anspruch eines international auftretenden Pianisten passte sie nicht. Veranstalter, Presse und Publikum kommen aus Deutschland, dem übrigen Europa und Russland, deshalb sollte die neue Seite dreisprachig sein. Und er wollte sie selbst pflegen können, ohne jedes Mal jemanden anrufen zu müssen.
+Der Auftraggeber ist ein Konzertpianist, der in Deutschland, im übrigen Europa und in Russland auftritt. Veranstalter, Presse und Publikum informieren sich über seine Website über Konzerte, Repertoire, Aufnahmen und Pressestimmen. Sie ist damit ein wichtiger Teil seiner Arbeit, und sie muss in mehreren Sprachen überzeugen.
 
-### Umsetzung
+### Ausgangslage und Zielsetzung
 
-Die Seite ist mit Next.js, TypeScript und Tailwind CSS gebaut. Seiten werden vorab erzeugt und nur neu gebaut, wenn sich Inhalte ändern, deshalb lädt sie schnell. Die Inhalte liegen in Sanity, einem Headless CMS. Inhalte und Darstellung sind also getrennt, und das Design kann sich ändern, ohne dass jemand Texte anfassen muss.
+Die bisherige Seite lief auf WordPress. Inhalte zu ändern war mühsam, auf dem Smartphone sah sie nicht gut aus, und zum Anspruch eines international auftretenden Pianisten passte sie nicht.
 
-Für Konzerte, Repertoire, Aufnahmen, Pressestimmen und die Biografie gibt es ein eigenes Datenmodell, alles auf Deutsch, Englisch und Russisch. Die vorhandenen Texte habe ich per Skript über die Sanity-API übernommen, statt sie abzutippen. Die russischen Empfehlungsschreiben habe ich selbst ins Deutsche und Englische übersetzt.
+Ziel war eine moderne, schnelle Webpräsenz auf Deutsch, Englisch und Russisch, die er selbst pflegen kann, ohne jedes Mal jemanden um Hilfe bitten zu müssen. Wiederkehrende Arbeit, etwa die Pflege seines Repertoires, sollte ihm die Anwendung so weit wie möglich abnehmen.
 
-### Ein Redaktionssystem für genau diesen Nutzer
+### Die Lösung
 
-Sanity bringt ein Standard-Backend mit. Ich habe es so angepasst, dass es zu seinem Alltag passt:
+Für Konzerte, Repertoire, Aufnahmen, Pressestimmen und die Biografie gibt es ein eigenes Datenmodell, durchgehend in drei Sprachen. Die vorhandenen Inhalte habe ich per Skript übernommen. Die russischen Empfehlungsschreiben habe ich selbst ins Deutsche und Englische übersetzt.
 
-- Das Redaktionssystem ist in die Website eingebunden und über eine eigene Adresse erreichbar. Zusätzliche Software braucht er nicht.
+Das Redaktionssystem ist auf seinen Alltag zugeschnitten:
+
+- Es ist in die Website eingebunden und über eine eigene Adresse erreichbar. Zusätzliche Software braucht er nicht.
 - Was er oft pflegt, Konzerte und Pressestimmen, steht in der Navigation oben. Seltene Einstellungen stehen unten.
 - Lange Formulare sind in Reiter aufgeteilt.
 - Biografie, Kontakt und Einstellungen gibt es nur einmal. Eine zweite Biografie lässt sich nicht versehentlich anlegen.
 
-Dazu habe ich ein Handbuch geschrieben, mit Glossar und Schritt-für-Schritt-Anleitungen für jemanden, der sonst wenig mit Technik zu tun hat.
+Zu jedem Konzert trägt er das Programm ein. Beim Veröffentlichen werden markierte Werke automatisch in sein Repertoire übernommen, ohne dass er sie ein zweites Mal erfasst. Das Repertoire kann er jederzeit als PDF herunterladen, in jeder der drei Sprachen und immer auf dem aktuellen Stand. Dazu gibt es ein Handbuch mit Glossar und Schritt-für-Schritt-Anleitungen, geschrieben für jemanden, der sonst wenig mit Technik zu tun hat.
 
-### Konzert eintragen, Repertoire pflegt sich mit
+### Technik
 
-Zu jedem Konzert trägt er das Programm ein. Neue Stücke sollten danach auch in seinem Repertoire stehen, ohne dass er sie ein zweites Mal erfasst. Dafür habe ich die Veröffentlichen-Aktion im CMS erweitert: Markierte Werke werden beim Veröffentlichen automatisch als Repertoire-Einträge angelegt. Das Repertoire kann er außerdem jederzeit als PDF herunterladen, in jeder der drei Sprachen und immer auf dem aktuellen Stand.
-
-```typescript
-/**
- * Erweiterte Veröffentlichen-Aktion: legt aus den Werken eines Konzerts
- * automatisch Repertoire-Einträge an, wenn „addToRepertoire“ gesetzt ist.
- */
-export const createPublishWithRepertoireAction = (
-  originalPublishAction: DocumentActionComponent
-): DocumentActionComponent => { /* … */ };
-```
+Die Website ist mit Next.js, TypeScript und Tailwind CSS entwickelt. Seiten werden vorab erzeugt und nur neu gebaut, wenn sich Inhalte ändern, deshalb lädt sie schnell. Die Inhalte liegen im Headless CMS Sanity, getrennt von der Darstellung. So kann sich das Design ändern, ohne dass jemand Texte anfassen muss. Die automatische Übernahme ins Repertoire ist als eigene Veröffentlichen-Aktion im CMS umgesetzt.
 
 ### Ergebnis
 
-Eine schnelle Website in drei Sprachen, die der Pianist selbst pflegt. Konzerte und Repertoire muss er nicht mehr doppelt eintragen, und für Veranstalter hat er sein Repertoire jederzeit als aktuelles PDF zur Hand.
-
-### Rückblick
-
-Bei diesem Projekt habe ich gelernt, ein CMS vom Alltag der Person her zu denken, die damit arbeitet. Die Repertoire-Automatik war technisch kein großer Aufwand. Ihm spart sie bei jedem Konzert Arbeit.
+Der Pianist pflegt seine Website selbst, in drei Sprachen und auf jedem Gerät gut lesbar. Ein neues Konzert einzutragen genügt, damit Programm und Repertoire aktuell sind. Für Veranstalter hat er sein Repertoire jederzeit als aktuelles PDF zur Hand.
 
 ## body.en
 
 Services: Replacing existing systems · Custom editing system
 
-### Background
+### Client: an internationally performing concert pianist
 
-The previous site ran on WordPress. Updating content was tedious, it did not look good on a smartphone, and it did not match the standing of an internationally performing pianist. Promoters, press and audiences come from Germany, the rest of Europe and Russia, so the new site needed three languages. And he wanted to maintain it himself without having to call someone every time.
+The client is a concert pianist who performs in Germany, elsewhere in Europe and in Russia. Promoters, press and audiences use his website to find out about concerts, repertoire, recordings and reviews. It is an important part of his work, and it has to be convincing in several languages.
 
-### How it is built
+### Starting point and objectives
 
-The site is built with Next.js, TypeScript and Tailwind CSS. Pages are generated in advance and only rebuilt when content changes, which keeps it fast. Content lives in Sanity, a headless CMS. Content and presentation are therefore separate, and the design can change without anyone touching the text.
+The previous site ran on WordPress. Changing content was tedious, it did not look good on smartphones, and it did not match the standards of an internationally performing pianist.
 
-There is a dedicated data model for concerts, repertoire, recordings, press quotes and the biography, all in German, English and Russian. I migrated the existing texts by script via the Sanity API instead of retyping them. I translated the Russian letters of recommendation into German and English myself.
+The goal was a modern, fast web presence in German, English and Russian that he can maintain himself without having to ask someone for help every time. Recurring work, such as keeping his repertoire up to date, should be taken off his hands by the application as far as possible.
 
-### An editing system for exactly this user
+### The solution
 
-Sanity comes with a standard back end. I adapted it to fit his routine:
+Concerts, repertoire, recordings, reviews and the biography each have their own data model, in three languages throughout. I migrated the existing content by script. I translated the Russian letters of recommendation into German and English myself.
 
-- The editing system is built into the website and has its own address. He does not need any extra software.
-- What he updates often, concerts and press quotes, sits at the top of the navigation. Rarely used settings sit at the bottom.
+The editing system is tailored to his daily routine:
+
+- It is built into the website and reachable at its own address. He doesn't need any additional software.
+- What he updates often, concerts and reviews, is at the top of the navigation. Rarely used settings are at the bottom.
 - Long forms are split into tabs.
 - Biography, contact and settings exist only once. A second biography cannot be created by accident.
 
-I also wrote a manual with a glossary and step-by-step instructions for someone who otherwise has little to do with technology.
+For each concert, he enters the programme. When he publishes, selected works are automatically added to his repertoire, without him having to enter them a second time. He can download the repertoire as a PDF at any time, in any of the three languages and always up to date. There is also a handbook with a glossary and step-by-step instructions, written for someone who otherwise has little to do with technology.
 
-### Enter a concert, the repertoire updates itself
+### Technology
 
-For every concert he enters the programme. New pieces should then also appear in his repertoire without being entered twice. I extended the publish action in the CMS for this: flagged works are automatically created as repertoire entries when a concert is published. He can also download the repertoire as a PDF at any time, in any of the three languages and always up to date.
-
-```typescript
-/**
- * Extended publish action: creates repertoire entries from a concert's works
- * automatically when "addToRepertoire" is set.
- */
-export const createPublishWithRepertoireAction = (
-  originalPublishAction: DocumentActionComponent
-): DocumentActionComponent => { /* … */ };
-```
+The website is built with Next.js, TypeScript and Tailwind CSS. Pages are generated in advance and only rebuilt when content changes, which is why it loads quickly. The content lives in the headless CMS Sanity, separate from the presentation. This means the design can change without anyone having to touch the texts. The automatic transfer to the repertoire is implemented as a custom publish action in the CMS.
 
 ### Outcome
 
-A fast website in three languages that the pianist maintains himself. He no longer has to enter concerts and repertoire twice, and he always has an up-to-date repertoire PDF ready for promoters.
-
-### Looking back
-
-This project taught me to design a CMS around the daily routine of the person who works with it. The repertoire automation was not much effort technically. For him, it saves work with every concert.
+The pianist maintains his website himself, in three languages and easy to read on any device. Entering a new concert is enough to keep programme and repertoire up to date. For promoters, he always has his repertoire to hand as a current PDF.
 
 ---
 
-# Case Study 4
+# Case Study 5
 
 slug: linkedin-beitraege-im-eigenen-stil
 
 ## title.de
-Eine Anwendung für LinkedIn-Beiträge im eigenen Stil
+KI-gestützte LinkedIn-Beiträge im eigenen Stil
 
 ## title.en
-An application for LinkedIn posts in your own voice
+AI-assisted LinkedIn posts in your own voice
 
 ## excerpt.de
 Eines meiner ersten Kundenprojekte (2024): eine Anwendung, die mit Nutzern einen Stil-Leitfaden erarbeitet und darauf abgestimmte LinkedIn-Beiträge schreibt. React, Node.js, OpenAI API.
@@ -389,46 +404,122 @@ One of my first client projects (2024): an application that works out a style gu
 
 Leistungsbereiche: KI und Automatisierung
 
-### Ausgangslage
+### Über das Projekt
 
-Das Projekt entstand 2024 für einen Auftraggeber, den ich hier nicht nenne, und gehört zu meinen ersten Kundenprojekten. Die Idee: Wer regelmäßig auf LinkedIn schreibt, bekommt Unterstützung von einem Sprachmodell, klingt am Ende aber nach sich selbst. Das sollte auch für Menschen funktionieren, die noch keine eigenen Beispieltexte haben.
+Das Projekt entstand 2024 für einen Auftraggeber, den ich hier nicht nenne, und gehört zu meinen ersten Kundenprojekten. Es richtet sich an Menschen, die LinkedIn beruflich nutzen und regelmäßig sichtbar sein möchten, im Alltag aber wenig Zeit zum Schreiben haben.
 
-### Umsetzung
+### Ausgangslage und Zielsetzung
 
-Das Frontend ist mit React (Vite), React Query und styled-components gebaut, das Backend als REST-API mit Node.js und Express. Nutzer, Stil-Leitfäden und Beiträge liegen in MongoDB. Die Anmeldung läuft über JWT, Passwörter werden mit bcrypt gehasht, und Helmet setzt die Sicherheits-Header. Ein Assistent führt in mehreren Schritten durch Tonalität, Zielgruppe, Themen und Beispiele. Die Beiträge erzeugt die OpenAI API, verwaltet werden sie im Dashboard.
+Sprachmodelle können in Sekunden einen Beitrag formulieren. Lässt man sie einfach schreiben, klingt das Ergebnis allerdings austauschbar und selten nach der Person, unter deren Namen es erscheint.
 
-### Der Stil-Leitfaden als Herzstück
+Ziel war eine Anwendung, die beim Schreiben unterstützt und dafür sorgt, dass die Beiträge nach ihren Verfassern klingen. Das sollte auch für Menschen funktionieren, die noch keine eigenen Beispieltexte haben.
 
-Lässt man ein Sprachmodell einfach drauflos schreiben, klingt jeder Beitrag ein bisschen anders. Wichtiger als der API-Aufruf war deshalb der Stil-Leitfaden. Er wird einmal mit der Person erarbeitet, gespeichert und bei jeder Generierung mitgegeben. So bleiben Ton und Themen über viele Beiträge hinweg gleich.
+### Die Lösung
+
+Ein Assistent führt in mehreren Schritten durch Tonalität, Zielgruppe, Themen und Beispiele. Daraus entsteht ein persönlicher Stil-Leitfaden. Er wird gespeichert und bei jedem neuen Beitrag automatisch mitgegeben, sodass Ton und Themen über viele Beiträge hinweg gleich bleiben.
+
+Die Beiträge entstehen auf Knopfdruck und werden in einem Dashboard verwaltet. Dort lassen sie sich überarbeiten, bevor sie veröffentlicht werden. Die Entscheidung, was erscheint, bleibt bei der Person selbst.
+
+### Technik
+
+Das Frontend ist mit React (Vite), React Query und styled-components gebaut, das Backend als REST-API mit Node.js und Express. Nutzer, Stil-Leitfäden und Beiträge liegen in MongoDB. Die Anmeldung läuft über JWT, Passwörter werden mit bcrypt gehasht, und Helmet setzt die Sicherheits-Header. Die Texte erzeugt die OpenAI API.
 
 ### Ergebnis
 
-Die Anwendung wurde vollständig umgesetzt, von der Anmeldung über den Assistenten bis zur Verwaltung der Beiträge, und an den Auftraggeber übergeben.
-
-### Rückblick
-
-Hier habe ich zum ersten Mal ein Sprachmodell in eine Anwendung eingebaut. Würde ich das Projekt heute neu beginnen, würde ich die Ausgaben strenger prüfen, Prompts versionieren und alles in TypeScript schreiben. So arbeite ich inzwischen in KI-Projekten.
+Die Anwendung wurde vollständig umgesetzt, von der Anmeldung über den Assistenten bis zur Verwaltung der Beiträge, und an den Auftraggeber übergeben. Hier habe ich zum ersten Mal ein Sprachmodell in eine Anwendung eingebunden. In heutigen KI-Projekten prüfe ich die Ausgaben strenger, versioniere Prompts und arbeite durchgängig mit TypeScript.
 
 ## body.en
 
 Services: AI and automation
 
-### Background
+### About the project
 
-I built this project in 2024 for a client I do not name here, and it was one of my first client projects. The idea: people who post regularly on LinkedIn get support from a language model but still end up sounding like themselves. It also had to work for people who do not yet have sample texts of their own.
+The project was built in 2024 for a client I don't name here, and it is one of my first client projects. It is aimed at people who use LinkedIn professionally and want to be visible regularly, but have little time for writing.
 
-### How it is built
+### Starting point and objectives
 
-The front end is built with React (Vite), React Query and styled-components, the back end as a REST API with Node.js and Express. Users, style guides and posts are stored in MongoDB. Login uses JWT, passwords are hashed with bcrypt, and Helmet sets the security headers. A wizard guides users through tone, audience, topics and examples in several steps. Posts are generated via the OpenAI API and managed in the dashboard.
+Language models can draft a post in seconds. Left to their own devices, however, the result sounds interchangeable and rarely like the person whose name it appears under.
 
-### The style guide at the centre
+The goal was an application that helps with writing and makes sure the posts sound like their authors. It also had to work for people who don't yet have any sample texts of their own.
 
-If you let a language model simply write away, every post sounds a little different. The style guide therefore mattered more than the API call. It is worked out once with the person, stored and passed along with every generation. That keeps tone and topics consistent across many posts.
+### The solution
+
+A wizard guides users step by step through tone, audience, topics and examples. This produces a personal style guide. It is saved and automatically included with every new post, so tone and topics stay consistent across many posts.
+
+Posts are generated at the click of a button and managed in a dashboard, where they can be edited before publishing. The decision about what gets published stays with the person.
+
+### Technology
+
+The frontend is built with React (Vite), React Query and styled-components, the backend as a REST API with Node.js and Express. Users, style guides and posts are stored in MongoDB. Login uses JWT, passwords are hashed with bcrypt, and Helmet sets the security headers. The texts are generated by the OpenAI API.
 
 ### Outcome
 
-The application was fully built, from login and the wizard to post management, and handed over to the client.
+The application was fully implemented, from login through the wizard to post management, and handed over to the client. This was the first time I integrated a language model into an application. In my AI projects today, I check the output more strictly, version prompts and work in TypeScript throughout.
 
-### Looking back
+---
 
-This was the first time I built a language model into an application. If I started the project today, I would check the output more strictly, version the prompts and write everything in TypeScript. That is how I work on AI projects now.
+# Case Study 6
+
+slug: website-und-unterrichtsportal-sopranistin
+
+## title.de
+Website und Unterrichtsportal für eine Sopranistin
+
+## title.en
+Website and teaching portal for a soprano
+
+## excerpt.de
+Eine moderne Website mit eigenem Redaktionssystem und ein Portal für den Gesangsunterricht: Unterlagen für Schüler, Terminbuchung und Rechnungen an einem Ort. Laufendes Projekt.
+
+## excerpt.en
+A modern website with its own editing system and a portal for singing lessons: materials for students, lesson booking and invoicing in one place. Ongoing project.
+
+## body.de
+
+Leistungsbereiche: Portale und Plattformen · Fachanwendungen und CRM · Eigenes Redaktionssystem
+
+### Auftraggeberin: eine Sopranistin
+
+Die Auftraggeberin steht als Sopranistin auf der Bühne und unterrichtet Gesang. Beides gehört zu ihrer Arbeit, und beides stellt eigene Anforderungen: als Künstlerin braucht sie einen überzeugenden Auftritt, als Lehrerin eine verlässliche Organisation ihres Unterrichts.
+
+### Ausgangslage und Zielsetzung
+
+Ziel ist eine Anwendung, die beide Seiten abdeckt. Nach außen eine moderne Website, die sie selbst pflegt. Nach innen ein Portal für ihren Unterricht, in dem ihre Schülerinnen und Schüler alles Wichtige finden und in dem Terminbuchung und Abrechnung zusammenlaufen.
+
+### Die Lösung
+
+Die Website erhält ein eigenes Redaktionssystem, zugeschnitten auf das, was sie regelmäßig pflegt. Für den Unterricht entsteht ein Portal mit eigenem Zugang für jede Schülerin und jeden Schüler:
+
+- Unterlagen und Materialien, die sie für den Unterricht bereitstellt
+- ein Buchungssystem für Unterrichtsstunden
+- Rechnungen, die direkt aus den gebuchten Stunden entstehen
+- eine Verwaltung ihrer Schülerinnen und Schüler
+
+### Stand
+
+Das Projekt befindet sich in der Umsetzung. Ich ergänze diese Case Study, sobald die ersten Bereiche im Einsatz sind.
+
+## body.en
+
+Services: Portals and platforms · Business applications and CRM · Custom editing system
+
+### Client: a soprano
+
+The client performs on stage as a soprano and teaches singing. Both are part of her work, and each has its own requirements: as an artist, she needs a convincing presence; as a teacher, she needs reliable organisation of her lessons.
+
+### Starting point and objectives
+
+The goal is an application that covers both sides. Outwardly, a modern website that she maintains herself. Inwardly, a portal for her teaching where her students find everything they need, and where lesson booking and invoicing come together.
+
+### The solution
+
+The website gets its own editing system, tailored to what she updates regularly. For her teaching, a portal is being built with its own login for each student:
+
+- documents and materials she provides for lessons
+- a booking system for lessons
+- invoices created directly from booked lessons
+- management of her students
+
+### Status
+
+The project is currently being implemented. I will extend this case study as soon as the first parts are in use.
