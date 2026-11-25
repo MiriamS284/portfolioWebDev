@@ -39,9 +39,9 @@
   },
   "heroShowcase": {
     "intro": "Probleme verstehen. In Software lösen.",
-    "line1": "Ich entwickle Fachanwendungen, Apps und KI-Funktionen für kleine und mittlere Unternehmen und Organisationen.",
-    "line2": "Mit klaren Zugriffsrechten, mehrsprachig, wo es nötig ist, und sicher betrieben auf Servern in Deutschland.",
-    "philosophy1": "Ich analysiere Ihre Prozesse, entwickle die Software und sorge für einen sicheren Betrieb.",
+    "line1": "Ich entwickle Software für kleine und mittlere Unternehmen und Organisationen, deren Abläufe in keine Standardlösung passen.",
+    "line2": "Oft beginnt es mit verstreuten Informationen, doppelter Datenpflege oder Unterlagen, die per E-Mail hin- und hergehen.",
+    "philosophy1": "Ich verschaffe mir zuerst ein genaues Bild davon, wie Sie arbeiten. Daraus entsteht eine Anwendung, die diese Arbeit übernimmt, und ich betreue sie auch nach dem Start.",
     "philosophy2": "Von der Sprache zum Code: Früher habe ich zwischen Sprachen und Kulturräumen übersetzt, heute übersetze ich menschliche Sprache in digitale.",
     "tags": [
       "Fachanwendungen",
@@ -77,10 +77,10 @@
     "subtitle": "Softwareentwicklerin für Fachanwendungen, Apps und KI-Integration",
     "block1Title": "Von der Sprache zum Code",
     "block1P1": "Ich habe in Jena Romanistik und Übersetzungswissenschaft studiert und danach in Argentinien, Uruguay und Chile gelebt und gearbeitet. Von 2017 bis 2023 war ich in Berlin als selbständige Übersetzerin tätig: mit verbindlichen Fristen, vertraulichen Unterlagen und Kunden, die sich auf mich verlassen haben.",
-    "block1P2": "2022 habe ich mit der Softwareentwicklung begonnen. Heute verantworte ich Projekte von der Anforderungsanalyse bis zum Serverbetrieb, darunter ein Fachportal für eine Kreisverwaltung mit rollenbasierter Zugriffskontrolle und eine mandantenfähige Plattform für Coaches. Früher habe ich zwischen Sprachen und Kulturräumen übersetzt, heute übersetze ich menschliche Sprache in digitale. Die Haltung ist dieselbe geblieben: erst genau verstehen, dann präzise übertragen.",
+    "block1P2": "2022 habe ich mit der Softwareentwicklung begonnen. Heute betreue ich Projekte vom ersten Gespräch bis zum laufenden Betrieb, darunter ein Fachportal für eine Kreisverwaltung mit geschütztem Bereich für Fachkräfte und eine Plattform für Coaches, die gerade für mehrere Nutzer wächst. Die Haltung aus der Übersetzung ist geblieben: erst genau verstehen, dann sorgfältig übertragen.",
     "block2Title": "Arbeitsweise und Ziel",
-    "block2P1": "Sie sprechen mit der Person, die den Code schreibt, von der ersten Analyse bis zum laufenden Betrieb. Ich wähle lieber die solide, wartbare Lösung als die spektakuläre, die in zwei Jahren niemand mehr versteht. Sicherheit und Datenschutz plane ich von Anfang an mit, und Quellcode, Dokumentation und Zugänge gehören Ihnen.",
-    "block2P2": "Mein Ziel ist es, Unternehmen und Organisationen langfristig zu begleiten: mit Software, die mitwächst, mit eigener Infrastruktur in Deutschland, die ich derzeit aufbaue, und mit eigenen Produkten wie der Plattform für Coaches. Neue Technologien zu lernen und gründlich zu verstehen, ist für mich kein Pflichtteil, sondern der Grund, warum ich diese Arbeit gern mache.",
+    "block2P1": "Sie sprechen mit der Person, die Ihre Anwendung entwickelt, vom ersten Gespräch bis zum laufenden Betrieb. Ich wähle lieber die solide, wartbare Lösung als die spektakuläre, die in zwei Jahren niemand mehr versteht. Datenschutz plane ich von Anfang an mit, und Quellcode, Dokumentation und Zugänge gehören Ihnen.",
+    "block2P2": "Ich möchte Unternehmen und Organisationen langfristig begleiten, mit Software, die mitwächst, und mit eigener Infrastruktur in Deutschland, die ich gerade aufbaue. Neue Technologien lerne ich gründlich und mit Freude. Das gehört für mich zu dieser Arbeit dazu.",
     "keywords": [
       "Fachanwendungen",
       "KI-Integration",
@@ -315,19 +315,19 @@
       "items": [
         {
           "title": "Fachanwendungen und Portale",
-          "text": "Prozesse digitalisieren, die Standardsoftware nicht abbildet."
+          "text": "Wenn Informationen und Zuständigkeiten an einem Ort zusammenkommen sollen."
         },
         {
-          "title": "Apps und SaaS-Produkte",
-          "text": "Kunden- und Mitgliederbereiche, mandantenfähig."
+          "title": "Apps und Plattformen",
+          "text": "Wenn Kunden oder Mitglieder einen eigenen Zugang brauchen."
         },
         {
           "title": "KI-Integration",
-          "text": "Sprachmodelle dort, wo sie messbar entlasten."
+          "text": "Wenn wiederkehrende Text- und Dokumentarbeit zu viel Zeit kostet."
         },
         {
-          "title": "Betrieb und Infrastruktur",
-          "text": "Hosting in Deutschland, gehärtet und überwacht."
+          "title": "Betrieb und Betreuung",
+          "text": "Wenn Software zuverlässig laufen und mitwachsen soll."
         }
       ]
     },
@@ -336,49 +336,49 @@
       "items": [
         {
           "title": "Fachanwendungen und Portale",
-          "text": "Ich digitalisiere Geschäftsprozesse, die mit Standardsoftware nicht abbildbar sind: Fachportale mit differenziertem Rollen- und Rechtekonzept, geschützten Dokumentenbereichen, Redaktionsworkflows und Schnittstellen zu bestehenden Systemen."
+          "text": "Viele Organisationen arbeiten mit einer Mischung aus Tabellen, E-Mail-Verteilern und mehreren Websites. Ich führe das in einer Anwendung zusammen, in der jede Person sieht und bearbeitet, was zu ihrer Aufgabe gehört. Ihr Team pflegt die Inhalte selbst, vertrauliche Unterlagen bleiben geschützt."
         },
         {
-          "title": "Apps und SaaS-Produkte",
-          "text": "Kunden- und Mitgliederbereiche, Termin- und Vertragsverwaltung, Zahlungsabwicklung. Auf Wunsch mandantenfähig, sodass Sie Ihre Anwendung später als eigenes Produkt anbieten können. Ich entwickle sie über den Start hinaus kontinuierlich weiter."
+          "title": "Apps und Plattformen",
+          "text": "Kunden, Mitglieder oder Teilnehmende sollen Termine, Unterlagen und Fortschritte selbst im Blick haben, statt alles per Nachricht zu erfragen. Dafür entwickle ich Anwendungen mit eigenem Zugang. Auf Wunsch lege ich sie so an, dass Sie sie später auch anderen anbieten können."
         },
         {
           "title": "KI-Integration",
-          "text": "Ich binde große Sprachmodelle dort in Ihre Prozesse ein, wo sie messbar entlasten: Auswertung und Klassifikation von Dokumenten, Entwürfe für Texte und Antworten, Assistenzfunktionen in bestehenden Anwendungen. Datenschutzkonform, nachvollziehbar und mit menschlicher Freigabe an den entscheidenden Stellen."
+          "text": "Anfragen beantworten, Dokumente sichten, Texte vorbereiten: Vieles davon wiederholt sich. Ich setze Sprachmodelle dort ein, wo sie diese Arbeit spürbar verkürzen. Die Entscheidung bleibt bei Ihnen, und mit sensiblen Daten gehe ich besonders sorgfältig um."
         },
         {
-          "title": "Betrieb und Infrastruktur",
-          "text": "Ich betreibe Ihre Anwendung auf Servern in Deutschland: containerisiert, gehärtet, mit automatisierten Backups, Monitoring und regelmäßigem Patch-Management. Administrative Zugänge sind gesondert abgesichert. Ihre Daten bleiben unter Ihrer Kontrolle."
+          "title": "Betrieb und Betreuung",
+          "text": "Mit dem Start beginnt die eigentliche Nutzung. Ich betreibe Ihre Anwendung auf Servern in Deutschland, kümmere mich um Updates, Sicherungen und Sicherheit und entwickle sie weiter, wenn neue Anforderungen dazukommen."
         }
       ]
     },
     "approach": {
       "title": "Vorgehen",
-      "note": "In der Entwicklung setze ich KI-Werkzeuge nach festen Regeln ein. Jede Änderung wird geprüft, getestet und von mir verantwortet.",
+      "note": "In der Entwicklung nutze ich moderne KI-Werkzeuge. Jede Änderung prüfe und verantworte ich selbst.",
       "items": [
         {
-          "title": "Anforderungsanalyse",
-          "text": "Ich nehme Ihre Prozesse auf, kläre Beteiligte, Datenflüsse und Rahmenbedingungen wie Datenschutz oder Barrierefreiheit."
+          "title": "Verstehen",
+          "text": "Wir sprechen darüber, wie Sie heute arbeiten, wo es hakt und wer beteiligt ist. Auch Datenschutz und Barrierefreiheit gehören von Anfang an dazu."
         },
         {
-          "title": "Fachkonzept und Architektur",
-          "text": "Datenmodell, Rollen- und Rechtekonzept, Schnittstellen und Betriebsmodell. Schriftlich dokumentiert, mit Aufwand und Meilensteinen."
+          "title": "Konzept",
+          "text": "Ich halte schriftlich fest, was die Anwendung können soll, wer was darf und wie sie in Ihre Abläufe passt, mit Aufwand und Zeitplan."
         },
         {
-          "title": "Iterative Entwicklung",
-          "text": "Umsetzung in Meilensteinen auf einer separaten Testumgebung. Sie prüfen jeden Stand, bevor er produktiv geht."
+          "title": "Entwicklung in Etappen",
+          "text": "Sie sehen früh einen funktionierenden Stand und testen jede Etappe, bevor sie live geht."
         },
         {
-          "title": "Qualitätssicherung",
-          "text": "Statische Typprüfung, Validierung aller Eingaben, Sicherheits- und Barrierefreiheitsprüfungen vor jedem Release."
+          "title": "Prüfung",
+          "text": "Vor jeder Veröffentlichung prüfe ich Sicherheit, Barrierefreiheit und die wichtigsten Abläufe."
         },
         {
-          "title": "Inbetriebnahme und Übergabe",
-          "text": "Deployment, technische und fachliche Dokumentation, Einweisung Ihrer Mitarbeitenden."
+          "title": "Übergabe",
+          "text": "Ihr Team bekommt eine verständliche Anleitung und eine persönliche Einweisung."
         },
         {
-          "title": "Betrieb und Weiterentwicklung",
-          "text": "Wartung, Monitoring und neue Funktionen auf Basis eines Servicevertrags."
+          "title": "Begleitung",
+          "text": "Ich bleibe Ihre Ansprechpartnerin für Betrieb, Wartung und Weiterentwicklung."
         }
       ]
     },
@@ -386,20 +386,20 @@
       "title": "Grundsätze",
       "items": [
         {
-          "title": "Datenhoheit",
-          "text": "Hosting in Deutschland, keine unnötige Abhängigkeit von US-Cloud-Diensten. Sie wissen jederzeit, wo Ihre Daten liegen."
+          "title": "Ihre Daten in Deutschland",
+          "text": "Ihre Anwendung läuft auf Servern in Deutschland. Sie wissen, wo Ihre Daten liegen und wer darauf zugreifen kann."
         },
         {
-          "title": "Security by Design",
-          "text": "Zugriffskontrolle, Eingabevalidierung, Begrenzung von Anfragen und verschlüsselte Übertragung sind Teil der Architektur, nicht nachträglich ergänzt."
+          "title": "Sicherheit von Anfang an",
+          "text": "Wer was sehen und ändern darf, lege ich fest, bevor die erste Oberfläche entsteht."
         },
         {
-          "title": "Wartbarkeit",
-          "text": "TypeScript, etablierte Standards und vollständige Dokumentation. Der Quellcode gehört Ihnen."
+          "title": "Keine Abhängigkeit",
+          "text": "Quellcode und Dokumentation gehören Ihnen. Ich arbeite mit verbreiteter Technik, damit auch andere daran weiterarbeiten können."
         },
         {
           "title": "KI mit Augenmaß",
-          "text": "Einsatz nur mit klarem Nutzen, transparenter Datenverarbeitung und menschlicher Kontrolle."
+          "text": "KI setze ich nur ein, wo sie erkennbar hilft, und nie ohne menschliche Kontrolle."
         }
       ]
     },
@@ -408,26 +408,26 @@
       "cta": "Erstgespräch vereinbaren",
       "items": [
         {
-          "title": "Erstgespräch (30 Minuten, kostenfrei)",
-          "text": "Sie schildern Ihr Vorhaben, ich gebe eine erste fachliche Einschätzung."
+          "title": "Erstgespräch",
+          "text": "30 Minuten, kostenfrei. Sie schildern Ihr Vorhaben, ich gebe Ihnen eine erste Einschätzung."
         },
         {
           "title": "Konzeptphase",
-          "text": "Ergebnis ist ein Fachkonzept mit Funktionsumfang, Architektur, Aufwand und Zeitplan, auch als Grundlage für Förder- oder Haushaltsanträge. Umfang und Kosten stimmen wir vorab miteinander ab."
+          "text": "Daraus entsteht ein schriftliches Konzept mit Funktionsumfang, Aufwand und Zeitplan, das sich auch für Förder- oder Haushaltsanträge eignet. Umfang und Kosten stimmen wir vorab ab."
         },
         {
           "title": "Umsetzung",
-          "text": "Verbindliches Angebot, Abrechnung nach Meilensteinen. Für öffentliche Auftraggeber auch über mehrere Haushaltsjahre."
+          "text": "Auf Grundlage eines verbindlichen Angebots, abgerechnet nach Etappen. Für öffentliche Auftraggeber auch über mehrere Haushaltsjahre."
         },
         {
-          "title": "Servicevertrag",
-          "text": "Betrieb, Wartung und Weiterentwicklung mit vereinbarten Reaktionszeiten und Kontingent."
+          "title": "Betreuung",
+          "text": "Betrieb, Wartung und Weiterentwicklung regeln wir in einem Servicevertrag mit vereinbarten Reaktionszeiten."
         }
       ]
     },
     "profile": {
-      "title": "Von der Sprache zum Code",
-      "text": "Ich habe Romanistik und Übersetzungswissenschaft studiert und sechs Jahre als selbständige Übersetzerin gearbeitet. Seit 2023 entwickle ich Software, heute von der Anforderungsanalyse bis zum Serverbetrieb. Die Kernkompetenz ist geblieben: Anforderungen genau verstehen und präzise in eine funktionierende Lösung übertragen.",
+      "title": "Mein Weg",
+      "text": "Ich habe Romanistik und Übersetzen studiert und sechs Jahre als selbständige Übersetzerin gearbeitet. 2022 bin ich in die Softwareentwicklung gewechselt. Geblieben ist, was ich beim Übersetzen gelernt habe: erst genau zuhören, dann sorgfältig übertragen.",
       "link": "Zum Profil"
     },
     "faq": {

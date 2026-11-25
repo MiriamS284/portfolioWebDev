@@ -1,5 +1,8 @@
 # Relaunch miriamsparbrod.dev – Texte (DE + EN)
 
+> **Stand 25.11.2026:** Die Seitentexte wurden sprachlich überarbeitet (problemorientiert, ohne Technik-Begriffe auf der Startseite). Maßgeblich sind jetzt `messages/de.json` und `messages/en.json`. Diese Datei dient nur noch als Hintergrund.
+
+
 Quelle für alle Texte der Neupositionierung. Platzhalter in [eckigen Klammern] NICHT erfinden, sondern als TODO stehen lassen.
 
 **Layout-Regel:** Das Layout bleibt exakt gleich. Neue Inhalte kommen in bestehende Bausteine:

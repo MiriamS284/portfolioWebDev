@@ -39,9 +39,9 @@
   },
   "heroShowcase": {
     "intro": "Understand the problem. Solve it in software.",
-    "line1": "I develop business applications, apps and AI features for small and medium-sized enterprises and organisations.",
-    "line2": "With clear access rights, multilingual where needed, and securely operated on servers in Germany.",
-    "philosophy1": "I analyse your processes, build the software and keep it running securely.",
+    "line1": "I develop software for small and medium-sized enterprises and organisations whose workflows do not fit any standard solution.",
+    "line2": "It often starts with scattered information, data maintained twice over, or documents sent back and forth by email.",
+    "philosophy1": "First, I get a clear picture of how you work. From that comes an application that takes over this work, and I look after it after launch too.",
     "philosophy2": "From language to code: I used to translate between languages and cultures; today I translate human language into the language of software.",
     "tags": [
       "BusinessApplications",
@@ -77,10 +77,10 @@
     "subtitle": "Software developer for business applications, apps and AI integration",
     "block1Title": "From language to code",
     "block1P1": "I studied Romance languages and translation in Jena and then lived and worked in Argentina, Uruguay and Chile. From 2017 to 2023 I worked as a self-employed translator in Berlin: with binding deadlines, confidential documents and clients who relied on me.",
-    "block1P2": "I began developing software in 2022. Today I am responsible for projects from requirements analysis to server operations, including a specialist portal for a district administration with role-based access control and a multi-tenant platform for coaches. I used to translate between languages and cultures; today I translate human language into the language of software. The attitude has stayed the same: understand precisely first, then carry it over with care.",
+    "block1P2": "I began developing software in 2022. Today I look after projects from the first conversation to ongoing operation, including a specialist portal for a district administration with a protected area for professionals and a platform for coaches that is now growing to serve several users. The attitude from translation has stayed: understand precisely first, then carry it over with care.",
     "block2Title": "How I work and where I'm heading",
-    "block2P1": "You talk to the person who writes the code, from the first analysis to ongoing operation. I would rather choose the solid, maintainable solution than the spectacular one that nobody understands two years from now. I plan for security and data protection from the start, and the source code, documentation and access credentials belong to you.",
-    "block2P2": "My goal is to support companies and organisations over the long term: with software that grows with them, with my own infrastructure in Germany, which I am currently building, and with my own products such as the platform for coaches. Learning new technologies and understanding them thoroughly is not a duty for me; it is the reason I enjoy this work.",
+    "block2P1": "You talk to the person who develops your application, from the first conversation to ongoing operation. I would rather choose the solid, maintainable solution than the spectacular one that nobody understands two years from now. I plan for data protection from the start, and the source code, documentation and access credentials belong to you.",
+    "block2P2": "I want to support companies and organisations over the long term, with software that grows with them and with my own infrastructure in Germany, which I am currently building. I learn new technologies thoroughly and with enjoyment. For me, that is part of this work.",
     "keywords": [
       "BusinessApplications",
       "AIIntegration",
@@ -315,19 +315,19 @@
       "items": [
         {
           "title": "Business applications and portals",
-          "text": "Digitising processes that standard software cannot handle."
+          "text": "When information and responsibilities need to come together in one place."
         },
         {
-          "title": "Apps and SaaS products",
-          "text": "Client and member areas, multi-tenant."
+          "title": "Apps and platforms",
+          "text": "When clients or members need their own access."
         },
         {
           "title": "AI integration",
-          "text": "Language models where they deliver measurable relief."
+          "text": "When recurring work with texts and documents takes up too much time."
         },
         {
-          "title": "Operations and infrastructure",
-          "text": "Hosting in Germany, hardened and monitored."
+          "title": "Operations and support",
+          "text": "When software needs to run reliably and grow with you."
         }
       ]
     },
@@ -336,49 +336,49 @@
       "items": [
         {
           "title": "Business applications and portals",
-          "text": "I digitise business processes that standard software cannot handle: specialist portals with granular role and permission models, protected document areas, editorial workflows and interfaces to existing systems."
+          "text": "Many organisations work with a mix of spreadsheets, email lists and several websites. I bring this together in one application where each person sees and edits what belongs to their role. Your team maintains the content itself, and confidential documents stay protected."
         },
         {
-          "title": "Apps and SaaS products",
-          "text": "Client and member areas, scheduling and contract management, payment processing. Multi-tenant on request, so you can later offer your application as a product in its own right. I continue to develop it well beyond launch."
+          "title": "Apps and platforms",
+          "text": "Clients, members or participants should be able to keep track of appointments, documents and progress themselves instead of asking for everything by message. I build applications with their own access for this. If you wish, I set them up so you can later offer them to others too."
         },
         {
           "title": "AI integration",
-          "text": "I integrate large language models where they deliver measurable relief: analysing and classifying documents, drafting texts and replies, assistant features within existing applications. Privacy-compliant, traceable and with human approval at the decisive points."
+          "text": "Answering enquiries, reviewing documents, preparing texts: much of this repeats itself. I use language models where they noticeably shorten this work. The decision stays with you, and I handle sensitive data with particular care."
         },
         {
-          "title": "Operations and infrastructure",
-          "text": "I run your application on servers in Germany: containerised, hardened, with automated backups, monitoring and regular patch management. Administrative access is separately secured. Your data stays under your control."
+          "title": "Operations and support",
+          "text": "Launch is when real use begins. I run your application on servers in Germany, take care of updates, backups and security, and develop it further when new requirements come up."
         }
       ]
     },
     "approach": {
       "title": "Approach",
-      "note": "I use AI tools in development under strict rules. Every change is reviewed, tested and owned by me.",
+      "note": "I use modern AI tools in development. I review and take responsibility for every change myself.",
       "items": [
         {
-          "title": "Requirements analysis",
-          "text": "I map your processes, stakeholders, data flows and constraints such as data protection or accessibility."
+          "title": "Understand",
+          "text": "We talk about how you work today, where things get stuck and who is involved. Data protection and accessibility are part of this from the start."
         },
         {
-          "title": "Functional specification and architecture",
-          "text": "Data model, role and permission model, interfaces and operating model. Documented in writing, with effort and milestones."
+          "title": "Concept",
+          "text": "I set out in writing what the application should do, who may do what and how it fits into your workflows, with effort and timeline."
         },
         {
-          "title": "Iterative development",
-          "text": "Delivery in milestones on a separate staging environment. You review each stage before it goes live."
+          "title": "Development in stages",
+          "text": "You see a working version early and test every stage before it goes live."
         },
         {
-          "title": "Quality assurance",
-          "text": "Static type checking, validation of all inputs, security and accessibility checks before every release."
+          "title": "Review",
+          "text": "Before every release I check security, accessibility and the key workflows."
         },
         {
-          "title": "Go-live and handover",
-          "text": "Deployment, technical and user documentation, training for your staff."
+          "title": "Handover",
+          "text": "Your team receives clear instructions and a personal walkthrough."
         },
         {
-          "title": "Operations and further development",
-          "text": "Maintenance, monitoring and new features under a service agreement."
+          "title": "Ongoing support",
+          "text": "I remain your contact for operations, maintenance and further development."
         }
       ]
     },
@@ -386,20 +386,20 @@
       "title": "Principles",
       "items": [
         {
-          "title": "Data sovereignty",
-          "text": "Hosting in Germany, no unnecessary dependence on US cloud services. You always know where your data resides."
+          "title": "Your data in Germany",
+          "text": "Your application runs on servers in Germany. You know where your data is and who can access it."
         },
         {
-          "title": "Security by design",
-          "text": "Access control, input validation, rate limiting and encrypted transport are part of the architecture, not added later."
+          "title": "Security from the start",
+          "text": "I define who may see and change what before the first screen is built."
         },
         {
-          "title": "Maintainability",
-          "text": "TypeScript, established standards and complete documentation. The source code is yours."
+          "title": "No lock-in",
+          "text": "Source code and documentation belong to you. I use widely adopted technology so that others can continue the work."
         },
         {
           "title": "AI with judgement",
-          "text": "Used only where the benefit is clear, with transparent data processing and human oversight."
+          "text": "I only use AI where it clearly helps, and never without human oversight."
         }
       ]
     },
@@ -408,26 +408,26 @@
       "cta": "Book an initial consultation",
       "items": [
         {
-          "title": "Initial consultation (30 minutes, free of charge)",
-          "text": "You outline your project; I provide an initial professional assessment."
+          "title": "Initial consultation",
+          "text": "30 minutes, free of charge. You outline your project and I give you a first assessment."
         },
         {
           "title": "Concept phase",
-          "text": "The result is a functional specification covering scope, architecture, effort and timeline, also suitable as a basis for funding or budget applications. We agree on scope and cost beforehand."
+          "text": "This produces a written concept covering scope, effort and timeline, which also works for funding or budget applications. We agree on scope and cost beforehand."
         },
         {
           "title": "Development",
-          "text": "A binding quote, invoiced by milestone. For public-sector clients, also across several budget years."
+          "text": "Based on a binding quote, invoiced by stage. For public-sector clients, also across several budget years."
         },
         {
-          "title": "Service agreement",
-          "text": "Operations, maintenance and further development with agreed response times and a set number of hours."
+          "title": "Support",
+          "text": "Operations, maintenance and further development are covered by a service agreement with agreed response times."
         }
       ]
     },
     "profile": {
-      "title": "From language to code",
-      "text": "I studied Romance languages and translation and worked as a self-employed translator for six years. Since 2023 I have been developing software, today from requirements analysis to server operations. The core skill has remained the same: understanding requirements precisely and translating them into a solution that works.",
+      "title": "My path",
+      "text": "I studied Romance languages and translation and worked as a self-employed translator for six years. In 2022 I moved into software development. What I learned as a translator has stayed with me: listen closely first, then carry it over with care.",
       "link": "View profile"
     },
     "faq": {
