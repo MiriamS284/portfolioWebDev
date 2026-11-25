@@ -108,7 +108,7 @@
     "messagePlaceholder": "Briefly describe your current situation and objective.",
     "submit": "Send enquiry",
     "sending": "Sending …",
-    "success": "Thank you for your enquiry. You will receive a response within one working day.",
+    "success": "Thank you for your enquiry. I will get back to you shortly.",
     "error": "Your enquiry could not be sent. Please try again.",
     "validation": {
       "minChars": "At least {count} characters",
@@ -118,7 +118,7 @@
       "phone": "Please enter a valid phone number"
     },
     "metaTitle": "Contact – Miriam Sparbrod",
-    "metaDescription": "Tell me about your project: business applications, apps, AI integration or operations. Response within one working day.",
+    "metaDescription": "Tell me about your project: business applications, apps, AI integration or operations. I will get back to you shortly.",
     "phone": "Phone",
     "projectType": "Type of project",
     "projectTypePlaceholder": "Please select",
@@ -412,8 +412,8 @@
           "text": "You outline your project; I provide an initial professional assessment."
         },
         {
-          "title": "Concept phase (fixed fee, credited upon commission)",
-          "text": "The result is a functional specification covering scope, architecture, effort and timeline, also suitable as a basis for funding or budget applications."
+          "title": "Concept phase",
+          "text": "The result is a functional specification covering scope, architecture, effort and timeline, also suitable as a basis for funding or budget applications. We agree on scope and cost beforehand."
         },
         {
           "title": "Development",

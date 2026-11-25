@@ -76,7 +76,7 @@ Label: Grundsätze
 Label: Zusammenarbeit
 
 - **Erstgespräch (30 Minuten, kostenfrei)** – Sie schildern Ihr Vorhaben, ich gebe eine erste fachliche Einschätzung.
-- **Konzeptphase (Festpreis, bei Beauftragung angerechnet)** – Ergebnis ist ein Fachkonzept mit Funktionsumfang, Architektur, Aufwand und Zeitplan, auch als Grundlage für Förder- oder Haushaltsanträge.
+- **Konzeptphase** – Ergebnis ist ein Fachkonzept mit Funktionsumfang, Architektur, Aufwand und Zeitplan, auch als Grundlage für Förder- oder Haushaltsanträge. Umfang und Kosten stimmen wir vorab miteinander ab.
 - **Umsetzung** – Verbindliches Angebot, Abrechnung nach Meilensteinen. Für öffentliche Auftraggeber auch über mehrere Haushaltsjahre.
 - **Servicevertrag** – Betrieb, Wartung und Weiterentwicklung mit vereinbarten Reaktionszeiten und Kontingent.
 
@@ -195,7 +195,7 @@ Label: Principles
 Label: Working together
 
 - **Initial consultation (30 minutes, free of charge)** – You outline your project; I provide an initial professional assessment.
-- **Concept phase (fixed fee, credited upon commission)** – The result is a functional specification covering scope, architecture, effort and timeline, also suitable as a basis for funding or budget applications.
+- **Concept phase** – The result is a functional specification covering scope, architecture, effort and timeline, also suitable as a basis for funding or budget applications. We agree on scope and cost beforehand.
 - **Development** – A binding quote, invoiced by milestone. For public-sector clients, also across several budget years.
 - **Service agreement** – Operations, maintenance and further development with agreed response times and a set number of hours.
 

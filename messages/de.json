@@ -108,7 +108,7 @@
     "messagePlaceholder": "Beschreiben Sie kurz Ausgangslage und Ziel.",
     "submit": "Anfrage senden",
     "sending": "Wird gesendet …",
-    "success": "Vielen Dank für Ihre Anfrage. Sie erhalten innerhalb eines Werktags eine Rückmeldung.",
+    "success": "Vielen Dank für Ihre Anfrage. Ich melde mich zeitnah bei Ihnen.",
     "error": "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
     "validation": {
       "minChars": "Mindestens {count} Zeichen",
@@ -118,7 +118,7 @@
       "phone": "Bitte eine gültige Telefonnummer angeben"
     },
     "metaTitle": "Kontakt – Miriam Sparbrod",
-    "metaDescription": "Beschreiben Sie Ihr Vorhaben: Fachanwendungen, Apps, KI-Integration oder Betrieb. Rückmeldung innerhalb eines Werktags.",
+    "metaDescription": "Beschreiben Sie Ihr Vorhaben: Fachanwendungen, Apps, KI-Integration oder Betrieb. Ich melde mich zeitnah bei Ihnen.",
     "phone": "Telefon",
     "projectType": "Art des Vorhabens",
     "projectTypePlaceholder": "Bitte auswählen",
@@ -412,8 +412,8 @@
           "text": "Sie schildern Ihr Vorhaben, ich gebe eine erste fachliche Einschätzung."
         },
         {
-          "title": "Konzeptphase (Festpreis, bei Beauftragung angerechnet)",
-          "text": "Ergebnis ist ein Fachkonzept mit Funktionsumfang, Architektur, Aufwand und Zeitplan, auch als Grundlage für Förder- oder Haushaltsanträge."
+          "title": "Konzeptphase",
+          "text": "Ergebnis ist ein Fachkonzept mit Funktionsumfang, Architektur, Aufwand und Zeitplan, auch als Grundlage für Förder- oder Haushaltsanträge. Umfang und Kosten stimmen wir vorab miteinander ab."
         },
         {
           "title": "Umsetzung",
