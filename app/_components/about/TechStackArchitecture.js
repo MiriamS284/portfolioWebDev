@@ -28,6 +28,7 @@ export default function TechStackArchitecture() {
         { name: "Tailwind CSS", url: "https://tailwindcss.com/" },
         { name: "Framer Motion", url: "https://www.framer.com/motion/" },
         { name: "Chakra UI", url: "https://chakra-ui.com/" },
+        { name: "next-intl (i18n)", url: "https://next-intl.dev/" },
       ],
     },
     {
@@ -51,6 +52,9 @@ export default function TechStackArchitecture() {
         { name: "NestJS", url: "https://nestjs.com/" },
         { name: "GraphQL", url: "https://graphql.org/" },
         { name: "REST APIs", url: "https://restfulapi.net/" },
+        { name: "json:api", url: "https://jsonapi.org/" },
+        { name: "Stripe", url: "https://stripe.com/" },
+        { name: "Resend", url: "https://resend.com/" },
       ],
     },
     {
@@ -65,6 +69,19 @@ export default function TechStackArchitecture() {
         { name: "Supabase", url: "https://supabase.com/" },
         { name: "Contentful", url: "https://www.contentful.com/" },
         { name: "Strapi", url: "https://strapi.io/" },
+        { name: "Prisma", url: "https://www.prisma.io/" },
+        { name: "Neon", url: "https://neon.tech/" },
+        { name: "Payload CMS", url: "https://payloadcms.com/" },
+      ],
+    },
+    {
+      layer: "AI Integration",
+      technologies: [
+        { name: "Claude API", url: "https://docs.claude.com/" },
+        { name: "Model Context Protocol (MCP)", url: "https://modelcontextprotocol.io/" },
+        { name: "Vercel AI SDK", url: "https://ai-sdk.dev/" },
+        { name: "pgvector", url: "https://github.com/pgvector/pgvector" },
+        { name: "Prompt Engineering", url: "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview" },
       ],
     },
     {
@@ -72,6 +89,9 @@ export default function TechStackArchitecture() {
       technologies: [
         { name: "Vercel", url: "https://vercel.com/" },
         { name: "Docker", url: "https://www.docker.com/" },
+        { name: "Docker Compose", url: "https://docs.docker.com/compose/" },
+        { name: "Coolify", url: "https://coolify.io/" },
+        { name: "Let's Encrypt", url: "https://letsencrypt.org/" },
         { name: "Kubernetes", url: "https://kubernetes.io/" },
         { name: "AWS", url: "https://aws.amazon.com/" },
         { name: "GitHub Actions", url: "https://github.com/features/actions" },
@@ -84,6 +104,7 @@ export default function TechStackArchitecture() {
       name: "Testing",
       items: [
         { name: "Jest", url: "https://jestjs.io/" },
+        { name: "Vitest", url: "https://vitest.dev/" },
         { name: "Mocha", url: "https://mochajs.org/" },
         { name: "Cypress", url: "https://www.cypress.io/" },
         { name: "Playwright", url: "https://playwright.dev/" },
@@ -99,14 +120,25 @@ export default function TechStackArchitecture() {
         { name: "OWASP ZAP", url: "https://www.zaproxy.org/" },
         { name: "Sentry", url: "https://sentry.io/" },
         { name: "Helmet.js", url: "https://helmetjs.github.io/" },
+        { name: "OWASP Top 10", url: "https://owasp.org/www-project-top-ten/" },
+        { name: "Zod", url: "https://zod.dev/" },
+        { name: "Auth.js", url: "https://authjs.dev/" },
+        { name: "Row Level Security", url: "https://www.postgresql.org/docs/current/ddl-rowsecurity.html" },
       ],
     },
     {
-      name: "AI & Automation",
+      name: "AI-assisted Development",
       items: [
-        { name: "Claude Code", url: "https://claude.ai/" },
+        { name: "Claude Code", url: "https://claude.com/claude-code" },
         { name: "GitHub Copilot", url: "https://github.com/features/copilot" },
-        { name: "json:api", url: "https://jsonapi.org/" },
+      ],
+    },
+    {
+      name: "Accessibility",
+      items: [
+        { name: "WCAG 2.2", url: "https://www.w3.org/TR/WCAG22/" },
+        { name: "BITV 2.0", url: "https://www.gesetze-im-internet.de/bitv_2_0/" },
+        { name: "axe DevTools", url: "https://www.deque.com/axe/devtools/" },
       ],
     },
   ];

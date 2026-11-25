@@ -41,6 +41,7 @@ export default function Footer() {
               <FooterLink href="/garden">Digital Garden</FooterLink>
               <FooterLink href="/case-studies">Case Studies</FooterLink>
               <FooterLink href="/snippets">Code Snippets</FooterLink>
+              <FooterLink href="/contact#faq">{t("faq")}</FooterLink>
             </nav>
           </div>
 
@@ -66,7 +67,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-[var(--border)] flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-60">
-          <div>© {currentYear} Miriam Sparbrod. All rights reserved.</div>
+          <div>© {currentYear} Miriam Sparbrod. {t("rights")}</div>
           <div className="flex gap-6">
             <Link
               href="/imprint"

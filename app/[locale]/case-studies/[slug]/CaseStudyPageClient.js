@@ -9,6 +9,7 @@ import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
 import Breadcrumb from "@/app/_components/shared/Breadcrumb";
 import CategoryBadge from "@/app/_components/shared/CategoryBadge";
+import { categoryTitle } from "@/lib/utils/categoryTitle";
 
 export default function CaseStudyPageClient({ post }) {
   const locale = useLocale();
@@ -37,7 +38,7 @@ export default function CaseStudyPageClient({ post }) {
                 {post.categories.map((cat) => (
                   <CategoryBadge
                     key={cat.slug?.current || cat.title}
-                    title={cat.title}
+                    title={categoryTitle(cat, locale)}
                   />
                 ))}
               </div>

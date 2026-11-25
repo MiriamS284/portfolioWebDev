@@ -1,12 +1,27 @@
-"use client";
-
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import MenuDock from "@/app/_components/layout/MenuDock";
 import Footer from "@/app/_components/layout/Footer";
 import BackLink from "@/app/_components/shared/BackLink";
 import AboutHero from "@/app/_components/about/AboutHero";
 import TechStackArchitecture from "@/app/_components/about/TechStackArchitecture";
 
-export default function AboutPage() {
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "about" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: {
+      canonical: `/${locale}/about`,
+      languages: { de: "/de/about", en: "/en/about", "x-default": "/de/about" },
+    },
+  };
+}
+
+export default async function AboutPage({ params }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <>
       <MenuDock />

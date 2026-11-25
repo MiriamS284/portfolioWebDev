@@ -1,5 +1,6 @@
 {
   "css.customData": [],
   "css.lint.unknownAtRules": "ignore",
-  "scss.lint.unknownAtRules": "ignore"
+  "scss.lint.unknownAtRules": "ignore",
+  "i18n-ally.localesPaths": ["i18n", "messages"]
 }

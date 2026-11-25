@@ -3,13 +3,12 @@
 import { useTranslations, useLocale } from "next-intl";
 import ProjectsColumn from "./ProjectsColumn";
 import WritingColumn from "./WritingColumn";
-import SnippetsColumn from "./SnippetsColumn";
+import ServicesColumn from "./ServicesColumn";
 import ThoughtsColumn from "./ThoughtsColumn";
 
 export default function HomeContentGrid({
   projects,
   posts,
-  snippets,
   thoughts,
 }) {
   const t = useTranslations("home");
@@ -28,7 +27,7 @@ export default function HomeContentGrid({
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-8">
           <ProjectsColumn projects={projects} locale={locale} />
           <WritingColumn posts={posts} locale={locale} />
-          <SnippetsColumn snippets={snippets} locale={locale} />
+          <ServicesColumn />
           <ThoughtsColumn thoughts={thoughts} locale={locale} />
         </div>
       </div>

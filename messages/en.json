@@ -1,17 +1,19 @@
 {
   "navigation": {
-    "about": "ABOUT",
-    "projects": "PROJECTS",
+    "about": "PROFILE",
+    "projects": "REFERENCES",
     "caseStudies": "CASE STUDIES"
   },
   "footer": {
-    "role": "Full-Stack Developer",
-    "tagline": "I translate complex ideas into performant web applications.",
+    "role": "Software Developer",
+    "tagline": "Custom software, AI integration and operations. Based in Thuringia, working for companies and organisations.",
     "nav": "Navigation",
-    "about": "About",
-    "projects": "Projects",
+    "about": "Profile",
+    "projects": "References",
     "imprint": "Imprint",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "rights": "All rights reserved.",
+    "faq": "FAQ"
   },
   "menu": {
     "label": "MENU",
@@ -19,29 +21,35 @@
     "close": "Close",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "about": "About",
-    "projects": "Projects",
-    "projectsSub": "Case Studies & Work",
+    "about": "Profile",
+    "projects": "References",
+    "projectsSub": "Client projects and own products",
     "garden": "Digital Garden",
-    "gardenSub": "Growing thoughts",
+    "gardenSub": "Articles and notes",
     "blog": "Case - Studies & Tutorials",
     "blogSub": "Articles & Tutorials",
     "snippets": "Code Snippets",
     "snippetsSub": "Reusable code examples",
     "contact": "Contact",
-    "contactSub": "Let's work together"
+    "contactSub": "Discuss your project"
   },
   "home": {
     "index": "Index",
     "contact": "Contact"
   },
   "heroShowcase": {
-    "intro": "Full-Stack Developer.",
-    "line1": "Crafting digital solutions. Building polished software and web experiences.",
-    "line2": "From language to code - transforming concepts into performant systems.",
-    "philosophy1": "Developing skill through doing, guiltlessly exploring passion for technology, imbuing quality. Mindful that every system is someone's vision realized.",
-    "philosophy2": "All I want to do is build full-stack solutions. Frontend architecture, backend systems, API design, performance - development is an endless medium of opportunity and creativity of which I've only scratched the surface.",
-    "automation": "Automation"
+    "intro": "Understand the problem. Solve it in software.",
+    "line1": "I develop software for small and medium-sized enterprises and organisations whose workflows do not fit any standard solution.",
+    "line2": "It often starts with scattered information, data maintained twice over, or documents sent back and forth by email.",
+    "philosophy1": "I start by getting a clear picture of how you work. From that, I build an application that supports this work. After go-live, I remain your point of contact for day-to-day questions, updates and further development.",
+    "philosophy2": "From language to code: I used to translate between languages and cultures; today I translate human language into the language of software.",
+    "tags": [
+      "BusinessApplications",
+      "AIIntegration",
+      "DigitalTransformation",
+      "HostedInGermany",
+      "Privacy"
+    ]
   },
   "whoIAm": {
     "eyebrow": "Full-Stack Developer",
@@ -58,49 +66,79 @@
   "breadcrumb": {
     "projects": "Projects",
     "caseStudies": "Case Studies",
+    "case-studies": "Case Studies",
     "garden": "Digital Garden",
     "snippets": "Code Snippets"
   },
   "about": {
-    "greeting": "Hi, I'm Miriam",
-    "subtitle": "Full-Stack Developer",
-    "block1Title": "From Language to Code",
-    "block1P1": "From translation to web development – my journey began with a fascination for languages, both human and digital. I am passionate about developing and transforming ideas into digital experiences.",
-    "block1P2": "What drives me? The ability to translate needs and visions into digital applications, simplify processes and ensure efficient workflows.",
-    "block2Title": "My Approach",
-    "block2P1": "My focus is on the MERN stack (MongoDB, Express, React, Node.js), which enables me to build seamless full-stack applications. Over the past two years, I've been working intensively with React and Next.js.",
-    "block2P2": "I'm particularly passionate about developing SaaS solutions: products that solve real problems, scale effectively, and support people in their work."
+    "metaTitle": "Profile – Miriam Sparbrod, Software Developer",
+    "metaDescription": "Software developer for business applications, apps and AI integration. Trained translator, developing software since 2022, hosting in Germany.",
+    "greeting": "Miriam Sparbrod",
+    "subtitle": "Software developer for business applications, apps and AI integration",
+    "block1Title": "From language to code",
+    "block1P1": "I studied Romance languages and translation in Jena and then lived and worked in Argentina, Uruguay and Chile. From 2017 to 2023 I worked as a self-employed translator in Berlin: with binding deadlines, confidential documents and clients who relied on me.",
+    "block1P2": "I began developing software in 2022. Today I look after projects from the first conversation to ongoing operation, including a specialist portal for a district administration with a protected area for professionals and a platform for coaches that is now growing to serve several users. The attitude from translation has stayed: understand precisely first, then carry it over with care.",
+    "block2Title": "How I work and where I'm heading",
+    "block2P1": "You talk to the person who develops your application, from the first conversation to ongoing operation. I would rather choose the solid, maintainable solution than the spectacular one that nobody understands two years from now. I plan for data protection from the start, and the source code, documentation and access credentials belong to you.",
+    "block2P2": "I want to support companies and organisations over the long term, with software that grows with them and with my own infrastructure in Germany, which I am currently building. I learn new technologies thoroughly and with enjoyment. For me, that is part of this work.",
+    "keywords": [
+      "BusinessApplications",
+      "AIIntegration",
+      "Multilingual",
+      "Privacy",
+      "LifelongLearning"
+    ]
   },
   "techStack": {
     "title": "Tech Stack",
-    "subtitle": "Full-Stack Architecture",
+    "subtitle": "Technologies and tools I work with and keep deepening.",
     "crossCutting": "Cross-Cutting Concerns",
     "tools": "Tools & Resources"
   },
   "contact": {
     "label": "Contact",
-    "title": "Let's work together",
+    "title": "Your project",
     "firstName": "First name",
     "lastName": "Last name",
-    "company": "Company",
+    "company": "Company / organisation",
     "companyOptional": "optional",
     "email": "Email",
-    "emailHint": "email is still in",
+    "emailHint": "",
     "message": "Message",
-    "messagePlaceholder": "Tell me about your project...",
-    "submit": "Send message",
-    "sending": "Sending...",
-    "success": "Message sent! Thank you! I'll get back to you soon.",
-    "error": "Something went wrong. Please try again.",
+    "messagePlaceholder": "Briefly describe your current situation and objective.",
+    "submit": "Send enquiry",
+    "sending": "Sending …",
+    "success": "Thank you for your enquiry. I will get back to you shortly.",
+    "error": "Your enquiry could not be sent. Please try again.",
     "validation": {
       "minChars": "At least {count} characters",
-      "invalidEmail": "Invalid email address"
-    }
+      "invalidEmail": "Invalid email address",
+      "required": "Please select an option",
+      "privacy": "Please agree to the processing of your data",
+      "phone": "Please enter a valid phone number"
+    },
+    "metaTitle": "Contact – Miriam Sparbrod",
+    "metaDescription": "Tell me about your project: business applications, apps, AI integration or operations. I will get back to you shortly.",
+    "phone": "Phone",
+    "projectType": "Type of project",
+    "projectTypePlaceholder": "Please select",
+    "projectTypes": {
+      "portal": "Business application, CRM or portal",
+      "app": "Platform or mobile application",
+      "ai": "AI and automation",
+      "website": "Website with a custom CMS",
+      "hosting": "Operations and hosting",
+      "existing": "Replacing or developing existing software",
+      "open": "Not sure yet"
+    },
+    "privacyText": "I agree that my details will be stored in order to process my enquiry. More in the",
+    "privacyLink": "privacy policy",
+    "newTab": "(opens in a new tab)"
   },
   "projects": {
-    "title": "Projects",
-    "description": "A selection of my work",
-    "viewAll": "All projects",
+    "title": "References",
+    "description": "Client projects and own products in business applications, apps and AI integration.",
+    "viewAll": "All references",
     "noResults": "No projects found."
   },
   "projectDetail": {
@@ -147,8 +185,8 @@
     }
   },
   "thoughts": {
-    "title": "Thoughts",
-    "viewAll": "All thoughts"
+    "title": "Articles",
+    "viewAll": "All articles"
   },
   "snippets": {
     "title": "Snippets",
@@ -260,13 +298,182 @@
     "section7Text": "No automated profiling of your personal data takes place on this website. The collected data is used exclusively for the purposes stated in this privacy policy."
   },
   "metadata": {
-    "title": "Miriam Sparbrod – Full-Stack Developer",
-    "description": "Full-Stack Developer specializing in SaaS solutions, automation, full-stack applications for modern businesses."
+    "title": "Miriam Sparbrod – Custom Software & AI Integration",
+    "description": "Web-based business applications, apps and AI integrations for SMEs and organisations. Designed, built and securely operated in Germany.",
+    "ogTitle": "Understand the problem. Solve it in software."
   },
   "cookies": {
     "message": "This website uses cookies for analytics.",
     "learnMore": "Learn more",
     "accept": "Accept",
     "decline": "Decline"
+  },
+  "homeSections": {
+    "servicesShort": {
+      "title": "Services",
+      "viewAll": "More about my services",
+      "items": [
+        {
+          "title": "Business applications and CRM",
+          "text": "When customer data, cases and responsibilities need to come together in one place."
+        },
+        {
+          "title": "Portals and platforms",
+          "text": "When customers, members or partners need their own access."
+        },
+        {
+          "title": "Mobile applications",
+          "text": "When work, lookups or data entry happen on the go."
+        },
+        {
+          "title": "Replacing existing systems",
+          "text": "When spreadsheets and patchwork solutions reach their limits."
+        },
+        {
+          "title": "AI and automation",
+          "text": "When recurring work with texts, documents and routine tasks takes up too much time."
+        },
+        {
+          "title": "Maintenance and further development",
+          "text": "When software needs to run reliably and grow with you."
+        }
+      ]
+    },
+    "services": {
+      "title": "What I build for you",
+      "items": [
+        {
+          "title": "Business applications and CRM",
+          "text": "Many organisations work with a mix of spreadsheets, email lists and several separate programs. I build digital tools tailored to your processes: your own customer management, case handling, quotes and invoices, or a specialist portal where everyone sees and edits what belongs to their role. The application is designed to grow with your organisation."
+        },
+        {
+          "title": "Portals and platforms",
+          "text": "Customers, members or business partners should be able to keep track of appointments, documents and progress themselves, without having to ask for everything by message. For this, I build portals with their own login and clearly defined permissions, such as customer, member or booking portals, up to platforms that bring several providers together. On request, I build them multi-tenant, so you can later offer them to others as well."
+        },
+        {
+          "title": "Mobile applications",
+          "text": "People who work on the go need the key information on their phone. I build web apps that work on any device and can be added to the home screen like an app. No detour through app stores is needed, and updates are available to everyone immediately."
+        },
+        {
+          "title": "Replacing existing systems",
+          "text": "Spreadsheets that only one person really understands, a website whose content is tedious to maintain, or several programs that aren't connected: I carefully migrate your existing data into a new application and plan the switch so that your day-to-day work can continue. Afterwards, you manage your content yourself, in an admin area that fits your needs."
+        },
+        {
+          "title": "AI and automation",
+          "text": "Answering enquiries, reviewing documents, drafting texts, transferring data from one system to the next: much of this is repetitive. I integrate language models and automation where they noticeably shorten this work, including in existing applications. The decision stays with you, and I handle sensitive data with particular care."
+        },
+        {
+          "title": "Maintenance and further development",
+          "text": "Go-live is where an application's everyday use begins. During the first weeks, I support the rollout, answer your team's questions and adjust what only becomes apparent in practice. After that, I take care of updates, security and backups, and develop the application further as your processes change. On request, I host it on servers in Germany. I also take over applications built by others, after a thorough review."
+        }
+      ]
+    },
+    "approach": {
+      "title": "Approach",
+      "note": "I use modern AI tools in development. I review and take responsibility for every change myself.",
+      "items": [
+        {
+          "title": "Understand",
+          "text": "We talk about how you work today, where things get stuck and who is involved. Data protection and accessibility are part of this from the start."
+        },
+        {
+          "title": "Concept",
+          "text": "I set out in writing what the application should do, who may do what and how it fits into your workflows, with effort and timeline."
+        },
+        {
+          "title": "Development in stages",
+          "text": "You see a working version early and test every stage before it goes live."
+        },
+        {
+          "title": "Review",
+          "text": "Before every release I check security, accessibility and the key workflows."
+        },
+        {
+          "title": "Handover",
+          "text": "Your team receives clear instructions and a personal walkthrough."
+        },
+        {
+          "title": "Ongoing support",
+          "text": "After launch, I stay available. I gather feedback from daily use and implement the improvements that genuinely help."
+        }
+      ]
+    },
+    "principles": {
+      "title": "Principles",
+      "items": [
+        {
+          "title": "Your data in Germany",
+          "text": "Your application runs on servers in Germany. You know where your data is and who can access it."
+        },
+        {
+          "title": "Security from the start",
+          "text": "I define who may see and change what before the first screen is built."
+        },
+        {
+          "title": "No lock-in",
+          "text": "Source code and documentation belong to you. I use widely adopted technology so that others can continue the work."
+        },
+        {
+          "title": "AI with judgement",
+          "text": "I only use AI where it clearly helps, and never without human oversight."
+        }
+      ]
+    },
+    "collaboration": {
+      "title": "Working together",
+      "cta": "Book an initial consultation",
+      "items": [
+        {
+          "title": "Initial consultation",
+          "text": "30 minutes, free of charge. You outline your project and I give you a first assessment."
+        },
+        {
+          "title": "Concept phase",
+          "text": "This produces a written concept covering scope, effort and timeline, which also works for funding or budget applications. We agree on scope and cost beforehand."
+        },
+        {
+          "title": "Development",
+          "text": "Based on a binding quote, invoiced by stage. For public-sector clients, also across several budget years."
+        },
+        {
+          "title": "Support",
+          "text": "After go-live, you keep one point of contact who knows your application inside out. Updates, security and further development are covered by a service agreement with agreed response times, or billed by effort."
+        }
+      ]
+    },
+    "profile": {
+      "title": "My path",
+      "text": "I studied Romance languages and translation and worked as a self-employed translator for six years. In 2022 I moved into software development. What I learned as a translator has stayed with me: listen closely first, then carry it over with care.",
+      "link": "View profile"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "title": "Do you also build websites?",
+          "text": "Yes, when they need to do more than serve as a digital business card: with a custom CMS, interactive features or as part of an application. My focus is software that solves a specific problem."
+        },
+        {
+          "title": "Where is our data stored?",
+          "text": "On servers in Germany. Data protection and data processing agreements are planned from the outset."
+        },
+        {
+          "title": "How do you handle sensitive data with AI?",
+          "text": "I select providers and configurations so that your data is not used to train models. Where necessary, personal data is removed before processing, or processing does not take place externally at all."
+        },
+        {
+          "title": "Do we own the source code?",
+          "text": "Yes, including documentation. Other developers can continue the work."
+        },
+        {
+          "title": "Do you work for public-sector clients?",
+          "text": "Yes. I am familiar with budget reservations and multi-year invoicing."
+        },
+        {
+          "title": "What does a project cost?",
+          "text": "The concept phase establishes this. You then receive a binding quote."
+        }
+      ]
+    }
   }
 }

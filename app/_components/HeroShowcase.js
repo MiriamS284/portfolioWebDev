@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 export default function HeroShowcase() {
   const t = useTranslations("heroShowcase");
 
-  const tags = ["SaaS", "MERN", "Next.js", "APIs", t("automation")];
+  const tags = t.raw("tags");
 
   return (
     <section

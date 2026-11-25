@@ -1,17 +1,19 @@
 {
   "navigation": {
-    "about": "ÜBER MICH",
-    "projects": "PROJEKTE",
+    "about": "PROFIL",
+    "projects": "REFERENZEN",
     "caseStudies": "CASE STUDIES"
   },
   "footer": {
-    "role": "Full-Stack Entwicklerin",
-    "tagline": "Ich übersetze komplexe Ideen in performante Web-Anwendungen.",
+    "role": "Softwareentwicklerin",
+    "tagline": "Individualsoftware, KI-Integration und Betrieb. Aus Thüringen, für Unternehmen und Organisationen.",
     "nav": "Navigation",
-    "about": "Über mich",
-    "projects": "Projekte",
+    "about": "Profil",
+    "projects": "Referenzen",
     "imprint": "Impressum",
-    "privacy": "Datenschutz"
+    "privacy": "Datenschutz",
+    "rights": "Alle Rechte vorbehalten.",
+    "faq": "Häufige Fragen"
   },
   "menu": {
     "label": "MENU",
@@ -19,29 +21,35 @@
     "close": "Schließen",
     "openMenu": "Menü öffnen",
     "closeMenu": "Menü schließen",
-    "about": "Über mich",
-    "projects": "Projekte",
-    "projectsSub": "Case Studies & Arbeiten",
+    "about": "Profil",
+    "projects": "Referenzen",
+    "projectsSub": "Kundenprojekte und eigene Produkte",
     "garden": "Digital Garden",
-    "gardenSub": "Gedanken die wachsen",
+    "gardenSub": "Fachbeiträge und Notizen",
     "blog": "Case - Studies & Tutorials",
     "blogSub": "Artikel & Tutorials",
     "snippets": "Code Snippets",
     "snippetsSub": "Wiederverwendbare Code-Beispiele",
     "contact": "Kontakt",
-    "contactSub": "Lass uns über eine Zusammenarbeit sprechen"
+    "contactSub": "Ihr Vorhaben besprechen"
   },
   "home": {
     "index": "Index",
     "contact": "Kontakt"
   },
   "heroShowcase": {
-    "intro": "Full-Stack Entwicklerin.",
-    "line1": "Digitale Lösungen entwickeln. Software mit Anspruch.",
-    "line2": "Von Sprache zu Code - transformiere ich Konzepte in performante Systeme.",
-    "philosophy1": "Durch Machen lernen. Neue Technologien erkunden. Qualität schaffen. Im Bewusstsein, dass hinter jedem System eine Vision steht.",
-    "philosophy2": "Mein Fokus: Full-Stack Lösungen. Frontend, Backend, APIs, Performance - Software as a Service.",
-    "automation": "Automatisierung"
+    "intro": "Probleme verstehen. In Software lösen.",
+    "line1": "Ich entwickle Software für kleine und mittlere Unternehmen und Organisationen, deren Abläufe in keine Standardlösung passen.",
+    "line2": "Oft beginnt es mit verstreuten Informationen, doppelter Datenpflege oder Unterlagen, die per E-Mail hin- und hergehen.",
+    "philosophy1": "Ich verschaffe mir zuerst ein genaues Bild davon, wie Sie arbeiten. Daraus entsteht eine Anwendung, die diese Arbeit unterstützt. Nach dem Go-live bleibe ich Ihre Ansprechpartnerin: für Fragen aus dem Alltag, für Updates und für die Weiterentwicklung.",
+    "philosophy2": "Von der Sprache zum Code: Früher habe ich zwischen Sprachen und Kulturräumen übersetzt, heute übersetze ich menschliche Sprache in digitale.",
+    "tags": [
+      "Fachanwendungen",
+      "KI-Integration",
+      "DigitaleTransformation",
+      "HostingInDeutschland",
+      "Datenschutz"
+    ]
   },
   "whoIAm": {
     "eyebrow": "Full-Stack Entwicklerin",
@@ -58,49 +66,79 @@
   "breadcrumb": {
     "projects": "Projekte",
     "caseStudies": "Case Studies",
+    "case-studies": "Case Studies",
     "garden": "Digital Garden",
     "snippets": "Code Snippets"
   },
   "about": {
-    "greeting": "Hi, ich bin Miriam",
-    "subtitle": "Full-Stack Entwicklerin",
-    "block1Title": "Von Sprache zu Code",
-    "block1P1": "Von der Übersetzung zur Web-Entwicklung – meine Reise begann mit einer Faszination für Sprachen. Sowohl die menschlichen als auch die digitale. Ich entwickle und transformiere Ideen mit Leidenschaft in digitale Experiences.",
-    "block1P2": "Was mich antreibt? Die Fähigkeit, Bedürfnisse und Visionen in digitale Anwendungen zu übersetzen, Prozesse zu vereinfachen, effizienten Workflow zu gewährleisten.",
-    "block2Title": "Mein Ansatz",
-    "block2P1": "Mein Fokus liegt auf dem MERN Stack (MongoDB, Express, React, Node.js), mit dem ich nahtlose Full-Stack-Anwendungen entwickle. In den letzten zwei Jahren habe ich mich intensiv mit React und Next.js auseinandergesetzt.",
-    "block2P2": "Besonders liegt mir die Entwicklung von SaaS-Lösungen am Herzen: Produkte, die echte Probleme lösen, skalierbar sind und Menschen in ihrer Arbeit unterstützen."
+    "metaTitle": "Profil – Miriam Sparbrod, Softwareentwicklerin",
+    "metaDescription": "Softwareentwicklerin für Fachanwendungen, Apps und KI-Integration. Studierte Übersetzerin, seit 2022 in der Softwareentwicklung, Betrieb in Deutschland.",
+    "greeting": "Miriam Sparbrod",
+    "subtitle": "Softwareentwicklerin für Fachanwendungen, Apps und KI-Integration",
+    "block1Title": "Von der Sprache zum Code",
+    "block1P1": "Ich habe in Jena Romanistik und Übersetzungswissenschaft studiert und danach in Argentinien, Uruguay und Chile gelebt und gearbeitet. Von 2017 bis 2023 war ich in Berlin als selbständige Übersetzerin tätig: mit verbindlichen Fristen, vertraulichen Unterlagen und Kunden, die sich auf mich verlassen haben.",
+    "block1P2": "2022 habe ich mit der Softwareentwicklung begonnen. Heute betreue ich Projekte vom ersten Gespräch bis zum laufenden Betrieb, darunter ein Fachportal für eine Kreisverwaltung mit geschütztem Bereich für Fachkräfte und eine Plattform für Coaches, die gerade für mehrere Nutzer wächst. Die Haltung aus der Übersetzung ist geblieben: erst genau verstehen, dann sorgfältig übertragen.",
+    "block2Title": "Arbeitsweise und Ziel",
+    "block2P1": "Sie sprechen mit der Person, die Ihre Anwendung entwickelt, vom ersten Gespräch bis zum laufenden Betrieb. Ich wähle lieber die solide, wartbare Lösung als die spektakuläre, die in zwei Jahren niemand mehr versteht. Datenschutz plane ich von Anfang an mit, und Quellcode, Dokumentation und Zugänge gehören Ihnen.",
+    "block2P2": "Ich möchte Unternehmen und Organisationen langfristig begleiten, mit Software, die mitwächst, und mit eigener Infrastruktur in Deutschland, die ich gerade aufbaue. Neue Technologien lerne ich gründlich und mit Freude. Das gehört für mich zu dieser Arbeit dazu.",
+    "keywords": [
+      "Fachanwendungen",
+      "KI-Integration",
+      "Mehrsprachigkeit",
+      "Datenschutz",
+      "LebenslangesLernen"
+    ]
   },
   "techStack": {
     "title": "Tech Stack",
-    "subtitle": "Full-Stack Architektur",
+    "subtitle": "Technologien und Werkzeuge, mit denen ich arbeite und die ich laufend vertiefe.",
     "crossCutting": "Cross-Cutting Concerns",
     "tools": "Tools & Ressourcen"
   },
   "contact": {
     "label": "Kontakt",
-    "title": "Lass uns zusammen arbeiten",
+    "title": "Ihr Vorhaben",
     "firstName": "Vorname",
     "lastName": "Nachname",
-    "company": "Unternehmen",
+    "company": "Unternehmen / Organisation",
     "companyOptional": "optional",
     "email": "E-Mail",
-    "emailHint": "email ist immer noch in",
+    "emailHint": "",
     "message": "Nachricht",
-    "messagePlaceholder": "Erzähl mir von deinem Projekt...",
-    "submit": "Nachricht senden",
-    "sending": "Wird gesendet...",
-    "success": "Nachricht gesendet! Wie schön, ich freue mich auf darauf und werde mich zeitnah bei Dir zurückmelden!",
-    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    "messagePlaceholder": "Beschreiben Sie kurz Ausgangslage und Ziel.",
+    "submit": "Anfrage senden",
+    "sending": "Wird gesendet …",
+    "success": "Vielen Dank für Ihre Anfrage. Ich melde mich zeitnah bei Ihnen.",
+    "error": "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
     "validation": {
       "minChars": "Mindestens {count} Zeichen",
-      "invalidEmail": "Ungültige E-Mail-Adresse"
-    }
+      "invalidEmail": "Ungültige E-Mail-Adresse",
+      "required": "Bitte auswählen",
+      "privacy": "Bitte stimmen Sie der Verarbeitung zu",
+      "phone": "Bitte eine gültige Telefonnummer angeben"
+    },
+    "metaTitle": "Kontakt – Miriam Sparbrod",
+    "metaDescription": "Beschreiben Sie Ihr Vorhaben: Fachanwendungen, Apps, KI-Integration oder Betrieb. Ich melde mich zeitnah bei Ihnen.",
+    "phone": "Telefon",
+    "projectType": "Art des Vorhabens",
+    "projectTypePlaceholder": "Bitte auswählen",
+    "projectTypes": {
+      "portal": "Fachanwendung, CRM oder Portal",
+      "app": "Plattform oder mobile Anwendung",
+      "ai": "KI und Automatisierung",
+      "website": "Website mit individuellem CMS",
+      "hosting": "Betrieb und Hosting",
+      "existing": "Ablösung oder Weiterentwicklung bestehender Software",
+      "open": "Noch offen"
+    },
+    "privacyText": "Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage gespeichert werden. Mehr dazu in der",
+    "privacyLink": "Datenschutzerklärung",
+    "newTab": "(öffnet in neuem Tab)"
   },
   "projects": {
-    "title": "Projekte",
-    "description": "Eine Auswahl meiner Arbeiten",
-    "viewAll": "Alle Projekte",
+    "title": "Referenzen",
+    "description": "Kundenprojekte und eigene Produkte aus den Bereichen Fachanwendungen, Apps und KI-Integration.",
+    "viewAll": "Alle Referenzen",
     "noResults": "Keine Projekte gefunden."
   },
   "projectDetail": {
@@ -147,8 +185,8 @@
     }
   },
   "thoughts": {
-    "title": "Gedanken",
-    "viewAll": "Alle Gedanken"
+    "title": "Fachbeiträge",
+    "viewAll": "Alle Fachbeiträge"
   },
   "snippets": {
     "title": "Code-Fragmente",
@@ -260,13 +298,182 @@
     "section7Text": "Auf dieser Website findet kein automatisiertes Profiling Deiner personenbezogenen Daten statt. Die erhobenen Daten werden ausschließlich für die in dieser Datenschutzerklärung genannten Zwecke verwendet."
   },
   "metadata": {
-    "title": "Miriam Sparbrod – Full-Stack Entwicklerin",
-    "description": "Full-Stack Entwicklerin spezialisiert auf SaaS-Lösungen, Automatisierung und Full-Stack-Anwendungen für moderne Unternehmen."
+    "title": "Miriam Sparbrod – Individualsoftware & KI-Integration",
+    "description": "Webbasierte Fachanwendungen, Apps und KI-Integrationen für KMU und Organisationen. Konzipiert, entwickelt und sicher betrieben in Deutschland.",
+    "ogTitle": "Probleme verstehen. In Software lösen."
   },
   "cookies": {
     "message": "Diese Website verwendet Cookies für Analysen.",
     "learnMore": "Mehr erfahren",
     "accept": "Akzeptieren",
     "decline": "Ablehnen"
+  },
+  "homeSections": {
+    "servicesShort": {
+      "title": "Leistungsbereiche",
+      "viewAll": "Mehr zu den Leistungen",
+      "items": [
+        {
+          "title": "Fachanwendungen und CRM",
+          "text": "Wenn Kundendaten, Vorgänge und Zuständigkeiten an einem Ort zusammenkommen sollen."
+        },
+        {
+          "title": "Portale und Plattformen",
+          "text": "Wenn Kunden, Mitglieder oder Partner einen eigenen Zugang brauchen."
+        },
+        {
+          "title": "Mobile Anwendungen",
+          "text": "Wenn unterwegs gearbeitet, nachgeschlagen oder erfasst wird."
+        },
+        {
+          "title": "Ablösung bestehender Systeme",
+          "text": "Wenn Excel-Listen und gewachsene Einzellösungen an ihre Grenzen kommen."
+        },
+        {
+          "title": "KI und Automatisierung",
+          "text": "Wenn wiederkehrende Text-, Dokument- und Routinearbeit zu viel Zeit kostet."
+        },
+        {
+          "title": "Wartung und Weiterentwicklung",
+          "text": "Wenn Software zuverlässig laufen und mitwachsen soll."
+        }
+      ]
+    },
+    "services": {
+      "title": "Was ich für Sie entwickle",
+      "items": [
+        {
+          "title": "Fachanwendungen und CRM",
+          "text": "Viele Organisationen arbeiten mit einer Mischung aus Tabellen, E-Mail-Verteilern und mehreren Programmen. Ich entwickle digitale Werkzeuge, die auf Ihre Abläufe zugeschnitten sind: eine eigene Kundenverwaltung, Vorgangsbearbeitung, Angebote und Rechnungen oder ein Fachportal, in dem jede Person sieht und bearbeitet, was zu ihrer Aufgabe gehört. Die Anwendung ist so aufgebaut, dass sie mit Ihrer Organisation wachsen kann."
+        },
+        {
+          "title": "Portale und Plattformen",
+          "text": "Kunden, Mitglieder oder Geschäftspartner sollen Termine, Unterlagen und Fortschritte selbst im Blick haben, ohne alles per Nachricht erfragen zu müssen. Dafür entwickle ich Portale mit eigenem Zugang und klar geregelten Rechten, etwa Kunden-, Mitglieder- oder Buchungsportale bis hin zu Plattformen, auf denen mehrere Anbieter zusammenkommen. Auf Wunsch lege ich sie mandantenfähig an, sodass Sie sie später auch anderen anbieten können."
+        },
+        {
+          "title": "Mobile Anwendungen",
+          "text": "Wer unterwegs arbeitet, braucht die wichtigsten Informationen auf dem Smartphone. Ich entwickle Web-Apps, die auf jedem Gerät funktionieren und sich wie eine App auf dem Startbildschirm ablegen lassen. Ein Umweg über App-Stores ist dafür nicht nötig, und Updates stehen allen sofort zur Verfügung."
+        },
+        {
+          "title": "Ablösung bestehender Systeme",
+          "text": "Excel-Listen, die nur eine Person wirklich versteht, eine Website, deren Inhalte sich nur mühsam pflegen lassen, oder mehrere Programme, die nicht miteinander verbunden sind: Ich übernehme die vorhandenen Daten sorgfältig in eine neue Anwendung und plane den Wechsel so, dass Ihr Arbeitsalltag weiterlaufen kann. Ihre Inhalte pflegen Sie danach selbst, in einer Verwaltung, die zu Ihnen passt."
+        },
+        {
+          "title": "KI und Automatisierung",
+          "text": "Anfragen beantworten, Dokumente sichten, Texte vorbereiten, Daten von einem System ins nächste übertragen: Vieles davon wiederholt sich. Ich binde Sprachmodelle und Automatisierungen dort ein, wo sie diese Arbeit spürbar verkürzen, auch in bestehende Anwendungen. Die Entscheidung bleibt bei Ihnen, und mit sensiblen Daten gehe ich besonders sorgfältig um."
+        },
+        {
+          "title": "Wartung und Weiterentwicklung",
+          "text": "Mit dem Go-live beginnt der eigentliche Alltag einer Anwendung. In den ersten Wochen begleite ich die Einführung, beantworte Fragen Ihres Teams und passe an, was sich erst in der Praxis zeigt. Danach kümmere ich mich um Updates, Sicherheit und Datensicherung und entwickle die Anwendung weiter, wenn sich Ihre Abläufe verändern. Auf Wunsch betreibe ich sie auf Servern in Deutschland. Auch Anwendungen, die andere entwickelt haben, übernehme ich nach einer gründlichen Bestandsaufnahme."
+        }
+      ]
+    },
+    "approach": {
+      "title": "Vorgehen",
+      "note": "In der Entwicklung nutze ich moderne KI-Werkzeuge. Jede Änderung prüfe und verantworte ich selbst.",
+      "items": [
+        {
+          "title": "Verstehen",
+          "text": "Wir sprechen darüber, wie Sie heute arbeiten, wo es hakt und wer beteiligt ist. Auch Datenschutz und Barrierefreiheit gehören von Anfang an dazu."
+        },
+        {
+          "title": "Konzept",
+          "text": "Ich halte schriftlich fest, was die Anwendung können soll, wer was darf und wie sie in Ihre Abläufe passt, mit Aufwand und Zeitplan."
+        },
+        {
+          "title": "Entwicklung in Etappen",
+          "text": "Sie sehen früh einen funktionierenden Stand und testen jede Etappe, bevor sie live geht."
+        },
+        {
+          "title": "Prüfung",
+          "text": "Vor jeder Veröffentlichung prüfe ich Sicherheit, Barrierefreiheit und die wichtigsten Abläufe."
+        },
+        {
+          "title": "Übergabe",
+          "text": "Ihr Team bekommt eine verständliche Anleitung und eine persönliche Einweisung."
+        },
+        {
+          "title": "Begleitung",
+          "text": "Nach dem Start bleibe ich ansprechbar. Ich sammle Rückmeldungen aus dem Arbeitsalltag und setze die Verbesserungen um, die wirklich weiterhelfen."
+        }
+      ]
+    },
+    "principles": {
+      "title": "Grundsätze",
+      "items": [
+        {
+          "title": "Ihre Daten in Deutschland",
+          "text": "Ihre Anwendung läuft auf Servern in Deutschland. Sie wissen, wo Ihre Daten liegen und wer darauf zugreifen kann."
+        },
+        {
+          "title": "Sicherheit von Anfang an",
+          "text": "Wer was sehen und ändern darf, lege ich fest, bevor die erste Oberfläche entsteht."
+        },
+        {
+          "title": "Keine Abhängigkeit",
+          "text": "Quellcode und Dokumentation gehören Ihnen. Ich arbeite mit verbreiteter Technik, damit auch andere daran weiterarbeiten können."
+        },
+        {
+          "title": "KI mit Augenmaß",
+          "text": "KI setze ich nur ein, wo sie erkennbar hilft, und nie ohne menschliche Kontrolle."
+        }
+      ]
+    },
+    "collaboration": {
+      "title": "Zusammenarbeit",
+      "cta": "Erstgespräch vereinbaren",
+      "items": [
+        {
+          "title": "Erstgespräch",
+          "text": "30 Minuten, kostenfrei. Sie schildern Ihr Vorhaben, ich gebe Ihnen eine erste Einschätzung."
+        },
+        {
+          "title": "Konzeptphase",
+          "text": "Daraus entsteht ein schriftliches Konzept mit Funktionsumfang, Aufwand und Zeitplan, das sich auch für Förder- oder Haushaltsanträge eignet. Umfang und Kosten stimmen wir vorab ab."
+        },
+        {
+          "title": "Umsetzung",
+          "text": "Auf Grundlage eines verbindlichen Angebots, abgerechnet nach Etappen. Für öffentliche Auftraggeber auch über mehrere Haushaltsjahre."
+        },
+        {
+          "title": "Betreuung",
+          "text": "Auch nach dem Go-live haben Sie eine feste Ansprechpartnerin, die Ihre Anwendung von Grund auf kennt. Updates, Sicherheit und Weiterentwicklung regeln wir in einem Servicevertrag mit vereinbarten Reaktionszeiten oder nach Aufwand."
+        }
+      ]
+    },
+    "profile": {
+      "title": "Mein Weg",
+      "text": "Ich habe Romanistik und Übersetzen studiert und sechs Jahre als selbständige Übersetzerin gearbeitet. 2022 bin ich in die Softwareentwicklung gewechselt. Geblieben ist, was ich beim Übersetzen gelernt habe: erst genau zuhören, dann sorgfältig übertragen.",
+      "link": "Zum Profil"
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "items": [
+        {
+          "title": "Entwickeln Sie auch Websites?",
+          "text": "Ja, wenn sie mehr leisten sollen als eine digitale Visitenkarte: mit individuellem CMS, interaktiven Funktionen oder als Teil einer Anwendung. Mein Schwerpunkt liegt auf Software, die ein konkretes Problem löst."
+        },
+        {
+          "title": "Wo werden unsere Daten gespeichert?",
+          "text": "Auf Servern in Deutschland. Datenschutz und Auftragsverarbeitung plane ich von Beginn an mit."
+        },
+        {
+          "title": "Wie gehen Sie bei KI mit sensiblen Daten um?",
+          "text": "Ich wähle Anbieter und Konfiguration so, dass Ihre Daten nicht für das Training von Modellen verwendet werden. Wo nötig, werden personenbezogene Daten vor der Verarbeitung entfernt oder die Verarbeitung findet gar nicht extern statt."
+        },
+        {
+          "title": "Gehört uns der Quellcode?",
+          "text": "Ja, einschließlich Dokumentation. Die Anwendung kann auch von anderen Entwicklern weitergeführt werden."
+        },
+        {
+          "title": "Arbeiten Sie für öffentliche Auftraggeber?",
+          "text": "Ja. Haushaltsvorbehalte und mehrjährige Abrechnung sind mir vertraut."
+        },
+        {
+          "title": "Was kostet ein Projekt?",
+          "text": "Das klärt die Konzeptphase. Danach erhalten Sie ein verbindliches Angebot."
+        }
+      ]
+    }
   }
 }
