@@ -41,7 +41,7 @@
     "intro": "Probleme verstehen. In Software lösen.",
     "line1": "Ich entwickle Software für kleine und mittlere Unternehmen und Organisationen, deren Abläufe in keine Standardlösung passen.",
     "line2": "Oft beginnt es mit verstreuten Informationen, doppelter Datenpflege oder Unterlagen, die per E-Mail hin- und hergehen.",
-    "philosophy1": "Ich verschaffe mir zuerst ein genaues Bild davon, wie Sie arbeiten. Daraus entsteht eine Anwendung, die diese Arbeit übernimmt, und ich betreue sie auch nach dem Start.",
+    "philosophy1": "Ich verschaffe mir zuerst ein genaues Bild davon, wie Sie arbeiten. Daraus entsteht eine Anwendung, die diese Arbeit unterstützt. Nach dem Go-live bleibe ich Ihre Ansprechpartnerin: für Fragen aus dem Alltag, für Updates und für die Weiterentwicklung.",
     "philosophy2": "Von der Sprache zum Code: Früher habe ich zwischen Sprachen und Kulturräumen übersetzt, heute übersetze ich menschliche Sprache in digitale.",
     "tags": [
       "Fachanwendungen",
@@ -123,12 +123,12 @@
     "projectType": "Art des Vorhabens",
     "projectTypePlaceholder": "Bitte auswählen",
     "projectTypes": {
-      "portal": "Fachanwendung oder Portal",
-      "app": "App oder SaaS-Produkt",
-      "ai": "KI-Integration",
+      "portal": "Fachanwendung, CRM oder Portal",
+      "app": "Plattform oder mobile Anwendung",
+      "ai": "KI und Automatisierung",
       "website": "Website mit individuellem CMS",
       "hosting": "Betrieb und Hosting",
-      "existing": "Weiterentwicklung bestehender Software",
+      "existing": "Ablösung oder Weiterentwicklung bestehender Software",
       "open": "Noch offen"
     },
     "privacyText": "Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage gespeichert werden. Mehr dazu in der",
@@ -314,19 +314,27 @@
       "viewAll": "Alle Leistungen",
       "items": [
         {
-          "title": "Fachanwendungen und Portale",
-          "text": "Wenn Informationen und Zuständigkeiten an einem Ort zusammenkommen sollen."
+          "title": "Fachanwendungen und CRM",
+          "text": "Wenn Kundendaten, Vorgänge und Zuständigkeiten an einem Ort zusammenkommen sollen."
         },
         {
-          "title": "Apps und Plattformen",
-          "text": "Wenn Kunden oder Mitglieder einen eigenen Zugang brauchen."
+          "title": "Portale und Plattformen",
+          "text": "Wenn Kunden, Mitglieder oder Partner einen eigenen Zugang brauchen."
         },
         {
-          "title": "KI-Integration",
-          "text": "Wenn wiederkehrende Text- und Dokumentarbeit zu viel Zeit kostet."
+          "title": "Mobile Anwendungen",
+          "text": "Wenn unterwegs gearbeitet, nachgeschlagen oder erfasst wird."
         },
         {
-          "title": "Betrieb und Betreuung",
+          "title": "Ablösung bestehender Systeme",
+          "text": "Wenn Excel-Listen und gewachsene Einzellösungen an ihre Grenzen kommen."
+        },
+        {
+          "title": "KI und Automatisierung",
+          "text": "Wenn wiederkehrende Text-, Dokument- und Routinearbeit zu viel Zeit kostet."
+        },
+        {
+          "title": "Wartung und Weiterentwicklung",
           "text": "Wenn Software zuverlässig laufen und mitwachsen soll."
         }
       ]
@@ -335,20 +343,28 @@
       "title": "Leistungsfelder",
       "items": [
         {
-          "title": "Fachanwendungen und Portale",
-          "text": "Viele Organisationen arbeiten mit einer Mischung aus Tabellen, E-Mail-Verteilern und mehreren Websites. Ich führe das in einer Anwendung zusammen, in der jede Person sieht und bearbeitet, was zu ihrer Aufgabe gehört. Ihr Team pflegt die Inhalte selbst, vertrauliche Unterlagen bleiben geschützt."
+          "title": "Fachanwendungen und CRM",
+          "text": "Viele Organisationen arbeiten mit einer Mischung aus Tabellen, E-Mail-Verteilern und mehreren Programmen. Ich entwickle digitale Werkzeuge, die auf Ihre Abläufe zugeschnitten sind: eine eigene Kundenverwaltung, Vorgangsbearbeitung, Angebote und Rechnungen oder ein Fachportal, in dem jede Person sieht und bearbeitet, was zu ihrer Aufgabe gehört. Die Anwendung ist so aufgebaut, dass sie mit Ihrer Organisation wachsen kann."
         },
         {
-          "title": "Apps und Plattformen",
-          "text": "Kunden, Mitglieder oder Teilnehmende sollen Termine, Unterlagen und Fortschritte selbst im Blick haben, statt alles per Nachricht zu erfragen. Dafür entwickle ich Anwendungen mit eigenem Zugang. Auf Wunsch lege ich sie so an, dass Sie sie später auch anderen anbieten können."
+          "title": "Portale und Plattformen",
+          "text": "Kunden, Mitglieder oder Geschäftspartner sollen Termine, Unterlagen und Fortschritte selbst im Blick haben, ohne alles per Nachricht erfragen zu müssen. Dafür entwickle ich Portale mit eigenem Zugang und klar geregelten Rechten, etwa Kunden-, Mitglieder- oder Buchungsportale bis hin zu Plattformen, auf denen mehrere Anbieter zusammenkommen. Auf Wunsch lege ich sie mandantenfähig an, sodass Sie sie später auch anderen anbieten können."
         },
         {
-          "title": "KI-Integration",
-          "text": "Anfragen beantworten, Dokumente sichten, Texte vorbereiten: Vieles davon wiederholt sich. Ich setze Sprachmodelle dort ein, wo sie diese Arbeit spürbar verkürzen. Die Entscheidung bleibt bei Ihnen, und mit sensiblen Daten gehe ich besonders sorgfältig um."
+          "title": "Mobile Anwendungen",
+          "text": "Wer unterwegs arbeitet, braucht die wichtigsten Informationen auf dem Smartphone. Ich entwickle Web-Apps, die auf jedem Gerät funktionieren und sich wie eine App auf dem Startbildschirm ablegen lassen. Ein Umweg über App-Stores ist dafür nicht nötig, und Updates stehen allen sofort zur Verfügung."
         },
         {
-          "title": "Betrieb und Betreuung",
-          "text": "Mit dem Start beginnt die eigentliche Nutzung. Ich betreibe Ihre Anwendung auf Servern in Deutschland, kümmere mich um Updates, Sicherungen und Sicherheit und entwickle sie weiter, wenn neue Anforderungen dazukommen."
+          "title": "Ablösung bestehender Systeme",
+          "text": "Excel-Listen, die nur eine Person wirklich versteht, eine Website, deren Inhalte sich nur mühsam pflegen lassen, oder mehrere Programme, die nicht miteinander verbunden sind: Ich übernehme die vorhandenen Daten sorgfältig in eine neue Anwendung und plane den Wechsel so, dass Ihr Arbeitsalltag weiterlaufen kann. Ihre Inhalte pflegen Sie danach selbst, in einer Verwaltung, die zu Ihnen passt."
+        },
+        {
+          "title": "KI und Automatisierung",
+          "text": "Anfragen beantworten, Dokumente sichten, Texte vorbereiten, Daten von einem System ins nächste übertragen: Vieles davon wiederholt sich. Ich binde Sprachmodelle und Automatisierungen dort ein, wo sie diese Arbeit spürbar verkürzen, auch in bestehende Anwendungen. Die Entscheidung bleibt bei Ihnen, und mit sensiblen Daten gehe ich besonders sorgfältig um."
+        },
+        {
+          "title": "Wartung und Weiterentwicklung",
+          "text": "Mit dem Go-live beginnt der eigentliche Alltag einer Anwendung. In den ersten Wochen begleite ich die Einführung, beantworte Fragen Ihres Teams und passe an, was sich erst in der Praxis zeigt. Danach kümmere ich mich um Updates, Sicherheit und Datensicherung und entwickle die Anwendung weiter, wenn sich Ihre Abläufe verändern. Auf Wunsch betreibe ich sie auf Servern in Deutschland. Auch Anwendungen, die andere entwickelt haben, übernehme ich nach einer gründlichen Bestandsaufnahme."
         }
       ]
     },
@@ -378,7 +394,7 @@
         },
         {
           "title": "Begleitung",
-          "text": "Ich bleibe Ihre Ansprechpartnerin für Betrieb, Wartung und Weiterentwicklung."
+          "text": "Nach dem Start bleibe ich ansprechbar. Ich sammle Rückmeldungen aus dem Arbeitsalltag und setze die Verbesserungen um, die wirklich weiterhelfen."
         }
       ]
     },
@@ -421,7 +437,7 @@
         },
         {
           "title": "Betreuung",
-          "text": "Betrieb, Wartung und Weiterentwicklung regeln wir in einem Servicevertrag mit vereinbarten Reaktionszeiten."
+          "text": "Auch nach dem Go-live haben Sie eine feste Ansprechpartnerin, die Ihre Anwendung von Grund auf kennt. Updates, Sicherheit und Weiterentwicklung regeln wir in einem Servicevertrag mit vereinbarten Reaktionszeiten oder nach Aufwand."
         }
       ]
     },

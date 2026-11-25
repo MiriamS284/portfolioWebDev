@@ -22,12 +22,12 @@ const contactSchema = z.object({
 
 // Lesbare Bezeichnungen für die Art des Vorhabens in der E-Mail
 const PROJECT_TYPE_LABELS = {
-  portal: "Fachanwendung oder Portal",
-  app: "App oder SaaS-Produkt",
-  ai: "KI-Integration",
+  portal: "Fachanwendung, CRM oder Portal",
+  app: "Plattform oder mobile Anwendung",
+  ai: "KI und Automatisierung",
   website: "Website mit individuellem CMS",
   hosting: "Betrieb und Hosting",
-  existing: "Weiterentwicklung bestehender Software",
+  existing: "Ablösung oder Weiterentwicklung bestehender Software",
   open: "Noch offen",
 };
 

@@ -41,7 +41,7 @@
     "intro": "Understand the problem. Solve it in software.",
     "line1": "I develop software for small and medium-sized enterprises and organisations whose workflows do not fit any standard solution.",
     "line2": "It often starts with scattered information, data maintained twice over, or documents sent back and forth by email.",
-    "philosophy1": "First, I get a clear picture of how you work. From that comes an application that takes over this work, and I look after it after launch too.",
+    "philosophy1": "I start by getting a clear picture of how you work. From that, I build an application that supports this work. After go-live, I remain your point of contact for day-to-day questions, updates and further development.",
     "philosophy2": "From language to code: I used to translate between languages and cultures; today I translate human language into the language of software.",
     "tags": [
       "BusinessApplications",
@@ -123,12 +123,12 @@
     "projectType": "Type of project",
     "projectTypePlaceholder": "Please select",
     "projectTypes": {
-      "portal": "Business application or portal",
-      "app": "App or SaaS product",
-      "ai": "AI integration",
+      "portal": "Business application, CRM or portal",
+      "app": "Platform or mobile application",
+      "ai": "AI and automation",
       "website": "Website with a custom CMS",
       "hosting": "Operations and hosting",
-      "existing": "Further development of existing software",
+      "existing": "Replacing or developing existing software",
       "open": "Not sure yet"
     },
     "privacyText": "I agree that my details will be stored in order to process my enquiry. More in the",
@@ -314,19 +314,27 @@
       "viewAll": "All services",
       "items": [
         {
-          "title": "Business applications and portals",
-          "text": "When information and responsibilities need to come together in one place."
+          "title": "Business applications and CRM",
+          "text": "When customer data, cases and responsibilities need to come together in one place."
         },
         {
-          "title": "Apps and platforms",
-          "text": "When clients or members need their own access."
+          "title": "Portals and platforms",
+          "text": "When customers, members or partners need their own access."
         },
         {
-          "title": "AI integration",
-          "text": "When recurring work with texts and documents takes up too much time."
+          "title": "Mobile applications",
+          "text": "When work, lookups or data entry happen on the go."
         },
         {
-          "title": "Operations and support",
+          "title": "Replacing existing systems",
+          "text": "When spreadsheets and patchwork solutions reach their limits."
+        },
+        {
+          "title": "AI and automation",
+          "text": "When recurring work with texts, documents and routine tasks takes up too much time."
+        },
+        {
+          "title": "Maintenance and further development",
           "text": "When software needs to run reliably and grow with you."
         }
       ]
@@ -335,20 +343,28 @@
       "title": "Services",
       "items": [
         {
-          "title": "Business applications and portals",
-          "text": "Many organisations work with a mix of spreadsheets, email lists and several websites. I bring this together in one application where each person sees and edits what belongs to their role. Your team maintains the content itself, and confidential documents stay protected."
+          "title": "Business applications and CRM",
+          "text": "Many organisations work with a mix of spreadsheets, email lists and several separate programs. I build digital tools tailored to your processes: your own customer management, case handling, quotes and invoices, or a specialist portal where everyone sees and edits what belongs to their role. The application is designed to grow with your organisation."
         },
         {
-          "title": "Apps and platforms",
-          "text": "Clients, members or participants should be able to keep track of appointments, documents and progress themselves instead of asking for everything by message. I build applications with their own access for this. If you wish, I set them up so you can later offer them to others too."
+          "title": "Portals and platforms",
+          "text": "Customers, members or business partners should be able to keep track of appointments, documents and progress themselves, without having to ask for everything by message. For this, I build portals with their own login and clearly defined permissions, such as customer, member or booking portals, up to platforms that bring several providers together. On request, I build them multi-tenant, so you can later offer them to others as well."
         },
         {
-          "title": "AI integration",
-          "text": "Answering enquiries, reviewing documents, preparing texts: much of this repeats itself. I use language models where they noticeably shorten this work. The decision stays with you, and I handle sensitive data with particular care."
+          "title": "Mobile applications",
+          "text": "People who work on the go need the key information on their phone. I build web apps that work on any device and can be added to the home screen like an app. No detour through app stores is needed, and updates are available to everyone immediately."
         },
         {
-          "title": "Operations and support",
-          "text": "Launch is when real use begins. I run your application on servers in Germany, take care of updates, backups and security, and develop it further when new requirements come up."
+          "title": "Replacing existing systems",
+          "text": "Spreadsheets that only one person really understands, a website whose content is tedious to maintain, or several programs that aren't connected: I carefully migrate your existing data into a new application and plan the switch so that your day-to-day work can continue. Afterwards, you manage your content yourself, in an admin area that fits your needs."
+        },
+        {
+          "title": "AI and automation",
+          "text": "Answering enquiries, reviewing documents, drafting texts, transferring data from one system to the next: much of this is repetitive. I integrate language models and automation where they noticeably shorten this work, including in existing applications. The decision stays with you, and I handle sensitive data with particular care."
+        },
+        {
+          "title": "Maintenance and further development",
+          "text": "Go-live is where an application's everyday use begins. During the first weeks, I support the rollout, answer your team's questions and adjust what only becomes apparent in practice. After that, I take care of updates, security and backups, and develop the application further as your processes change. On request, I host it on servers in Germany. I also take over applications built by others, after a thorough review."
         }
       ]
     },
@@ -378,7 +394,7 @@
         },
         {
           "title": "Ongoing support",
-          "text": "I remain your contact for operations, maintenance and further development."
+          "text": "After launch, I stay available. I gather feedback from daily use and implement the improvements that genuinely help."
         }
       ]
     },
@@ -421,7 +437,7 @@
         },
         {
           "title": "Support",
-          "text": "Operations, maintenance and further development are covered by a service agreement with agreed response times."
+          "text": "After go-live, you keep one point of contact who knows your application inside out. Updates, security and further development are covered by a service agreement with agreed response times, or billed by effort."
         }
       ]
     },

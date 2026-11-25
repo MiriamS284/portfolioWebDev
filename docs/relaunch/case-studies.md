@@ -27,6 +27,8 @@ Families, professionals and network partners find services, events and contact p
 
 ## body.de
 
+Leistungsbereiche: Portale und Plattformen · Ablösung bestehender Systeme · Wartung und Weiterentwicklung
+
 ### Ausgangslage
 
 Das Netzwerk Kinderschutz & Frühe Hilfen verbindet im Altenburger Land Angebote für Eltern, für Kinder und Jugendliche und für Fachkräfte. Es gab eine WordPress-Seite, die vor allem präsentieren sollte. Inhalte oder Struktur selbst zu ändern, war kaum möglich. Daneben lagen Informationen auf mehreren Portalen, jedes anders gepflegt und unterschiedlich aktuell. Wer als Mutter oder Vater schnell eine Beratungsstelle brauchte, musste erst wissen, wo man überhaupt nachschaut.
@@ -73,6 +75,8 @@ Familien, Fachkräfte und Netzwerkpartner haben jetzt einen gemeinsamen Ort stat
 Am meisten Zeit habe ich anfangs mit Fragen verbracht: Wer sucht hier was, in welcher Lage, und wie schnell muss die Antwort da sein? Die Antworten darauf haben mehr Entscheidungen bestimmt als jede technische Überlegung. Technisch nehme ich mit, Zugriffsregeln von Anfang an in der Datenbank festzulegen. Dort greifen sie auch dann, wenn an der Oberfläche einmal etwas übersehen wird.
 
 ## body.en
+
+Services: Portals and platforms · Replacing existing systems · Maintenance and further development
 
 ### Background
 
@@ -139,6 +143,8 @@ I built a portal for a health coach covering appointments, quotes and training p
 
 ## body.de
 
+Leistungsbereiche: Fachanwendungen und CRM · Portale und Plattformen
+
 ### Ausgangslage
 
 Ein selbständiger Health Coach möchte seine Zeit mit seinen Kunden verbringen. Tatsächlich ging viel davon in Verwaltung: Termine abstimmen, Angebote und Rechnungen schreiben, für jeden Kunden Ziele, Trainings- und Ernährungspläne zusammenstellen und Gesundheitsangaben einholen. Ziel war ein Portal, das diese Arbeit bündelt und so weit wie möglich abnimmt.
@@ -193,6 +199,8 @@ Das Datenbankschema für alle Bereiche der ersten Version ist fertig, die wichti
 Die erste Version hat einem Coach den Alltag leichter gemacht. Die zweite soll das für viele tun und den Kunden mehr Verantwortung für ihren eigenen Fortschritt geben. Ohne die erste wüsste ich nicht, was Coaches im Alltag wirklich brauchen.
 
 ## body.en
+
+Services: Business applications and CRM · Portals and platforms
 
 ### Background
 
@@ -267,6 +275,8 @@ I replaced a concert pianist's WordPress site with a trilingual application. Ent
 
 ## body.de
 
+Leistungsbereiche: Ablösung bestehender Systeme · Eigenes Redaktionssystem
+
 ### Ausgangslage
 
 Die bisherige Seite lief auf WordPress. Inhalte zu ändern war mühsam, auf dem Smartphone sah sie nicht gut aus, und zum Anspruch eines international auftretenden Pianisten passte sie nicht. Veranstalter, Presse und Publikum kommen aus Deutschland, dem übrigen Europa und Russland, deshalb sollte die neue Seite dreisprachig sein. Und er wollte sie selbst pflegen können, ohne jedes Mal jemanden anrufen zu müssen.
@@ -311,6 +321,8 @@ Eine schnelle Website in drei Sprachen, die der Pianist selbst pflegt. Konzerte 
 Bei diesem Projekt habe ich gelernt, ein CMS vom Alltag der Person her zu denken, die damit arbeitet. Die Repertoire-Automatik war technisch kein großer Aufwand. Ihm spart sie bei jedem Konzert Arbeit.
 
 ## body.en
+
+Services: Replacing existing systems · Custom editing system
 
 ### Background
 
@@ -375,6 +387,8 @@ One of my first client projects (2024): an application that works out a style gu
 
 ## body.de
 
+Leistungsbereiche: KI und Automatisierung
+
 ### Ausgangslage
 
 Das Projekt entstand 2024 für einen Auftraggeber, den ich hier nicht nenne, und gehört zu meinen ersten Kundenprojekten. Die Idee: Wer regelmäßig auf LinkedIn schreibt, bekommt Unterstützung von einem Sprachmodell, klingt am Ende aber nach sich selbst. Das sollte auch für Menschen funktionieren, die noch keine eigenen Beispieltexte haben.
@@ -396,6 +410,8 @@ Die Anwendung wurde vollständig umgesetzt, von der Anmeldung über den Assisten
 Hier habe ich zum ersten Mal ein Sprachmodell in eine Anwendung eingebaut. Würde ich das Projekt heute neu beginnen, würde ich die Ausgaben strenger prüfen, Prompts versionieren und alles in TypeScript schreiben. So arbeite ich inzwischen in KI-Projekten.
 
 ## body.en
+
+Services: AI and automation
 
 ### Background
 
