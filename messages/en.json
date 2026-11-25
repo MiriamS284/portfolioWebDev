@@ -132,7 +132,8 @@
       "open": "Not sure yet"
     },
     "privacyText": "I agree that my details will be stored in order to process my enquiry. More in the",
-    "privacyLink": "privacy policy"
+    "privacyLink": "privacy policy",
+    "newTab": "(opens in a new tab)"
   },
   "projects": {
     "title": "References",

@@ -132,7 +132,8 @@
       "open": "Noch offen"
     },
     "privacyText": "Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage gespeichert werden. Mehr dazu in der",
-    "privacyLink": "Datenschutzerklärung"
+    "privacyLink": "Datenschutzerklärung",
+    "newTab": "(öffnet in neuem Tab)"
   },
   "projects": {
     "title": "Referenzen",

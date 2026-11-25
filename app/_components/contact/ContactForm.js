@@ -1,11 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+
+const DRAFT_KEY = "contact_form_draft";
+
+const EMPTY_VALUES = {
+  firstName: "",
+  lastName: "",
+  company: "",
+  email: "",
+  phone: "",
+  projectType: "",
+  message: "",
+  privacy: false,
+  website: "",
+};
 
 export default function ContactForm() {
   const t = useTranslations("contact");
@@ -35,22 +49,36 @@ export default function ContactForm() {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(schema),
     mode: "onBlur",
-    defaultValues: {
-      firstName: "",
-      lastName: "",
-      company: "",
-      email: "",
-      phone: "",
-      projectType: "",
-      message: "",
-      privacy: false,
-      website: "",
-    },
+    defaultValues: EMPTY_VALUES,
   });
+
+  // Entwurf für die Dauer des Besuchs merken (sessionStorage), damit Eingaben nicht verloren gehen,
+  // wenn jemand kurz die Datenschutzerklärung liest. Einwilligung und Honeypot werden nicht gespeichert.
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem(DRAFT_KEY);
+      if (saved) reset({ ...EMPTY_VALUES, ...JSON.parse(saved), privacy: false, website: "" });
+    } catch {
+      // Speicher nicht verfügbar: Formular startet leer
+    }
+  }, [reset]);
+
+  useEffect(() => {
+    const subscription = watch((values) => {
+      try {
+        const { privacy, website, ...draft } = values;
+        sessionStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+      } catch {
+        // ignorieren
+      }
+    });
+    return () => subscription.unsubscribe();
+  }, [watch]);
 
   const onSubmit = async (data) => {
     setStatus("sending");
@@ -64,7 +92,12 @@ export default function ContactForm() {
 
       if (response.ok) {
         setStatus("success");
-        reset();
+        try {
+          sessionStorage.removeItem(DRAFT_KEY);
+        } catch {
+          // ignorieren
+        }
+        reset(EMPTY_VALUES);
       } else {
         setStatus("error");
       }
@@ -170,9 +203,12 @@ export default function ContactForm() {
               {t("privacyText")}{" "}
               <Link
                 href="/privatepolicy"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="underline underline-offset-2 hover:text-[var(--accent)]"
               >
                 {t("privacyLink")}
+                <span className="sr-only"> {t("newTab")}</span>
               </Link>
               .
             </span>
