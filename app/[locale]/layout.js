@@ -3,28 +3,29 @@ import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
 import ClientLayout from "../_components/layout/ClientLayout";
-import { Inter, Space_Grotesk, Source_Code_Pro } from "next/font/google";
+import localFont from "next/font/local";
 import Analytics from '../_components/shared/Analytics';
 import CookieBanner from '../_components/shared/CookieBanner';
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: "../fonts/inter-latin-wght-normal.woff2",
   variable: "--font-inter",
+  weight: "100 900",
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
+const spaceGrotesk = localFont({
+  src: "../fonts/space-grotesk-latin-wght-normal.woff2",
   variable: "--font-heading",
+  weight: "300 700",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
 });
 
-const sourceCodePro = Source_Code_Pro({
-  subsets: ["latin"],
+const sourceCodePro = localFont({
+  src: "../fonts/source-code-pro-latin-wght-normal.woff2",
   variable: "--font-mono",
+  weight: "200 900",
   display: "swap",
-  weight: ["400", "600"],
 });
 
 const themeScript = `
